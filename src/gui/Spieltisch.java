@@ -1,3 +1,15 @@
+/*
+ * Copyright 2013 Cornflakes. Alle Rechte vorbehalten.
+ * 
+ * Autor: Bastian End
+ * 
+ * todo:
+ * - background image
+ * - spielfeld
+ * - menu bar, braucht es settungs und view?
+ * 
+ */
+
 package gui;
 
 import java.awt.BorderLayout;
@@ -32,6 +44,7 @@ public class Spieltisch extends JFrame implements ActionListener {
 	public Spieltisch() {
 		setTitle("Der Grosse Dalmuti - Spieltisch");
 		setSize(1024, 818);
+		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
@@ -115,7 +128,7 @@ public class Spieltisch extends JFrame implements ActionListener {
 		p5.add(l_chat, gbc5);
 		
 		
-
+		setVisible(true);
 	}
 	
 	@Override

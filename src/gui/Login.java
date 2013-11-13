@@ -1,11 +1,18 @@
-package gui;
-
-/**
- * JTextField Eingabe auf 16 Zeichen begrenzen.
- * Background hinzufügen
- * JMenuBar braucht es Settings und View überhaupt?
+/*
+ * Copyright 2013 Cornflakes. Alle Rechte vorbehalten.
+ * 
+ * Autor: Bastian End
+ * 
+ * todo:
+ * - background image
+ * - animated background, Karten bewegen sich gegeneinander
+ * - nickname auf 16 Zeichen begrenzen
+ * - menu bar, braucht es settungs und view?
  * 
  */
+
+
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -29,18 +36,31 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
 public class Login extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
+	private JTextField tf_nickname;
+	private JLabel testlabel;
+	public String nickname;
 
 	public static void main(String[] args) {
-		new Login().setVisible(true);
+		SwingUtilities.invokeLater(new Runnable(){
+
+            @Override
+            public void run()
+            {
+                new Login().setVisible(true);
+            }
+
+        });
 	}
 	
 	public Login() {
 		setTitle("Der Grosse Dalmuti - Login");
 		setSize(1024, 818);
+		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
@@ -52,13 +72,10 @@ public class Login extends JFrame implements ActionListener {
 		Font f_button = new Font("", Font.BOLD, 16);
 		
 		JMenuBar bar = new JMenuBar();		
-		JMenu settings = new JMenu("Settings");
-		JMenu view = new JMenu("View");
 		JMenu help = new JMenu("Help");
 		JMenuItem spielregeln = new JMenuItem("Spielregeln");
 		spielregeln.addActionListener(this);
-		bar.add(settings);
-		bar.add(view);	
+		spielregeln.setActionCommand("Spielregeln");	
 		bar.add(help);
 		help.add(spielregeln);
 		setJMenuBar(bar);
@@ -95,7 +112,7 @@ public class Login extends JFrame implements ActionListener {
 		gbc2.gridy = 0;
 		p2.add(insert_nickname);
 		
-		JTextField tf_nickname = new JTextField("Nickname", SwingConstants.CENTER);
+		tf_nickname = new JTextField("Nickname", SwingConstants.CENTER);
 		tf_nickname.setPreferredSize(new Dimension(460,30));
 		tf_nickname.setFont(f_insert_nickname);
 		tf_nickname.setHorizontalAlignment(JLabel.CENTER);
@@ -106,9 +123,16 @@ public class Login extends JFrame implements ActionListener {
 		JButton b_login = new JButton("Login");
 		b_login.setPreferredSize(new Dimension(100,50));//width, height
 		b_login.setFont(f_button);
+		b_login.addActionListener(this);
+		b_login.setActionCommand("Login");
 		gbc2.gridx = 0;
 		gbc2.gridy = 2;
 		p2.add(b_login, gbc2);	
+		
+		
+		testlabel = new JLabel("dsgdsfgdsg");
+		gbc2.gridy = 3;
+		p2.add(testlabel, gbc2);
 		
 //		PANEL 3
 		GridBagConstraints gbc3 = new GridBagConstraints();
@@ -181,6 +205,13 @@ public class Login extends JFrame implements ActionListener {
 		
 		if (name.equals("Spielregeln")) {
 			JOptionPane.showMessageDialog(null, "Spielregeln: \n 1. Mach dies und das! \n 2. Du sollst nicht!", "Spielregeln", JOptionPane.PLAIN_MESSAGE);
+		}
+		else if (name.equals("Login")) {
+			nickname = new String(tf_nickname.getText());
+			testlabel.setText(nickname);
+			dispose();
+			new Lobby();
+			new Server();
 		}
 	}
 /*	
