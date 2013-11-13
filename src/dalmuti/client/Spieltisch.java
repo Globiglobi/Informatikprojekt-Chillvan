@@ -10,7 +10,7 @@
  * 
  */
 
-package gui;
+package dalmuti.client;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

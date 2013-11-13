@@ -12,7 +12,7 @@
  */
 
 
-package gui;
+package dalmuti.client;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -37,6 +37,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+
+import dalmuti.server.Server;
 
 public class Login extends JFrame implements ActionListener {
 	

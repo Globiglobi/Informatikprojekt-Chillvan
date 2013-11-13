@@ -1,4 +1,4 @@
-package gui;
+package dalmuti.server;
 import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
