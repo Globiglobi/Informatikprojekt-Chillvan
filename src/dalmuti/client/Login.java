@@ -11,7 +11,6 @@
  * 
  */
 
-
 package dalmuti.client;
 
 import java.awt.BorderLayout;
@@ -211,9 +210,10 @@ public class Login extends JFrame implements ActionListener {
 		else if (name.equals("Login")) {
 			nickname = new String(tf_nickname.getText());
 			testlabel.setText(nickname);
-			dispose();
-			new Lobby();
-			new Server();
+			System.out.println(nickname);
+//			dispose();
+//			new Lobby();
+//			new Server();
 		}
 	}
 /*	
