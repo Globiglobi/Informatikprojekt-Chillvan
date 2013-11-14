@@ -11,7 +11,6 @@
  */
 
 package dalmuti.client;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -56,16 +55,16 @@ public class Login extends JFrame{
 	
 	//GUI-Globals panelSouth
 	private JPanel panelSouth;
-	private JLabel lbgap1;
-	private JLabel lbgap2;
-	private JLabel lblogo;
-	private JLabel lbgap3;
-	private JLabel lbgap4;
-	private JLabel lbversion;
-	private JLabel lbgap5;
-	private JLabel lbcopyright;
-	private JLabel lbgap6;
-	private JLabel lbgap7;
+	private JLabel lbGap1;
+	private JLabel lbGap2;
+	private JLabel lbLogo;
+	private JLabel lbGap3;
+	private JLabel lbGap4;
+	private JLabel lbVersion;
+	private JLabel lbGap5;
+	private JLabel lbCopyright;
+	private JLabel lbGap6;
+	private JLabel lbGap7;
 	
 	
 	public static void main(String[] args){
@@ -116,12 +115,12 @@ public class Login extends JFrame{
 		
 		
 		
-		//PanelNorth
+		//panelNorth
 		panelNorth = new JPanel(new GridBagLayout());
 //		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
 		add(panelNorth, BorderLayout.NORTH);
 		
-		//Components in PanelNorth
+		//Components in panelNorth
 		GridBagConstraints gbcPanelNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelNorth.insets = new Insets(100, 0, 0, 0);// top, left, bottom, right
 
@@ -132,12 +131,12 @@ public class Login extends JFrame{
 		
 		
 		
-		//PanelCenter
+		//panelCenter
 		panelCenter = new JPanel(new GridBagLayout());
 //		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
 		add(panelCenter, BorderLayout.CENTER);
 		
-		//Components in PanelCenter
+		//Components in panelCenter
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(10, 0, 10, 0);// top, left, bottom, right
 
@@ -169,12 +168,12 @@ public class Login extends JFrame{
 		
 		
 		
-		//PanelSouth
+		//panelSouth
 		panelSouth = new JPanel(new GridBagLayout());
 //		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
 		add(panelSouth, BorderLayout.SOUTH);
 		
-		//Components in PanelSouth
+		//Components in panelSouth
 		GridBagConstraints gbcPanelSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelSouth.insets = new Insets(0, 0, 10, 0);// top, left, bottom, right
 
@@ -186,57 +185,57 @@ public class Login extends JFrame{
 		 */
 
 		//Components on gridLevel Y=0
-		lbgap1 = new JLabel("");
+		lbGap1 = new JLabel("");
 		gbcPanelSouth.insets = new Insets(0, 55, -10, 55);// top, left, bottom, right
 		gbcPanelSouth.gridy = 0;
-		panelSouth.add(lbgap1, gbcPanelSouth);
+		panelSouth.add(lbGap1, gbcPanelSouth);
 
-		lbgap2 = new JLabel("");
+		lbGap2 = new JLabel("");
 		gbcPanelSouth.insets = new Insets(0, 55, -10, 55);// top, left, bottom, right
 		gbcPanelSouth.gridy = 0;
-		panelSouth.add(lbgap2, gbcPanelSouth);
+		panelSouth.add(lbGap2, gbcPanelSouth);
 
-		lblogo = new JLabel(new ImageIcon(getClass().getResource("logo_trans.png")));
+		lbLogo = new JLabel(new ImageIcon(getClass().getResource("logo_trans.png")));
 		gbcPanelSouth.gridy = 0;
-		panelSouth.add(lblogo, gbcPanelSouth);
+		panelSouth.add(lbLogo, gbcPanelSouth);
 
-		lbgap3 = new JLabel("");
+		lbGap3 = new JLabel("");
 		gbcPanelSouth.insets = new Insets(0, 55, -10, 55);// top, left, bottom, right
 		gbcPanelSouth.gridy = 0;
-		panelSouth.add(lbgap3, gbcPanelSouth);
+		panelSouth.add(lbGap3, gbcPanelSouth);
 
-		lbgap4 = new JLabel("");
+		lbGap4 = new JLabel("");
 		gbcPanelSouth.insets = new Insets(0, 55, -10, 55);// top, left, bottom, right
 		gbcPanelSouth.gridy = 0;
-		panelSouth.add(lbgap4, gbcPanelSouth);
+		panelSouth.add(lbGap4, gbcPanelSouth);
 
 		//Components on gridLevel Y=1
-		lbversion = new JLabel("");
-		lbversion.setText("<html><body>Version 1.0.0<br>6. November 2013</body></html>");
+		lbVersion = new JLabel("");
+		lbVersion.setText("<html><body>Version 1.0.0<br>6. November 2013</body></html>");
 		gbcPanelSouth.anchor = GridBagConstraints.FIRST_LINE_START;
 		gbcPanelSouth.insets = new Insets(0, 0, 10, 0);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
-		panelSouth.add(lbversion, gbcPanelSouth);
+		panelSouth.add(lbVersion, gbcPanelSouth);
 
-		lbgap5 = new JLabel("");
+		lbGap5 = new JLabel("");
 		gbcPanelSouth.anchor = GridBagConstraints.LAST_LINE_START;
 		gbcPanelSouth.insets = new Insets(0, 110, 10, 110);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
-		panelSouth.add(lbgap5, gbcPanelSouth);
+		panelSouth.add(lbGap5, gbcPanelSouth);
 
-		lbcopyright = new JLabel("Copyright 2013 Cornflakes. Alle Rechte vorbehalten.");
+		lbCopyright = new JLabel("Copyright 2013 Cornflakes. Alle Rechte vorbehalten.");
 		gbcPanelSouth.insets = new Insets(0, 0, 10, 0);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
-		panelSouth.add(lbcopyright, gbcPanelSouth);
+		panelSouth.add(lbCopyright, gbcPanelSouth);
 
-		lbgap6 = new JLabel("");
+		lbGap6 = new JLabel("");
 		gbcPanelSouth.insets = new Insets(0, 110, 10, 55);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
-		panelSouth.add(lbgap6, gbcPanelSouth);
+		panelSouth.add(lbGap6, gbcPanelSouth);
 
-		lbgap7 = new JLabel("");
+		lbGap7 = new JLabel("");
 		gbcPanelSouth.insets = new Insets(0, 55, 10, 110);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
-		panelSouth.add(lbgap7, gbcPanelSouth);
+		panelSouth.add(lbGap7, gbcPanelSouth);
 	}
 }
