@@ -19,7 +19,7 @@
  *
  */
 
-package dalmuti.client;
+package dalmuti.testing;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -42,6 +42,9 @@ import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class Login extends JFrame{
+	
+	//Globals
+	public String nickname;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -75,12 +78,14 @@ public class Login extends JFrame{
 	private JLabel lbGap6;
 	private JLabel lbGap7;
 	
-	
+
+	//nur zu Testzwecken
 	public static void main(String[] args){
 		new Login().setVisible(true);
 	}
 	
 
+	
 	//Constructor
 	public Login(){
 		super("Der Grosse Dalmuti - Login");
@@ -167,7 +172,9 @@ public class Login extends JFrame{
 		btLogin.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						// create userObject(String nickname)
+						nickname = tfEnterNickname.getText();
+						//mit dem String nickname kann jetzt ein neuer User erstellt werden (--> Zugriff auf User-Klasse!!!)
+						User u1 = new User(nickname);
 					}
 				}
 		);
@@ -246,5 +253,7 @@ public class Login extends JFrame{
 		gbcPanelSouth.insets = new Insets(0, 55, 10, 110);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap7, gbcPanelSouth);
+		
+//		setVisible(true);
 	}
 }
