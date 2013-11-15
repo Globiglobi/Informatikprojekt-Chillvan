@@ -1,13 +1,22 @@
-/*
- * Copyright 2013 Cornflakes. Alle Rechte vorbehalten.
+/**
+ * Copyright (c) 2013 Cornflakes. All rights reserved.
  * 
  * @author Bastian End
  * 
  * todo:
+ * - btLogin soll userObject generieren
  * - background image
  * - animated background, Karten bewegen sich gegeneinander
  * - nickname auf 16 Zeichen begrenzen
+ * - alles auf englisch
  * 
+ * 
+ *	Zeichen 	Unicode
+ *	------------------------------
+ *	€, Š 		\u00c4, \u00e4
+ *	…, š 		\u00d6, \u00f6
+ *	†, Ÿ 		\u00dc, \u00fc
+ *
  */
 
 package dalmuti.client;
@@ -87,23 +96,23 @@ public class Login extends JFrame{
 		help = new JMenu("Help");
 		spielregeln = new JMenuItem("Spielregeln");
 		spielregeln.addActionListener(
-				new ActionListener() {
-					public void actionPerformed(ActionEvent event) {
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
 						JOptionPane.showMessageDialog(null, 
 								"1. Mach dies und das!\n"
 								+ "2. Du sollst nicht!\n"
-								+ "3. Ziel des Spiel ist es... noch ein bisschen Text um das Fenster gršsser zu machen^^", "Spielregeln - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
+								+ "3. Ziel des Spiel ist es... noch ein bisschen Text um das Fenster gr\u00f6sser zu machen^^", "Spielregeln - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
 					}
 				}
 		);
 		about = new JMenuItem("About");
 		about.addActionListener(
-				new ActionListener() {
-					public void actionPerformed(ActionEvent event) {
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
 						JOptionPane.showMessageDialog(null,
 								"Der Grosse Dalmuti for insane fun\n\n"
 								+ "Copyright (c) Cornflakes. All rights are reserved.\n\n"
-								+ "...noch ein bisschen Text um das Fenster gršsser zu machen^^ reicht doch noch net ganz xD", "About - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
+								+ "...noch ein bisschen Text um das Fenster gr\u00f6sser zu machen^^ reicht doch noch net ganz xD", "About - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
 					}
 				}
 		);
@@ -156,9 +165,9 @@ public class Login extends JFrame{
 		btLogin.setPreferredSize(new Dimension(100, 50));// width, height
 		btLogin.setFont(new Font("", Font.BOLD, 16));
 		btLogin.addActionListener(
-				new ActionListener() {
-					public void actionPerformed(ActionEvent event) {
-						// create UserObject
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						// create userObject(String nickname)
 					}
 				}
 		);
