@@ -9,14 +9,20 @@ public class User {
 	// Konstruktor
 	public User(String nickname) {
 		this.nickname = nickname;
-		this.UserID = 1;
+		CalculateID();
 
 
 		// muss nacher wieder gelšscht werden, nur zum zeigen das etwas passiert
-		System.out.println(UserID);
-		System.out.println(nickname);
-		this.UserID++;
+		System.out.println(UserID + " " + nickname);
+		
 
+	}
+	
+	//Methoden
+	public int CalculateID() {
+		UserID=0;
+		UserID++;
+		return UserID;
 	}
 
 }

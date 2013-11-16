@@ -45,7 +45,6 @@ public class Login extends JFrame{
 
 	//Globals
 	public String nickname;
-	public int IDuser;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -173,7 +172,8 @@ public class Login extends JFrame{
 		btLogin.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						User u1 = new User(nickname);
+						nickname = tfEnterNickname.getText();
+						User user = new User(nickname);
 						
 						
 					}
