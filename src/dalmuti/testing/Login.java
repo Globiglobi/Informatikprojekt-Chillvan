@@ -42,9 +42,10 @@ import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class Login extends JFrame{
-	
+
 	//Globals
 	public String nickname;
+	public int IDuser;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -172,14 +173,16 @@ public class Login extends JFrame{
 		btLogin.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						nickname = tfEnterNickname.getText();
-						//mit dem String nickname kann jetzt ein neuer User erstellt werden (--> Zugriff auf User-Klasse!!!)
 						User u1 = new User(nickname);
+						
+						
 					}
+
 				}
 		);
 		gbcPanelCenter.gridy = 2;
 		panelCenter.add(btLogin, gbcPanelCenter);
+
 
 		
 		
