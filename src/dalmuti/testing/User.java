@@ -17,7 +17,6 @@ public class User {
 	//Definition der Methode anfragenUserID
 	public int anfragenUserID () {
 		System.out.println("UserID: " + UserID);
-		UserID++;
 		return UserID;
 	}
 	//DEfiniton Main Methode
@@ -34,10 +33,12 @@ public class User {
 			einUser[i] = new User();
 	
 	// Füllen des Objekts mit Werten
-	einUser[0].Nickname= "Hans";
-	einUser[0].UserID = 1;
-	einUser[0].Score = 1;
-	einUser[0].Rank = 1;
+	for (int i=0; i<MAX_OBJ; i++)	{
+	einUser[i].Nickname= "Hans";
+	einUser[i].UserID = i+1;
+	einUser[i].Score = 1;
+	einUser[i].Rank = 1;
+	}
 	
 	//Ausgabe des Objekts
 	for (int i=0; i<MAX_OBJ; i++) {
