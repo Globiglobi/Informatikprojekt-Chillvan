@@ -173,7 +173,7 @@ public class Login extends JFrame{
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
 						nickname = tfEnterNickname.getText();
-						User user = new User(nickname);
+						User user1 = new User(nickname);
 						
 						
 					}
