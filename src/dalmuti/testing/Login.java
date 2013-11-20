@@ -172,9 +172,27 @@ public class Login extends JFrame{
 		btLogin.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
+						int counter = 1;
+						if (counter == 1){				
 						nickname = tfEnterNickname.getText();
 						User user1 = new User(nickname);
-						
+						counter++;
+						}
+						if (counter==2){
+							nickname = tfEnterNickname.getText();
+							User user2 = new User(nickname);
+							counter++;
+						}
+						if (counter==3){
+							nickname = tfEnterNickname.getText();
+							User user3 = new User(nickname);
+							counter++;
+						}
+						if (counter==4){
+							nickname = tfEnterNickname.getText();
+							User user4 = new User(nickname);
+							counter++;
+						}
 						
 					}
 
