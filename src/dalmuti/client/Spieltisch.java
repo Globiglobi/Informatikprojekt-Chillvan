@@ -83,6 +83,7 @@ public class Spieltisch extends JFrame{
 		new Spieltisch().setVisible(true);
 	}
 
+	
 	public Spieltisch(){
 		super("Der Grosse Dalmuti - Spieltisch");
 		setSize(1024, 818);
@@ -143,7 +144,7 @@ public class Spieltisch extends JFrame{
 		panelEast.setPreferredSize(new Dimension(200,0));//width, height
 		add(panelEast, BorderLayout.EAST);
 		
-		//Components in panelNorth
+		//Components in panelEast
 		//this panel contains panelEastNorth, panelEastCenter, panelEastSouth
 		
 		
@@ -153,7 +154,7 @@ public class Spieltisch extends JFrame{
 		panelEastNorth = new JPanel(new GridBagLayout());
 		panelEastNorth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelEastNorth.setPreferredSize(new Dimension(200,200));//width, height
-		panelEastNorth.add(panelEastNorth, BorderLayout.NORTH);
+		panelEast.add(panelEastNorth, BorderLayout.NORTH);
 		
 		//Components in panelEastNorth
 		GridBagConstraints gbcPanelEastNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -169,7 +170,7 @@ public class Spieltisch extends JFrame{
 		panelEastCenter = new JPanel(new GridBagLayout());
 		panelEastCenter.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelEastCenter.setPreferredSize(new Dimension(200,200));//width, height
-		panelEastCenter.add(panelEastCenter, BorderLayout.CENTER);
+		panelEast.add(panelEastCenter, BorderLayout.CENTER);
 		
 		//Components in panelEastCenter
 		GridBagConstraints gbcPanelEastCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -194,7 +195,7 @@ public class Spieltisch extends JFrame{
 		panelEastSouth = new JPanel(new GridBagLayout());
 		panelEastSouth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelEastSouth.setPreferredSize(new Dimension(200,418));//width, height
-		panelEastSouth.add(panelEastSouth, BorderLayout.SOUTH);
+		panelEast.add(panelEastSouth, BorderLayout.SOUTH);
 		
 		//Components in panelEastSouth
 		GridBagConstraints gbcPanelEastSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
