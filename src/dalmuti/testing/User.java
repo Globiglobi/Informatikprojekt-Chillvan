@@ -41,13 +41,13 @@ public class User {
 		}
 
 		// Ausgabe des Objekts
-		for (int i = 0; i < MAX_OBJ; i++) {
+//		for (int i = 0; i < MAX_OBJ; i++) {
 
-			System.out.println("\n");
-			einUser[i].anfragenNickname();
-			einUser[i].anfragenUserID();
-			System.out.println("Score: " + einUser[i].Score);
-			System.out.println("Rank: " + einUser[i].Rank);
-		}
+//			System.out.println("\n");
+//			einUser[i].anfragenNickname();
+//			einUser[i].anfragenUserID();
+//			System.out.println("Score: " + einUser[i].Score);
+//			System.out.println("Rank: " + einUser[i].Rank);
+//		}
 	}
 }
