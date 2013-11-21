@@ -55,7 +55,6 @@ public class Spieltisch extends JFrame{
 	
 	//GUI-Globals panelWest
 	private JPanel panelWest;
-	private JLabel lbWtf;
 	
 	
 	//GUI-Globals panelEast
@@ -132,8 +131,7 @@ public class Spieltisch extends JFrame{
 		add(panelWest, BorderLayout.WEST);
 		
 		//Components in panelWest
-		lbWtf = new JLabel(new ImageIcon(getClass().getResource("bild.png")));
-		panelWest.add(lbWtf);
+		//empty
 		
 		
 		
