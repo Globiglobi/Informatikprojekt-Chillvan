@@ -23,22 +23,28 @@ public class Server extends JFrame implements Runnable  {
 	public Server() {
 		// Titel Fenster setzen
 		super("Server");
+		
 		// set Layout Manager
 		this.setLayout(new BorderLayout());
+		
 		// Create controls
 		txtAnzeige = new JTextArea();
 		txtAnzeige.setEnabled(false);
 		this.add(txtAnzeige, BorderLayout.CENTER);
+		
 		// Dynamic layout
 		this.pack();
+		
 		// Show result
 		this.setVisible(true);
+		
 	}
 
 
 	//Main-Methode
 	public static void main(String[] args) {
-		//Server server = new Server();
+		Server server = new Server();
+		server.run();
 
 	}
 
@@ -47,7 +53,7 @@ public class Server extends JFrame implements Runnable  {
 	public void run() {
 		try{
 			//Create the server socket, to listen for incoming request
-			ServerSocket listener = new ServerSocket(50005);
+			ServerSocket listener = new ServerSocket(50018);
 			
 			while(true){
 				// Wait for and accept incoming request

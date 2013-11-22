@@ -44,7 +44,7 @@ import javax.swing.JTextField;
 public class Login extends JFrame{
 
 	//Globals
-	public String nickname;
+	public static String nickname;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;

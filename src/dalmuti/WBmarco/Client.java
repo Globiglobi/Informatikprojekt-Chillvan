@@ -24,18 +24,20 @@ public class Client {
 		//try und catch muss sein, da bei Netzwerkkommuniaktion immer etwas schief gehen kann
 		try {
 			//socket, reader, writer erstellen
-			socket = new Socket("127.0.0.1", 50000);
+			socket = new Socket("127.0.0.1", 50018);
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			writer = new OutputStreamWriter(socket.getOutputStream());
-			//"irgendetwas definieren"
 			
-			//message senden vom Client
-			messageClient = " "; //bei " " muss irgendetwas stehen (message die man senden möchte definieren)
-			writer.write(messageClient); 
+			//Message senden vom Client
+			messageClient = "Hallo";//Login.nickname; // Welche Message soll zum Server gesendet werden?
+			writer.write(messageClient.toString()); 
 			writer.flush();
-			////message lesen vom Server (Was hat der Server zum sagen?)
+			
+			//Message lesen vom Server (Was hat der Server zum sagen?)
 			String messageIn = reader.readLine();
-			messageServer = messageIn; //statt eine String Bootschaft kann es auch etwas anderes sein
+			messageServer = messageIn;
+			System.out.println(messageServer);
+			
 			//clean up
 			socket.close();
 			reader.close();
@@ -50,6 +52,12 @@ public class Client {
 
 	//Main-Methode
 	public static void main(String[] args) {
+		
+		//Login l1 = new Login();
+		
+		Client c1 = new Client();
+		c1.send();
+		//Server s1 = new Server();
 
 	}
 
