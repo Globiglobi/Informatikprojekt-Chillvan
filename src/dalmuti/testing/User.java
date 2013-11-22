@@ -19,8 +19,11 @@ public class User {
 		System.out.println("UserID: " + UserID);
 		return UserID;
 	}
-	// DEfiniton Constructur
+	//Definition Constructor Nickname
 	public User () {
+	}
+	// DEfiniton Constructur
+	public User (String Nickname) {
 
 		// Deklarieren der maximalen Anzahl an Objekten
 		int MAX_OBJ = 8;
@@ -34,7 +37,7 @@ public class User {
 
 		// Füllen des Objekts mit Werten
 		for (int i = 0; i < MAX_OBJ; i++) {
-			einUser[i].Nickname = "Hans";
+			einUser[i].Nickname = Nickname;
 			einUser[i].UserID = i + 1;
 			einUser[i].Score = 1;
 			einUser[i].Rank = 1;
