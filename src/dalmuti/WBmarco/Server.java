@@ -44,7 +44,8 @@ public class Server extends JFrame implements Runnable  {
 	//Main-Methode
 	public static void main(String[] args) {
 		Server server = new Server();
-		server.run();
+		serverThread = new Thread(server, "Listener");
+		serverThread.run();
 
 	}
 
@@ -65,7 +66,7 @@ public class Server extends JFrame implements Runnable  {
 				
 				//read the incoming message and outwrite the incoming message
 				String client = reader.readLine();
-				System.out.println(client);
+				txtAnzeige.setText(txtAnzeige.getText());
 				
 				//write out confirmation (bestätigung für Empfang)
 				writer.write("Received your message: " + client);

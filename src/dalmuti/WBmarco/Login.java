@@ -61,7 +61,7 @@ public class Login extends JFrame{
 	//GUI-Globals panelCenter
 	private JPanel panelCenter;
 	private JLabel lbEnterNickname;
-	private JTextField tfEnterNickname;
+	public static JTextField tfEnterNickname;
 	private JButton btLogin;
 	
 	
@@ -172,7 +172,8 @@ public class Login extends JFrame{
 		btLogin.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-					nickname = tfEnterNickname.getText();
+					//nickname = tfEnterNickname.getText();
+						Client.send();
 					}
 
 				}

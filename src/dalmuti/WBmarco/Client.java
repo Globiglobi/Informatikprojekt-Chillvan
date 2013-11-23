@@ -10,17 +10,17 @@ import java.net.UnknownHostException;
 public class Client {
 	
 	//Attribute
-	Socket socket;
-	BufferedReader reader;
-	OutputStreamWriter writer;
+	public static Socket socket;
+	public static BufferedReader reader;
+	public static OutputStreamWriter writer;
 	
-	String messageClient;
-	String messageServer;
+	public static String messageClient;
+	public static String messageServer;
 	
 	
 	//Methoden
 	//Methode zum "irgendetwas" senden (irgendetwas noch nicht komplett weil man noch nicht weiss was genau senden)
-	public void send(){
+	public static void send(){
 		//try und catch muss sein, da bei Netzwerkkommuniaktion immer etwas schief gehen kann
 		try {
 			//socket, reader, writer erstellen
@@ -29,8 +29,9 @@ public class Client {
 			writer = new OutputStreamWriter(socket.getOutputStream());
 			
 			//Message senden vom Client
-			messageClient = "Hallo";//Login.nickname; // Welche Message soll zum Server gesendet werden?
-			writer.write(messageClient.toString()); 
+			//w.write(txtNewMessage.getText() + "\n");
+			//messageClient = "Hallo";//Login.nickname; // Welche Message soll zum Server gesendet werden?
+			writer.write(Login.tfEnterNickname.getText() + "\n"); 
 			writer.flush();
 			
 			//Message lesen vom Server (Was hat der Server zum sagen?)
@@ -53,10 +54,9 @@ public class Client {
 	//Main-Methode
 	public static void main(String[] args) {
 		
-		//Login l1 = new Login();
+		Login l1 = new Login();
 		
-		Client c1 = new Client();
-		c1.send();
+		//c1.send();
 		//Server s1 = new Server();
 
 	}
