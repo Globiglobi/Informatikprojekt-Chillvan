@@ -172,8 +172,8 @@ public class Login extends JFrame{
 		btLogin.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-					//nickname = tfEnterNickname.getText();
-						Client.send();
+					nickname = tfEnterNickname.getText();
+						//nickname.send();
 					}
 
 				}
