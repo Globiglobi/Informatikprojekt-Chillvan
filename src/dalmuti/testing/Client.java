@@ -19,7 +19,7 @@ public class Client {
 	
 	
 	//Methoden
-	//Methode zum "irgendetwas" senden (irgendetwas noch nicht komplett weil man noch nicht weiss was genau senden)
+	//Methode zum senden 
 	public static void send(){
 		//try und catch muss sein, da bei Netzwerkkommuniaktion immer etwas schief gehen kann
 		try {
@@ -29,8 +29,7 @@ public class Client {
 			writer = new OutputStreamWriter(socket.getOutputStream());
 			
 			//Message senden vom Client
-			//w.write(txtNewMessage.getText() + "\n");
-			//messageClient = "Hallo";//Login.nickname; // Welche Message soll zum Server gesendet werden?
+			messageClient = "Hallo"; //Login.nickname; // Welche Message soll zum Server gesendet werden?
 			writer.write(Login.tfEnterNickname.getText() + "\n"); 
 			writer.flush();
 			
@@ -55,9 +54,7 @@ public class Client {
 	public static void main(String[] args) {
 		
 		Login l1 = new Login();
-		
-		//c1.send();
-		//Server s1 = new Server();
+		send();
 
 	}
 

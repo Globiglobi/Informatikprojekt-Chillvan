@@ -42,6 +42,9 @@ import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class Login extends JFrame{
+
+	//Globals
+	public static String nickname;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -58,7 +61,7 @@ public class Login extends JFrame{
 	//GUI-Globals panelCenter
 	private JPanel panelCenter;
 	private JLabel lbEnterNickname;
-	private JTextField tfEnterNickname;
+	public static JTextField tfEnterNickname;
 	private JButton btLogin;
 	
 	
@@ -75,12 +78,14 @@ public class Login extends JFrame{
 	private JLabel lbGap6;
 	private JLabel lbGap7;
 	
-	
-	public static void main(String[] args){
-		new Login().setVisible(true);
-	}
+
+	//nur zu Testzwecken
+//	public static void main(String[] args){
+//		new Login().setVisible(true);
+//	}
 	
 
+	
 	//Constructor
 	public Login(){
 		super("Der Grosse Dalmuti - Login");
@@ -167,12 +172,15 @@ public class Login extends JFrame{
 		btLogin.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						// create userObject(String nickname)
+					nickname = tfEnterNickname.getText();
+						//nickname.send();
 					}
+
 				}
 		);
 		gbcPanelCenter.gridy = 2;
 		panelCenter.add(btLogin, gbcPanelCenter);
+
 
 		
 		
@@ -246,5 +254,7 @@ public class Login extends JFrame{
 		gbcPanelSouth.insets = new Insets(0, 55, 10, 110);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap7, gbcPanelSouth);
+		
+		setVisible(true);
 	}
 }
