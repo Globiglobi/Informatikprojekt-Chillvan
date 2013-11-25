@@ -28,6 +28,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -253,7 +254,7 @@ public class Spieltisch extends JFrame{
 		
 		
 		//panelWestSouth - deine karten
-		panelWestSouth = new JPanel(new GridBagLayout());
+		panelWestSouth = new JPanel(new GridLayout(2, 7));
 		panelWestSouth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestSouth.setPreferredSize(new Dimension(700,300));//width, height
 		panelWest.add(panelWestSouth, BorderLayout.SOUTH);
@@ -264,27 +265,18 @@ public class Spieltisch extends JFrame{
 				
 		btKarte1 = new JButton(String.valueOf(valueKarte1), new ImageIcon(getClass().getResource("karte1.jpg")));
 		btKarte1.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte1.setContentAreaFilled(false);
-//		btKarte1.setBorderPainted(false);
-//		btKarte1.setFocusPainted(false);
 		gbcPanelWestSouth.gridx = 0;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte1, gbcPanelWestSouth);
 		
 		btKarte2 = new JButton(String.valueOf(valueKarte2), new ImageIcon(getClass().getResource("karte2.jpg")));
 		btKarte2.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte2.setContentAreaFilled(false);
-//		btKarte2.setBorderPainted(false);
-//		btKarte2.setFocusPainted(false);
 		gbcPanelWestSouth.gridx = 1;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte2, gbcPanelWestSouth);
 		
 		btKarte3 = new JButton(String.valueOf(valueKarte3), new ImageIcon(getClass().getResource("karte3.jpg")));
 		btKarte3.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte3.setContentAreaFilled(false);
-//		btKarte3.setBorderPainted(false);
-//		btKarte3.setFocusPainted(false);
 		gbcPanelWestSouth.gridx = 2;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte3, gbcPanelWestSouth);
