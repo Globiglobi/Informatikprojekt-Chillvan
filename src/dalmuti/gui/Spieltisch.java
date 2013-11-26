@@ -21,7 +21,7 @@
  *
  */
 
-package dalmuti.client;
+package dalmuti.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
