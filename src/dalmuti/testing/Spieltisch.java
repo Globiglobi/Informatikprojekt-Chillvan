@@ -1,4 +1,3 @@
-
 /**
  * Copyright (c) 2013 Cornflakes. All rights reserved.
  * 
@@ -29,7 +28,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -90,24 +88,23 @@ public class Spieltisch extends JFrame{
 	private JButton btKarte10;
 	private JButton btKarte11;
 	private JButton btKarte12;
-	private JButton btKarteNarr;
+	private JButton btNarr;
 	private JLabel lbAmount;
 	private JButton btReset;
 	
-	private static int cardAmount = 0;
-	private int amountKarte1 = 5;
-	private int amountKarte2 = 5;
-	private int amountKarte3 = 5;
-	private int amountKarte4 = 0;
-	private int amountKarte5 = 0;
-	private int amountKarte6 = 0;
-	private int amountKarte7 = 0;
-	private int amountKarte8 = 0;
-	private int amountKarte9 = 0;
-	private int amountKarte10 = 0;
-	private int amountKarte11 = 0;
-	private int amountKarte12 = 0;
-	private int amountKarteNarr = 0;
+	private int valueKarte1 = 0;
+	private int valueKarte2 = 0;
+	private int valueKarte3 = 0;
+	private int valueKarte4 = 0;
+	private int valueKarte5 = 0;
+	private int valueKarte6 = 0;
+	private int valueKarte7 = 0;
+	private int valueKarte8 = 0;
+	private int valueKarte9 = 0;
+	private int valueKarte10 = 0;
+	private int valueKarte11 = 0;
+	private int valueKarte12 = 0;
+	private int valueKarteNarr = 0;
 	
 	//GUI-Globals panelEast
 	private JPanel panelEast;
@@ -256,7 +253,7 @@ public class Spieltisch extends JFrame{
 		
 		
 		//panelWestSouth - deine karten
-		panelWestSouth = new JPanel(new GridLayout(2, 7));
+		panelWestSouth = new JPanel(new GridBagLayout());
 		panelWestSouth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestSouth.setPreferredSize(new Dimension(700,300));//width, height
 		panelWest.add(panelWestSouth, BorderLayout.SOUTH);
@@ -265,165 +262,94 @@ public class Spieltisch extends JFrame{
 		GridBagConstraints gbcPanelWestSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestSouth.insets = new Insets(0,0,0,0);//top, left, bottom, right
 				
-		btKarte1 = new JButton(String.valueOf(amountKarte1), new ImageIcon(getClass().getResource("karte1.jpg")));
-		btKarte1.setHorizontalTextPosition(JButton.CENTER);
-		btKarte1.setVerticalTextPosition(JButton.CENTER);
-		btKarte1.setFont(new Font("", Font.BOLD, 72));
+		btKarte1 = new JButton(String.valueOf(valueKarte1), new ImageIcon(getClass().getResource("karte1.jpg")));
 		btKarte1.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte1.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
-						if(amountKarte1 != 0){
-							cardAmount++;
-							amountKarte1--;
-							lbAmount.setText(String.valueOf(cardAmount));
-							btKarte1.setText(String.valueOf(amountKarte1));
-						}
-					}
-				}
-		);
+		btKarte1.setContentAreaFilled(false);
+//		btKarte1.setBorderPainted(false);
+//		btKarte1.setFocusPainted(false);
 		gbcPanelWestSouth.gridx = 0;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte1, gbcPanelWestSouth);
 		
-		btKarte2 = new JButton(String.valueOf(amountKarte2), new ImageIcon(getClass().getResource("karte2.jpg")));
-		btKarte2.setHorizontalTextPosition(JButton.CENTER);
-		btKarte2.setVerticalTextPosition(JButton.CENTER);
-		btKarte2.setFont(new Font("", Font.BOLD, 72));
+		btKarte2 = new JButton(String.valueOf(valueKarte2), new ImageIcon(getClass().getResource("karte2.jpg")));
 		btKarte2.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte2.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
-						if(amountKarte2 != 0){
-							cardAmount++;
-							amountKarte2--;
-							lbAmount.setText(String.valueOf(cardAmount));
-							btKarte2.setText(String.valueOf(amountKarte2));
-						}
-					}
-				}
-		);
+		btKarte2.setContentAreaFilled(false);
+//		btKarte2.setBorderPainted(false);
+//		btKarte2.setFocusPainted(false);
 		gbcPanelWestSouth.gridx = 1;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte2, gbcPanelWestSouth);
 		
-		btKarte3 = new JButton(String.valueOf(amountKarte3), new ImageIcon(getClass().getResource("karte3.jpg")));
-		btKarte3.setHorizontalTextPosition(JButton.CENTER);
-		btKarte3.setVerticalTextPosition(JButton.CENTER);
-		btKarte3.setFont(new Font("", Font.BOLD, 72));
+		btKarte3 = new JButton(String.valueOf(valueKarte3), new ImageIcon(getClass().getResource("karte3.jpg")));
 		btKarte3.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte3.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
-						if(amountKarte3 != 0){
-							cardAmount++;
-							amountKarte3--;
-							lbAmount.setText(String.valueOf(cardAmount));
-							btKarte3.setText(String.valueOf(amountKarte3));
-						}
-					}
-				}
-		);
+		btKarte3.setContentAreaFilled(false);
+//		btKarte3.setBorderPainted(false);
+//		btKarte3.setFocusPainted(false);
 		gbcPanelWestSouth.gridx = 2;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte3, gbcPanelWestSouth);
 		
-		btKarte4 = new JButton(String.valueOf(amountKarte4), new ImageIcon(getClass().getResource("karte4.jpg")));
-		btKarte4.setHorizontalTextPosition(JButton.CENTER);
-		btKarte4.setVerticalTextPosition(JButton.CENTER);
-		btKarte4.setFont(new Font("", Font.BOLD, 72));
+		btKarte4 = new JButton(new ImageIcon(getClass().getResource("karte4.jpg")));
 		btKarte4.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 3;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte4, gbcPanelWestSouth);
 		
-		btKarte5 = new JButton(String.valueOf(amountKarte5), new ImageIcon(getClass().getResource("karte5.jpg")));
-		btKarte5.setHorizontalTextPosition(JButton.CENTER);
-		btKarte5.setVerticalTextPosition(JButton.CENTER);
-		btKarte5.setFont(new Font("", Font.BOLD, 72));
+		btKarte5 = new JButton(new ImageIcon(getClass().getResource("karte5.jpg")));
 		btKarte5.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 4;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte5, gbcPanelWestSouth);
 		
-		btKarte6 = new JButton(String.valueOf(amountKarte6), new ImageIcon(getClass().getResource("karte6.jpg")));
-		btKarte6.setHorizontalTextPosition(JButton.CENTER);
-		btKarte6.setVerticalTextPosition(JButton.CENTER);
-		btKarte6.setFont(new Font("", Font.BOLD, 72));
+		btKarte6 = new JButton(new ImageIcon(getClass().getResource("karte6.jpg")));
 		btKarte6.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 5;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte6, gbcPanelWestSouth);
 		
-		btKarte7 = new JButton(String.valueOf(amountKarte7), new ImageIcon(getClass().getResource("karte7.jpg")));
-		btKarte7.setHorizontalTextPosition(JButton.CENTER);
-		btKarte7.setVerticalTextPosition(JButton.CENTER);
-		btKarte7.setFont(new Font("", Font.BOLD, 72));
+		btKarte7 = new JButton(new ImageIcon(getClass().getResource("karte7.jpg")));
 		btKarte7.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 6;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte7, gbcPanelWestSouth);
 		
-		btKarte8 = new JButton(String.valueOf(amountKarte8), new ImageIcon(getClass().getResource("karte8.jpg")));
-		btKarte8.setHorizontalTextPosition(JButton.CENTER);
-		btKarte8.setVerticalTextPosition(JButton.CENTER);
-		btKarte8.setFont(new Font("", Font.BOLD, 72));
+		btKarte8 = new JButton(new ImageIcon(getClass().getResource("karte8.jpg")));
 		btKarte8.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 0;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte8, gbcPanelWestSouth);
 		
-		btKarte9 = new JButton(String.valueOf(amountKarte9), new ImageIcon(getClass().getResource("karte9.jpg")));
-		btKarte9.setHorizontalTextPosition(JButton.CENTER);
-		btKarte9.setVerticalTextPosition(JButton.CENTER);
-		btKarte9.setFont(new Font("", Font.BOLD, 72));
+		btKarte9 = new JButton(new ImageIcon(getClass().getResource("karte9.jpg")));
 		btKarte9.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 1;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte9, gbcPanelWestSouth);
 		
-		btKarte10 = new JButton(String.valueOf(amountKarte10), new ImageIcon(getClass().getResource("karte10.jpg")));
-		btKarte10.setHorizontalTextPosition(JButton.CENTER);
-		btKarte10.setVerticalTextPosition(JButton.CENTER);
-		btKarte10.setFont(new Font("", Font.BOLD, 72));
+		btKarte10 = new JButton(new ImageIcon(getClass().getResource("karte10.jpg")));
 		btKarte10.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 2;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte10, gbcPanelWestSouth);
 		
-		btKarte11 = new JButton(String.valueOf(amountKarte11), new ImageIcon(getClass().getResource("karte11.jpg")));
-		btKarte11.setHorizontalTextPosition(JButton.CENTER);
-		btKarte11.setVerticalTextPosition(JButton.CENTER);
-		btKarte11.setFont(new Font("", Font.BOLD, 72));
+		btKarte11 = new JButton(new ImageIcon(getClass().getResource("karte11.jpg")));
 		btKarte11.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 3;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte11, gbcPanelWestSouth);
 		
-		btKarte12 = new JButton(String.valueOf(amountKarte12), new ImageIcon(getClass().getResource("karte12.jpg")));
-		btKarte12.setHorizontalTextPosition(JButton.CENTER);
-		btKarte12.setVerticalTextPosition(JButton.CENTER);
-		btKarte12.setFont(new Font("", Font.BOLD, 72));
+		btKarte12 = new JButton(new ImageIcon(getClass().getResource("karte12.jpg")));
 		btKarte12.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 4;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte12, gbcPanelWestSouth);
 		
-		btKarteNarr = new JButton(String.valueOf(amountKarteNarr), new ImageIcon(getClass().getResource("narr.jpg")));
-		btKarteNarr.setHorizontalTextPosition(JButton.CENTER);
-		btKarteNarr.setVerticalTextPosition(JButton.CENTER);
-		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
-		btKarteNarr.setPreferredSize(new Dimension(97,150));//width, height
+		btNarr = new JButton(new ImageIcon(getClass().getResource("narr.jpg")));
+		btNarr.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 5;
 		gbcPanelWestSouth.gridy = 1;
-		panelWestSouth.add(btKarteNarr, gbcPanelWestSouth);
+		panelWestSouth.add(btNarr, gbcPanelWestSouth);
 
-		
-		
-		//panelControl - Reset Button
+		//panleControl - Reset Button
 		panelControl = new JPanel(new GridBagLayout());
 		panelControl.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelControl.setPreferredSize(new Dimension(97,150));//width, height
@@ -432,9 +358,9 @@ public class Spieltisch extends JFrame{
 		panelWestSouth.add(panelControl, gbcPanelWestSouth);
 		
 		GridBagConstraints gbcPanelControl = new GridBagConstraints();//Use GridBagConstraints to place the components
-		gbcPanelControl.insets = new Insets(25,0,0,0);//top, left, bottom, right
+		gbcPanelControl.insets = new Insets(0,15,10,15);//top, left, bottom, right
 		
-		lbAmount = new JLabel("0");
+		lbAmount = new JLabel("1");
 		lbAmount.setFont(new Font("", Font.BOLD, 72));
 		gbcPanelControl.gridx = 0;
 		gbcPanelControl.gridy = 0;
@@ -443,22 +369,11 @@ public class Spieltisch extends JFrame{
 		btReset = new JButton("Reset");
 		btReset.setPreferredSize(new Dimension(90,20));//width, height
 		btReset.setFont(new Font("", Font.PLAIN, 12));
-		btReset.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						cardAmount = 0;
-						lbAmount.setText(String.valueOf(cardAmount));
-						//reset also the amountKarteX!
-					}
-				}
-		);
-		gbcPanelControl.insets = new Insets(0,5,1,5);//top, left, bottom, right
 		gbcPanelControl.gridx = 0;
 		gbcPanelControl.gridy = 1;
 		panelControl.add(btReset, gbcPanelControl);
 		
 
-		
 		
 		
 		//panelEast
