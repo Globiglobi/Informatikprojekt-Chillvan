@@ -1,3 +1,4 @@
+
 /**
  * Copyright (c) 2013 Cornflakes. All rights reserved.
  * 
@@ -21,7 +22,7 @@
  *
  */
 
-package dalmuti.client;
+package dalmuti.testing;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
