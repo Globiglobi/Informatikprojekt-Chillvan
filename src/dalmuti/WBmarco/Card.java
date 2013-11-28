@@ -1,5 +1,8 @@
 package dalmuti.WBmarco;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Card {
 	
 	//Attribute
@@ -22,7 +25,9 @@ public class Card {
 	
 	
 
-	// Methoden
+
+
+
 	
 	// irgendeine Karte wie Dalmuti, Erzbischof, usw. generieren
 //	public static void generateCard(String cardName, int value) {
