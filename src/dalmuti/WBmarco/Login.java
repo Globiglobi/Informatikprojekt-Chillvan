@@ -28,6 +28,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.PrintWriter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -42,9 +43,6 @@ import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class Login extends JFrame{
-
-	//Globals
-	public static String nickname;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -59,10 +57,11 @@ public class Login extends JFrame{
 	
 	
 	//GUI-Globals panelCenter
+	PrintWriter outNickname;
 	private JPanel panelCenter;
-	private JLabel lbEnterNickname;
-	public static JTextField tfEnterNickname;
-	private JButton btLogin;
+	private JLabel jlNickname;
+	private JTextField jtfNickname;
+	private JButton jbNickname;
 	
 	
 	//GUI-Globals panelSouth
@@ -80,15 +79,18 @@ public class Login extends JFrame{
 	
 
 	//nur zu Testzwecken
-//	public static void main(String[] args){
-//		new Login().setVisible(true);
-//	}
+	//public static void main(String[] args){
+	//	Login l1 = new Login();
+	//	
+	//}
 	
 
 	
 	//Constructor
 	public Login(){
 		super("Der Grosse Dalmuti - Login");
+		this.outNickname = outNickname;
+		
 		setSize(1024, 818);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -154,32 +156,32 @@ public class Login extends JFrame{
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(10, 0, 10, 0);// top, left, bottom, right
 
-		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein! (maximal 16 Zeichen)");
-		lbEnterNickname.setFont(new Font("", Font.PLAIN, 18));
+		jlNickname = new JLabel("Gib hier deinen Nickname ein! (maximal 16 Zeichen)");
+		jlNickname.setFont(new Font("", Font.PLAIN, 18));
 		gbcPanelCenter.gridy = 0;
-		panelCenter.add(lbEnterNickname);
+		panelCenter.add(jlNickname);
 
-		tfEnterNickname = new JTextField("Nickname");
-		tfEnterNickname.setPreferredSize(new Dimension(460, 30));
-		tfEnterNickname.setFont(new Font("", Font.PLAIN, 18));
-		tfEnterNickname.setHorizontalAlignment(JLabel.CENTER);
+		jtfNickname = new JTextField("Nickname");
+		jtfNickname.setPreferredSize(new Dimension(460, 30));
+		jtfNickname.setFont(new Font("", Font.PLAIN, 18));
+		jtfNickname.setHorizontalAlignment(JLabel.CENTER);
 		gbcPanelCenter.gridy = 1;
-		panelCenter.add(tfEnterNickname, gbcPanelCenter);
+		panelCenter.add(jtfNickname, gbcPanelCenter);
 
-		btLogin = new JButton("Login");
-		btLogin.setPreferredSize(new Dimension(100, 50));// width, height
-		btLogin.setFont(new Font("", Font.BOLD, 16));
-		btLogin.addActionListener(
+		jbNickname = new JButton("Login");
+		jbNickname.setPreferredSize(new Dimension(100, 50));// width, height
+		jbNickname.setFont(new Font("", Font.BOLD, 16));
+		jbNickname.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-					//nickname = tfEnterNickname.getText();
-						Client.send();
+				        System.out.println(jtfNickname.getText());
+				        System.exit(0);		
 					}
 
 				}
 		);
 		gbcPanelCenter.gridy = 2;
-		panelCenter.add(btLogin, gbcPanelCenter);
+		panelCenter.add(jbNickname, gbcPanelCenter);
 
 
 		
