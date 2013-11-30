@@ -204,7 +204,7 @@ public class Login extends JFrame{
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(lbGap2, gbcPanelSouth);
 
-		lbLogo = new JLabel(new ImageIcon(getClass().getResource("logo_trans.png")));
+		lbLogo = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/logo_trans.png")));
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(lbLogo, gbcPanelSouth);
 
@@ -228,7 +228,7 @@ public class Login extends JFrame{
 
 		lbGap5 = new JLabel("");
 		gbcPanelSouth.anchor = GridBagConstraints.LAST_LINE_START;
-		gbcPanelSouth.insets = new Insets(0, 110, 10, 110);// top, left, bottom, right
+		gbcPanelSouth.insets = new Insets(0, 120, 10, 110);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap5, gbcPanelSouth);
 
@@ -238,12 +238,12 @@ public class Login extends JFrame{
 		panelSouth.add(lbCopyright, gbcPanelSouth);
 
 		lbGap6 = new JLabel("");
-		gbcPanelSouth.insets = new Insets(0, 110, 10, 55);// top, left, bottom, right
+		gbcPanelSouth.insets = new Insets(0, 120, 10, 55);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap6, gbcPanelSouth);
 
 		lbGap7 = new JLabel("");
-		gbcPanelSouth.insets = new Insets(0, 55, 10, 110);// top, left, bottom, right
+		gbcPanelSouth.insets = new Insets(0, 65, 10, 110);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap7, gbcPanelSouth);
 	}
