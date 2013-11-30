@@ -13,12 +13,9 @@ public class MyServerThread extends Thread {
      
     public void run() {
  
-        try (
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(
-                new InputStreamReader(
-                    socket.getInputStream()));
-        ) {
+        try (PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+        	 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        ){
             String inputLine;
             String outputLine;
             MyProtocol protocol = new MyProtocol();
@@ -30,7 +27,7 @@ public class MyServerThread extends Thread {
                     break;
             }
             socket.close();
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }
