@@ -41,14 +41,11 @@ public class Client {
 	
 	//Methoden
 	//Methode zum "irgendetwas" senden (irgendetwas noch nicht komplett weil man noch nicht weiss was genau senden)
-	public static void send(){
+	public static void send(String message){
+		
+		
 	
-		//try und catch muss sein, da bei Netzwerkkommuniaktion immer etwas schief gehen kann
-		try {
-			//socket, reader, writer erstellen
-			socket = new Socket("127.0.0.1", 50018);
-			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			writer = new OutputStreamWriter(socket.getOutputStream());
+
 			
 		    //Message senden vom Client zum Server
 //			w.write(txtNewMessage.getText() + "\n");
