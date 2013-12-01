@@ -3,8 +3,8 @@ package dalmuti.server;
 public class Card {
 	
 	//Attribute
-	public String name;
-	public int value;
+	private String name;
+	private int value;
 	
 	//Konstruktor
 	public Card(String name, int value){
@@ -12,6 +12,7 @@ public class Card {
 		this.value = value;	
 	}
 	
+	//getter-Methoden
 	public String getName() {
 		return name;
 	}
@@ -20,26 +21,10 @@ public class Card {
 		return value;
 	}
 	
-	
+	//setter-Methoden
+	public void setValue(int value){
+		this.value = value;
+	}
 
-
-
-
-	
-	// irgendeine Karte wie Dalmuti, Erzbischof, usw. generieren
-//	public static void generateCard(String cardName, int value) {
-//		int index = 0;
-//		if(cardName == "Narren") {
-//			deck.add(index, (cardName, value));
-//			index++;
-//		}
-//		else {
-//		for(int i = 0; i<value; i++) {	
-//			DeckListName.add(index, (cardName));
-//			DeckListValue.add(index,(value));
-//			index++;
-//		}
-//		}
-//	}
 
 }
