@@ -17,6 +17,13 @@ public class ServerThread extends Thread{
 		){
 			//definition was der server empfangen und senden kann
 			//while-schlaufe mit der spiellogik
+			
+			//syso vom nickname
+			String inputLine;
+			while ((inputLine = in.readLine()) != null) {
+                System.out.println(inputLine);
+			}
+			
 		}catch (IOException e) {
             e.printStackTrace();
         }

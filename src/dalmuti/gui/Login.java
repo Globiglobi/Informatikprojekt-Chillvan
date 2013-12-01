@@ -28,6 +28,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.PrintWriter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -41,7 +42,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public class Login extends JFrame{
+public class Login extends JFrame implements ActionListener{
+	
+	PrintWriter out;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -75,15 +78,21 @@ public class Login extends JFrame{
 	private JLabel lbGap6;
 	private JLabel lbGap7;
 	
-	
+
+/*	//nur zu testzwecken
 	public static void main(String[] args){
 		new Login().setVisible(true);
-	}
+	}*/
 	
 
 	//Constructor
-	public Login(){
-		super("Der Grosse Dalmuti - Login");
+	public Login(PrintWriter out){
+		this.init();
+		this.out = out;
+	}
+	
+	public void init(){
+		setTitle("Der Grosse Dalmuti - Login");
 		setSize(1024, 818);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -124,7 +133,7 @@ public class Login extends JFrame{
 		
 		
 		
-		//panelNorth
+		//panelNorth - Titel
 		panelNorth = new JPanel(new GridBagLayout());
 //		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
 		add(panelNorth, BorderLayout.NORTH);
@@ -140,7 +149,7 @@ public class Login extends JFrame{
 		
 		
 		
-		//panelCenter
+		//panelCenter - Login
 		panelCenter = new JPanel(new GridBagLayout());
 //		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
 		add(panelCenter, BorderLayout.CENTER);
@@ -164,20 +173,14 @@ public class Login extends JFrame{
 		btLogin = new JButton("Login");
 		btLogin.setPreferredSize(new Dimension(100, 50));// width, height
 		btLogin.setFont(new Font("", Font.BOLD, 16));
-		btLogin.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						// create userObject(String nickname)
-					}
-				}
-		);
+		btLogin.addActionListener(this);
 		gbcPanelCenter.gridy = 2;
 		panelCenter.add(btLogin, gbcPanelCenter);
 
 		
 		
 		
-		//panelSouth
+		//panelSouth - Version + Copyright
 		panelSouth = new JPanel(new GridBagLayout());
 //		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
 		add(panelSouth, BorderLayout.SOUTH);
@@ -246,5 +249,13 @@ public class Login extends JFrame{
 		gbcPanelSouth.insets = new Insets(0, 65, 10, 110);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap7, gbcPanelSouth);
+		
+		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		this.out.println(tfEnterNickname.getText());
+		tfEnterNickname.setText("");		
 	}
 }
