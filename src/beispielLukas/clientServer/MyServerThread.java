@@ -13,7 +13,7 @@ public class MyServerThread extends Thread {
      
     public void run() {
  
-        try (
+        try ( 
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(
                 new InputStreamReader(

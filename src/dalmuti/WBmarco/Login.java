@@ -174,7 +174,9 @@ public class Login extends JFrame{
 		jbNickname.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-				        System.out.println(jtfNickname.getText());
+				        String nickname;
+				        nickname = jtfNickname.getText();
+				        Client.send(nickname);
 				        System.exit(0);		
 					}
 
