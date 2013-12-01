@@ -40,6 +40,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import dalmuti.image.*;
+
 @SuppressWarnings("serial")
 public class Login extends JFrame{
 
@@ -80,9 +82,9 @@ public class Login extends JFrame{
 	
 
 	//nur zu Testzwecken
-//	public static void main(String[] args){
-//		new Login().setVisible(true);
-//	}
+	public static void main(String[] args){
+		new Login().setVisible(true);
+	}
 	
 
 	
@@ -212,7 +214,7 @@ public class Login extends JFrame{
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(lbGap2, gbcPanelSouth);
 
-		lbLogo = new JLabel(new ImageIcon(getClass().getResource("logo_trans.png")));
+		lbLogo = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/logo_trans.png")));
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(lbLogo, gbcPanelSouth);
 
