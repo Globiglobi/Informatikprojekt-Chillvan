@@ -5,6 +5,7 @@ import java.io.*;
 
 public class ServerThread extends Thread{
 	private Socket socket = null;
+	protected long userID;
 	
 	public ServerThread(Socket socket){
 		this.socket = socket;
@@ -20,8 +21,10 @@ public class ServerThread extends Thread{
 			
 			//syso vom nickname
 			String inputLine;
+			userID = Thread.currentThread().getId();
 			while ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);
+//				System.out.println(inputLine);
+				User user+userID = new User(userID, inputLine);
 			}
 			
 		}catch (IOException e) {
