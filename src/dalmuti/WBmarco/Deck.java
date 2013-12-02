@@ -10,6 +10,7 @@ public class Deck {
 	
 	//Konstruktor
 	public Deck() {
+
 		
 		//Attribute
 		deck = new ArrayList<Card>(80); // Liste mit allen Karten-Objekten
@@ -186,6 +187,8 @@ public class Deck {
 		deck.add(narren);
 		Card narren2 = new Card("Narren", 0);
 		deck.add(narren2);	
+		
+		//Collections.shuffle(deck);
 	}
 	
 

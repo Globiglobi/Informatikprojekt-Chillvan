@@ -1,6 +1,7 @@
 package dalmuti.WBmarco;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class User {
 	
@@ -16,5 +17,13 @@ public class User {
 	}
 
 
+	//Main-Methode
+	public static void main(String[] args) {
+		
+		Deck d2 = new Deck();
+		Collections.shuffle(d2);
+		
+		
+	}
 
 }
