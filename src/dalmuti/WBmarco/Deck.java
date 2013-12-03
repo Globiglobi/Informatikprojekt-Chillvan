@@ -3,11 +3,22 @@ package dalmuti.WBmarco;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class Deck {
 	
 	//Attribute
-	public static ArrayList<Card> deck;	
+	private ArrayList<Card> deck;	
 	
+	public ArrayList<Card> getDeck() {
+		return deck;
+	}
+
+
+	public void setDeck(ArrayList<Card> deck) {
+		this.deck = deck;
+	}
+
+
 	//Konstruktor
 	public Deck() {
 
@@ -191,14 +202,16 @@ public class Deck {
 		//Collections.shuffle(deck);
 	}
 	
+	//Methoden
 
 	//Main-Methode (muss noch gelöscht werden, braucht es ja dann nicht mehr!)
 	public static void main(String[] args) {
 		
-		Deck d = new Deck();
-		Collections.shuffle(deck);
-		System.out.println(deck.get(0).getName() + ", " + deck.get(0).getValue());
+		//Deck d = new Deck();
+		//Collections.shuffle(deck);
+		//System.out.println(deck.get(0).getName() + ", " + deck.get(0).getValue());
 
+		
 	}
 
 }

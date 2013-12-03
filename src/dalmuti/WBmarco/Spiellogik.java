@@ -3,10 +3,15 @@ package dalmuti.WBmarco;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import dalmuti.WBmarco.Card;
+import dalmuti.WBmarco.Deck;
 
 
 
 public class Spiellogik {
+	
+	//Attribute
+	
 
 	public static void main(String[] args) {
 		
@@ -15,9 +20,12 @@ public class Spiellogik {
 		User u3 = new User("Bastian");
 		User u4 = new User("Fabio");
 		
-		Deck d1 = new Deck();
+		Deck d5 = new Deck();
+		System.out.println(d5.getDeck());
 		
-		dealingOutCards(u1, u2, u3, u4, d1);
+
+		
+	
 		
 
 		

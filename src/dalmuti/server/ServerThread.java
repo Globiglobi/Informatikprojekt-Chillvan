@@ -24,7 +24,9 @@ public class ServerThread extends Thread{
 			userID = Thread.currentThread().getId();
 			while ((inputLine = in.readLine()) != null) {
 //				System.out.println(inputLine);
-				User user+userID = new User(userID, inputLine);
+				//User user+userID = new User(userID, inputLine);
+				User u = new User(1, inputLine);
+				Spiellogik.userlist.add(u);
 			}
 			
 		}catch (IOException e) {

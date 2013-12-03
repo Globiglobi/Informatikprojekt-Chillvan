@@ -16,12 +16,15 @@ public class User {
 		ArrayList<Card> spielhand = new ArrayList(20);
 	}
 
+	//Mehtoden
+
 
 	//Main-Methode
 	public static void main(String[] args) {
 		
-		Deck d2 = new Deck();
-		Collections.shuffle(d2);
+		Deck d5 = new Deck();
+		System.out.println(d5.getDeck());
+		//Collections.shuffle(d2);
 		
 		
 	}
