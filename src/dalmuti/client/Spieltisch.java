@@ -32,10 +32,8 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -51,10 +49,8 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Spieltisch extends JFrame{
 	
-	PrintWriter out;
-	BufferedReader in;
-	ObjectOutputStream outobj;
-	ObjectInputStream inobj;
+	ObjectOutputStream out;
+	ObjectInputStream in;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -140,12 +136,10 @@ public class Spieltisch extends JFrame{
 	}*/
 	
 	//Constructor
-	public Spieltisch(PrintWriter out, BufferedReader in, ObjectOutputStream outobj, ObjectInputStream inobj){
+	public Spieltisch(ObjectOutputStream out, ObjectInputStream in){
 		init();
 		this.out = out;
 		this.in = in;
-		this.outobj = outobj;
-		this.inobj = inobj;
 	}
 
 	

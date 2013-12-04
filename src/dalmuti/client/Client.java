@@ -1,25 +1,20 @@
 package dalmuti.client;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 public class Client {
 
 	Login login;
 	Socket socket;
-	PrintWriter out;
-	BufferedReader in;
-	ObjectOutputStream outobj;
-	ObjectInputStream inobj;
+	ObjectOutputStream out;
+	ObjectInputStream in;
 
 	//call constructor to set up server, call gui-login, call method
 	public Client(String hostName, int portNumber) {
 		init(hostName, portNumber);
-		login = new Login(/*this.out, this.in, */this.outobj, this.inobj);
+		login = new Login(this.out, this.in);
 		receiveUserObjectFromServer();
 	}
 
@@ -27,13 +22,9 @@ public class Client {
 	public void init(String hostName, int portNumber) {
 		try {
 			socket = new Socket(hostName, portNumber);
-			
-/*			out = new PrintWriter(socket.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));*/
-			
-			outobj = new ObjectOutputStream(socket.getOutputStream());
-			outobj.flush();
-			inobj = new ObjectInputStream(socket.getInputStream());
+			out = new ObjectOutputStream(socket.getOutputStream());
+			out.flush();
+			in = new ObjectInputStream(socket.getInputStream());
 			
 		} catch (Exception e) {
 			System.out.println(e.toString());
