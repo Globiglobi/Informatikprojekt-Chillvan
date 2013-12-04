@@ -15,24 +15,22 @@ public class ServerThread extends Thread{
 	
 	public void run(){
 		
-		try/*(PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		)*/{
-			ObjectOutputStream outobj = new ObjectOutputStream(socket.getOutputStream());
-			outobj.flush();
-			ObjectInputStream inobj = new ObjectInputStream(socket.getInputStream());
+		try{
+			ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+			out.flush();
+			ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 			//definition was der server empfangen und senden kann
 			//while-schlaufe mit der spiellogik
 			
 			//syso vom nickname
-			Object inputLine;
+			Object inputObject;
 			//userID = Thread.currentThread().getId();
 			try{
-				while ((inputLine = inobj.readObject()) != null) {
-				System.out.println(inputLine);
+				while ((inputObject = in.readObject()) != null) {
+				System.out.println(inputObject);
 				}
-			}catch (ClassNotFoundException cnfe){
-				cnfe.printStackTrace();
+			}catch (ClassNotFoundException cnfException){
+				cnfException.printStackTrace();
 			}
 			
 			

@@ -32,10 +32,8 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -49,12 +47,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class Spieltisch extends JFrame{
+public class Spieltisch extends JFrame implements ActionListener{
 	
-	PrintWriter out;
-	BufferedReader in;
-	ObjectOutputStream outobj;
-	ObjectInputStream inobj;
+	ObjectOutputStream out;
+	ObjectInputStream in;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -133,19 +129,19 @@ public class Spieltisch extends JFrame{
 	private JPanel panelEastSouth;
 	private JLabel lbChat;
 		
-
-/*	//only for testing purpose
+/*
+	//only for testing purpose
 	public static void main(String[] args) {
 		new Spieltisch().setVisible(true);
-	}*/
+	}
+*/	
+	
 	
 	//Constructor
-	public Spieltisch(PrintWriter out, BufferedReader in, ObjectOutputStream outobj, ObjectInputStream inobj){
+	public Spieltisch(ObjectOutputStream out, ObjectInputStream in){
 		init();
 		this.out = out;
 		this.in = in;
-		this.outobj = outobj;
-		this.inobj = inobj;
 	}
 
 	
@@ -336,7 +332,7 @@ public class Spieltisch extends JFrame{
 					public void actionPerformed(ActionEvent event){
 						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
 						if(amountKarte3 != 0){
-							cardAmount++;
+							btReset.setText(String.valueOf(cardAmount++));
 							amountKarte3--;
 							lbAmount.setText(String.valueOf(cardAmount));
 							btKarte3.setText(String.valueOf(amountKarte3));
@@ -437,9 +433,32 @@ public class Spieltisch extends JFrame{
 		gbcPanelWestSouth.gridx = 5;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarteNarr, gbcPanelWestSouth);
+		
+		//ResetButton nicht fertig!
+		btReset = new JButton("0");
+		btReset.setHorizontalTextPosition(JButton.CENTER);
+		btReset.setVerticalTextPosition(JButton.CENTER);
+		btReset.setFont(new Font("", Font.BOLD, 72));
+		btReset.setPreferredSize(new Dimension(97,150));//width, height
+		btReset.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						//Sobald auf eine andere Karte geklickt wurde, soll amountKarteX resetet werden!
+						if(amountKarte3 != 0){
+							cardAmount--;
+							amountKarte3--;
+							lbAmount.setText(String.valueOf(cardAmount));
+							btKarte3.setText(String.valueOf(amountKarte3));
+						}
+					}
+				}
+		);
+		gbcPanelWestSouth.gridx = 2;
+		gbcPanelWestSouth.gridy = 0;
+		panelWestSouth.add(btKarte3, gbcPanelWestSouth);
 
 		
-		
+/*		
 		//panelControl - Reset Button
 		panelControl = new JPanel(new GridBagLayout());
 		panelControl.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -473,12 +492,12 @@ public class Spieltisch extends JFrame{
 		gbcPanelControl.gridx = 0;
 		gbcPanelControl.gridy = 1;
 		panelControl.add(btReset, gbcPanelControl);
-		
+*/
 
 		
 		
 		
-		//panelEast
+		//panelEast - Contains Scoreboard, Buttons, Chat
 		panelEast = new JPanel();
 //		panelEast.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelEast.setPreferredSize(new Dimension(300,768));//width, height
@@ -543,5 +562,22 @@ public class Spieltisch extends JFrame{
 		
 		lbChat = new JLabel("CHAT:");
 		panelEastSouth.add(lbChat, gbcPanelEastSouth);
+		
+		setVisible(true);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		try{
+			if(e.getSource() == btLegen){
+				this.out.writeObject("sfd");
+			}else if(e.getSource() == btPassen){
+				
+			}else if(e.getSource() == btReset){
+				
+			}
+		}catch (java.io.IOException IOException){
+			IOException.printStackTrace();
+		}
 	}
 }

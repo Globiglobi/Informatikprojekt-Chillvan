@@ -1,8 +1,8 @@
 package dalmuti.server;
 
-import java.net.*;
+import java.io.IOException;
+import java.net.ServerSocket;
 import java.util.ArrayList;
-import java.io.*;
 
 public class Server {
 	public static void main(String[] args) throws IOException{

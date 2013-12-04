@@ -28,10 +28,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -47,10 +45,8 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class Login extends JFrame implements ActionListener{
 	
-	PrintWriter out;
-	BufferedReader in;
-	ObjectOutputStream outobj;
-	ObjectInputStream inobj;
+	ObjectOutputStream out;
+	ObjectInputStream in;
 	Spieltisch spieltisch;
 	
 	//GUI-Globals menuBar
@@ -93,12 +89,10 @@ public class Login extends JFrame implements ActionListener{
 	
 
 	//Constructor
-	public Login(/*PrintWriter out, BufferedReader in, */ObjectOutputStream outobj, ObjectInputStream inobj){
+	public Login(ObjectOutputStream out, ObjectInputStream in){
 		this.init();
 		this.out = out;
 		this.in = in;
-		this.outobj = outobj;
-		this.inobj = inobj;
 	}
 	
 	public void init(){
@@ -266,13 +260,12 @@ public class Login extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try{
-			this.outobj.writeObject(tfEnterNickname.getText());
+			this.out.writeObject(tfEnterNickname.getText());
 			tfEnterNickname.setText("");
+			setVisible(false);
+			spieltisch = new Spieltisch(this.out, this.in);
 		}catch (java.io.IOException IOException){
 			IOException.printStackTrace();
 		}
-		
-/*		spieltisch = new Spieltisch(this.out, this.in, this.outobj, this.inobj);
-		System.exit(1);*/
 	}
 }
