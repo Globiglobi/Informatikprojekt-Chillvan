@@ -21,12 +21,15 @@ public class ServerThread extends Thread{
 			
 			//syso vom nickname
 			String inputLine;
-			userID = Thread.currentThread().getId();
+			//userID = Thread.currentThread().getId();
 			while ((inputLine = in.readLine()) != null) {
 //				System.out.println(inputLine);
 				//User user+userID = new User(userID, inputLine);
-				User u = new User(1, inputLine);
+				User u = new User(inputLine);
 				Spiellogik.userlist.add(u);
+				for(int i = 0; i< Spiellogik.userlist.size();i++) {
+				System.out.println(Spiellogik.userlist.get(i).getNickname());
+				}
 			}
 			
 		}catch (IOException e) {

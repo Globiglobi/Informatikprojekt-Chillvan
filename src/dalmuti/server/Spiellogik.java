@@ -6,7 +6,11 @@ public class Spiellogik {
 
 
 	//Attribute
-	static ArrayList<User> userlist = new ArrayList<User>();
+	public static ArrayList<User> userlist = new ArrayList<User>();
+	
+	public static void main(String[]args) {
+		System.out.println(userlist.get(0).getNickname());
+	}
 	
 
 }
