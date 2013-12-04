@@ -1,5 +1,5 @@
 package dalmuti.shared;
 
-public class Moves {
+public class Move {
 
 }
