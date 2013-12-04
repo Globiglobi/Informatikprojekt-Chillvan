@@ -6,12 +6,13 @@ public class User {
 	
 	private String nickname;
 	private ArrayList<Card> hand;
+	private final int MAX_Hand = 20;
 	
 	
 	
 	public User(String nickname){
 		this.nickname = nickname;
-		hand = new ArrayList<Card>(20);
+		hand = new ArrayList<Card>(MAX_Hand);
 	}
 
 	//Getter und Setter Methoden
