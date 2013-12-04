@@ -11,7 +11,7 @@ public class User {
 	
 	public User(String nickname){
 		this.nickname = nickname;
-		setHand(new ArrayList<Card>(20));
+		hand = new ArrayList<Card>(20);
 	}
 
 	//Getter und Setter Methoden
@@ -34,4 +34,9 @@ public class User {
 		this.hand = hand;
 	}
 
+	//Methoden
+	
+	
+	
+	
 }
