@@ -93,7 +93,7 @@ public class Login extends JFrame implements ActionListener{
 	
 
 	//Constructor
-	public Login(PrintWriter out, BufferedReader in, ObjectOutputStream outobj, ObjectInputStream inobj){
+	public Login(/*PrintWriter out, BufferedReader in, */ObjectOutputStream outobj, ObjectInputStream inobj){
 		this.init();
 		this.out = out;
 		this.in = in;
@@ -241,7 +241,7 @@ public class Login extends JFrame implements ActionListener{
 
 		lbGap5 = new JLabel("");
 		gbcPanelSouth.anchor = GridBagConstraints.LAST_LINE_START;
-		gbcPanelSouth.insets = new Insets(0, 120, 10, 110);// top, left, bottom, right
+		gbcPanelSouth.insets = new Insets(0, 110, 10, 110);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap5, gbcPanelSouth);
 
@@ -251,7 +251,7 @@ public class Login extends JFrame implements ActionListener{
 		panelSouth.add(lbCopyright, gbcPanelSouth);
 
 		lbGap6 = new JLabel("");
-		gbcPanelSouth.insets = new Insets(0, 120, 10, 55);// top, left, bottom, right
+		gbcPanelSouth.insets = new Insets(0, 110, 10, 55);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap6, gbcPanelSouth);
 
@@ -265,9 +265,14 @@ public class Login extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.out.println(tfEnterNickname.getText());
-		tfEnterNickname.setText("");
-		spieltisch = new Spieltisch(this.out, this.in, this.outobj, this.inobj);
-		System.exit(1);
+		try{
+			this.outobj.writeObject(tfEnterNickname.getText());
+			tfEnterNickname.setText("");
+		}catch (java.io.IOException IOException){
+			IOException.printStackTrace();
+		}
+		
+/*		spieltisch = new Spieltisch(this.out, this.in, this.outobj, this.inobj);
+		System.exit(1);*/
 	}
 }

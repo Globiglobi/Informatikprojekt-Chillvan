@@ -10,6 +10,7 @@ public class Server {
 		boolean listening = true;
 		
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
+        	System.out.println("Waiting for clients...");
             while (listening) {
                 new ServerThread(serverSocket.accept()).start();
             }

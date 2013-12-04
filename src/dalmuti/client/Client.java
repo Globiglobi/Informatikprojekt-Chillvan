@@ -19,7 +19,7 @@ public class Client {
 	//call constructor to set up server, call gui-login, call method
 	public Client(String hostName, int portNumber) {
 		init(hostName, portNumber);
-		login = new Login(this.out, this.in, this.outobj, this.inobj);
+		login = new Login(/*this.out, this.in, */this.outobj, this.inobj);
 		receiveUserObjectFromServer();
 	}
 
@@ -28,11 +28,12 @@ public class Client {
 		try {
 			socket = new Socket(hostName, portNumber);
 			
-			out = new PrintWriter(socket.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+/*			out = new PrintWriter(socket.getOutputStream(), true);
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));*/
 			
 			outobj = new ObjectOutputStream(socket.getOutputStream());
-			inobj = new ObjectInputStream(new ObjectInputStream(socket.getInputStream()));
+			outobj.flush();
+			inobj = new ObjectInputStream(socket.getInputStream());
 			
 		} catch (Exception e) {
 			System.out.println(e.toString());
