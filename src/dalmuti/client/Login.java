@@ -28,7 +28,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -263,7 +262,7 @@ public class Login extends JFrame implements ActionListener{
 		try{
 			this.out.writeObject(tfEnterNickname.getText());
 			tfEnterNickname.setText("");
-			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+			setVisible(false);
 			spieltisch = new Spieltisch(this.out, this.in);
 		}catch (java.io.IOException IOException){
 			IOException.printStackTrace();

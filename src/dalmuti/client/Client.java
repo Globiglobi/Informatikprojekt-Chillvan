@@ -7,6 +7,7 @@ import java.net.Socket;
 public class Client {
 
 	Login login;
+	Spieltisch spieltisch;
 	Socket socket;
 	ObjectOutputStream out;
 	ObjectInputStream in;
@@ -15,6 +16,8 @@ public class Client {
 	public Client(String hostName, int portNumber) {
 		init(hostName, portNumber);
 		login = new Login(this.out, this.in);
+//		spieltisch = new Spieltisch(this.out, this.in);
+//		spieltisch.setVisible(false);
 		receiveUserObjectFromServer();
 	}
 

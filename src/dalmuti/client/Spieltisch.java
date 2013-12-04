@@ -537,5 +537,7 @@ public class Spieltisch extends JFrame{
 		
 		lbChat = new JLabel("CHAT:");
 		panelEastSouth.add(lbChat, gbcPanelEastSouth);
+		
+		setVisible(true);
 	}
 }
