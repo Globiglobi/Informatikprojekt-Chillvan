@@ -13,9 +13,9 @@
  * 
  *	Zeichen 	Unicode
  *	------------------------------
- *	€, Š 		\u00c4, \u00e4
- *	…, š 		\u00d6, \u00f6
- *	†, Ÿ 		\u00dc, \u00fc
+ *	ï¿½, ï¿½ 		\u00c4, \u00e4
+ *	ï¿½, ï¿½ 		\u00d6, \u00f6
+ *	ï¿½, ï¿½ 		\u00dc, \u00fc
  *
  */
 
@@ -28,6 +28,9 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 
 import javax.swing.ImageIcon;
@@ -45,6 +48,10 @@ import javax.swing.JTextField;
 public class Login extends JFrame implements ActionListener{
 	
 	PrintWriter out;
+	BufferedReader in;
+	ObjectOutputStream outobj;
+	ObjectInputStream inobj;
+	Spieltisch spieltisch;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -86,9 +93,12 @@ public class Login extends JFrame implements ActionListener{
 	
 
 	//Constructor
-	public Login(PrintWriter out){
+	public Login(PrintWriter out, BufferedReader in, ObjectOutputStream outobj, ObjectInputStream inobj){
 		this.init();
 		this.out = out;
+		this.in = in;
+		this.outobj = outobj;
+		this.inobj = inobj;
 	}
 	
 	public void init(){
@@ -256,6 +266,8 @@ public class Login extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.out.println(tfEnterNickname.getText());
-		tfEnterNickname.setText("");		
+		tfEnterNickname.setText("");
+		spieltisch = new Spieltisch(this.out, this.in, this.outobj, this.inobj);
+		System.exit(1);
 	}
 }

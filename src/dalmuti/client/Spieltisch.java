@@ -5,7 +5,7 @@
  * 
  * todo:
  * - background image
- * - SpielflŠche!
+ * - Spielflï¿½che!
  * - Scoreboard!
  * - Chat
  * - btLegen 
@@ -15,9 +15,9 @@
  * 
  *  Zeichen 	Unicode
  *	------------------------------
- *	€, Š 		\u00c4, \u00e4
- *	…, š 		\u00d6, \u00f6
- *	†, Ÿ 		\u00dc, \u00fc
+ *	ï¿½, ï¿½ 		\u00c4, \u00e4
+ *	ï¿½, ï¿½ 		\u00d6, \u00f6
+ *	ï¿½, ï¿½ 		\u00dc, \u00fc
  *
  */
 
@@ -32,6 +32,10 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -46,6 +50,11 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Spieltisch extends JFrame{
+	
+	PrintWriter out;
+	BufferedReader in;
+	ObjectOutputStream outobj;
+	ObjectInputStream inobj;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -125,14 +134,23 @@ public class Spieltisch extends JFrame{
 	private JLabel lbChat;
 		
 
-	//only for testing purpose
+/*	//only for testing purpose
 	public static void main(String[] args) {
 		new Spieltisch().setVisible(true);
+	}*/
+	
+	//Constructor
+	public Spieltisch(PrintWriter out, BufferedReader in, ObjectOutputStream outobj, ObjectInputStream inobj){
+		init();
+		this.out = out;
+		this.in = in;
+		this.outobj = outobj;
+		this.inobj = inobj;
 	}
 
 	
-	public Spieltisch(){
-		super("Der Grosse Dalmuti - Spieltisch");
+	public void init(){
+		setTitle("Der Grosse Dalmuti - Spieltisch");
 		setSize(1024, 818);
 		setLocationRelativeTo(null);
 		setResizable(false);
