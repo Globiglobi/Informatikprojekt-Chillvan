@@ -1,4 +1,4 @@
-package dalmuti.server;
+package dalmuti.shared;
 
 public class Card {
 	

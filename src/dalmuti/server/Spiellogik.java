@@ -2,6 +2,8 @@ package dalmuti.server;
 
 import java.util.ArrayList;
 
+import dalmuti.shared.User;
+
 public class Spiellogik {
 
 

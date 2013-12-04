@@ -3,6 +3,8 @@ package dalmuti.server;
 import java.net.*;
 import java.io.*;
 
+import dalmuti.shared.User;
+
 public class ServerThread extends Thread{
 	private Socket socket = null;
 	protected long userID;

@@ -1,4 +1,4 @@
-package dalmuti.server;
+package dalmuti.shared;
 
 import java.util.ArrayList;
 import java.util.Collections;
