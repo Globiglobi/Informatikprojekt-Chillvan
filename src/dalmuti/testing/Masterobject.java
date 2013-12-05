@@ -17,17 +17,17 @@ public class Masterobject {
 	public ArrayList<Move> moves;
 
 	// Constructor
-	public Masterobject() {
+	public Masterobject(ArrayList<User> userlist) {
 		this.activeusers = userlist;
 		passivusers = new ArrayList<User>(activeusers.size());
+		
 	}
 
 	// Methods
 	// Create, shuffle and distribute Cards
 	public void docards() {
 		// 1 Kartendeck erstellen
-		ArrayList<Card> deck = new ArrayList<Card>(80);
-		deck = Deck.createdeck();
+		ArrayList<Card> deck = new ArrayList<Card>(Deck.createdeck());
 
 		// Kartendeck mischeln
 		Collections.shuffle(deck);
