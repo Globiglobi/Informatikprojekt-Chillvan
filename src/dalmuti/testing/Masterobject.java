@@ -9,6 +9,11 @@ import dalmuti.shared.Move;
 import dalmuti.shared.User;
 
 public class Masterobject {
+	
+	User u1 = new User("Mario");
+	User u2 = new User("Luigi");
+	User u3 = new User("Peach");
+	User u4 = new User("Yoshi");
 
 	// Attributes
 	public ArrayList<User> activeusers;
