@@ -435,7 +435,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		panelWestSouth.add(btKarteNarr, gbcPanelWestSouth);
 		
 		//ResetButton nicht fertig!
-		btReset = new JButton("0");
+		btReset = new JButton("0", new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
 		btReset.setHorizontalTextPosition(JButton.CENTER);
 		btReset.setVerticalTextPosition(JButton.CENTER);
 		btReset.setFont(new Font("", Font.BOLD, 72));
@@ -444,18 +444,13 @@ public class Spieltisch extends JFrame implements ActionListener{
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
 						//Sobald auf eine andere Karte geklickt wurde, soll amountKarteX resetet werden!
-						if(amountKarte3 != 0){
-							cardAmount--;
-							amountKarte3--;
-							lbAmount.setText(String.valueOf(cardAmount));
-							btKarte3.setText(String.valueOf(amountKarte3));
-						}
+
 					}
 				}
 		);
-		gbcPanelWestSouth.gridx = 2;
-		gbcPanelWestSouth.gridy = 0;
-		panelWestSouth.add(btKarte3, gbcPanelWestSouth);
+		gbcPanelWestSouth.gridx = 6;
+		gbcPanelWestSouth.gridy = 1;
+		panelWestSouth.add(btReset, gbcPanelWestSouth);
 
 		
 /*		
