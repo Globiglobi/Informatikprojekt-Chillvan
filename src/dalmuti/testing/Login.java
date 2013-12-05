@@ -13,9 +13,9 @@
  * 
  *	Zeichen 	Unicode
  *	------------------------------
- *	€, Š 		\u00c4, \u00e4
- *	…, š 		\u00d6, \u00f6
- *	†, Ÿ 		\u00dc, \u00fc
+ *	ï¿½, ï¿½ 		\u00c4, \u00e4
+ *	ï¿½, ï¿½ 		\u00d6, \u00f6
+ *	ï¿½, ï¿½ 		\u00dc, \u00fc
  *
  */
 
@@ -33,6 +33,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -40,13 +41,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import dalmuti.image.*;
-
 @SuppressWarnings("serial")
 public class Login extends JFrame{
 
 	//Globals
 	public static String nickname;
+	
+	//GUI-Globals JLayeredPane
+	private JLayeredPane layeredPane;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -130,11 +132,15 @@ public class Login extends JFrame{
 
 		
 		
+		//layeredPane
+		layeredPane = new JLayeredPane();
+		add(layeredPane);
 		
-		//panelNorth
+		
+		//panelNorth -Titel
 		panelNorth = new JPanel(new GridBagLayout());
 //		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(panelNorth, BorderLayout.NORTH);
+		layeredPane.add(panelNorth, BorderLayout.NORTH);
 		
 		//Components in panelNorth
 		GridBagConstraints gbcPanelNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -147,10 +153,10 @@ public class Login extends JFrame{
 		
 		
 		
-		//panelCenter
+		//panelCenter - Enter Nickname + LoginButton
 		panelCenter = new JPanel(new GridBagLayout());
 //		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(panelCenter, BorderLayout.CENTER);
+		layeredPane.add(panelCenter, BorderLayout.CENTER);
 		
 		//Components in panelCenter
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -190,7 +196,7 @@ public class Login extends JFrame{
 		//panelSouth
 		panelSouth = new JPanel(new GridBagLayout());
 //		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(panelSouth, BorderLayout.SOUTH);
+		layeredPane.add(panelSouth, BorderLayout.SOUTH);
 		
 		//Components in panelSouth
 		GridBagConstraints gbcPanelSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
