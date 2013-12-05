@@ -81,7 +81,6 @@ public class Spieltisch extends JFrame implements ActionListener{
 	
 	//GUI-Globals panelWestSouth - deine karten
 	private JPanel panelWestSouth;
-	private JPanel panelControl;
 	private JButton btKarte1;
 	private JButton btKarte2;
 	private JButton btKarte3;
@@ -95,13 +94,16 @@ public class Spieltisch extends JFrame implements ActionListener{
 	private JButton btKarte11;
 	private JButton btKarte12;
 	private JButton btKarteNarr;
-	private JLabel lbAmount;
 	private JButton btReset;
 	
 	private static int cardAmount = 0;
-	private int amountKarte1 = 5;
-	private int amountKarte2 = 5;
-	private int amountKarte3 = 5;
+	private static int resetAmount = 0;
+	private int amountKarte1 = 1;
+	private boolean useKarte1 = false;
+	private int amountKarte2 = 2;
+	private boolean useKarte2 = false;
+	private int amountKarte3 = 3;
+	private boolean useKarte3 = false;
 	private int amountKarte4 = 0;
 	private int amountKarte5 = 0;
 	private int amountKarte6 = 0;
@@ -279,11 +281,20 @@ public class Spieltisch extends JFrame implements ActionListener{
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
 						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
+						if(useKarte1 == false){
+							resetAmount = amountKarte1;
+						}
+						useKarte1 = true;
 						if(amountKarte1 != 0){
-							cardAmount++;
-							amountKarte1--;
-							lbAmount.setText(String.valueOf(cardAmount));
-							btKarte1.setText(String.valueOf(amountKarte1));
+							if(useKarte1 == true && useKarte2 == false && useKarte3 == false){
+								cardAmount++;
+								amountKarte1--;
+								btReset.setText(String.valueOf(cardAmount));
+								btKarte1.setText(String.valueOf(amountKarte1));
+							}else{
+								
+							}
+
 						}
 					}
 				}
@@ -301,11 +312,16 @@ public class Spieltisch extends JFrame implements ActionListener{
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
 						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
+						useKarte2 = true;
 						if(amountKarte2 != 0){
-							cardAmount++;
-							amountKarte2--;
-							lbAmount.setText(String.valueOf(cardAmount));
-							btKarte2.setText(String.valueOf(amountKarte2));
+							if(useKarte1 == false && useKarte2 == true && useKarte3 == false){
+								cardAmount++;
+								amountKarte2--;
+								btReset.setText(String.valueOf(cardAmount));
+								btKarte2.setText(String.valueOf(amountKarte2));
+							}else{
+								
+							}
 						}
 					}
 				}
@@ -324,9 +340,9 @@ public class Spieltisch extends JFrame implements ActionListener{
 					public void actionPerformed(ActionEvent event){
 						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
 						if(amountKarte3 != 0 && cardAmount != 0){
-							btReset.setText(String.valueOf(cardAmount++));
+							cardAmount++;
 							amountKarte3--;
-							lbAmount.setText(String.valueOf(cardAmount));
+							btReset.setText(String.valueOf(cardAmount));
 							btKarte3.setText(String.valueOf(amountKarte3));
 						}
 					}
