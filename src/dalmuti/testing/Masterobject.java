@@ -9,12 +9,7 @@ import dalmuti.shared.Move;
 import dalmuti.shared.User;
 
 public class Masterobject {
-	
-	User u1 = new User("Mario");
-	User u2 = new User("Luigi");
-	User u3 = new User("Peach");
-	User u4 = new User("Yoshi");
-
+		
 	// Attributes
 	public ArrayList<User> activeusers;
 	public ArrayList<User> passivusers;
@@ -43,5 +38,24 @@ public class Masterobject {
 				this.activeusers.get(i).getHand().add(deck.remove(0));
 			}
 		}
+	}
+	public static void main(String[] args){
+		
+		ArrayList<User> userlist = new ArrayList<User>(4);
+		
+		User u1 = new User("Mario");
+		User u2 = new User("Luigi");
+		User u3 = new User("Peach");
+		User u4 = new User("Yoshi");
+		
+		userlist.add(u1);
+		userlist.add(u2);
+		userlist.add(u3);
+		userlist.add(u4);
+		
+		Masterobject mo = new Masterobject(userlist);
+		mo.docards();
+		
+
 	}
 }
