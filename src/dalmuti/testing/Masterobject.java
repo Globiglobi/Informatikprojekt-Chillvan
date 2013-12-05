@@ -1,7 +1,12 @@
-package dalmuti.shared;
+package dalmuti.testing;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import dalmuti.shared.Card;
+import dalmuti.shared.Deck;
+import dalmuti.shared.Move;
+import dalmuti.shared.User;
 
 public class Masterobject {
 
@@ -12,17 +17,17 @@ public class Masterobject {
 	public ArrayList<Move> moves;
 
 	// Constructor
-	public Masterobject(ArrayList<User> userlist) {
+	public Masterobject() {
 		this.activeusers = userlist;
 		passivusers = new ArrayList<User>(activeusers.size());
-		
 	}
 
 	// Methods
 	// Create, shuffle and distribute Cards
 	public void docards() {
 		// 1 Kartendeck erstellen
-		ArrayList<Card> deck = new ArrayList<Card>(Deck.createdeck());
+		ArrayList<Card> deck = new ArrayList<Card>(80);
+		deck = Deck.createdeck();
 
 		// Kartendeck mischeln
 		Collections.shuffle(deck);

@@ -42,6 +42,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import dalmuti.shared.User;
+
 @SuppressWarnings("serial")
 public class Login extends JFrame implements ActionListener{
 	
@@ -260,7 +262,8 @@ public class Login extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try{
-			this.out.writeObject(tfEnterNickname.getText());
+			User Loginuser = new User(tfEnterNickname.getText());
+			this.out.writeObject(Loginuser);
 			tfEnterNickname.setText("");
 			setVisible(false);
 			spieltisch = new Spieltisch(this.out, this.in);
