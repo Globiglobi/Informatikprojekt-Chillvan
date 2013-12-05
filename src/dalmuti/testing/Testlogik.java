@@ -2,9 +2,10 @@ package dalmuti.testing;
 
 	import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 import dalmuti.shared.Card;
-	import dalmuti.shared.Deck;
+import dalmuti.shared.Deck;
 import dalmuti.shared.Masterobject;
 import dalmuti.shared.User;
 
@@ -34,14 +35,24 @@ import dalmuti.shared.User;
 				mo.docards();
 				
 				for(int k = 0; k < mo.activeusers.get(0).getHand().size(); k++){
-				System.out.println(k + " " + mo.activeusers.get(0).getHand().get(k).getName());
+				System.out.println(k + " " + mo.activeusers.get(0).getHand().get(k).getName() + " " + mo.activeusers.get(0).getHand().get(k).getValue());
 
 			}
-				System.out.println(mo.activeusers.get(0).getHand().size());
-				System.out.println(mo.activeusers.get(1).getHand().size());
-				System.out.println(mo.activeusers.get(2).getHand().size());
-				System.out.println(mo.activeusers.get(3).getHand().size());
-				
+//				System.out.println(mo.activeusers.get(0).getHand().size());
+//				System.out.println(mo.activeusers.get(1).getHand().size());
+//				System.out.println(mo.activeusers.get(2).getHand().size());
+//				System.out.println(mo.activeusers.get(3).getHand().size());
+//				
+				mo.activeusers.get(0).calcamount();
+				int[] array = mo.activeusers.get(0).getAmount();
+				for (int a: array){
+					System.out.println(a);
+				}
+//				Iterator<Card> e = mo.activeusers.get(0).getHand().iterator();
+//				while(e.hasNext()){
+//					System.out.println(e.next().getValue()); 
+//				
+//				}
 			}
 
 		}
