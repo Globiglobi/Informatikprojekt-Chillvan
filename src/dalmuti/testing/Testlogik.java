@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Iterator;
 
 import dalmuti.shared.Card;
-import dalmuti.shared.Deck;
 import dalmuti.shared.Masterobject;
 import dalmuti.shared.User;
 

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import dalmuti.shared.Card;
-import dalmuti.shared.Deck;
 import dalmuti.shared.Move;
 import dalmuti.shared.User;
 
