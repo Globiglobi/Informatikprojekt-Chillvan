@@ -38,5 +38,7 @@ public class Masterobject implements Serializable{
 				this.activeusers.get(i).getHand().add(deck.remove(0));
 			}
 		}
+		//fill amount array
+		for(this.activeusers.)
 	}
 }

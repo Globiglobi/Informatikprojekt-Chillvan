@@ -9,12 +9,14 @@ public class User implements Serializable {
 	private String nickname;
 	private ArrayList<Card> hand;
 	private int[] amount;
+	private boolean active;
 	private final int MAX_Hand = 20;
 
 	public User(String nickname) {
 		this.nickname = nickname;
 		hand = new ArrayList<Card>(MAX_Hand);
 		amount = new int[13];
+		setActive(false);
 	}
 
 	// Getter und Setter Methoden
@@ -40,6 +42,15 @@ public class User implements Serializable {
 
 	public void setAmount(int[] amount) {
 		this.amount = amount;
+	}
+
+	public boolean getActive() {
+		return active;
+	}
+
+	public boolean setActive(boolean active) {
+		this.active = active;
+		return active;
 	}
 
 	// Methoden
