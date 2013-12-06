@@ -1,8 +1,11 @@
 package dalmuti.client;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+
+import dalmuti.shared.Masterobject;
 
 public class Client {
 
@@ -11,6 +14,8 @@ public class Client {
 	Socket socket;
 	ObjectOutputStream out;
 	ObjectInputStream in;
+	Object inputObject;
+	Masterobject mo = new Masterobject();
 
 	//call constructor to set up server, call gui-login, call method
 	public Client(String hostName, int portNumber) {
@@ -18,7 +23,8 @@ public class Client {
 		login = new Login(this.out, this.in);
 //		spieltisch = new Spieltisch(this.out, this.in);
 //		spieltisch.setVisible(false);
-		receiveUserObjectFromServer();
+		receiveObjectFromServer();
+		
 	}
 
 	//set up connection to server
@@ -29,14 +35,34 @@ public class Client {
 			out.flush();
 			in = new ObjectInputStream(socket.getInputStream());
 			
+			
+		
+			
 		} catch (Exception e) {
 			System.out.println(e.toString());
 			System.exit(1);
 		}
 	}
 	
-	public void receiveUserObjectFromServer(/*Object user*/){
+	public void receiveObjectFromServer(/*Object user*/){
 		//receive the UserObject and do whatever the client has to do...
+		try{
+			while ((inputObject = in.readObject()) != null) {
+				if (inputObject instanceof Masterobject) {
+				    mo = (Masterobject) inputObject;
+				    
+//				    System.out.println(mo.activeusers.get(0).getNickname());
+//				    System.out.println(mo.activeusers.get(0).getHand().get(0).getName());
+//				    //...
+				}
+				
+				else {
+				    System.out.println("Unexpected object type:  " + inputObject.getClass().getName());
+				}
+			}
+		}catch (ClassNotFoundException | IOException cnfException) {
+			cnfException.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args){         

@@ -3,8 +3,9 @@ package dalmuti.shared;
 import java.util.ArrayList;
 import java.util.Collections;
 import dalmuti.shared.Card;
+import java.io.Serializable;
 
-public class Masterobject {
+public class Masterobject implements Serializable{
 
 	// Attributes
 	public ArrayList<User> activeusers;
@@ -13,6 +14,9 @@ public class Masterobject {
 	public ArrayList<Move> moves;
 
 	// Constructor
+	public Masterobject(){
+	}
+	
 	public Masterobject(ArrayList<User> userlist) {
 		this.activeusers = userlist;
 		passivusers = new ArrayList<User>(activeusers.size());
