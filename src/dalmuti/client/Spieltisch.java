@@ -278,6 +278,16 @@ public class Spieltisch extends JFrame implements ActionListener{
 		GridBagConstraints gbcPanelWestSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestSouth.insets = new Insets(0,0,0,0);//top, left, bottom, right
 				
+		
+		btKarteNarr = new JButton(String.valueOf(amountKarteNarr), new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
+		btKarteNarr.setHorizontalTextPosition(JButton.CENTER);
+		btKarteNarr.setVerticalTextPosition(JButton.CENTER);
+		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
+		btKarteNarr.setPreferredSize(new Dimension(97,150));//width, height
+		gbcPanelWestSouth.gridx = 0;
+		gbcPanelWestSouth.gridy = 0;
+		panelWestSouth.add(btKarteNarr, gbcPanelWestSouth);
+		
 		btKarte1 = new JButton(String.valueOf(amountKarte1), new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
 		btKarte1.setHorizontalTextPosition(JButton.CENTER);
 		btKarte1.setVerticalTextPosition(JButton.CENTER);
@@ -296,7 +306,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 					}
 				}
 		);
-		gbcPanelWestSouth.gridx = 0;
+		gbcPanelWestSouth.gridx = 1;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte1, gbcPanelWestSouth);
 		
@@ -318,7 +328,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 					}
 				}
 		);
-		gbcPanelWestSouth.gridx = 1;
+		gbcPanelWestSouth.gridx = 2;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte2, gbcPanelWestSouth);
 		
@@ -340,7 +350,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 					}
 				}
 		);
-		gbcPanelWestSouth.gridx = 2;
+		gbcPanelWestSouth.gridx = 3;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte3, gbcPanelWestSouth);
 		
@@ -349,7 +359,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte4.setVerticalTextPosition(JButton.CENTER);
 		btKarte4.setFont(new Font("", Font.BOLD, 72));
 		btKarte4.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 3;
+		gbcPanelWestSouth.gridx = 4;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte4, gbcPanelWestSouth);
 		
@@ -358,7 +368,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte5.setVerticalTextPosition(JButton.CENTER);
 		btKarte5.setFont(new Font("", Font.BOLD, 72));
 		btKarte5.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 4;
+		gbcPanelWestSouth.gridx = 5;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte5, gbcPanelWestSouth);
 		
@@ -367,7 +377,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte6.setVerticalTextPosition(JButton.CENTER);
 		btKarte6.setFont(new Font("", Font.BOLD, 72));
 		btKarte6.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 5;
+		gbcPanelWestSouth.gridx = 6;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte6, gbcPanelWestSouth);
 		
@@ -376,8 +386,8 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte7.setVerticalTextPosition(JButton.CENTER);
 		btKarte7.setFont(new Font("", Font.BOLD, 72));
 		btKarte7.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 6;
-		gbcPanelWestSouth.gridy = 0;
+		gbcPanelWestSouth.gridx = 0;
+		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte7, gbcPanelWestSouth);
 		
 		btKarte8 = new JButton(String.valueOf(amountKarte8), new ImageIcon(getClass().getResource("/dalmuti/image/karte8.jpg")));
@@ -385,7 +395,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte8.setVerticalTextPosition(JButton.CENTER);
 		btKarte8.setFont(new Font("", Font.BOLD, 72));
 		btKarte8.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 0;
+		gbcPanelWestSouth.gridx = 1;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte8, gbcPanelWestSouth);
 		
@@ -394,7 +404,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte9.setVerticalTextPosition(JButton.CENTER);
 		btKarte9.setFont(new Font("", Font.BOLD, 72));
 		btKarte9.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 1;
+		gbcPanelWestSouth.gridx = 2;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte9, gbcPanelWestSouth);
 		
@@ -403,7 +413,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte10.setVerticalTextPosition(JButton.CENTER);
 		btKarte10.setFont(new Font("", Font.BOLD, 72));
 		btKarte10.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 2;
+		gbcPanelWestSouth.gridx = 3;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte10, gbcPanelWestSouth);
 		
@@ -412,7 +422,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte11.setVerticalTextPosition(JButton.CENTER);
 		btKarte11.setFont(new Font("", Font.BOLD, 72));
 		btKarte11.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 3;
+		gbcPanelWestSouth.gridx = 4;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte11, gbcPanelWestSouth);
 		
@@ -421,18 +431,9 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte12.setVerticalTextPosition(JButton.CENTER);
 		btKarte12.setFont(new Font("", Font.BOLD, 72));
 		btKarte12.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 4;
-		gbcPanelWestSouth.gridy = 1;
-		panelWestSouth.add(btKarte12, gbcPanelWestSouth);
-		
-		btKarteNarr = new JButton(String.valueOf(amountKarteNarr), new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
-		btKarteNarr.setHorizontalTextPosition(JButton.CENTER);
-		btKarteNarr.setVerticalTextPosition(JButton.CENTER);
-		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
-		btKarteNarr.setPreferredSize(new Dimension(97,150));//width, height
 		gbcPanelWestSouth.gridx = 5;
 		gbcPanelWestSouth.gridy = 1;
-		panelWestSouth.add(btKarteNarr, gbcPanelWestSouth);
+		panelWestSouth.add(btKarte12, gbcPanelWestSouth);
 		
 		//ResetButton nicht fertig!
 		btReset = new JButton("0", new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
