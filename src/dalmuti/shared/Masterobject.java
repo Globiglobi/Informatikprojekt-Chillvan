@@ -2,6 +2,7 @@ package dalmuti.shared;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import dalmuti.shared.Card;
 
 public class Masterobject {
 
@@ -22,7 +23,7 @@ public class Masterobject {
 	// Create, shuffle and distribute Cards
 	public void docards() {
 		// 1 Kartendeck erstellen
-		ArrayList<Card> deck = new ArrayList<Card>(Deck.createdeck());
+		ArrayList<Card> deck = new ArrayList<Card>(Card.createdeck());
 
 		// Kartendeck mischeln
 		Collections.shuffle(deck);
