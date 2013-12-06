@@ -32,7 +32,6 @@ public class ServerThread extends Thread {
 			// while-schlaufe mit der spiellogik
 			
 			
-			// syso vom nickname
 			Object inputObject;
 			// userID = Thread.currentThread().getId();
 			try {
@@ -58,6 +57,9 @@ public class ServerThread extends Thread {
 
 						Masterobject mo = new Masterobject(userlist);
 						mo.docards();
+						
+						//Testsend
+						out.writeObject(mo);
 						
 						//Testoutput
 						

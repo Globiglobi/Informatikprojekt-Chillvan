@@ -1,8 +1,9 @@
 package dalmuti.shared;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Card {
+public class Card implements Serializable{
 	
 	//Attribute
 	private String name;
