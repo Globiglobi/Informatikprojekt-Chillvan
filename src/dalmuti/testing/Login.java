@@ -13,9 +13,9 @@
  * 
  *	Zeichen 	Unicode
  *	------------------------------
- *	�, � 		\u00c4, \u00e4
- *	�, � 		\u00d6, \u00f6
- *	�, � 		\u00dc, \u00fc
+ *	���, ��� 		\u00c4, \u00e4
+ *	���, ��� 		\u00d6, \u00f6
+ *	���, ��� 		\u00dc, \u00fc
  *
  */
 
@@ -140,7 +140,7 @@ public class Login extends JFrame{
 		//panelNorth -Titel
 		panelNorth = new JPanel(new GridBagLayout());
 //		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
-		layeredPane.add(panelNorth, BorderLayout.NORTH);
+		add(panelNorth, BorderLayout.NORTH);
 		
 		//Components in panelNorth
 		GridBagConstraints gbcPanelNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -156,7 +156,7 @@ public class Login extends JFrame{
 		//panelCenter - Enter Nickname + LoginButton
 		panelCenter = new JPanel(new GridBagLayout());
 //		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-		layeredPane.add(panelCenter, BorderLayout.CENTER);
+		add(panelCenter, BorderLayout.CENTER);
 		
 		//Components in panelCenter
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -196,7 +196,7 @@ public class Login extends JFrame{
 		//panelSouth
 		panelSouth = new JPanel(new GridBagLayout());
 //		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
-		layeredPane.add(panelSouth, BorderLayout.SOUTH);
+		add(panelSouth, BorderLayout.SOUTH);
 		
 		//Components in panelSouth
 		GridBagConstraints gbcPanelSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
