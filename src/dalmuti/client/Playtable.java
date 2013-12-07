@@ -43,7 +43,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	ObjectOutputStream out;
 	ObjectInputStream in;
 	static Masterobject mo;
-	static int[] newhand;
+	static int[] newhand = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	static int[] handcopy;
 	static int[] display = new int[2];
 	
@@ -98,19 +98,19 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	private JButton btReset;
 	
 	private static int cardAmount = 0;
-	private int amountKarte1 = 5;
-	private int amountKarte2 = 5;
-	private int amountKarte3 = 5;
-	private int amountKarte4 = 0;
-	private int amountKarte5 = 0;
-	private int amountKarte6 = 0;
-	private int amountKarte7 = 0;
-	private int amountKarte8 = 0;
-	private int amountKarte9 = 0;
-	private int amountKarte10 = 0;
-	private int amountKarte11 = 0;
-	private int amountKarte12 = 0;
-	private int amountKarteNarr = 0;
+	private int amountKarte1 = newhand[1];
+	private int amountKarte2 = newhand[2];
+	private int amountKarte3 = newhand[3];
+	private int amountKarte4 = newhand[4];
+	private int amountKarte5 = newhand[5];
+	private int amountKarte6 = newhand[6];
+	private int amountKarte7 = newhand[7];
+	private int amountKarte8 = newhand[8];
+	private int amountKarte9 = newhand[9];
+	private int amountKarte10 = newhand[10];
+	private int amountKarte11 = newhand[11];
+	private int amountKarte12 = newhand[12];
+	private int amountKarteNarr = newhand[0];
 	
 	//GUI-Globals panelEast
 	private JPanel panelEast;
