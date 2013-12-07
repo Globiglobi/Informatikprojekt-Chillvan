@@ -61,15 +61,15 @@ public class ServerThread extends Thread {
 						//Testsend
 						out.writeObject(mo);
 						
-						//Testoutput
-						
-						for(int a: mo.activeusers.get(0).getAmount()){
-							System.out.print(a + " ");
-						}
-						System.out.println(mo.activeusers.get(0).getHand()[12]);
-						System.out.println(mo.activeusers.get(1).getHand()[0]);
-						System.out.println(mo.activeusers.get(2).getHand()[0]);
-						System.out.println(mo.activeusers.get(3).getHand()[0]);
+//						//Testoutput
+//						
+//						for(int a: mo.activeusers.get(0).getHand()){
+//							System.out.print(a + " ");
+//						}
+//						System.out.println(mo.activeusers.get(0).getHand()[12]);
+//						System.out.println(mo.activeusers.get(1).getHand()[0]);
+//						System.out.println(mo.activeusers.get(2).getHand()[0]);
+//						System.out.println(mo.activeusers.get(3).getHand()[0]);
 					}
 				}
 			} catch (ClassNotFoundException cnfException) {
