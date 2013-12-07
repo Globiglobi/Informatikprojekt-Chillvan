@@ -15,8 +15,7 @@ public class Methods {
 			newhand[button]--;
 		}
 		// in case new button gets clicked
-		else if (newhand[button] == handcopy[button]
-				&& newhand[button] >= 1) {
+		else if (newhand[button] == handcopy[button] && newhand[button] >= 1) {
 			newhand = handcopy;
 			newhand[button]--;
 		}
@@ -26,6 +25,26 @@ public class Methods {
 
 	}
 
+	public static void narrclick() {
+		// in case no card has been played yet
+		if ((display[0] == 0 || display[0] == 13) && newhand[0] >= 1) {
+			newhand[0]--;
+			display[0] = 13;
+			display[1]++;
+		}
+		// in case another card has been played
+		else if (display[0] != 0 && newhand[0] >= 1) {
+			newhand[0]--;
+			display[1]++;
+		}
+	}
+	
+	public static void resetclick(){
+		newhand = handcopy;
+		display[0] = 0;
+		display[1] = 0;
+	}
+
 	// place cards
 	public static void placecards() {
 		int activeplayer = mo.whosactive();
@@ -33,7 +52,9 @@ public class Methods {
 		mo.playedcards = display;
 		mo.activeusers.get(activeplayer).setActive(false);
 		mo.activeusers.get(nextplayer(activeplayer)).setActive(true);
-		
+		display[0] = 0;
+		display[1] = 0;
+
 	}
 
 	// pass round
@@ -41,12 +62,15 @@ public class Methods {
 		int activeplayer = mo.whosactive();
 		mo.activeusers.get(activeplayer).setActive(false);
 		mo.activeusers.get(nextplayer(activeplayer)).setActive(true);
+		display[0] = 0;
+		display[1] = 0;
 
 	}
+
 	// Determine next player
-	public static int nextplayer(int currentplayer){
-		int nextplayer = currentplayer+1;
-		if(nextplayer > mo.activeusers.size()-1){
+	public static int nextplayer(int currentplayer) {
+		int nextplayer = currentplayer + 1;
+		if (nextplayer > mo.activeusers.size() - 1) {
 			nextplayer = 0;
 		}
 		return nextplayer;
