@@ -39,6 +39,7 @@ public class Methods {
 		}
 	}
 	
+	// click on resetbutton
 	public static void resetclick(){
 		newhand = handcopy;
 		display[0] = 0;
