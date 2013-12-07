@@ -19,7 +19,7 @@ public class ServerThread extends Thread {
 
 	public ServerThread(Socket socket) {
 		this.socket = socket;
-		Server.ssList.add(socket);
+		Server.sList.add(socket);
 	}
 
 	public void run() {
@@ -67,11 +67,12 @@ public class ServerThread extends Thread {
 						}
 */						
 						
-						//print ssList
-						System.out.println(Server.ssList.get(0).toString());
-						System.out.println(Server.ssList.get(1).toString());
-						System.out.println(Server.ssList.get(2).toString());
-						System.out.println(Server.ssList.get(3).toString());
+						//print sList
+						System.out.println(Server.sList.get(0).toString());
+						System.out.println(Server.sList.get(1).toString());
+						System.out.println(Server.sList.get(2).toString());
+						System.out.println(Server.sList.get(3).toString());
+						
 						
 //						//Testoutput
 //						
