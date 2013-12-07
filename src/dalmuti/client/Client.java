@@ -10,7 +10,7 @@ import dalmuti.shared.Masterobject;
 public class Client {
 
 	Login login;
-	Spieltisch spieltisch;
+	Playtable playtable;
 	Socket socket;
 	ObjectOutputStream out;
 	ObjectInputStream in;

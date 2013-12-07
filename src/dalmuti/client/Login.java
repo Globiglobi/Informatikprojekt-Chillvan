@@ -43,7 +43,7 @@ public class Login extends JFrame implements ActionListener{
 	
 	ObjectOutputStream out;
 	ObjectInputStream in;
-	Spieltisch spieltisch;
+	Playtable playtable;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -260,7 +260,7 @@ public class Login extends JFrame implements ActionListener{
 			this.out.writeObject(Loginuser);
 			tfEnterNickname.setText("");
 			setVisible(false);
-			spieltisch = new Spieltisch(this.out, this.in);
+			playtable = new Playtable(this.out, this.in);
 		}catch (java.io.IOException IOException){
 			IOException.printStackTrace();
 		}
