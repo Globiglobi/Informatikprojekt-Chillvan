@@ -282,7 +282,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
 						int i = 0;
-//						Methods.cardclick(i);
+						cardclick(i);
 					}
 				}
 		);
@@ -300,7 +300,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
 						int i = 1;
-//						cardclick(i);
+						cardclick(i);
 					}
 				}
 		);
@@ -316,8 +316,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte2.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						//Display the glassPane  
-//						glassPane.setVisible(true); 
+						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte2.jpg")));
+						int i = 2;
+						cardclick(i);
 					}
 				}
 		);
@@ -333,7 +334,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte3.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-
+						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte3.jpg")));
+						int i = 3;
+						cardclick(i);
 					}
 				}
 		);
@@ -400,6 +403,15 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte10.setVerticalTextPosition(JButton.CENTER);
 		btKarte10.setFont(new Font("", Font.BOLD, 72));
 		btKarte10.setPreferredSize(new Dimension(97,150));//width, height
+		btKarte10.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte10.jpg")));
+						int i = 10;
+						cardclick(i);
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 3;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte10, gbcPanelWestSouth);
@@ -409,6 +421,15 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte11.setVerticalTextPosition(JButton.CENTER);
 		btKarte11.setFont(new Font("", Font.BOLD, 72));
 		btKarte11.setPreferredSize(new Dimension(97,150));//width, height
+		btKarte11.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte11.jpg")));
+						int i = 11;
+						cardclick(i);
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 4;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte11, gbcPanelWestSouth);
@@ -418,6 +439,15 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte12.setVerticalTextPosition(JButton.CENTER);
 		btKarte12.setFont(new Font("", Font.BOLD, 72));
 		btKarte12.setPreferredSize(new Dimension(97,150));//width, height
+		btKarte12.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte12.jpg")));
+						int i = 12;
+						cardclick(i);
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 5;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte12, gbcPanelWestSouth);
@@ -434,8 +464,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btReset.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						//Sobald auf eine andere Karte geklickt wurde, soll amountKarteX resetet werden!
-
+						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
+						resetclick();
 					}
 				}
 		);
@@ -444,41 +474,6 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		panelWestSouth.add(btReset, gbcPanelWestSouth);
 
 		
-/*		
-		//panelControl - Reset Button
-		panelControl = new JPanel(new GridBagLayout());
-		panelControl.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelControl.setPreferredSize(new Dimension(97,150));//width, height
-		gbcPanelWestSouth.gridx = 6;
-		gbcPanelWestSouth.gridy = 1;
-		panelWestSouth.add(panelControl, gbcPanelWestSouth);
-		
-		GridBagConstraints gbcPanelControl = new GridBagConstraints();//Use GridBagConstraints to place the components
-		gbcPanelControl.insets = new Insets(25,0,0,0);//top, left, bottom, right
-		
-		lbAmount = new JLabel("0");
-		lbAmount.setFont(new Font("", Font.BOLD, 72));
-		gbcPanelControl.gridx = 0;
-		gbcPanelControl.gridy = 0;
-		panelControl.add(lbAmount, gbcPanelControl);
-		
-		btReset = new JButton("Reset");
-		btReset.setPreferredSize(new Dimension(90,20));//width, height
-		btReset.setFont(new Font("", Font.PLAIN, 12));
-		btReset.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						cardAmount = 0;
-						lbAmount.setText(String.valueOf(cardAmount));
-						//reset also the amountKarteX!
-					}
-				}
-		);
-		gbcPanelControl.insets = new Insets(0,5,1,5);//top, left, bottom, right
-		gbcPanelControl.gridx = 0;
-		gbcPanelControl.gridy = 1;
-		panelControl.add(btReset, gbcPanelControl);
-*/
 
 		
 		
