@@ -15,7 +15,7 @@ public class Client {
 	ObjectOutputStream out;
 	ObjectInputStream in;
 	Object inputObject;
-	Masterobject mo;
+	static Masterobject mo;
 
 	//call constructor to set up server, call gui-login, call method
 	public Client(String hostName, int portNumber) {
@@ -51,7 +51,10 @@ public class Client {
 				if (inputObject instanceof Masterobject) {
 				    mo = (Masterobject) inputObject;
 				    
-//				    System.out.println(mo.activeusers.get(0).getNickname());
+				    UpdatePlaytable();
+				    
+//				    
+				    System.out.println(mo.activeusers.get(0).getNickname());
 //				    System.out.println(mo.activeusers.get(0).getHand().get(0).getName());
 //				    //...
 				}
@@ -71,4 +74,9 @@ public class Client {
         new Client(hostName, portNumber);
     }
 
+	public static void UpdatePlaytable(){
+		Playtable.newhand = mo.activeusers.get(0).getHand();
+		Playtable.handcopy = mo.activeusers.get(0).getHand();
+
+	}
 }
