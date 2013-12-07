@@ -3,10 +3,10 @@
  * 
  * @author Bastian End
  * 
- *
  */
 
 package dalmuti.client;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
