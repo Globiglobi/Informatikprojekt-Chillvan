@@ -36,7 +36,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
-public class Spieltisch extends JFrame implements ActionListener, MouseListener{
+public class Playtable extends JFrame implements ActionListener, MouseListener{
 	
 	ObjectOutputStream out;
 	ObjectInputStream in;
@@ -130,7 +130,7 @@ public class Spieltisch extends JFrame implements ActionListener, MouseListener{
 	
 	
 	//Constructor
-	public Spieltisch(ObjectOutputStream out, ObjectInputStream in){
+	public Playtable(ObjectOutputStream out, ObjectInputStream in){
 		init();
 		this.out = out;
 		this.in = in;
