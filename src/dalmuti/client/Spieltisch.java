@@ -11,12 +11,15 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -33,10 +36,13 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
-public class Spieltisch extends JFrame implements ActionListener{
+public class Spieltisch extends JFrame implements ActionListener, MouseListener{
 	
 	ObjectOutputStream out;
 	ObjectInputStream in;
+	
+	//GUI-Globals glassPane
+	private JPanel glassPane;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -137,6 +143,29 @@ public class Spieltisch extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		
+		//set up glassPane
+		//Create a panel to use as the glass pane  
+		glassPane = new JPanel()  
+		{  
+		   public void paintComponent(Graphics g)  
+		   {  
+		      //Set the color grey with a 50% alpha  
+		      g.setColor(new Color(0, 0, 0, 0.1f));  
+		   
+		      //Fill a rectangle with the 50% grey 
+		      g.fillRect(0, 30, this.getWidth(), this.getHeight() - 30);  
+		   }  
+		};  
+		//Turn off the opaque attribute of the panel  
+		//This allows the controls to show through  
+		glassPane.setOpaque(false);
+		glassPane.addMouseListener(this);
+		   
+		//Set the glass pane in the JFrame  
+		setGlassPane(glassPane);  
+
 		
 		
 		//Set up MenuBar
@@ -275,7 +304,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 					public void actionPerformed(ActionEvent event){
 						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
 						int i = 0;
-//						cardclick(i);
+//						Methods.cardclick(i);
 					}
 				}
 		);
@@ -309,7 +338,8 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte2.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						
+						//Display the glassPane  
+//						glassPane.setVisible(true); 
 					}
 				}
 		);
@@ -325,13 +355,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte3.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
-						if(amountKarte3 != 0){
-							btReset.setText(String.valueOf(cardAmount++));
-							amountKarte3--;
-							lbAmount.setText(String.valueOf(cardAmount));
-							btKarte3.setText(String.valueOf(amountKarte3));
-						}
+
 					}
 				}
 		);
@@ -563,5 +587,35 @@ public class Spieltisch extends JFrame implements ActionListener{
 		}catch (java.io.IOException IOException){
 			IOException.printStackTrace();
 		}
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		e.consume();
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		e.consume();
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		e.consume();
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		e.consume();
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		e.consume();
 	}
 }
