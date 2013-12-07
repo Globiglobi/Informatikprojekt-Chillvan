@@ -54,12 +54,6 @@ public class Login extends JFrame{
 	private JLabel lbBackground;
 	private JPanel panel;
 	
-	//GUI-Globals menuBar
-	private JMenuBar menuBar;
-	private JMenu help;
-	private JMenuItem spielregeln;
-	private JMenuItem about;
-	
 	
 	//GUI-Globals panelNorth -Titel
 	private JPanel panelNorth;
@@ -97,42 +91,11 @@ public class Login extends JFrame{
 	//Constructor
 	public Login(){
 		super("Der Grosse Dalmuti - Login");
-		setSize(1024, 818);
+		setSize(1024, 768);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);	
 		
-		
-		
-		//Set up MenuBar
-		menuBar = new JMenuBar();
-		help = new JMenu("Help");
-		spielregeln = new JMenuItem("Spielregeln");
-		spielregeln.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						JOptionPane.showMessageDialog(null, 
-								"1. Mach dies und das!\n"
-								+ "2. Du sollst nicht!\n"
-								+ "3. Ziel des Spiel ist es... noch ein bisschen Text um das Fenster gr\u00f6sser zu machen^^", "Spielregeln - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
-					}
-				}
-		);
-		about = new JMenuItem("About");
-		about.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						JOptionPane.showMessageDialog(null,
-								"Der Grosse Dalmuti for insane fun\n\n"
-								+ "Copyright (c) Cornflakes. All rights are reserved.\n\n"
-								+ "...noch ein bisschen Text um das Fenster gr\u00f6sser zu machen^^ reicht doch noch net ganz xD", "About - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
-					}
-				}
-		);
-		menuBar.add(help);
-		help.add(spielregeln);
-		help.add(about);
-		setJMenuBar(menuBar);
 
 		
 		
@@ -140,7 +103,7 @@ public class Login extends JFrame{
 		layeredPane = new JLayeredPane();
 		layeredPane.setPreferredSize(new Dimension(1024, 768));
 		layeredPane.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(layeredPane, BorderLayout.CENTER);
+		add(layeredPane);
 		
 		lbBackground = new JLabel(new ImageIcon("background.png"));
 		layeredPane.add(lbBackground, new Integer(50));

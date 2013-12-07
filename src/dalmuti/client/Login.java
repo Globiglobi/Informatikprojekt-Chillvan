@@ -29,10 +29,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -45,11 +42,10 @@ public class Login extends JFrame implements ActionListener{
 	ObjectInputStream in;
 	Playtable playtable;
 	
-	//GUI-Globals menuBar
-	private JMenuBar menuBar;
-	private JMenu help;
-	private JMenuItem spielregeln;
-	private JMenuItem about;
+	//GUI-Globals JLayeredPane
+	private JLayeredPane jp;
+	private JLabel lbBackground;
+	private JPanel panel;
 	
 	
 	//GUI-Globals panelNorth
