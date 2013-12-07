@@ -10,12 +10,6 @@
  * - nickname auf 16 Zeichen begrenzen
  * - alles auf englisch
  * 
- * 
- *	Zeichen 	Unicode
- *	------------------------------
- *	�, � 		\u00c4, \u00e4
- *	�, � 		\u00d6, \u00f6
- *	�, � 		\u00dc, \u00fc
  *
  */
 

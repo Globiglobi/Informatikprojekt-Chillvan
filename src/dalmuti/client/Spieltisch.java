@@ -3,21 +3,6 @@
  * 
  * @author Bastian End
  * 
- * todo:
- * - background image
- * - Spielfl�che!
- * - Scoreboard!
- * - Chat
- * - btLegen 
- * - btPassen
- * - alles auf englisch
- * 
- * 
- *  Zeichen 	Unicode
- *	------------------------------
- *	�, � 		\u00c4, \u00e4
- *	�, � 		\u00d6, \u00f6
- *	�, � 		\u00dc, \u00fc
  *
  */
 
@@ -45,6 +30,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
 public class Spieltisch extends JFrame implements ActionListener{
@@ -284,6 +270,15 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarteNarr.setVerticalTextPosition(JButton.CENTER);
 		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
 		btKarteNarr.setPreferredSize(new Dimension(97,150));//width, height
+		btKarteNarr.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
+						int i = 0;
+//						cardclick(i);
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 0;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarteNarr, gbcPanelWestSouth);
@@ -296,13 +291,9 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte1.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
-						if(amountKarte1 != 0){
-							cardAmount++;
-							amountKarte1--;
-							lbAmount.setText(String.valueOf(cardAmount));
-							btKarte1.setText(String.valueOf(amountKarte1));
-						}
+						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
+						int i = 1;
+//						cardclick(i);
 					}
 				}
 		);
@@ -318,13 +309,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte2.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						//Sobald auf eine andere Karte geklickt wurde soll amountKarteX resetet werden!
-						if(amountKarte2 != 0){
-							cardAmount++;
-							amountKarte2--;
-							lbAmount.setText(String.valueOf(cardAmount));
-							btKarte2.setText(String.valueOf(amountKarte2));
-						}
+						
 					}
 				}
 		);
@@ -435,12 +420,15 @@ public class Spieltisch extends JFrame implements ActionListener{
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte12, gbcPanelWestSouth);
 		
-		//ResetButton nicht fertig!
+		
+		
+		//ResetButton
 		btReset = new JButton("0", new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
 		btReset.setHorizontalTextPosition(JButton.CENTER);
 		btReset.setVerticalTextPosition(JButton.CENTER);
 		btReset.setFont(new Font("", Font.BOLD, 72));
 		btReset.setPreferredSize(new Dimension(97,150));//width, height
+		btReset.setBorder(new LineBorder(Color.red, 6));
 		btReset.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){

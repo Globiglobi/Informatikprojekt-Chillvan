@@ -21,6 +21,7 @@
 
 package dalmuti.testing;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -29,6 +30,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -49,6 +51,8 @@ public class Login extends JFrame{
 	
 	//GUI-Globals JLayeredPane
 	private JLayeredPane layeredPane;
+	private JLabel lbBackground;
+	private JPanel panel;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -57,19 +61,19 @@ public class Login extends JFrame{
 	private JMenuItem about;
 	
 	
-	//GUI-Globals panelNorth
+	//GUI-Globals panelNorth -Titel
 	private JPanel panelNorth;
 	private JLabel lbTitel;
 	
 	
-	//GUI-Globals panelCenter
+	//GUI-Globals panelCenter -Insert Nickname
 	private JPanel panelCenter;
 	private JLabel lbEnterNickname;
 	public static JTextField tfEnterNickname;
 	private JButton btLogin;
 	
 	
-	//GUI-Globals panelSouth
+	//GUI-Globals panelSouth -Logo, Copyright, Version
 	private JPanel panelSouth;
 	private JLabel lbGap1;
 	private JLabel lbGap2;
@@ -134,13 +138,26 @@ public class Login extends JFrame{
 		
 		//layeredPane
 		layeredPane = new JLayeredPane();
-		add(layeredPane);
+		layeredPane.setPreferredSize(new Dimension(1024, 768));
+		layeredPane.setBorder(BorderFactory.createLineBorder(Color.black));
+		add(layeredPane, BorderLayout.CENTER);
+		
+		lbBackground = new JLabel(new ImageIcon("background.png"));
+		layeredPane.add(lbBackground, new Integer(50));
+		
+		panel = new JPanel(new BorderLayout());
+		panel.setOpaque(false);
+		panel.setBorder(BorderFactory.createLineBorder(Color.black));
+		layeredPane.add(panel, new Integer(100));
+		
+		
 		
 		
 		//panelNorth -Titel
 		panelNorth = new JPanel(new GridBagLayout());
-//		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(panelNorth, BorderLayout.NORTH);
+		panelNorth.setOpaque(false);
+		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
+		panel.add(panelNorth, BorderLayout.NORTH);
 		
 		//Components in panelNorth
 		GridBagConstraints gbcPanelNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -155,8 +172,9 @@ public class Login extends JFrame{
 		
 		//panelCenter - Enter Nickname + LoginButton
 		panelCenter = new JPanel(new GridBagLayout());
-//		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(panelCenter, BorderLayout.CENTER);
+		panelCenter.setOpaque(false);
+		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
+		panel.add(panelCenter, BorderLayout.CENTER);
 		
 		//Components in panelCenter
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -193,10 +211,11 @@ public class Login extends JFrame{
 		
 		
 		
-		//panelSouth
+		//panelSouth - Logo, Copyright, Version
 		panelSouth = new JPanel(new GridBagLayout());
-//		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(panelSouth, BorderLayout.SOUTH);
+		panelSouth.setOpaque(false);
+		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
+		panel.add(panelSouth, BorderLayout.SOUTH);
 		
 		//Components in panelSouth
 		GridBagConstraints gbcPanelSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -263,6 +282,6 @@ public class Login extends JFrame{
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap7, gbcPanelSouth);
 		
-		setVisible(true);
+//		setVisible(true);
 	}
 }
