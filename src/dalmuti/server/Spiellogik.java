@@ -3,9 +3,9 @@ package dalmuti.server;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import dalmuti.shared.Card;
 import dalmuti.shared.Masterobject;
 import dalmuti.shared.User;
+import dalmuti.testing.Card;
 
 public class Spiellogik {
 	public static ArrayList<User> userlist;

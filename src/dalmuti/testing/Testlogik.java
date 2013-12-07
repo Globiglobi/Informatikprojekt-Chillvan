@@ -4,7 +4,6 @@ package dalmuti.testing;
 import java.util.Collections;
 import java.util.Iterator;
 
-import dalmuti.shared.Card;
 import dalmuti.shared.Masterobject;
 import dalmuti.shared.User;
 
@@ -30,34 +29,19 @@ import dalmuti.shared.User;
 				// Masterobjekt erstellen
 				Masterobject mo = new Masterobject(userlist);
 
-				//Karten verteilen
-				mo.docards();
-				
-				for(int k = 0; k < mo.activeusers.get(0).getHand().size(); k++){
-				System.out.println(k + " " + mo.activeusers.get(0).getHand().get(k).getName() + " " + mo.activeusers.get(0).getHand().get(k).getValue());
-
-			}
-//				System.out.println(mo.activeusers.get(0).getHand().size());
-//				System.out.println(mo.activeusers.get(1).getHand().size());
-//				System.out.println(mo.activeusers.get(2).getHand().size());
-//				System.out.println(mo.activeusers.get(3).getHand().size());
-//				
-				mo.activeusers.get(0).calcamount();
-				int[] array = mo.activeusers.get(0).getAmount();
+				int[] array = mo.activeusers.get(0).getHand();
 				for (int a: array){
-					System.out.println(a);
+					System.out.print(a + " ");
 				}
-//				Iterator<Card> e = mo.activeusers.get(0).getHand().iterator();
-//				while(e.hasNext()){
-//					System.out.println(e.next().getValue()); 
-//				
-//				}
+//				mo.activeusers.get(0).setActive(true);
+//				System.out.println(mo.whosactive());
 			}
-
 		}
 
 		public static void main(String[] args) {
 			Spiellogiktest();
+			
+			
 
 			
 			

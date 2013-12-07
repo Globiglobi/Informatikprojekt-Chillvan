@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import dalmuti.shared.User;
-import dalmuti.shared.Card;
 
 public class TestSpiellogik {
 	

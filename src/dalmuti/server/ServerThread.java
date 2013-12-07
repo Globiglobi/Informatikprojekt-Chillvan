@@ -40,12 +40,13 @@ public class ServerThread extends Thread {
 					if (inputObject instanceof User) {
 					    User user = (User)inputObject;
 					    userlist.add(user);
+					    
 					    //Testoutput
 					    System.out.println(user.getNickname());
 					    System.out.println(userlist.size());
 					}
 					else if (inputObject instanceof Masterobject) {
-					    Masterobject mo = (Masterobject) inputObject;
+						Masterobject mo = (Masterobject) inputObject;
 					    //...
 					}
 					else {
@@ -56,17 +57,19 @@ public class ServerThread extends Thread {
 					if (userlist.size() == 4) {
 
 						Masterobject mo = new Masterobject(userlist);
-						mo.docards();
 						
 						//Testsend
 						out.writeObject(mo);
 						
 						//Testoutput
 						
-						System.out.println(mo.activeusers.get(0).getHand().get(0).getName());
-						System.out.println(mo.activeusers.get(1).getHand().get(0).getName());
-						System.out.println(mo.activeusers.get(2).getHand().get(0).getName());
-						System.out.println(mo.activeusers.get(3).getHand().get(0).getName());
+						for(int a: mo.activeusers.get(0).getAmount()){
+							System.out.print(a + " ");
+						}
+						System.out.println(mo.activeusers.get(0).getHand()[12]);
+						System.out.println(mo.activeusers.get(1).getHand()[0]);
+						System.out.println(mo.activeusers.get(2).getHand()[0]);
+						System.out.println(mo.activeusers.get(3).getHand()[0]);
 					}
 				}
 			} catch (ClassNotFoundException cnfException) {

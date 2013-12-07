@@ -15,7 +15,7 @@ public class Client {
 	ObjectOutputStream out;
 	ObjectInputStream in;
 	Object inputObject;
-	Masterobject mo = new Masterobject();
+	Masterobject mo;
 
 	//call constructor to set up server, call gui-login, call method
 	public Client(String hostName, int portNumber) {

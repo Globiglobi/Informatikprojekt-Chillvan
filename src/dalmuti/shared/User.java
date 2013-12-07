@@ -7,41 +7,26 @@ import java.util.Iterator;
 public class User implements Serializable {
 
 	private String nickname;
-	private ArrayList<Card> hand;
-	private int[] amount;
+	private int[] hand;
 	private boolean active;
-	private final int MAX_Hand = 20;
-
+	
 	public User(String nickname) {
 		this.nickname = nickname;
-		hand = new ArrayList<Card>(MAX_Hand);
-		amount = new int[13];
+		hand = new int[13];
 		setActive(false);
 	}
 
-	// Getter und Setter Methoden
+	// Getter and Setter Methods
 	public String getNickname() {
 		return nickname;
 	}
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-
-	public ArrayList<Card> getHand() {
+	public int[] getHand() {
 		return hand;
 	}
 
-	public void setHand(ArrayList<Card> hand) {
+	public void setHand(int[] hand) {
 		this.hand = hand;
-	}
-
-	public int[] getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int[] amount) {
-		this.amount = amount;
 	}
 
 	public boolean getActive() {
@@ -54,12 +39,11 @@ public class User implements Serializable {
 	}
 
 	// Methoden
-	public void calcamount() {
-		Iterator<Card> e = getHand().iterator();
-		while (e.hasNext()) {
-			amount[e.next().getValue()]++;
-				
-
+	public void createhand(int[] subdeck) {
+		for (int i = 0; i < subdeck.length; i++) {
+			hand[subdeck[i]]++;
 		}
+
 	}
+	
 }
