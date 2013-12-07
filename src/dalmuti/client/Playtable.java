@@ -657,7 +657,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		}
 	}
 	
-	// click on resetbutton
+	// click on reset button
 	public static void resetclick(){
 		newhand = handcopy;
 		display[0] = 0;
