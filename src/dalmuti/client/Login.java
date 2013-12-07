@@ -42,10 +42,9 @@ public class Login extends JFrame implements ActionListener{
 	ObjectInputStream in;
 	Playtable playtable;
 	
+	
 	//GUI-Globals JLayeredPane
-	private JLayeredPane jp;
 	private JLabel lbBackground;
-	private JPanel panel;
 	
 	
 	//GUI-Globals panelNorth
@@ -89,46 +88,58 @@ public class Login extends JFrame implements ActionListener{
 	
 	public void init(){
 		setTitle("Der Grosse Dalmuti - Login");
-		setSize(1024, 818);
+		setSize(1024, 768);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);	
+
 		
 		
+		//set Background Image
+		getContentPane().setLayout(new BorderLayout());
+		((JPanel)getContentPane()).setOpaque(false);
+		ImageIcon background = new ImageIcon(getClass().getResource("/dalmuti/image/background.png"));
+		lbBackground = new JLabel(background);
+		getLayeredPane().add(lbBackground, new Integer(Integer.MIN_VALUE));
+		lbBackground.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());
+		
+
 		
 		
-		//panelNorth - Titel
+		//panelNorth -Titel
 		panelNorth = new JPanel(new GridBagLayout());
+		panelNorth.setOpaque(false);
 //		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(panelNorth, BorderLayout.NORTH);
+		getContentPane().add(panelNorth, BorderLayout.NORTH);
 		
 		//Components in panelNorth
 		GridBagConstraints gbcPanelNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelNorth.insets = new Insets(100, 0, 0, 0);// top, left, bottom, right
 
 		lbTitel = new JLabel("Der Grosse Dalmuti");
-		lbTitel.setFont(new Font("", Font.BOLD, 78));
+		lbTitel.setFont(new Font("", Font.BOLD, 80));
 		panelNorth.add(lbTitel, gbcPanelNorth);
 
 		
 		
 		
-		//panelCenter - Login
+		//panelCenter - Enter Nickname + LoginButton
 		panelCenter = new JPanel(new GridBagLayout());
+		panelCenter.setOpaque(false);
 //		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(panelCenter, BorderLayout.CENTER);
+		getContentPane().add(panelCenter, BorderLayout.CENTER);
 		
 		//Components in panelCenter
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(10, 0, 10, 0);// top, left, bottom, right
 
-		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein! (maximal 16 Zeichen)");
-		lbEnterNickname.setFont(new Font("", Font.PLAIN, 18));
+		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein.");
+		lbEnterNickname.setFont(new Font("", Font.BOLD, 20));
 		gbcPanelCenter.gridy = 0;
 		panelCenter.add(lbEnterNickname);
 
-		tfEnterNickname = new JTextField("Nickname");
-		tfEnterNickname.setPreferredSize(new Dimension(460, 30));
+		tfEnterNickname = new JTextField();
+		tfEnterNickname.setPreferredSize(new Dimension(460, 40));
 		tfEnterNickname.setFont(new Font("", Font.PLAIN, 18));
 		tfEnterNickname.setHorizontalAlignment(JLabel.CENTER);
 		tfEnterNickname.addActionListener(this);
@@ -137,18 +148,22 @@ public class Login extends JFrame implements ActionListener{
 
 		btLogin = new JButton("Login");
 		btLogin.setPreferredSize(new Dimension(100, 50));// width, height
-		btLogin.setFont(new Font("", Font.BOLD, 16));
+		btLogin.setFont(new Font("", Font.BOLD, 18));
+		btLogin.setHorizontalTextPosition(JButton.CENTER);
+		btLogin.setVerticalTextPosition(JButton.CENTER);
 		btLogin.addActionListener(this);
 		gbcPanelCenter.gridy = 2;
 		panelCenter.add(btLogin, gbcPanelCenter);
 
+
 		
 		
 		
-		//panelSouth - Version + Copyright
+		//panelSouth - Logo, Copyright, Version
 		panelSouth = new JPanel(new GridBagLayout());
+		panelSouth.setOpaque(false);
 //		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(panelSouth, BorderLayout.SOUTH);
+		getContentPane().add(panelSouth, BorderLayout.SOUTH);
 		
 		//Components in panelSouth
 		GridBagConstraints gbcPanelSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -211,7 +226,7 @@ public class Login extends JFrame implements ActionListener{
 		panelSouth.add(lbGap6, gbcPanelSouth);
 
 		lbGap7 = new JLabel("");
-		gbcPanelSouth.insets = new Insets(0, 65, 10, 110);// top, left, bottom, right
+		gbcPanelSouth.insets = new Insets(0, 55, 10, 110);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(lbGap7, gbcPanelSouth);
 		

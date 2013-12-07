@@ -21,7 +21,6 @@
 
 package dalmuti.testing;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -30,29 +29,27 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import dalmuti.client.Playtable;
+import dalmuti.shared.User;
+
+
 @SuppressWarnings("serial")
-public class Login extends JFrame{
+public class Login extends JFrame /*implements ActionListener*/{
 
 	//Globals
 	public static String nickname;
 	
-	//GUI-Globals JLayeredPane
-	private JLayeredPane layeredPane;
+	
+	//GUI-Globals set up Background
 	private JLabel lbBackground;
-	private JPanel panel;
 	
 	
 	//GUI-Globals panelNorth -Titel
@@ -95,39 +92,32 @@ public class Login extends JFrame{
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);	
-		
 
 		
 		
-		//layeredPane
-		layeredPane = new JLayeredPane();
-		layeredPane.setPreferredSize(new Dimension(1024, 768));
-		layeredPane.setBorder(BorderFactory.createLineBorder(Color.black));
-		add(layeredPane);
+		//set Background Image
+		getContentPane().setLayout(new BorderLayout());
+		((JPanel)getContentPane()).setOpaque(false);
+		ImageIcon background = new ImageIcon(getClass().getResource("/dalmuti/image/background.png"));
+		lbBackground = new JLabel(background);
+		getLayeredPane().add(lbBackground, new Integer(Integer.MIN_VALUE));
+		lbBackground.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());
 		
-		lbBackground = new JLabel(new ImageIcon("background.png"));
-		layeredPane.add(lbBackground, new Integer(50));
-		
-		panel = new JPanel(new BorderLayout());
-		panel.setOpaque(false);
-		panel.setBorder(BorderFactory.createLineBorder(Color.black));
-		layeredPane.add(panel, new Integer(100));
-		
-		
+
 		
 		
 		//panelNorth -Titel
 		panelNorth = new JPanel(new GridBagLayout());
 		panelNorth.setOpaque(false);
-		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
-		panel.add(panelNorth, BorderLayout.NORTH);
+//		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
+		getContentPane().add(panelNorth, BorderLayout.NORTH);
 		
 		//Components in panelNorth
 		GridBagConstraints gbcPanelNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelNorth.insets = new Insets(100, 0, 0, 0);// top, left, bottom, right
 
 		lbTitel = new JLabel("Der Grosse Dalmuti");
-		lbTitel.setFont(new Font("", Font.BOLD, 78));
+		lbTitel.setFont(new Font("arial black", Font.BOLD, 80));
 		panelNorth.add(lbTitel, gbcPanelNorth);
 
 		
@@ -136,37 +126,32 @@ public class Login extends JFrame{
 		//panelCenter - Enter Nickname + LoginButton
 		panelCenter = new JPanel(new GridBagLayout());
 		panelCenter.setOpaque(false);
-		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-		panel.add(panelCenter, BorderLayout.CENTER);
+//		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
+		getContentPane().add(panelCenter, BorderLayout.CENTER);
 		
 		//Components in panelCenter
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(10, 0, 10, 0);// top, left, bottom, right
 
-		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein! (maximal 16 Zeichen)");
-		lbEnterNickname.setFont(new Font("", Font.PLAIN, 18));
+		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein.");
+		lbEnterNickname.setFont(new Font("", Font.BOLD, 20));
 		gbcPanelCenter.gridy = 0;
 		panelCenter.add(lbEnterNickname);
 
-		tfEnterNickname = new JTextField("Nickname");
-		tfEnterNickname.setPreferredSize(new Dimension(460, 30));
+		tfEnterNickname = new JTextField();
+		tfEnterNickname.setPreferredSize(new Dimension(460, 40));
 		tfEnterNickname.setFont(new Font("", Font.PLAIN, 18));
 		tfEnterNickname.setHorizontalAlignment(JLabel.CENTER);
+//		tfEnterNickname.addActionListener(this);
 		gbcPanelCenter.gridy = 1;
 		panelCenter.add(tfEnterNickname, gbcPanelCenter);
 
 		btLogin = new JButton("Login");
 		btLogin.setPreferredSize(new Dimension(100, 50));// width, height
-		btLogin.setFont(new Font("", Font.BOLD, 16));
-		btLogin.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-					nickname = tfEnterNickname.getText();
-						//nickname.send();
-					}
-
-				}
-		);
+		btLogin.setFont(new Font("", Font.BOLD, 18));
+		btLogin.setHorizontalTextPosition(JButton.CENTER);
+		btLogin.setVerticalTextPosition(JButton.CENTER);
+//		btLogin.addActionListener(this);
 		gbcPanelCenter.gridy = 2;
 		panelCenter.add(btLogin, gbcPanelCenter);
 
@@ -177,8 +162,8 @@ public class Login extends JFrame{
 		//panelSouth - Logo, Copyright, Version
 		panelSouth = new JPanel(new GridBagLayout());
 		panelSouth.setOpaque(false);
-		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
-		panel.add(panelSouth, BorderLayout.SOUTH);
+//		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
+		getContentPane().add(panelSouth, BorderLayout.SOUTH);
 		
 		//Components in panelSouth
 		GridBagConstraints gbcPanelSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
@@ -247,4 +232,31 @@ public class Login extends JFrame{
 		
 //		setVisible(true);
 	}
+/*	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
+		if(src == btLogin){
+			try{
+				User Loginuser = new User(tfEnterNickname.getText());
+				this.out.writeObject(Loginuser);
+				tfEnterNickname.setText("");
+				setVisible(false);
+				playtable = new Playtable(this.out, this.in);
+			}catch (java.io.IOException IOException){
+				IOException.printStackTrace();
+			}
+		}else if(src == tfEnterNickname){
+			try{
+				User Loginuser = new User(tfEnterNickname.getText());
+				this.out.writeObject(Loginuser);
+				tfEnterNickname.setText("");
+				setVisible(false);
+				playtable = new Playtable(this.out, this.in);
+			}catch (java.io.IOException IOException){
+				IOException.printStackTrace();
+			}
+		}
+	}
+*/
 }
