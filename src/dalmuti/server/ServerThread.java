@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import dalmuti.shared.Masterobject;
 import dalmuti.shared.User;
@@ -18,6 +19,7 @@ public class ServerThread extends Thread {
 
 	public ServerThread(Socket socket) {
 		this.socket = socket;
+		Server.ssList.add(socket);
 	}
 
 	public void run() {
@@ -58,8 +60,18 @@ public class ServerThread extends Thread {
 
 						Masterobject mo = new Masterobject(userlist);
 						
-						//Testsend
-						out.writeObject(mo);
+/*						//Testsend
+						Iterator<Socket> i = Server.ssList.iterator();
+						while(i.hasNext()){
+							out.writeObject(mo);
+						}
+*/						
+						
+						//print ssList
+						System.out.println(Server.ssList.get(0).toString());
+						System.out.println(Server.ssList.get(1).toString());
+						System.out.println(Server.ssList.get(2).toString());
+						System.out.println(Server.ssList.get(3).toString());
 						
 //						//Testoutput
 //						
