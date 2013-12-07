@@ -60,12 +60,13 @@ public class ServerThread extends Thread {
 
 						Masterobject mo = new Masterobject(userlist);
 						
-/*						//Testsend
-						Iterator<Socket> i = Server.ssList.iterator();
+						//Testsend
+						Iterator<Socket> i = Server.sList.iterator();
 						while(i.hasNext()){
+							i.next().getOutputStream();
 							out.writeObject(mo);
 						}
-*/						
+						
 						
 						//print sList
 						System.out.println(Server.sList.get(0).toString());

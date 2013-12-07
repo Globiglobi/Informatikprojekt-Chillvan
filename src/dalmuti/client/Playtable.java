@@ -174,36 +174,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		setGlassPane(glassPane);  
 
 		
-		
-		//Set up MenuBar
-		menuBar = new JMenuBar();
-		help = new JMenu("Help");
-		spielregeln = new JMenuItem("Spielregeln");
-		spielregeln.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						JOptionPane.showMessageDialog(null, 
-								"1. Mach dies und das!\n"
-								+ "2. Du sollst nicht!\n"
-								+ "3. Ziel des Spiel ist es... noch ein bisschen Text um das Fenster gr\u00f6sser zu machen^^", "Spielregeln - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
-					}
-				}
-		);
-		about = new JMenuItem("About");
-		about.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						JOptionPane.showMessageDialog(null,
-								"Der Grosse Dalmuti for insane fun\n\n"
-								+ "Copyright (c) Cornflakes. All rights are reserved.\n\n"
-								+ "...noch ein bisschen Text um das Fenster gr\u00f6sser zu machen^^ reicht doch noch net ganz xD", "About - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
-					}
-				}
-		);
-		menuBar.add(help);
-		help.add(spielregeln);
-		help.add(about);
-		setJMenuBar(menuBar);
+	
 
 		
 		

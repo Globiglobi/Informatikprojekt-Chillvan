@@ -100,38 +100,6 @@ public class Login extends JFrame implements ActionListener{
 		
 		
 		
-		//Set up MenuBar
-		menuBar = new JMenuBar();
-		help = new JMenu("Help");
-		spielregeln = new JMenuItem("Spielregeln");
-		spielregeln.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						JOptionPane.showMessageDialog(null, 
-								"1. Mach dies und das!\n"
-								+ "2. Du sollst nicht!\n"
-								+ "3. Ziel des Spiel ist es... noch ein bisschen Text um das Fenster gr\u00f6sser zu machen^^", "Spielregeln - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
-					}
-				}
-		);
-		about = new JMenuItem("About");
-		about.addActionListener(
-				new ActionListener(){
-					public void actionPerformed(ActionEvent event){
-						JOptionPane.showMessageDialog(null,
-								"Der Grosse Dalmuti for insane fun\n\n"
-								+ "Copyright (c) Cornflakes. All rights are reserved.\n\n"
-								+ "...noch ein bisschen Text um das Fenster gr\u00f6sser zu machen^^ reicht doch noch net ganz xD", "About - Der Grosse Dalmuti", JOptionPane.PLAIN_MESSAGE);
-					}
-				}
-		);
-		menuBar.add(help);
-		help.add(spielregeln);
-		help.add(about);
-		setJMenuBar(menuBar);
-
-		
-		
 		
 		//panelNorth - Titel
 		panelNorth = new JPanel(new GridBagLayout());
@@ -167,6 +135,7 @@ public class Login extends JFrame implements ActionListener{
 		tfEnterNickname.setPreferredSize(new Dimension(460, 30));
 		tfEnterNickname.setFont(new Font("", Font.PLAIN, 18));
 		tfEnterNickname.setHorizontalAlignment(JLabel.CENTER);
+		tfEnterNickname.addActionListener(this);
 		gbcPanelCenter.gridy = 1;
 		panelCenter.add(tfEnterNickname, gbcPanelCenter);
 
@@ -255,14 +224,27 @@ public class Login extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		try{
-			User Loginuser = new User(tfEnterNickname.getText());
-			this.out.writeObject(Loginuser);
-			tfEnterNickname.setText("");
-			setVisible(false);
-			playtable = new Playtable(this.out, this.in);
-		}catch (java.io.IOException IOException){
-			IOException.printStackTrace();
+		Object src = e.getSource();
+		if(src == btLogin){
+			try{
+				User Loginuser = new User(tfEnterNickname.getText());
+				this.out.writeObject(Loginuser);
+				tfEnterNickname.setText("");
+				setVisible(false);
+				playtable = new Playtable(this.out, this.in);
+			}catch (java.io.IOException IOException){
+				IOException.printStackTrace();
+			}
+		}else if(src == tfEnterNickname){
+			try{
+				User Loginuser = new User(tfEnterNickname.getText());
+				this.out.writeObject(Loginuser);
+				tfEnterNickname.setText("");
+				setVisible(false);
+				playtable = new Playtable(this.out, this.in);
+			}catch (java.io.IOException IOException){
+				IOException.printStackTrace();
+			}
 		}
 	}
 }
