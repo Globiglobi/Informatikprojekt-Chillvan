@@ -12,14 +12,16 @@ import dalmuti.shared.User;
 
 public class ServerThread extends Thread {
 	private Socket socket = null;
-	protected long userID;
+	//protected long userID;
+	public ArrayList<Socket> sList = new ArrayList<Socket>();
 	public static ArrayList<User> userlist = new ArrayList<User>(4);
+	public static ArrayList<Masterobject> mList = new ArrayList<Masterobject>();
 
 
 
 	public ServerThread(Socket socket) {
 		this.socket = socket;
-		Server.sList.add(socket);
+		sList.add(socket);
 	}
 
 	public void run() {
@@ -47,32 +49,41 @@ public class ServerThread extends Thread {
 					    System.out.println(user.getNickname());
 					    System.out.println(userlist.size());
 					}
-					else if (inputObject instanceof Masterobject) {
-						Masterobject mo = (Masterobject) inputObject;
-					    //...
-					}
-					else {
-					    System.out.println("Unexpected object type:  " + inputObject.getClass().getName());
-					}
-					//Creating Masterobject
 					
+//					else if (inputObject instanceof Masterobject) {
+//						Masterobject mo = (Masterobject) inputObject;
+//						mList.add(mo);
+//					    
+//						//Testoutput
+//						System.out.println(mList.size());
+//					}
+//					else {
+//					    System.out.println("Unexpected object type:  " + inputObject.getClass().getName());
+//					}
+					
+					//Creating Masterobject					
 					if (userlist.size() == 4) {
 
 						Masterobject mo = new Masterobject(userlist);
-						
-						//Testsend
-						Iterator<Socket> i = Server.sList.iterator();
-						while(i.hasNext()){
-							i.next().getOutputStream();
-							out.writeObject(mo);
+						//Spielerhand 1 ausgeben
+						for(int i: Masterobject.hand1) {
+							System.out.print(i + " ");
 						}
 						
 						
+						//Testsend
+//						Iterator<Socket> i = sList.iterator();
+//						while(i.hasNext()){
+//							i.next().getOutputStream();
+//							out.writeObject(mo);
+//						}
+						
+						
 						//print sList
-						System.out.println(Server.sList.get(0).toString());
-						System.out.println(Server.sList.get(1).toString());
-						System.out.println(Server.sList.get(2).toString());
-						System.out.println(Server.sList.get(3).toString());
+//						System.out.println(sList.get(0).toString());
+//						System.out.println(sList.get(1).toString());
+//						System.out.println(sList.get(2).toString());
+//						System.out.println(sList.get(3).toString());
 						
 						
 //						//Testoutput
@@ -86,6 +97,8 @@ public class ServerThread extends Thread {
 //						System.out.println(mo.activeusers.get(3).getHand()[0]);
 					}
 				}
+		
+				
 			} catch (ClassNotFoundException cnfException) {
 				cnfException.printStackTrace();
 			}

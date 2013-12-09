@@ -12,8 +12,15 @@ public class Masterobject implements Serializable {
 	// Attributes
 	public ArrayList<User> activeusers;
 	public ArrayList<User> passivusers;
-	public int[] playedcards;
-	public ArrayList<Move> moves;
+	public int[] deck = new int[80];
+	public static int[] hand1 = new int[20];
+	public int[] hand2 = new int[20];
+	public int[] hand3 = new int[20];
+	public int[] hand4 = new int[20];
+	
+
+	//public int[] playedcards;
+	//public ArrayList<Move> moves;
 
 	// Constructor
 	public Masterobject() {
@@ -59,10 +66,31 @@ public class Masterobject implements Serializable {
 
 	// distribute hands to users
 	public void distribute(int[] deck) {
-		this.activeusers.get(0).createhand(Arrays.copyOfRange(deck, 0, 20));
-		this.activeusers.get(1).createhand(Arrays.copyOfRange(deck, 20, 40));
-		this.activeusers.get(2).createhand(Arrays.copyOfRange(deck, 40, 60));
-		this.activeusers.get(3).createhand(Arrays.copyOfRange(deck, 60, 80));
+		//this.activeusers.get(0).createhand(Arrays.copyOfRange(deck, 0, 20));
+		this.hand1[0] = deck[0];
+		this.hand1[1] = deck[1];
+		this.hand1[2] = deck[2];
+		this.hand1[3] = deck[3];
+		this.hand1[4] = deck[4];
+		this.hand1[5] = deck[5];
+		this.hand1[6] = deck[6];
+		this.hand1[7] = deck[7];
+		this.hand1[8] = deck[8];
+		this.hand1[9] = deck[9];
+		this.hand1[9] = deck[9];
+		this.hand1[10] = deck[10];
+		this.hand1[11] = deck[11];
+		this.hand1[12] = deck[12];
+		this.hand1[13] = deck[13];
+		this.hand1[14] = deck[14];
+		this.hand1[15] = deck[15];
+		this.hand1[16] = deck[16];
+		this.hand1[17] = deck[17];
+		this.hand1[18] = deck[18];
+		this.hand1[19] = deck[19];
+//		this.activeusers.get(1).createhand(Arrays.copyOfRange(deck, 20, 40));
+//		this.activeusers.get(2).createhand(Arrays.copyOfRange(deck, 40, 60));
+//		this.activeusers.get(3).createhand(Arrays.copyOfRange(deck, 60, 80));
 
 	}
 
@@ -79,5 +107,22 @@ public class Masterobject implements Serializable {
 			}
 		}
 		return pos;
+	}
+	
+	//getter-/setter-Methoden
+	public int[] getHand1() {
+		return hand1;
+	}
+
+	public void setHand1(int[] hand1) {
+		this.hand1 = hand1;
+	}
+	
+	public int[] getDeck() {
+		return deck;
+	}
+
+	public void setDeck(int[] deck) {
+		this.deck = deck;
 	}
 }

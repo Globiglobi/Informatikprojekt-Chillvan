@@ -6,7 +6,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class Server {
-	static ArrayList<Socket> sList = new ArrayList<Socket>(4);
 	
 	public static void main(String[] args) throws IOException{
 		
