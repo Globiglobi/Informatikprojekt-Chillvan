@@ -49,7 +49,7 @@ public class ServerThread extends Thread {
 					else if (inputObject instanceof Masterobject) {
 						Masterobject mo = (Masterobject) inputObject;
 						
-						Logic.control(mo);
+						mo = Logic.control(mo);
 
 					} else {
 						System.out.println("Unexpected object type:  "
@@ -60,6 +60,7 @@ public class ServerThread extends Thread {
 					if (userlist.size() == 4) {
 
 						Masterobject mo = new Masterobject(userlist);
+						out.writeObject(mo);
 
 					}
 

@@ -11,7 +11,7 @@ public class Masterobject implements Serializable {
 
 	// Attributes
 	public ArrayList<User> activeusers;
-	public ArrayList<User> passivusers;
+	public ArrayList<User> passiveusers;
 	public int[] playedcards;
 	public ArrayList<Move> moves;
 
@@ -21,7 +21,7 @@ public class Masterobject implements Serializable {
 
 	public Masterobject(ArrayList<User> userlist) {
 		this.activeusers = userlist;
-		passivusers = new ArrayList<User>(activeusers.size());
+		passiveusers = new ArrayList<User>(activeusers.size());
 		int[] deck = createdeck();
 		shuffle(deck);
 		distribute(deck);
