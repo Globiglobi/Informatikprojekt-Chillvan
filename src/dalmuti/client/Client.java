@@ -56,7 +56,7 @@ public class Client {
 //				    
 				    System.out.println(mo.activeusers.get(0).getNickname());
 //				    System.out.println(mo.activeusers.get(0).getHand().get(0).getName());
-//				    //...
+//
 				}
 				
 				else {
