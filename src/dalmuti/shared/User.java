@@ -71,4 +71,14 @@ public class User implements Serializable {
 			amount =+ getHand()[i];
 		}
 	}
+	
+	//Equals Methode für Nickname
+	public boolean equals(User other) {
+		if(this.nickname == other.nickname)	 {
+			return true;			
+		}
+		else{
+			return false;
+		}
+	}	
 }
