@@ -12,6 +12,7 @@ import dalmuti.shared.User;
 
 public class ServerThread extends Thread {
 	private Socket socket = null;
+	static int client_ID = 0;
 	// protected long userID;
 	public static ArrayList<Socket> sList = new ArrayList<Socket>();
 	public static ArrayList<User> userlist = new ArrayList<User>(4);
@@ -42,6 +43,8 @@ public class ServerThread extends Thread {
 					if (inputObject instanceof User) {
 						User user = (User) inputObject;
 						userlist.add(user);
+						out.writeObject(client_ID);
+						client_ID++;
 
 						// Testoutput
 						System.out.println(user.getNickname());

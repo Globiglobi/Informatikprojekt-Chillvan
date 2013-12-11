@@ -9,13 +9,14 @@ import java.util.Iterator;
 public class User implements Serializable {
 
 	private String nickname;
-	private ObjectOutputStream oos;
+	private int user_ID;
 	private int[] hand;
 	private int amount;
 	private boolean active;
 	
-	public User(String nickname) {
+	public User(String nickname, int id) {
 		this.nickname = nickname;
+		this.user_ID = id;
 		hand = new int[13];
 		setActive(false);
 	}
@@ -50,12 +51,8 @@ public class User implements Serializable {
 		return active;
 	}
 
-	public ObjectOutputStream getOos() {
-		return oos;
-	}
-
-	public void setOos(ObjectOutputStream oos) {
-		this.oos = oos;
+	public int getUser_ID(){
+		return this.user_ID;
 	}
 
 	// Methoden
@@ -80,5 +77,5 @@ public class User implements Serializable {
 		else{
 			return false;
 		}
-	}	
+	}
 }

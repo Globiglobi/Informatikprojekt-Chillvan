@@ -26,7 +26,6 @@ public class Masterobject implements Serializable {
 		shuffle(deck);
 		distribute(deck);
 
-
 	}
 
 	// Methods
@@ -63,8 +62,8 @@ public class Masterobject implements Serializable {
 		this.activeusers.get(1).createhand(Arrays.copyOfRange(deck, 20, 40));
 		this.activeusers.get(2).createhand(Arrays.copyOfRange(deck, 40, 60));
 		this.activeusers.get(3).createhand(Arrays.copyOfRange(deck, 60, 80));
-		
-		for(int i = 0; i < 4; i++){
+
+		for (int i = 0; i < 4; i++) {
 			this.activeusers.get(i).calcamount();
 		}
 
@@ -84,5 +83,18 @@ public class Masterobject implements Serializable {
 		}
 		return pos;
 	}
-	
+
+	// Determine Rank
+	public int rank(int id) {
+		int pos = 0;
+		for (int i = 0; i < activeusers.size(); i++) {
+			if (id == activeusers.get(i).getUser_ID()) {
+				pos = i;
+				break;
+			}
+
+		}
+		return pos;
+	}
+
 }

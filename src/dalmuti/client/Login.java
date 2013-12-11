@@ -40,7 +40,8 @@ public class Login extends JFrame implements ActionListener{
 	
 	ObjectOutputStream out;
 	ObjectInputStream in;
-	Playtable playtable;
+	int user_id = 0;
+	static Playtable playtable;
 	
 	
 	//GUI-Globals JLayeredPane
@@ -238,7 +239,8 @@ public class Login extends JFrame implements ActionListener{
 		Object src = e.getSource();
 		if(src == btLogin){
 			try{
-				User Loginuser = new User(tfEnterNickname.getText());
+				User Loginuser = new User(tfEnterNickname.getText(),user_id);
+				user_id++;
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
@@ -248,7 +250,8 @@ public class Login extends JFrame implements ActionListener{
 			}
 		}else if(src == tfEnterNickname){
 			try{
-				User Loginuser = new User(tfEnterNickname.getText());
+				User Loginuser = new User(tfEnterNickname.getText(),user_id);
+				user_id++;
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
