@@ -13,8 +13,9 @@ import dalmuti.shared.User;
 public class ServerThread extends Thread {
 	private Socket socket = null;
 	// protected long userID;
-	public ArrayList<Socket> sList = new ArrayList<Socket>();
+	public static ArrayList<Socket> sList = new ArrayList<Socket>();
 	public static ArrayList<User> userlist = new ArrayList<User>(4);
+	public static ArrayList<ObjectOutputStream> outlist = new ArrayList<ObjectOutputStream>(4);
 
 	public ServerThread(Socket socket) {
 		this.socket = socket;
@@ -27,6 +28,7 @@ public class ServerThread extends Thread {
 			ObjectOutputStream out = new ObjectOutputStream(
 					socket.getOutputStream());
 			out.flush();
+			outlist.add(out);
 			ObjectInputStream in = new ObjectInputStream(
 					socket.getInputStream());
 			// definition was der server empfangen und senden kann
@@ -50,6 +52,7 @@ public class ServerThread extends Thread {
 						Masterobject mo = (Masterobject) inputObject;
 						
 						mo = Logic.control(mo);
+						
 
 					} else {
 						System.out.println("Unexpected object type:  "
@@ -60,9 +63,22 @@ public class ServerThread extends Thread {
 					if (userlist.size() == 4) {
 
 						Masterobject mo = new Masterobject(userlist);
-						out.writeObject(mo);
-
+						
+						 Iterator<ObjectOutputStream> i = outlist.iterator();
+						 while(i.hasNext()){
+								i.next().writeObject(mo);
+						 }
+//						new SendThread(i.next(),mo).start();
+//							 ObjectOutputStream newout = new ObjectOutputStream(sList.get(3).getOutputStream());
+//							 newout.flush();
+//						ObjectOutputStream test = new ObjectOutputStream(sList.get(3).getOutputStream());
+//						test.writeObject(mo);	
+//						new ObjectOutputStream(sList.get(3).getOutputStream()).writeObject(mo);
+//						out.writeObject(mo);
+//						System.out.println(i.next().toString());
+//						 }
 					}
+				
 
 					// Testsend
 					// Iterator<Socket> i = sList.iterator();
@@ -72,10 +88,10 @@ public class ServerThread extends Thread {
 					// }
 
 					// print sList
-					// System.out.println(sList.get(0).toString());
-					// System.out.println(sList.get(1).toString());
-					// System.out.println(sList.get(2).toString());
-					// System.out.println(sList.get(3).toString());
+//					 System.out.println(sList.get(0).toString());
+//					 System.out.println(sList.get(1).toString());
+//					 System.out.println(sList.get(2).toString());
+//					 System.out.println(sList.get(3).toString());
 
 					// //Testoutput
 					//

@@ -54,7 +54,8 @@ public class Client {
 				    UpdatePlaytable();
 				    
 //				    
-				    System.out.println(mo.activeusers.get(0).getNickname());
+				    System.out.println("Masterobject erhalten!");
+//				    System.out.println(mo.activeusers.get(0).getNickname());
 //				    System.out.println(mo.activeusers.get(0).getHand().get(0).getName());
 //
 				}
