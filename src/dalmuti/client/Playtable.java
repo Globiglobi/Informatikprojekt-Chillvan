@@ -81,7 +81,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	//GUI-Globals panelWestSouth - deine karten
 	private JPanel panelWestSouth;
 	private JPanel panelControl;
-	public static JButton btKarte1;
+	private JButton btKarte1;
 	private JButton btKarte2;
 	private JButton btKarte3;
 	private JButton btKarte4;
@@ -94,8 +94,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	private JButton btKarte11;
 	private JButton btKarte12;
 	private JButton btKarteNarr;
+	private JButton btReset;
 	private JLabel lbAmount;
-	private static JButton btReset;
+
 	
 	private static int cardAmount = 0;
 		
@@ -740,21 +741,21 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	public static void main(String[] args) {
 
 	}
-	public void UpdateButtons(){
-		btKarte1.setText(String.valueOf(newhand[1]));
-		btKarte2.setText(String.valueOf(newhand[2]));
-		btKarte3.setText(String.valueOf(newhand[3]));
-		btKarte4.setText(String.valueOf(newhand[4]));
-		btKarte5.setText(String.valueOf(newhand[5]));
-		btKarte6.setText(String.valueOf(newhand[6]));
-		btKarte7.setText(String.valueOf(newhand[7]));
-		btKarte8.setText(String.valueOf(newhand[8]));
-		btKarte9.setText(String.valueOf(newhand[9]));
-		btKarte10.setText(String.valueOf(newhand[10]));
-		btKarte11.setText(String.valueOf(newhand[11]));
-		btKarte12.setText(String.valueOf(newhand[12]));
-		btKarteNarr.setText(String.valueOf(newhand[0]));
-		btReset.setText(String.valueOf(display[1]));
+	public static void UpdateButtons(){
+		Login.playtable.btKarte1.setText(String.valueOf(newhand[1]));
+		Login.playtable.btKarte2.setText(String.valueOf(newhand[2]));
+		Login.playtable.btKarte3.setText(String.valueOf(newhand[3]));
+		Login.playtable.btKarte4.setText(String.valueOf(newhand[4]));
+		Login.playtable.btKarte5.setText(String.valueOf(newhand[5]));
+		Login.playtable.btKarte6.setText(String.valueOf(newhand[6]));
+		Login.playtable.btKarte7.setText(String.valueOf(newhand[7]));
+		Login.playtable.btKarte8.setText(String.valueOf(newhand[8]));
+		Login.playtable.btKarte9.setText(String.valueOf(newhand[9]));
+		Login.playtable.btKarte10.setText(String.valueOf(newhand[10]));
+		Login.playtable.btKarte11.setText(String.valueOf(newhand[11]));
+		Login.playtable.btKarte12.setText(String.valueOf(newhand[12]));
+		Login.playtable.btKarteNarr.setText(String.valueOf(newhand[0]));
+		Login.playtable.btReset.setText(String.valueOf(display[1]));
 	}
 	public void Image(){
 		if(display[0] == 13){
