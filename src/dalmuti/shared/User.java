@@ -14,9 +14,8 @@ public class User implements Serializable {
 	private int amount;
 	private boolean active;
 	
-	public User(String nickname, int id) {
+	public User(String nickname) {
 		this.nickname = nickname;
-		this.user_ID = id;
 		hand = new int[13];
 		setActive(false);
 	}
@@ -53,6 +52,9 @@ public class User implements Serializable {
 
 	public int getUser_ID(){
 		return this.user_ID;
+	}
+	public void setUser_ID(int user_ID){
+		this.user_ID = user_ID;
 	}
 
 	// Methoden

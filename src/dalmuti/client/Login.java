@@ -239,8 +239,7 @@ public class Login extends JFrame implements ActionListener{
 		Object src = e.getSource();
 		if(src == btLogin){
 			try{
-				User Loginuser = new User(tfEnterNickname.getText(),user_id);
-				user_id++;
+				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
@@ -250,8 +249,7 @@ public class Login extends JFrame implements ActionListener{
 			}
 		}else if(src == tfEnterNickname){
 			try{
-				User Loginuser = new User(tfEnterNickname.getText(),user_id);
-				user_id++;
+				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
