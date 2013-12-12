@@ -53,11 +53,15 @@ public class Client {
 					mo = (Masterobject) inputObject;
 
 					UpdatePlaytable();
+//					playtable.UpdateButtons();
 
 					//
 					System.out.println("Masterobject erhalten!");
 					System.out.println(client_ID);
-					// System.out.println(mo.activeusers.get(0).getNickname());
+//					 System.out.println(mo.activeusers.get(0).getUser_ID());
+//					 System.out.println(mo.activeusers.get(1).getUser_ID());
+//					 System.out.println(mo.activeusers.get(2).getUser_ID());
+//					 System.out.println(mo.activeusers.get(3).getUser_ID());
 					// System.out.println(mo.activeusers.get(0).getHand().get(0).getName());
 					//
 				} else if (inputObject instanceof Integer) {
@@ -79,14 +83,19 @@ public class Client {
 	}
 
 	public static void UpdatePlaytable() {
-		Iterator<User> i = mo.activeusers.iterator();
-		while (i.hasNext()) {
-			if (i.next().getUser_ID() == client_ID) {
-				Playtable.newhand = i.next().getHand();
-				Playtable.handcopy = i.next().getHand();
-				playtable.repaint();
+		for(int i = 0; i < mo.activeusers.size(); i++){
+			if(mo.activeusers.get(i).getUser_ID() == client_ID){
+				System.arraycopy(mo.activeusers.get(i).getHand(),0, Playtable.handcopy,0,13);
+				System.arraycopy(mo.activeusers.get(i).getHand(),0, Playtable.newhand,0,13);
+//				System.out.println("ClientID: " + client_ID);
+//				System.out.println("UserID: " + mo.activeusers.get(i).getUser_ID());
+//				Playtable.newhand = mo.activeusers.get(i).getHand();
+			
+//				Playtable.btKarte1.setText(String.valueOf(Playtable.newhand[1]));
+//				playtable.setAmountKarte10(Playtable.newhand[10]);
+//				playtable.repaint();
+				break;			
 			}
 		}
-
 	}
 }
