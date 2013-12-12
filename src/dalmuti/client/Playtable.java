@@ -44,8 +44,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	ObjectInputStream in;
 	static Masterobject mo;
 	static int[] newhand = {0,0,0,0,0,0,0,0,0,0,0,0,0};
-	static int[] handcopy;
-	static int[] display = new int[2];
+	static int[] handcopy = {1,1,1,1,1,1,1,1,1,1,1,1,1};
+	static int[] display = {0,0};
 	
 	
 	//GUI-Globals glassPane
@@ -81,7 +81,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	//GUI-Globals panelWestSouth - deine karten
 	private JPanel panelWestSouth;
 	private JPanel panelControl;
-	private JButton btKarte1;
+	public static JButton btKarte1;
 	private JButton btKarte2;
 	private JButton btKarte3;
 	private JButton btKarte4;
@@ -95,23 +95,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	private JButton btKarte12;
 	private JButton btKarteNarr;
 	private JLabel lbAmount;
-	private JButton btReset;
+	private static JButton btReset;
 	
 	private static int cardAmount = 0;
-	private int amountKarte1 = newhand[1];
-	private int amountKarte2 = newhand[2];
-	private int amountKarte3 = newhand[3];
-	private int amountKarte4 = newhand[4];
-	private int amountKarte5 = newhand[5];
-	private int amountKarte6 = newhand[6];
-	private int amountKarte7 = newhand[7];
-	private int amountKarte8 = newhand[8];
-	private int amountKarte9 = newhand[9];
-	private int amountKarte10 = newhand[10];
-	private int amountKarte11 = newhand[11];
-	private int amountKarte12 = newhand[12];
-	private int amountKarteNarr = newhand[0];
-	
+		
 	//GUI-Globals panelEast
 	private JPanel panelEast;
 		
@@ -272,7 +259,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestSouth.insets = new Insets(0,0,0,0);//top, left, bottom, right
 				
 		
-		btKarteNarr = new JButton(String.valueOf(amountKarteNarr), new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
+		btKarteNarr = new JButton(String.valueOf(newhand[0]), new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
 		btKarteNarr.setHorizontalTextPosition(JButton.CENTER);
 		btKarteNarr.setVerticalTextPosition(JButton.CENTER);
 		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
@@ -281,9 +268,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarteNarr.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
-						int i = 0;
-						cardclick(i);
+						narrclick();
+						Image();
+						UpdateButtons();
 					}
 				}
 		);
@@ -291,7 +278,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarteNarr, gbcPanelWestSouth);
 		
-		btKarte1 = new JButton(String.valueOf(amountKarte1), new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
+		btKarte1 = new JButton(String.valueOf(newhand[1]), new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
 		btKarte1.setHorizontalTextPosition(JButton.CENTER);
 		btKarte1.setVerticalTextPosition(JButton.CENTER);
 		btKarte1.setFont(new Font("", Font.BOLD, 72));
@@ -300,9 +287,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte1.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
 						int i = 1;
 						cardclick(i);
+						Image();
+						UpdateButtons();
 					}
 				}
 		);
@@ -310,7 +298,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte1, gbcPanelWestSouth);
 		
-		btKarte2 = new JButton(String.valueOf(amountKarte2), new ImageIcon(getClass().getResource("/dalmuti/image/karte2.jpg")));
+		btKarte2 = new JButton(String.valueOf(newhand[2]), new ImageIcon(getClass().getResource("/dalmuti/image/karte2.jpg")));
 		btKarte2.setHorizontalTextPosition(JButton.CENTER);
 		btKarte2.setVerticalTextPosition(JButton.CENTER);
 		btKarte2.setFont(new Font("", Font.BOLD, 72));
@@ -319,9 +307,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte2.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte2.jpg")));
 						int i = 2;
 						cardclick(i);
+						Image();
+						UpdateButtons();
 					}
 				}
 		);
@@ -329,7 +318,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte2, gbcPanelWestSouth);
 		
-		btKarte3 = new JButton(String.valueOf(amountKarte3), new ImageIcon(getClass().getResource("/dalmuti/image/karte3.jpg")));
+		btKarte3 = new JButton(String.valueOf(newhand[3]), new ImageIcon(getClass().getResource("/dalmuti/image/karte3.jpg")));
 		btKarte3.setHorizontalTextPosition(JButton.CENTER);
 		btKarte3.setVerticalTextPosition(JButton.CENTER);
 		btKarte3.setFont(new Font("", Font.BOLD, 72));
@@ -338,9 +327,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte3.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte3.jpg")));
 						int i = 3;
 						cardclick(i);
+						Image();
+						UpdateButtons();
 					}
 				}
 		);
@@ -348,67 +338,127 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte3, gbcPanelWestSouth);
 		
-		btKarte4 = new JButton(String.valueOf(amountKarte4), new ImageIcon(getClass().getResource("/dalmuti/image/karte4.jpg")));
+		btKarte4 = new JButton(String.valueOf(newhand[4]), new ImageIcon(getClass().getResource("/dalmuti/image/karte4.jpg")));
 		btKarte4.setHorizontalTextPosition(JButton.CENTER);
 		btKarte4.setVerticalTextPosition(JButton.CENTER);
 		btKarte4.setFont(new Font("", Font.BOLD, 72));
 		btKarte4.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte4.setBorder(new LineBorder(Color.black, 4));
+		btKarte4.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						int i = 4;
+						cardclick(i);
+						Image();
+						UpdateButtons();
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 4;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte4, gbcPanelWestSouth);
 		
-		btKarte5 = new JButton(String.valueOf(amountKarte5), new ImageIcon(getClass().getResource("/dalmuti/image/karte5.jpg")));
+		btKarte5 = new JButton(String.valueOf(newhand[5]), new ImageIcon(getClass().getResource("/dalmuti/image/karte5.jpg")));
 		btKarte5.setHorizontalTextPosition(JButton.CENTER);
 		btKarte5.setVerticalTextPosition(JButton.CENTER);
 		btKarte5.setFont(new Font("", Font.BOLD, 72));
 		btKarte5.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte5.setBorder(new LineBorder(Color.black, 4));
+		btKarte5.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						int i = 5;
+						cardclick(i);
+						Image();
+						UpdateButtons();
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 5;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte5, gbcPanelWestSouth);
 		
-		btKarte6 = new JButton(String.valueOf(amountKarte6), new ImageIcon(getClass().getResource("/dalmuti/image/karte6.jpg")));
+		btKarte6 = new JButton(String.valueOf(newhand[6]), new ImageIcon(getClass().getResource("/dalmuti/image/karte6.jpg")));
 		btKarte6.setHorizontalTextPosition(JButton.CENTER);
 		btKarte6.setVerticalTextPosition(JButton.CENTER);
 		btKarte6.setFont(new Font("", Font.BOLD, 72));
 		btKarte6.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte6.setBorder(new LineBorder(Color.black, 4));
+		btKarte6.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						int i = 6;
+						cardclick(i);
+						Image();
+						UpdateButtons();
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 6;
 		gbcPanelWestSouth.gridy = 0;
 		panelWestSouth.add(btKarte6, gbcPanelWestSouth);
 		
-		btKarte7 = new JButton(String.valueOf(amountKarte7), new ImageIcon(getClass().getResource("/dalmuti/image/karte7.jpg")));
+		btKarte7 = new JButton(String.valueOf(newhand[7]), new ImageIcon(getClass().getResource("/dalmuti/image/karte7.jpg")));
 		btKarte7.setHorizontalTextPosition(JButton.CENTER);
 		btKarte7.setVerticalTextPosition(JButton.CENTER);
 		btKarte7.setFont(new Font("", Font.BOLD, 72));
 		btKarte7.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte7.setBorder(new LineBorder(Color.black, 4));
+		btKarte7.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						int i = 7;
+						cardclick(i);
+						Image();
+						UpdateButtons();
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 0;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte7, gbcPanelWestSouth);
 		
-		btKarte8 = new JButton(String.valueOf(amountKarte8), new ImageIcon(getClass().getResource("/dalmuti/image/karte8.jpg")));
+		btKarte8 = new JButton(String.valueOf(newhand[8]), new ImageIcon(getClass().getResource("/dalmuti/image/karte8.jpg")));
 		btKarte8.setHorizontalTextPosition(JButton.CENTER);
 		btKarte8.setVerticalTextPosition(JButton.CENTER);
 		btKarte8.setFont(new Font("", Font.BOLD, 72));
 		btKarte8.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte8.setBorder(new LineBorder(Color.black, 4));
+		btKarte8.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						int i = 8;
+						cardclick(i);
+						Image();
+						UpdateButtons();
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 1;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte8, gbcPanelWestSouth);
 		
-		btKarte9 = new JButton(String.valueOf(amountKarte9), new ImageIcon(getClass().getResource("/dalmuti/image/karte9.jpg")));
+		btKarte9 = new JButton(String.valueOf(newhand[9]), new ImageIcon(getClass().getResource("/dalmuti/image/karte9.jpg")));
 		btKarte9.setHorizontalTextPosition(JButton.CENTER);
 		btKarte9.setVerticalTextPosition(JButton.CENTER);
 		btKarte9.setFont(new Font("", Font.BOLD, 72));
 		btKarte9.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte9.setBorder(new LineBorder(Color.black, 4));
+		btKarte9.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						int i = 9;
+						cardclick(i);
+						Image();
+						UpdateButtons();
+					}
+				}
+		);
 		gbcPanelWestSouth.gridx = 2;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte9, gbcPanelWestSouth);
 		
-		btKarte10 = new JButton(String.valueOf(amountKarte10), new ImageIcon(getClass().getResource("/dalmuti/image/karte10.jpg")));
+		btKarte10 = new JButton(String.valueOf(newhand[10]), new ImageIcon(getClass().getResource("/dalmuti/image/karte10.jpg")));
 		btKarte10.setHorizontalTextPosition(JButton.CENTER);
 		btKarte10.setVerticalTextPosition(JButton.CENTER);
 		btKarte10.setFont(new Font("", Font.BOLD, 72));
@@ -417,9 +467,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte10.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte10.jpg")));
 						int i = 10;
 						cardclick(i);
+						Image();
+						UpdateButtons();
 					}
 				}
 		);
@@ -427,7 +478,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte10, gbcPanelWestSouth);
 		
-		btKarte11 = new JButton(String.valueOf(amountKarte11), new ImageIcon(getClass().getResource("/dalmuti/image/karte11.jpg")));
+		btKarte11 = new JButton(String.valueOf(newhand[11]), new ImageIcon(getClass().getResource("/dalmuti/image/karte11.jpg")));
 		btKarte11.setHorizontalTextPosition(JButton.CENTER);
 		btKarte11.setVerticalTextPosition(JButton.CENTER);
 		btKarte11.setFont(new Font("", Font.BOLD, 72));
@@ -436,9 +487,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte11.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte11.jpg")));
 						int i = 11;
 						cardclick(i);
+						Image();
+						UpdateButtons();
 					}
 				}
 		);
@@ -446,7 +498,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte11, gbcPanelWestSouth);
 		
-		btKarte12 = new JButton(String.valueOf(amountKarte12), new ImageIcon(getClass().getResource("/dalmuti/image/karte12.jpg")));
+		btKarte12 = new JButton(String.valueOf(newhand[12]), new ImageIcon(getClass().getResource("/dalmuti/image/karte12.jpg")));
 		btKarte12.setHorizontalTextPosition(JButton.CENTER);
 		btKarte12.setVerticalTextPosition(JButton.CENTER);
 		btKarte12.setFont(new Font("", Font.BOLD, 72));
@@ -455,9 +507,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte12.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte12.jpg")));
 						int i = 12;
 						cardclick(i);
+						Image();
+						UpdateButtons();
 					}
 				}
 		);
@@ -468,7 +521,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		
 		//ResetButton
-		btReset = new JButton("0", new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
+		btReset = new JButton(String.valueOf(display[1]), new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
 		btReset.setHorizontalTextPosition(JButton.CENTER);
 		btReset.setVerticalTextPosition(JButton.CENTER);
 		btReset.setFont(new Font("", Font.BOLD, 72));
@@ -477,8 +530,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btReset.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
 						resetclick();
+						Image();
+						UpdateButtons();
 					}
 				}
 		);
@@ -608,17 +662,26 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	// Methods for Clicks
 	public static void cardclick(int button) {
 		// in case of button gets clicked again
-		if (newhand[button] != handcopy[button] && newhand[button] >= 1) {
+		System.out.println("Input handcopy " + handcopy[button]);
+		if ((newhand[button] != handcopy[button]) && newhand[button] >= 1) {
 			newhand[button]--;
+			System.out.println("click again " + newhand[button]);
 		}
 		// in case new button gets clicked
-		else if (newhand[button] == handcopy[button] && newhand[button] >= 1) {
-			newhand = handcopy;
+		else if ((newhand[button] == handcopy[button]) && newhand[button] >= 1) {
+			System.arraycopy(handcopy,0,newhand,0,13);
 			newhand[button]--;
+			System.out.println("first click " + newhand[button]);
+			System.out.println("handcopy " + handcopy[button]);
+		}
+		// in case of button gets clicked with 0 cards
+		else if((newhand[button] == handcopy[button]) && newhand[button] == 0){
+			System.arraycopy(handcopy,0,newhand,0,13);
 		}
 		// change display array
 		display[0] = button;
 		display[1] = handcopy[button] - newhand[button];
+		System.out.println("Display!!! " + display[1]);
 
 	}
 
@@ -638,7 +701,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	
 	// click on reset button
 	public static void resetclick(){
-		newhand = handcopy;
+		System.arraycopy(handcopy,0,newhand,0,13);
 		display[0] = 0;
 		display[1] = 0;
 	}
@@ -647,7 +710,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	public static void placecards() {
 		int activeplayer = mo.whosactive();
 		mo.activeusers.get(activeplayer).setHand(newhand);
-		mo.playedcards = display;
+		System.arraycopy(display,0,mo.playedcards,0,2);
 		mo.activeusers.get(activeplayer).setActive(false);
 		mo.activeusers.get(nextplayer(activeplayer)).setActive(true);
 		display[0] = 0;
@@ -676,6 +739,54 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 
 	public static void main(String[] args) {
 
+	}
+	public void UpdateButtons(){
+		btKarte1.setText(String.valueOf(newhand[1]));
+		btKarte2.setText(String.valueOf(newhand[2]));
+		btKarte3.setText(String.valueOf(newhand[3]));
+		btKarte4.setText(String.valueOf(newhand[4]));
+		btKarte5.setText(String.valueOf(newhand[5]));
+		btKarte6.setText(String.valueOf(newhand[6]));
+		btKarte7.setText(String.valueOf(newhand[7]));
+		btKarte8.setText(String.valueOf(newhand[8]));
+		btKarte9.setText(String.valueOf(newhand[9]));
+		btKarte10.setText(String.valueOf(newhand[10]));
+		btKarte11.setText(String.valueOf(newhand[11]));
+		btKarte12.setText(String.valueOf(newhand[12]));
+		btKarteNarr.setText(String.valueOf(newhand[0]));
+		btReset.setText(String.valueOf(display[1]));
+	}
+	public void Image(){
+		if(display[0] == 13){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
+		}if(display[0] == 12){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte12.jpg")));
+		}if(display[0] == 11){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte11.jpg")));
+		}if(display[0] == 10){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte10.jpg")));
+		}if(display[0] == 9){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte9.jpg")));
+		}if(display[0] == 8){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte8.jpg")));
+		}if(display[0] == 7){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte7.jpg")));
+		}if(display[0] == 6){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte6.jpg")));
+		}if(display[0] == 5){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte5.jpg")));
+		}if(display[0] == 4){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte4.jpg")));
+		}if(display[0] == 3){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte3.jpg")));
+		}if(display[0] == 2){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte2.jpg")));
+		}if(display[0] == 1){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
+		}if(display[0] == 0){
+			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
+		}
+		
 	}
 
 }
