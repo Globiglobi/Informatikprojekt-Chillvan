@@ -5,20 +5,13 @@
  * 
  * todo:
  * - background image
- * - Spielfl�che!
+ * - Spielfl���che!
  * - Scoreboard!
  * - Chat
  * - btLegen 
  * - btPassen
  * - alles auf englisch
  * 
- * 
- *  Zeichen 	Unicode
- *	------------------------------
- *	�, � 		\u00c4, \u00e4
- *	�, � 		\u00d6, \u00f6
- *	�, � 		\u00dc, \u00fc
- *
  */
 
 package dalmuti.testing;
@@ -45,6 +38,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
 public class Spieltisch extends JFrame implements ActionListener{
@@ -429,6 +423,7 @@ public class Spieltisch extends JFrame implements ActionListener{
 		btKarte12.setVerticalTextPosition(JButton.CENTER);
 		btKarte12.setFont(new Font("", Font.BOLD, 72));
 		btKarte12.setPreferredSize(new Dimension(97,150));//width, height
+		btKarte12.setBorder(new LineBorder(Color.black, 4));
 		gbcPanelWestSouth.gridx = 4;
 		gbcPanelWestSouth.gridy = 1;
 		panelWestSouth.add(btKarte12, gbcPanelWestSouth);
