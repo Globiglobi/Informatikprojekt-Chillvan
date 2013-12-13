@@ -586,12 +586,29 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		btLegen = new JButton("Legen");
 		btLegen.setPreferredSize(new Dimension(100,50));//width, height
+		btLegen.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						placecards();
+						UpdateButtons();
+					}
+				}
+		);
 		btLegen.setFont(new Font("", Font.BOLD, 16));
 		gbcPanelEastCenter.gridx = 0;
 		panelEastCenter.add(btLegen, gbcPanelEastCenter);
 		
+		
 		btPassen = new JButton("Passen");
 		btPassen.setPreferredSize(new Dimension(100,50));//width, height
+		btPassen.addActionListener(
+				new ActionListener(){
+					public void actionPerformed(ActionEvent event){
+						pass();
+						UpdateButtons();
+					}
+				}
+		);
 		btPassen.setFont(new Font("", Font.BOLD, 16));
 		gbcPanelEastCenter.gridx = 1;
 		panelEastCenter.add(btPassen, gbcPanelEastCenter);
@@ -724,6 +741,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	// pass round
 	public static void pass() {
 		int activeplayer = mo.whosactive();
+		System.arraycopy(handcopy,0,newhand,0,13);
 		mo.activeusers.get(activeplayer).setActive(false);
 		mo.activeusers.get(nextplayer(activeplayer)).setActive(true);
 		display[0] = 0;
