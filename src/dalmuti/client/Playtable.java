@@ -188,7 +188,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		GridBagConstraints gbcPanelWestNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestNorth.insets = new Insets(30,30,30,30);//top, left, bottom, right
 				
-		lbCardsLeftNorth = new JLabel("Dieser Spieler hat noch 5 Karten");
+		lbCardsLeftNorth = new JLabel("Nickname hat 5 Karten");
 		panelWestNorth.add(lbCardsLeftNorth, gbcPanelWestNorth);
 		
 		
@@ -197,14 +197,14 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		//panelWestWest - gegner links
 		panelWestWest = new JPanel(new GridBagLayout());
 		panelWestWest.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelWestWest.setPreferredSize(new Dimension(192,400));//width, height
+		panelWestWest.setPreferredSize(new Dimension(192,430));//width, height
 		panelWest.add(panelWestWest, BorderLayout.WEST);
 		
 		//Components in panelWestWest
 		GridBagConstraints gbcPanelWestWest = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestWest.insets = new Insets(30,30,30,30);//top, left, bottom, right
 				
-		lbCardsLeftWest = new JLabel("Dieser Spieler hat noch 5 Karten");
+		lbCardsLeftWest = new JLabel("Nickname hat 5 Karten");
 		panelWestWest.add(lbCardsLeftWest, gbcPanelWestWest);
 		
 		
@@ -213,7 +213,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		//panelWestCenter - gespielte karten
 		panelWestCenter = new JPanel(new GridBagLayout());
 		panelWestCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelWestCenter.setPreferredSize(new Dimension(300,400));//width, height
+		panelWestCenter.setPreferredSize(new Dimension(300,430));//width, height
 		panelWest.add(panelWestCenter, BorderLayout.CENTER);
 		
 		//Components in panelWestCenter
@@ -236,14 +236,14 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		//panelWestEast - gegner rechts
 		panelWestEast = new JPanel(new GridBagLayout());
 		panelWestEast.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelWestEast.setPreferredSize(new Dimension(192,400));//width, height
+		panelWestEast.setPreferredSize(new Dimension(192,430));//width, height
 		panelWest.add(panelWestEast, BorderLayout.EAST);
 		
 		//Components in panelWestEast
 		GridBagConstraints gbcPanelWestEast = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestEast.insets = new Insets(30,30,30,30);//top, left, bottom, right
 				
-		lbCardsLeftEast = new JLabel("Dieser Spieler hat noch 5 Karten");
+		lbCardsLeftEast = new JLabel("Nickname hat 5 Karten");
 		panelWestEast.add(lbCardsLeftEast, gbcPanelWestEast);
 		
 		
@@ -265,7 +265,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarteNarr.setVerticalTextPosition(JButton.CENTER);
 		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
 		btKarteNarr.setPreferredSize(new Dimension(97,150));//width, height
-		btKarteNarr.setBorder(new LineBorder(Color.black, 4));
+		btKarteNarr.setBorder(new LineBorder(Color.black, 2));
 		btKarteNarr.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -284,7 +284,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte1.setVerticalTextPosition(JButton.CENTER);
 		btKarte1.setFont(new Font("", Font.BOLD, 72));
 		btKarte1.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte1.setBorder(new LineBorder(Color.black, 4));
+		btKarte1.setBorder(new LineBorder(Color.black, 2));
 		btKarte1.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -304,7 +304,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte2.setVerticalTextPosition(JButton.CENTER);
 		btKarte2.setFont(new Font("", Font.BOLD, 72));
 		btKarte2.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte2.setBorder(new LineBorder(Color.black, 4));
+		btKarte2.setBorder(new LineBorder(Color.black, 2));
 		btKarte2.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -324,7 +324,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte3.setVerticalTextPosition(JButton.CENTER);
 		btKarte3.setFont(new Font("", Font.BOLD, 72));
 		btKarte3.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte3.setBorder(new LineBorder(Color.black, 4));
+		btKarte3.setBorder(new LineBorder(Color.black, 2));
 		btKarte3.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -344,7 +344,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte4.setVerticalTextPosition(JButton.CENTER);
 		btKarte4.setFont(new Font("", Font.BOLD, 72));
 		btKarte4.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte4.setBorder(new LineBorder(Color.black, 4));
+		btKarte4.setBorder(new LineBorder(Color.black, 2));
 		btKarte4.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -364,7 +364,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte5.setVerticalTextPosition(JButton.CENTER);
 		btKarte5.setFont(new Font("", Font.BOLD, 72));
 		btKarte5.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte5.setBorder(new LineBorder(Color.black, 4));
+		btKarte5.setBorder(new LineBorder(Color.black, 2));
 		btKarte5.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -384,7 +384,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte6.setVerticalTextPosition(JButton.CENTER);
 		btKarte6.setFont(new Font("", Font.BOLD, 72));
 		btKarte6.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte6.setBorder(new LineBorder(Color.black, 4));
+		btKarte6.setBorder(new LineBorder(Color.black, 2));
 		btKarte6.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -404,7 +404,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte7.setVerticalTextPosition(JButton.CENTER);
 		btKarte7.setFont(new Font("", Font.BOLD, 72));
 		btKarte7.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte7.setBorder(new LineBorder(Color.black, 4));
+		btKarte7.setBorder(new LineBorder(Color.black, 2));
 		btKarte7.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -424,7 +424,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte8.setVerticalTextPosition(JButton.CENTER);
 		btKarte8.setFont(new Font("", Font.BOLD, 72));
 		btKarte8.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte8.setBorder(new LineBorder(Color.black, 4));
+		btKarte8.setBorder(new LineBorder(Color.black, 2));
 		btKarte8.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -444,7 +444,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte9.setVerticalTextPosition(JButton.CENTER);
 		btKarte9.setFont(new Font("", Font.BOLD, 72));
 		btKarte9.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte9.setBorder(new LineBorder(Color.black, 4));
+		btKarte9.setBorder(new LineBorder(Color.black, 2));
 		btKarte9.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -464,7 +464,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte10.setVerticalTextPosition(JButton.CENTER);
 		btKarte10.setFont(new Font("", Font.BOLD, 72));
 		btKarte10.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte10.setBorder(new LineBorder(Color.black, 4));
+		btKarte10.setBorder(new LineBorder(Color.black, 2));
 		btKarte10.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -484,7 +484,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte11.setVerticalTextPosition(JButton.CENTER);
 		btKarte11.setFont(new Font("", Font.BOLD, 72));
 		btKarte11.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte11.setBorder(new LineBorder(Color.black, 4));
+		btKarte11.setBorder(new LineBorder(Color.black, 2));
 		btKarte11.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -504,7 +504,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte12.setVerticalTextPosition(JButton.CENTER);
 		btKarte12.setFont(new Font("", Font.BOLD, 72));
 		btKarte12.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte12.setBorder(new LineBorder(Color.black, 4));
+		btKarte12.setBorder(new LineBorder(Color.black, 2));
 		btKarte12.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -527,7 +527,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btReset.setVerticalTextPosition(JButton.CENTER);
 		btReset.setFont(new Font("", Font.BOLD, 72));
 		btReset.setPreferredSize(new Dimension(97,150));//width, height
-		btReset.setBorder(new LineBorder(Color.red, 6));
+		btReset.setBorder(new LineBorder(Color.red, 2));
 		btReset.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -602,7 +602,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		//panelEastSouth - chat
 		panelEastSouth = new JPanel(new GridBagLayout());
 		panelEastSouth.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelEastSouth.setPreferredSize(new Dimension(300,450));//width, height
+		panelEastSouth.setPreferredSize(new Dimension(300,480));//width, height
 		panelEast.add(panelEastSouth, BorderLayout.SOUTH);
 		
 		//Components in panelEastSouth
