@@ -11,21 +11,18 @@ import dalmuti.testing.Card;
 public class Logic {
 
 	public static Masterobject control(Masterobject mo) {
+		
+		Iterator<User> e = mo.activeusers.iterator();
+		while (e.hasNext()) {
+			if (e.next().getAmount() == 0) {
+				mo.passiveusers.add(e.next());
+				e.remove();
+			}
+		}
 
 		if (mo.activeusers.size() == 1) {
 			mo.passiveusers.add(mo.activeusers.get(0));
 			mo.activeusers = mo.passiveusers;
-
-		}
-
-		else {
-			Iterator<User> e = mo.activeusers.iterator();
-			while (e.hasNext()) {
-				if (e.next().getAmount() == 0) {
-					mo.passiveusers.add(e.next());
-					e.remove();
-				}
-			}
 
 		}
 		return mo;

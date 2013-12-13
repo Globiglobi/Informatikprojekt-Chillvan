@@ -56,12 +56,7 @@ public class Client {
 					//
 					System.out.println("Masterobject erhalten!");
 					System.out.println(client_ID);
-//					 System.out.println(mo.activeusers.get(0).getUser_ID());
-//					 System.out.println(mo.activeusers.get(1).getUser_ID());
-//					 System.out.println(mo.activeusers.get(2).getUser_ID());
-//					 System.out.println(mo.activeusers.get(3).getUser_ID());
-					// System.out.println(mo.activeusers.get(0).getHand().get(0).getName());
-					//
+					
 				} else if (inputObject instanceof Integer) {
 					client_ID = (int) inputObject;
 				} else {
