@@ -52,6 +52,7 @@ public class Client {
 
 					UpdatePlaytable();
 					Playtable.UpdateButtons();
+//					Login.playtable.playedcards();
 
 					//
 					System.out.println("Masterobject erhalten!");
@@ -76,6 +77,7 @@ public class Client {
 	}
 
 	public static void UpdatePlaytable() {
+		System.arraycopy(mo.playedcards,0,Playtable.playedcards,0,2);
 		for(int i = 0; i < mo.activeusers.size(); i++){
 			if(mo.activeusers.get(i).getUser_ID() == client_ID){
 				System.arraycopy(mo.activeusers.get(i).getHand(),0, Playtable.handcopy,0,13);

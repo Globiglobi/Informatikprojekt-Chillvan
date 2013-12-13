@@ -12,7 +12,7 @@ public class Masterobject implements Serializable {
 	// Attributes
 	public ArrayList<User> activeusers;
 	public ArrayList<User> passiveusers;
-	public int[] playedcards;
+	public int[] playedcards = {0,0};
 	public ArrayList<Move> moves;
 
 	// Constructor

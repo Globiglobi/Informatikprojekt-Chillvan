@@ -46,6 +46,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	static int[] newhand = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	static int[] handcopy = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	static int[] display = {0,0};
+	static int[] playedcards = {0,0};
 	
 	
 	//GUI-Globals glassPane
@@ -178,7 +179,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		
 		
-		//panelWestNorth - gegner oben
+		//panelWestNorth - player top
 		panelWestNorth = new JPanel(new GridBagLayout());
 		panelWestNorth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestNorth.setPreferredSize(new Dimension(700,50));//width, height
@@ -194,7 +195,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		
 		
-		//panelWestWest - gegner links
+		//panelWestWest - player left
 		panelWestWest = new JPanel(new GridBagLayout());
 		panelWestWest.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestWest.setPreferredSize(new Dimension(192,430));//width, height
@@ -210,7 +211,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		
 		
-		//panelWestCenter - gespielte karten
+		//panelWestCenter - played cards
 		panelWestCenter = new JPanel(new GridBagLayout());
 		panelWestCenter.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestCenter.setPreferredSize(new Dimension(300,430));//width, height
@@ -233,7 +234,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		
 		
-		//panelWestEast - gegner rechts
+		//panelWestEast - player right
 		panelWestEast = new JPanel(new GridBagLayout());
 		panelWestEast.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestEast.setPreferredSize(new Dimension(192,430));//width, height
@@ -806,6 +807,38 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
 		}if(display[0] == 0){
 			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
+		}
+		
+	}
+	public void playedcards(){
+		if(playedcards[0] == 13){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narrbig.jpg")));
+		}if(playedcards[0] == 12){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte12big.jpg")));
+		}if(playedcards[0] == 11){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte11big.jpg")));
+		}if(playedcards[0] == 10){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte10big.jpg")));
+		}if(playedcards[0] == 9){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte9big.jpg")));
+		}if(playedcards[0] == 8){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte8big.jpg")));
+		}if(playedcards[0] == 7){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte7big.jpg")));
+		}if(playedcards[0] == 6){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte6big.jpg")));
+		}if(playedcards[0] == 5){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte5big.jpg")));
+		}if(playedcards[0] == 4){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte4big.jpg")));
+		}if(playedcards[0] == 3){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte3big.jpg")));
+		}if(playedcards[0] == 2){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte2big.jpg")));
+		}if(playedcards[0] == 1){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1big.jpg")));
+		}if(playedcards[0] == 0){
+			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.jpg")));
 		}
 		
 	}
