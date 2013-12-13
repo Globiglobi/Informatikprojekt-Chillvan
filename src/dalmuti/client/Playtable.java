@@ -44,7 +44,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	ObjectInputStream in;
 	static Masterobject mo;
 	static int[] newhand = {0,0,0,0,0,0,0,0,0,0,0,0,0};
-	static int[] handcopy = {1,1,1,1,1,1,1,1,1,1,1,1,1};
+	static int[] handcopy = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	static int[] display = {0,0};
 	
 	
@@ -711,11 +711,13 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	public static void placecards() {
 		int activeplayer = mo.whosactive();
 		mo.activeusers.get(activeplayer).setHand(newhand);
+		mo.activeusers.get(activeplayer).calcamount();
 		System.arraycopy(display,0,mo.playedcards,0,2);
 		mo.activeusers.get(activeplayer).setActive(false);
 		mo.activeusers.get(nextplayer(activeplayer)).setActive(true);
 		display[0] = 0;
 		display[1] = 0;
+		
 
 	}
 
