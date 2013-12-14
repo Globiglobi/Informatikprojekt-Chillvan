@@ -52,12 +52,35 @@ public class ServerThread extends Thread {
 						// Testoutput
 						System.out.println(user.getNickname());
 						System.out.println(userlist.size());
+						
+						// Creating Masterobject
+						if (userlist.size() == 4) {
+
+							Masterobject mo = new Masterobject(userlist);
+							
+							try {
+								Thread.sleep(2000);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+							
+							 Iterator<ObjectOutputStream> i = outlist.iterator();
+							 while(i.hasNext()){
+									i.next().writeObject(mo);
+							 }
+						}
 					}
 
 					else if (inputObject instanceof Masterobject) {
 						Masterobject mo = (Masterobject) inputObject;
 						
 						mo = Logic.control(mo);
+						
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
 						
 						 Iterator<ObjectOutputStream> i = outlist.iterator();
 						 while(i.hasNext()){
@@ -70,25 +93,7 @@ public class ServerThread extends Thread {
 								+ inputObject.getClass().getName());
 					}
 
-					// Creating Masterobject
-					if (userlist.size() == 4) {
 
-						Masterobject mo = new Masterobject(userlist);
-						
-						 Iterator<ObjectOutputStream> i = outlist.iterator();
-						 while(i.hasNext()){
-								i.next().writeObject(mo);
-						 }
-//						new SendThread(i.next(),mo).start();
-//							 ObjectOutputStream newout = new ObjectOutputStream(sList.get(3).getOutputStream());
-//							 newout.flush();
-//						ObjectOutputStream test = new ObjectOutputStream(sList.get(3).getOutputStream());
-//						test.writeObject(mo);	
-//						new ObjectOutputStream(sList.get(3).getOutputStream()).writeObject(mo);
-//						out.writeObject(mo);
-//						System.out.println(i.next().toString());
-//						 }
-					}
 				
 
 					// Testsend

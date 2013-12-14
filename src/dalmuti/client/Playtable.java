@@ -47,8 +47,6 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	static int[] newhand = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	static int[] handcopy = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	static int[] display = {0,0};
-	static int[] playedcards = {0,0};
-	
 	
 	//GUI-Globals glassPane
 	public JPanel glassPane;
@@ -135,7 +133,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 
 	
 	public void init(){
-		setTitle("Der Grosse Dalmuti - Playtable");
+		setTitle("Der Grosse Dalmuti - Spieltisch");
 		setSize(1024, 818);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -225,7 +223,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		GridBagConstraints gbcPanelWestCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestCenter.insets = new Insets(5,30,5,30);//top, left, bottom, right
 				
-		lbCardsPlayed = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/narrbig.jpg")));
+		lbCardsPlayed = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/karte1big.jpg")));
 		gbcPanelWestCenter.gridx = 0;
 		gbcPanelWestCenter.gridy = 0;
 		panelWestCenter.add(lbCardsPlayed, gbcPanelWestCenter);
@@ -595,6 +593,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						placecards();
 						UpdateButtons();
+						Image();
 					}
 				}
 		);
@@ -610,6 +609,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						pass();
 						UpdateButtons();
+						Image();
 					}
 				}
 		);
@@ -732,13 +732,17 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 
 	// place cards
 	public void placecards() {
+		if(display[0] < Client.mo.playedcards[0] && display[1] == Client.mo.playedcards[1] || Client.mo.playedcards[0] == 0){
 		Client.mo.activeusers.get(myRank).setHand(newhand);
 		Client.mo.activeusers.get(myRank).calcamount();
 		System.arraycopy(display,0,Client.mo.playedcards,0,2);
-		playedcards();
 		display[0] = 0;
 		display[1] = 0;
+		Client.mo.pass = 0;
 		sendObject();
+		}
+//		else{ return statement
+//		}
 	}
 
 	// pass round
@@ -746,6 +750,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		System.arraycopy(handcopy,0,newhand,0,13);
 		display[0] = 0;
 		display[1] = 0;
+		Client.mo.pass++;
 		sendObject();
 	}
 
@@ -828,8 +833,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		}if(Client.mo.playedcards[0] == 1){
 			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1big.jpg")));
 		}if(Client.mo.playedcards[0] == 0){
-			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.jpg")));
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.png")));
 		}
+		lbAmountCardsPlayed.setText("Diese Karte wurde " + Client.mo.playedcards[1] + " Mal gespielt");
+		Login.playtable.setTitle("Der Grosse Dalmuti - Spieltisch von " + Client.mo.activeusers.get(myRank).getNickname());
 		
 	}
 	public static void sendObject(){

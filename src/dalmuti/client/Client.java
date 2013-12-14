@@ -77,19 +77,18 @@ public class Client {
 	}
 
 	public static void UpdatePlaytable() {
-//		System.arraycopy(mo.playedcards,0,Playtable.playedcards,0,2);
 		for(int i = 0; i < mo.activeusers.size(); i++){
 			if(mo.activeusers.get(i).getUser_ID() == client_ID){
 				Login.playtable.myRank = i;
 				System.arraycopy(mo.activeusers.get(i).getHand(),0, Playtable.handcopy,0,13);
 				System.arraycopy(mo.activeusers.get(i).getHand(),0, Playtable.newhand,0,13);
-				if(mo.activeusers.get(i).getActive() == true){
-					Login.playtable.glassPane.setVisible(false);
-				}else{
-					Login.playtable.glassPane.setVisible(true);
-				}
 				break;			
 			}
+		}
+		if(mo.activeusers.get(Login.playtable.myRank).getActive() == true){
+			Login.playtable.glassPane.setVisible(false);
+		}else{
+			Login.playtable.glassPane.setVisible(true);
 		}
 	}
 }
