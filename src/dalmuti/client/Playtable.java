@@ -832,6 +832,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		lbCardsLeftWest.setText(Client.mo.users.get(westplayer).getNickname() + " \n hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
 		lbCardsLeftNorth.setText(Client.mo.users.get(northplayer).getNickname() + " \n hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
 		lbCardsLeftEast.setText(Client.mo.users.get(eastplayer).getNickname() + " \n hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
+		Login.playtable.lbActiveUser.setText("Du bist nicht am Zug");
+
 	}
 	// send Masterobject back to Server
 	public static void sendObject(){

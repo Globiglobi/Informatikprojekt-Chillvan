@@ -15,6 +15,7 @@ public class Logic {
 				mo.users.get(i).setPassive(true);
 				mo.nextround.add(mo.users.get(i));
 				System.out.println("Jetzt Passiv " + mo.nextround.get(0).getNickname());
+				System.out.println("Passivstatus " + mo.users.get(0).isPassive());
 				break;
 			}
 		}
@@ -24,10 +25,18 @@ public class Logic {
 			if (mo.users.get(i).getActive() == true) {
 				mo.users.get(i).setActive(false);
 				if(mo.users.get(mo.nextplayer(i)).isPassive() == true){
-					continue;
+					for(int j = i; j < mo.users.size(); j++){
+						if(mo.users.get(mo.nextplayer(j)).isPassive() == false){
+							mo.users.get(mo.nextplayer(j)).setActive(true);
+							break;
+						}
+					}
+					break;
 				}
+				else{
 				mo.users.get(mo.nextplayer(i)).setActive(true);
 				break;
+				}
 			}
 		}
 		
