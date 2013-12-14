@@ -29,7 +29,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -239,21 +239,31 @@ public class Login extends JFrame implements ActionListener{
 		Object src = e.getSource();
 		if(src == btLogin){
 			try{
+				if(tfEnterNickname.getText().length() <= 8){
 				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
 				playtable = new Playtable(this.out, this.in);
+				}else{
+					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 8 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
+					tfEnterNickname.setText("");
+				}
 			}catch (java.io.IOException IOException){
 				IOException.printStackTrace();
 			}
 		}else if(src == tfEnterNickname){
 			try{
+				if(tfEnterNickname.getText().length() <= 8){
 				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
 				playtable = new Playtable(this.out, this.in);
+				}else{
+					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 8 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
+					tfEnterNickname.setText("");
+				}
 			}catch (java.io.IOException IOException){
 				IOException.printStackTrace();
 			}
