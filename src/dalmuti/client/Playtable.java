@@ -829,9 +829,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 	}
 	public void cardsleft(){
-		lbCardsLeftWest.setText(Client.mo.users.get(westplayer).getNickname() + " hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
-		lbCardsLeftNorth.setText(Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
-		lbCardsLeftEast.setText(Client.mo.users.get(eastplayer).getNickname() + " hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
+		lbCardsLeftWest.setText(Client.mo.users.get(westplayer).getNickname() + " \n hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
+		lbCardsLeftNorth.setText(Client.mo.users.get(northplayer).getNickname() + " \n hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
+		lbCardsLeftEast.setText(Client.mo.users.get(eastplayer).getNickname() + " \n hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
 	}
 	// send Masterobject back to Server
 	public static void sendObject(){

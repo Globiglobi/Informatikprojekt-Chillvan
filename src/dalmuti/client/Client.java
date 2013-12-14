@@ -96,6 +96,7 @@ public class Client {
 			Login.playtable.glassPane.setVisible(false);
 		}else{
 			Login.playtable.glassPane.setVisible(true);
+//			Login.playtable.lbActiveUser.setText("Du bist nicht am Zug");
 		}
 	}
 }
