@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Arrays;
 import java.io.Serializable;
+
 import dalmuti.shared.User;
 
 public class Masterobject implements Serializable {
@@ -25,6 +26,7 @@ public class Masterobject implements Serializable {
 		int[] deck = createdeck();
 		shuffle(deck);
 		distribute(deck);
+		activeusers.get(0).setActive(true);
 
 	}
 
@@ -96,5 +98,17 @@ public class Masterobject implements Serializable {
 		}
 		return pos;
 	}
+	// Determine next player
+		public int nextplayer(int currentplayer) {
+			int nextplayer = currentplayer + 1;
+			if (nextplayer > activeusers.size() - 1) {
+				nextplayer = 0;
+			}
+			return nextplayer;
+		}
+
+		public static void main(String[] args) {
+
+		}
 
 }

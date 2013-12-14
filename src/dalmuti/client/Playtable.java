@@ -20,6 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -40,9 +41,9 @@ import dalmuti.shared.Masterobject;
 @SuppressWarnings("serial")
 public class Playtable extends JFrame implements ActionListener, MouseListener{
 	
-	ObjectOutputStream out;
-	ObjectInputStream in;
-	static Masterobject mo;
+	static ObjectOutputStream out;
+	static ObjectInputStream in;
+	static int myRank;
 	static int[] newhand = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	static int[] handcopy = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	static int[] display = {0,0};
@@ -50,7 +51,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	
 	
 	//GUI-Globals glassPane
-	private JPanel glassPane;
+	public JPanel glassPane;
 	
 	//GUI-Globals menuBar
 	private JMenuBar menuBar;
@@ -151,7 +152,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		      g.setColor(new Color(0, 0, 0, 0.1f));  
 		   
 		      //Fill a rectangle with the 50% grey 
-		      g.fillRect(0, 30, this.getWidth(), this.getHeight() - 30);  
+		      g.fillRect(0, 0, this.getWidth(), this.getHeight());  
 		   }  
 		};  
 		//Turn off the opaque attribute of the panel  
@@ -160,7 +161,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		glassPane.addMouseListener(this);
 		   
 		//Set the glass pane in the JFrame  
-		setGlassPane(glassPane);  
+		setGlassPane(glassPane); 
+		
+		//activate.GlassPane
+		glassPane.setVisible(true);
 
 		
 	
@@ -221,7 +225,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		GridBagConstraints gbcPanelWestCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestCenter.insets = new Insets(5,30,5,30);//top, left, bottom, right
 				
-		lbCardsPlayed = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/karte1big.jpg")));
+		lbCardsPlayed = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/narrbig.jpg")));
 		gbcPanelWestCenter.gridx = 0;
 		gbcPanelWestCenter.gridy = 0;
 		panelWestCenter.add(lbCardsPlayed, gbcPanelWestCenter);
@@ -229,8 +233,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		lbAmountCardsPlayed = new JLabel("Diese Karte wurde 1 Mal gespielt");
 		gbcPanelWestCenter.gridx = 0;
 		gbcPanelWestCenter.gridy = 1;
-		panelWestCenter.add(lbAmountCardsPlayed, gbcPanelWestCenter);
-		
+		panelWestCenter.add(lbAmountCardsPlayed, gbcPanelWestCenter);		
 		
 		
 		
@@ -635,17 +638,17 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		try{
-			if(e.getSource() == btLegen){
-				this.out.writeObject("sfd");
-			}else if(e.getSource() == btPassen){
-				
-			}else if(e.getSource() == btReset){
-				
-			}
-		}catch (java.io.IOException IOException){
-			IOException.printStackTrace();
-		}
+//		try{
+//			if(e.getSource() == btLegen){
+//				this.out.writeObject("sfd");
+//			}else if(e.getSource() == btPassen){
+//				
+//			}else if(e.getSource() == btReset){
+//				
+//			}
+//		}catch (java.io.IOException IOException){
+//			IOException.printStackTrace();
+//		}
 	}
 
 
@@ -678,7 +681,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		e.consume();
 	}
 	
-	// Methods for Clicks
+	// Methods
+	
+	// click on normal card
 	public static void cardclick(int button) {
 		// in case of button gets clicked again
 		System.out.println("Input handcopy " + handcopy[button]);
@@ -703,7 +708,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		System.out.println("Display!!! " + display[1]);
 
 	}
-
+	// click on narr button
 	public static void narrclick() {
 		// in case no card has been played yet
 		if ((display[0] == 0 || display[0] == 13) && newhand[0] >= 1) {
@@ -726,37 +731,22 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	}
 
 	// place cards
-	public static void placecards() {
-		int activeplayer = mo.whosactive();
-		mo.activeusers.get(activeplayer).setHand(newhand);
-		mo.activeusers.get(activeplayer).calcamount();
-		System.arraycopy(display,0,mo.playedcards,0,2);
-		mo.activeusers.get(activeplayer).setActive(false);
-		mo.activeusers.get(nextplayer(activeplayer)).setActive(true);
+	public void placecards() {
+		Client.mo.activeusers.get(myRank).setHand(newhand);
+		Client.mo.activeusers.get(myRank).calcamount();
+		System.arraycopy(display,0,Client.mo.playedcards,0,2);
+		playedcards();
 		display[0] = 0;
 		display[1] = 0;
-		
-
+		sendObject();
 	}
 
 	// pass round
 	public static void pass() {
-		int activeplayer = mo.whosactive();
 		System.arraycopy(handcopy,0,newhand,0,13);
-		mo.activeusers.get(activeplayer).setActive(false);
-		mo.activeusers.get(nextplayer(activeplayer)).setActive(true);
 		display[0] = 0;
 		display[1] = 0;
-
-	}
-
-	// Determine next player
-	public static int nextplayer(int currentplayer) {
-		int nextplayer = currentplayer + 1;
-		if (nextplayer > mo.activeusers.size() - 1) {
-			nextplayer = 0;
-		}
-		return nextplayer;
+		sendObject();
 	}
 
 	public static void main(String[] args) {
@@ -811,36 +801,43 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 	}
 	public void playedcards(){
-		if(playedcards[0] == 13){
+		if(Client.mo.playedcards[0] == 13){
 			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narrbig.jpg")));
-		}if(playedcards[0] == 12){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte12big.jpg")));
-		}if(playedcards[0] == 11){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte11big.jpg")));
-		}if(playedcards[0] == 10){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte10big.jpg")));
-		}if(playedcards[0] == 9){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte9big.jpg")));
-		}if(playedcards[0] == 8){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte8big.jpg")));
-		}if(playedcards[0] == 7){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte7big.jpg")));
-		}if(playedcards[0] == 6){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte6big.jpg")));
-		}if(playedcards[0] == 5){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte5big.jpg")));
-		}if(playedcards[0] == 4){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte4big.jpg")));
-		}if(playedcards[0] == 3){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte3big.jpg")));
-		}if(playedcards[0] == 2){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte2big.jpg")));
-		}if(playedcards[0] == 1){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1big.jpg")));
-		}if(playedcards[0] == 0){
-			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.jpg")));
+		}if(Client.mo.playedcards[0] == 12){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte12big.jpg")));
+		}if(Client.mo.playedcards[0] == 11){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte11big.jpg")));
+		}if(Client.mo.playedcards[0] == 10){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte10big.jpg")));
+		}if(Client.mo.playedcards[0] == 9){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte9big.jpg")));
+		}if(Client.mo.playedcards[0] == 8){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte8big.jpg")));
+		}if(Client.mo.playedcards[0] == 7){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte7big.jpg")));
+		}if(Client.mo.playedcards[0] == 6){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte6big.jpg")));
+		}if(Client.mo.playedcards[0] == 5){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte5big.jpg")));
+		}if(Client.mo.playedcards[0] == 4){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte4big.jpg")));
+		}if(Client.mo.playedcards[0] == 3){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte3big.jpg")));
+		}if(Client.mo.playedcards[0] == 2){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte2big.jpg")));
+		}if(Client.mo.playedcards[0] == 1){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1big.jpg")));
+		}if(Client.mo.playedcards[0] == 0){
+			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.jpg")));
 		}
 		
+	}
+	public static void sendObject(){
+		try{
+			Playtable.out.writeObject(Client.mo);
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
 	}
 
 }

@@ -12,7 +12,7 @@ import dalmuti.shared.User;
 public class Client {
 
 	Login login;
-	Playtable playtable;
+//	Playtable playtable;
 	Socket socket;
 	ObjectOutputStream out;
 	ObjectInputStream in;
@@ -24,7 +24,7 @@ public class Client {
 	public Client(String hostName, int portNumber) {
 		init(hostName, portNumber);
 		login = new Login(this.out, this.in);
-		playtable = Login.playtable;
+//		playtable = Login.playtable;
 		receiveObjectFromServer();
 
 	}
@@ -52,7 +52,7 @@ public class Client {
 
 					UpdatePlaytable();
 					Playtable.UpdateButtons();
-//					Login.playtable.playedcards();
+					Login.playtable.playedcards();
 
 					//
 					System.out.println("Masterobject erhalten!");
@@ -77,12 +77,17 @@ public class Client {
 	}
 
 	public static void UpdatePlaytable() {
-		System.arraycopy(mo.playedcards,0,Playtable.playedcards,0,2);
+//		System.arraycopy(mo.playedcards,0,Playtable.playedcards,0,2);
 		for(int i = 0; i < mo.activeusers.size(); i++){
 			if(mo.activeusers.get(i).getUser_ID() == client_ID){
+				Login.playtable.myRank = i;
 				System.arraycopy(mo.activeusers.get(i).getHand(),0, Playtable.handcopy,0,13);
 				System.arraycopy(mo.activeusers.get(i).getHand(),0, Playtable.newhand,0,13);
-
+				if(mo.activeusers.get(i).getActive() == true){
+					Login.playtable.glassPane.setVisible(false);
+				}else{
+					Login.playtable.glassPane.setVisible(true);
+				}
 				break;			
 			}
 		}
