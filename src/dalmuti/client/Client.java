@@ -44,7 +44,7 @@ public class Client {
 		}
 	}
 
-	public void receiveObjectFromServer(/* Object user */) {
+	public void receiveObjectFromServer() {
 		// receive the UserObject and do whatever the client has to do...
 		try {
 			while ((inputObject = in.readObject()) != null) {

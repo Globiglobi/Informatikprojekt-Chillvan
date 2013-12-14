@@ -50,13 +50,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	
 	//GUI-Globals glassPane
 	public JPanel glassPane;
-	
-	//GUI-Globals menuBar
-	private JMenuBar menuBar;
-	private JMenu help;
-	private JMenuItem spielregeln;
-	private JMenuItem about;
-		
+	private JLabel lbActiveUser;
 	
 	//GUI-Globals panelWest
 	private JPanel panelWest;
@@ -83,7 +77,6 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	
 	//GUI-Globals panelWestSouth - deine karten
 	private JPanel panelWestSouth;
-	private JPanel panelControl;
 	private JButton btKarte1;
 	private JButton btKarte2;
 	private JButton btKarte3;
@@ -98,10 +91,6 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	private JButton btKarte12;
 	private JButton btKarteNarr;
 	private JButton btReset;
-	private JLabel lbAmount;
-
-	
-	private static int cardAmount = 0;
 		
 	//GUI-Globals panelEast
 	private JPanel panelEast;
@@ -145,12 +134,12 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//set up glassPane
 		//Create a panel to use as the glass pane  
-		glassPane = new JPanel()  
+		glassPane = new JPanel(new GridBagLayout())  
 		{  
 		   public void paintComponent(Graphics g)  
 		   {  
 		      //Set the color grey with a 50% alpha  
-		      g.setColor(new Color(0, 0, 0, 0.1f));  
+		      g.setColor(new Color(0, 0, 0, 0.7f));  
 		   
 		      //Fill a rectangle with the 50% grey 
 		      g.fillRect(0, 0, this.getWidth(), this.getHeight());  
@@ -168,6 +157,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		glassPane.setVisible(true);
 
 		
+		lbActiveUser = new JLabel("Warte auf weitere Spieler... ");
+		lbActiveUser.setFont(new Font("", Font.BOLD, 60));
+		lbActiveUser.setForeground(Color.white);
+		glassPane.add(lbActiveUser);
 	
 
 		
@@ -186,7 +179,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//panelWestNorth - player top
 		panelWestNorth = new JPanel(new GridBagLayout());
-		panelWestNorth.setBorder(BorderFactory.createLineBorder(Color.black));
+//		panelWestNorth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestNorth.setPreferredSize(new Dimension(700,50));//width, height
 		panelWest.add(panelWestNorth, BorderLayout.NORTH);
 		
@@ -194,7 +187,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		GridBagConstraints gbcPanelWestNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestNorth.insets = new Insets(30,30,30,30);//top, left, bottom, right
 				
-		lbCardsLeftNorth = new JLabel("Nickname hat 5 Karten");
+		lbCardsLeftNorth = new JLabel("Warte auf Spieler...");
 		panelWestNorth.add(lbCardsLeftNorth, gbcPanelWestNorth);
 		
 		
@@ -202,7 +195,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//panelWestWest - player left
 		panelWestWest = new JPanel(new GridBagLayout());
-		panelWestWest.setBorder(BorderFactory.createLineBorder(Color.black));
+//		panelWestWest.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestWest.setPreferredSize(new Dimension(192,430));//width, height
 		panelWest.add(panelWestWest, BorderLayout.WEST);
 		
@@ -210,7 +203,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		GridBagConstraints gbcPanelWestWest = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestWest.insets = new Insets(30,30,30,30);//top, left, bottom, right
 				
-		lbCardsLeftWest = new JLabel("Nickname hat 5 Karten");
+		lbCardsLeftWest = new JLabel("Warte auf Spieler...");
 		panelWestWest.add(lbCardsLeftWest, gbcPanelWestWest);
 		
 		
@@ -218,7 +211,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//panelWestCenter - played cards
 		panelWestCenter = new JPanel(new GridBagLayout());
-		panelWestCenter.setBorder(BorderFactory.createLineBorder(Color.black));
+//		panelWestCenter.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestCenter.setPreferredSize(new Dimension(300,430));//width, height
 		panelWest.add(panelWestCenter, BorderLayout.CENTER);
 		
@@ -231,7 +224,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestCenter.gridy = 0;
 		panelWestCenter.add(lbCardsPlayed, gbcPanelWestCenter);
 		
-		lbAmountCardsPlayed = new JLabel("Diese Karte wurde 1 Mal gespielt");
+		lbAmountCardsPlayed = new JLabel("Warte bis der Grosse Dalmuti das Spiel beginnt.");
 		gbcPanelWestCenter.gridx = 0;
 		gbcPanelWestCenter.gridy = 1;
 		panelWestCenter.add(lbAmountCardsPlayed, gbcPanelWestCenter);		
@@ -240,7 +233,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//panelWestEast - player right
 		panelWestEast = new JPanel(new GridBagLayout());
-		panelWestEast.setBorder(BorderFactory.createLineBorder(Color.black));
+//		panelWestEast.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestEast.setPreferredSize(new Dimension(192,430));//width, height
 		panelWest.add(panelWestEast, BorderLayout.EAST);
 		
@@ -248,7 +241,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		GridBagConstraints gbcPanelWestEast = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestEast.insets = new Insets(30,30,30,30);//top, left, bottom, right
 				
-		lbCardsLeftEast = new JLabel("Nickname hat 5 Karten");
+		lbCardsLeftEast = new JLabel("Warte auf Spieler...");
 		panelWestEast.add(lbCardsLeftEast, gbcPanelWestEast);
 		
 		
@@ -256,7 +249,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//panelWestSouth - deine karten
 		panelWestSouth = new JPanel(new GridLayout(2, 7));
-		panelWestSouth.setBorder(BorderFactory.createLineBorder(Color.black));
+//		panelWestSouth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelWestSouth.setPreferredSize(new Dimension(700,300));//width, height
 		panelWest.add(panelWestSouth, BorderLayout.SOUTH);
 		
