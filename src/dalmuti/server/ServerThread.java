@@ -33,11 +33,8 @@ public class ServerThread extends Thread {
 			outlist.add(out);
 			ObjectInputStream in = new ObjectInputStream(
 					socket.getInputStream());
-			// definition was der server empfangen und senden kann
-			// while-schlaufe mit der spiellogik
 
 			Object inputObject;
-			// userID = Thread.currentThread().getId();
 			try {
 
 				while ((inputObject = in.readObject()) != null) {
@@ -50,8 +47,8 @@ public class ServerThread extends Thread {
 						client_ID++;
 
 						// Testoutput
-						System.out.println(user.getNickname());
-						System.out.println(userlist.size());
+//						System.out.println(user.getNickname());
+//						System.out.println(userlist.size());
 						
 						// Creating Masterobject
 						if (userlist.size() == 4) {
@@ -59,9 +56,13 @@ public class ServerThread extends Thread {
 							Masterobject mo = new Masterobject(userlist);
 							
 							try {
-								Thread.sleep(2000);
+								Thread.sleep(500);
 							} catch (InterruptedException e) {
 								e.printStackTrace();
+							}
+							
+							for (int i = 0; i < 4; i++) {
+								System.out.println("User " + i + " Amount: " + mo.users.get(i).getAmount());
 							}
 							
 							 Iterator<ObjectOutputStream> i = outlist.iterator();
@@ -74,14 +75,14 @@ public class ServerThread extends Thread {
 					else if (inputObject instanceof Masterobject) {
 						Masterobject mo = (Masterobject) inputObject;
 						
-						mo = Logic.control(mo);
-						
 						try {
-							Thread.sleep(500);
+							Thread.sleep(100);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
+						mo = Logic.control(mo);
 						
+						// Testoutput
 						 Iterator<ObjectOutputStream> i = outlist.iterator();
 						 while(i.hasNext()){
 								i.next().writeObject(mo);
@@ -92,32 +93,6 @@ public class ServerThread extends Thread {
 						System.out.println("Unexpected object type:  "
 								+ inputObject.getClass().getName());
 					}
-
-
-				
-
-					// Testsend
-					// Iterator<Socket> i = sList.iterator();
-					// while(i.hasNext()){
-					// i.next().getOutputStream();
-					// out.writeObject(mo);
-					// }
-
-					// print sList
-//					 System.out.println(sList.get(0).toString());
-//					 System.out.println(sList.get(1).toString());
-//					 System.out.println(sList.get(2).toString());
-//					 System.out.println(sList.get(3).toString());
-
-					// //Testoutput
-					//
-					// for(int a: mo.activeusers.get(0).getHand()){
-					// System.out.print(a + " ");
-					// }
-					// System.out.println(mo.activeusers.get(0).getHand()[12]);
-					// System.out.println(mo.activeusers.get(1).getHand()[0]);
-					// System.out.println(mo.activeusers.get(2).getHand()[0]);
-					// System.out.println(mo.activeusers.get(3).getHand()[0]);
 				}
 
 			} catch (ClassNotFoundException cnfException) {

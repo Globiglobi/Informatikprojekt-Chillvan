@@ -19,6 +19,7 @@ public class Client {
 	Object inputObject;
 	static Masterobject mo;
 	static int client_ID;
+	static boolean firstRound = true;
 
 	// call constructor to set up server, call gui-login, call method
 	public Client(String hostName, int portNumber) {
@@ -49,10 +50,11 @@ public class Client {
 			while ((inputObject = in.readObject()) != null) {
 				if (inputObject instanceof Masterobject) {
 					mo = (Masterobject) inputObject;
-
+					
 					UpdatePlaytable();
 					Playtable.UpdateButtons();
 					Login.playtable.playedcards();
+					
 
 					//
 					System.out.println("Masterobject erhalten!");
@@ -77,15 +79,20 @@ public class Client {
 	}
 
 	public static void UpdatePlaytable() {
-		for(int i = 0; i < mo.activeusers.size(); i++){
-			if(mo.activeusers.get(i).getUser_ID() == client_ID){
+		for(int i = 0; i < mo.users.size(); i++){
+			if(mo.users.get(i).getUser_ID() == client_ID){
 				Login.playtable.myRank = i;
-				System.arraycopy(mo.activeusers.get(i).getHand(),0, Playtable.handcopy,0,13);
-				System.arraycopy(mo.activeusers.get(i).getHand(),0, Playtable.newhand,0,13);
+				System.arraycopy(mo.users.get(i).getHand(),0, Playtable.handcopy,0,13);
+				System.arraycopy(mo.users.get(i).getHand(),0, Playtable.newhand,0,13);
 				break;			
 			}
 		}
-		if(mo.activeusers.get(Login.playtable.myRank).getActive() == true){
+		if(firstRound == true){
+			Playtable.positionPlayers();
+			firstRound = false;
+		}
+		Login.playtable.cardsleft();
+		if(mo.users.get(Login.playtable.myRank).getActive() == true){
 			Login.playtable.glassPane.setVisible(false);
 		}else{
 			Login.playtable.glassPane.setVisible(true);

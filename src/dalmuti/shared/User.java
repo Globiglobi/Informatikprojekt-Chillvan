@@ -13,11 +13,13 @@ public class User implements Serializable {
 	private int[] hand;
 	private int amount;
 	private boolean active;
+	private boolean passive;
 	
 	public User(String nickname) {
 		this.nickname = nickname;
 		hand = new int[13];
 		setActive(false);
+		setPassive(false);
 	}
 
 	// Getter and Setter Methods
@@ -50,6 +52,14 @@ public class User implements Serializable {
 		return active;
 	}
 
+	public boolean isPassive() {
+		return passive;
+	}
+
+	public void setPassive(boolean passive) {
+		this.passive = passive;
+	}
+
 	public int getUser_ID(){
 		return this.user_ID;
 	}
@@ -67,7 +77,7 @@ public class User implements Serializable {
 	public void calcamount(){
 		amount = 0;
 		for(int i = 0; i < getHand().length; i++){
-			amount =+ getHand()[i];
+			amount += getHand()[i];
 		}
 	}
 	

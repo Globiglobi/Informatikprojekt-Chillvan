@@ -11,8 +11,8 @@ import dalmuti.shared.User;
 public class Masterobject implements Serializable {
 
 	// Attributes
-	public ArrayList<User> activeusers;
-	public ArrayList<User> passiveusers;
+	public ArrayList<User> users;
+	public ArrayList<User> nextround;
 	public int[] playedcards = {0,0};
 	public int pass = 0;
 
@@ -21,12 +21,12 @@ public class Masterobject implements Serializable {
 	}
 
 	public Masterobject(ArrayList<User> userlist) {
-		this.activeusers = userlist;
-		passiveusers = new ArrayList<User>(activeusers.size());
+		this.users = userlist;
+		nextround = new ArrayList<User>(users.size());
 		int[] deck = createdeck();
 		shuffle(deck);
 		distribute(deck);
-		activeusers.get(0).setActive(true);
+		users.get(0).setActive(true);
 
 	}
 
@@ -60,13 +60,13 @@ public class Masterobject implements Serializable {
 
 	// distribute hands to users
 	public void distribute(int[] deck) {
-		this.activeusers.get(0).createhand(Arrays.copyOfRange(deck, 0, 20));
-		this.activeusers.get(1).createhand(Arrays.copyOfRange(deck, 20, 40));
-		this.activeusers.get(2).createhand(Arrays.copyOfRange(deck, 40, 60));
-		this.activeusers.get(3).createhand(Arrays.copyOfRange(deck, 60, 80));
+		this.users.get(0).createhand(Arrays.copyOfRange(deck, 0, 20));
+		this.users.get(1).createhand(Arrays.copyOfRange(deck, 20, 40));
+		this.users.get(2).createhand(Arrays.copyOfRange(deck, 40, 60));
+		this.users.get(3).createhand(Arrays.copyOfRange(deck, 60, 80));
 
 		for (int i = 0; i < 4; i++) {
-			this.activeusers.get(i).calcamount();
+			this.users.get(i).calcamount();
 		}
 
 	}
@@ -74,7 +74,7 @@ public class Masterobject implements Serializable {
 	// Determinate active user
 	public int whosactive() {
 		int pos = 0;
-		Iterator<User> i = this.activeusers.iterator();
+		Iterator<User> i = this.users.iterator();
 		while (i.hasNext()) {
 			boolean thechosenone = i.next().getActive();
 			if (thechosenone == true) {
@@ -89,8 +89,8 @@ public class Masterobject implements Serializable {
 	// Determine Rank
 	public int rank(int id) {
 		int pos = 0;
-		for (int i = 0; i < activeusers.size(); i++) {
-			if (id == activeusers.get(i).getUser_ID()) {
+		for (int i = 0; i < users.size(); i++) {
+			if (id == users.get(i).getUser_ID()) {
 				pos = i;
 				break;
 			}
@@ -101,7 +101,7 @@ public class Masterobject implements Serializable {
 	// Determine next player
 		public int nextplayer(int currentplayer) {
 			int nextplayer = currentplayer + 1;
-			if (nextplayer > activeusers.size() - 1) {
+			if (nextplayer > users.size() - 1) {
 				nextplayer = 0;
 			}
 			return nextplayer;

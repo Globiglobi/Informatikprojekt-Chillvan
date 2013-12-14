@@ -64,10 +64,12 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	//GUI-Globals panelWestNorth - gegner oben
 	private JPanel panelWestNorth;
 	private JLabel lbCardsLeftNorth;
+	private int northplayer;
 	
 	//GUI-Globals panelWestWest - gegner links
 	private JPanel panelWestWest;
 	private JLabel lbCardsLeftWest;
+	private int westplayer;
 	
 	//GUI-Globals panelWestCenter - gespielte karten!
 	private JPanel panelWestCenter;
@@ -77,6 +79,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	//GUI-Globals panelWestEast - gegner rechts
 	private JPanel panelWestEast;
 	private JLabel lbCardsLeftEast;
+	private int eastplayer;
 	
 	//GUI-Globals panelWestSouth - deine karten
 	private JPanel panelWestSouth;
@@ -686,17 +689,13 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	// click on normal card
 	public static void cardclick(int button) {
 		// in case of button gets clicked again
-		System.out.println("Input handcopy " + handcopy[button]);
 		if ((newhand[button] != handcopy[button]) && newhand[button] >= 1) {
 			newhand[button]--;
-			System.out.println("click again " + newhand[button]);
 		}
 		// in case new button gets clicked
 		else if ((newhand[button] == handcopy[button]) && newhand[button] >= 1) {
 			System.arraycopy(handcopy,0,newhand,0,13);
 			newhand[button]--;
-			System.out.println("first click " + newhand[button]);
-			System.out.println("handcopy " + handcopy[button]);
 		}
 		// in case of button gets clicked with 0 cards
 		else if((newhand[button] == handcopy[button]) && newhand[button] == 0){
@@ -705,8 +704,6 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		// change display array
 		display[0] = button;
 		display[1] = handcopy[button] - newhand[button];
-		System.out.println("Display!!! " + display[1]);
-
 	}
 	// click on narr button
 	public static void narrclick() {
@@ -733,13 +730,15 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	// place cards
 	public void placecards() {
 		if(display[0] < Client.mo.playedcards[0] && display[1] == Client.mo.playedcards[1] || Client.mo.playedcards[0] == 0){
-		Client.mo.activeusers.get(myRank).setHand(newhand);
-		Client.mo.activeusers.get(myRank).calcamount();
-		System.arraycopy(display,0,Client.mo.playedcards,0,2);
-		display[0] = 0;
-		display[1] = 0;
-		Client.mo.pass = 0;
-		sendObject();
+			int[] check = new int[13];
+			System.arraycopy(newhand, 0, check, 0,13);
+			Client.mo.users.get(myRank).setHand(check);
+			Client.mo.users.get(myRank).calcamount();
+			System.arraycopy(display,0,Client.mo.playedcards,0,2);
+			display[0] = 0;
+			display[1] = 0;
+			Client.mo.pass = 0;
+			sendObject();
 		}
 //		else{ return statement
 //		}
@@ -754,9 +753,6 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		sendObject();
 	}
 
-	public static void main(String[] args) {
-
-	}
 	public static void UpdateButtons(){
 		Login.playtable.btKarte1.setText(String.valueOf(newhand[1]));
 		Login.playtable.btKarte2.setText(String.valueOf(newhand[2]));
@@ -836,15 +832,27 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.png")));
 		}
 		lbAmountCardsPlayed.setText("Diese Karte wurde " + Client.mo.playedcards[1] + " Mal gespielt");
-		Login.playtable.setTitle("Der Grosse Dalmuti - Spieltisch von " + Client.mo.activeusers.get(myRank).getNickname());
+		Login.playtable.setTitle("Der Grosse Dalmuti - Spieltisch von " + Client.mo.users.get(myRank).getNickname());
 		
 	}
+	public void cardsleft(){
+		lbCardsLeftWest.setText(Client.mo.users.get(westplayer).getNickname() + " hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
+		lbCardsLeftNorth.setText(Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
+		lbCardsLeftEast.setText(Client.mo.users.get(eastplayer).getNickname() + " hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
+	}
+	// send Masterobject back to Server
 	public static void sendObject(){
 		try{
 			Playtable.out.writeObject(Client.mo);
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
+	}
+	// Determine Player West, North and East
+	public static void positionPlayers(){
+		Login.playtable.westplayer = Client.mo.nextplayer(myRank);
+		Login.playtable.northplayer = Client.mo.nextplayer(Login.playtable.westplayer);
+		Login.playtable.eastplayer = Client.mo.nextplayer(Login.playtable.northplayer);
 	}
 
 }

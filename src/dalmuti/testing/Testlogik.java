@@ -29,7 +29,7 @@ public class Testlogik {
 			// Masterobjekt erstellen
 			Masterobject mo = new Masterobject(userlist);
 
-			int[] array = mo.activeusers.get(0).getHand();
+			int[] array = mo.users.get(0).getHand();
 			for (int a : array) {
 				System.out.print(a + " ");
 			}

@@ -49,10 +49,10 @@ public class Methods {
 	// place cards
 	public static void placecards() {
 		int activeplayer = mo.whosactive();
-		mo.activeusers.get(activeplayer).setHand(newhand);
+		mo.users.get(activeplayer).setHand(newhand);
 		mo.playedcards = display;
-		mo.activeusers.get(activeplayer).setActive(false);
-		mo.activeusers.get(nextplayer(activeplayer)).setActive(true);
+		mo.users.get(activeplayer).setActive(false);
+		mo.users.get(nextplayer(activeplayer)).setActive(true);
 		display[0] = 0;
 		display[1] = 0;
 
@@ -61,8 +61,8 @@ public class Methods {
 	// pass round
 	public static void pass() {
 		int activeplayer = mo.whosactive();
-		mo.activeusers.get(activeplayer).setActive(false);
-		mo.activeusers.get(nextplayer(activeplayer)).setActive(true);
+		mo.users.get(activeplayer).setActive(false);
+		mo.users.get(nextplayer(activeplayer)).setActive(true);
 		display[0] = 0;
 		display[1] = 0;
 
@@ -71,7 +71,7 @@ public class Methods {
 	// Determine next player
 	public static int nextplayer(int currentplayer) {
 		int nextplayer = currentplayer + 1;
-		if (nextplayer > mo.activeusers.size() - 1) {
+		if (nextplayer > mo.users.size() - 1) {
 			nextplayer = 0;
 		}
 		return nextplayer;
