@@ -80,6 +80,8 @@ public class ServerThread extends Thread {
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
+						
+						mo.firstRound = false;
 						mo = Logic.control(mo);
 						
 						// Testoutput

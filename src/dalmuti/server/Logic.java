@@ -21,6 +21,7 @@ public class Logic {
 				if(mo.users.get(i).isPassive() == true){
 					continue;
 				}
+				mo.pass--;
 				mo.users.get(i).setPassive(true);
 				System.out.println(mo.users.get(i).getNickname() + " set to passive");
 				mo.nextround.add(mo.users.get(i));
@@ -73,6 +74,8 @@ public class Logic {
 			mo.distribute(deck);
 			// set Dalmuti to active
 			mo.users.get(0).setActive(true);
+			mo.firstRound = true;
+			mo.playedcards = new int[2];
 		}
 		return mo;
 	}

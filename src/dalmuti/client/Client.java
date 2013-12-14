@@ -12,20 +12,17 @@ import dalmuti.shared.User;
 public class Client {
 
 	Login login;
-//	Playtable playtable;
 	Socket socket;
 	ObjectOutputStream out;
 	ObjectInputStream in;
 	Object inputObject;
 	static Masterobject mo;
 	static int client_ID;
-	static boolean firstRound = true;
 
 	// call constructor to set up server, call gui-login, call method
 	public Client(String hostName, int portNumber) {
 		init(hostName, portNumber);
 		login = new Login(this.out, this.in);
-//		playtable = Login.playtable;
 		receiveObjectFromServer();
 
 	}
@@ -87,9 +84,8 @@ public class Client {
 				break;			
 			}
 		}
-		if(firstRound == true){
+		if(mo.firstRound == true){
 			Playtable.positionPlayers();
-			firstRound = false;
 		}
 		Login.playtable.cardsleft();
 		if(mo.users.get(Login.playtable.myRank).getActive() == true){

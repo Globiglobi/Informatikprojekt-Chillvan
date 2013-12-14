@@ -13,8 +13,9 @@ public class Masterobject implements Serializable {
 	// Attributes
 	public ArrayList<User> users;
 	public ArrayList<User> nextround;
-	public int[] playedcards = {0,0};
+	public int[] playedcards = new int[2];
 	public int pass = 0;
+	public boolean firstRound;
 
 	// Constructor
 	public Masterobject() {
@@ -39,6 +40,7 @@ public class Masterobject implements Serializable {
 		//////////////////////////////
 		
 		users.get(0).setActive(true);
+		firstRound = true;
 
 	}
 

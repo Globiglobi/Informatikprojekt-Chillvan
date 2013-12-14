@@ -44,9 +44,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	static ObjectOutputStream out;
 	static ObjectInputStream in;
 	static int myRank;
-	static int[] newhand = {0,0,0,0,0,0,0,0,0,0,0,0,0};
-	static int[] handcopy = {0,0,0,0,0,0,0,0,0,0,0,0,0};
-	static int[] display = {0,0};
+	static int[] newhand = new int[13];
+	static int[] handcopy = new int[13];
+	static int[] display = new int[2];
 	
 	//GUI-Globals glassPane
 	public JPanel glassPane;
@@ -716,20 +716,18 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	// click on reset button
 	public static void resetclick(){
 		System.arraycopy(handcopy,0,newhand,0,13);
-		display[0] = 0;
-		display[1] = 0;
+		display = new int[2];
 	}
 
 	// place cards
 	public void placecards() {
-		if(display[0] < Client.mo.playedcards[0] && display[1] == Client.mo.playedcards[1] || Client.mo.playedcards[0] == 0){
+		if((display[0] < Client.mo.playedcards[0] && display[1] == Client.mo.playedcards[1] || Client.mo.playedcards[0] == 0) && display[1] != 0){
 			int[] check = new int[13];
 			System.arraycopy(newhand, 0, check, 0,13);
 			Client.mo.users.get(myRank).setHand(check);
 			Client.mo.users.get(myRank).calcamount();
 			System.arraycopy(display,0,Client.mo.playedcards,0,2);
-			display[0] = 0;
-			display[1] = 0;
+			display = new int[2];
 			Client.mo.pass = 0;
 			sendObject();
 		}
@@ -740,8 +738,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	// pass round
 	public static void pass() {
 		System.arraycopy(handcopy,0,newhand,0,13);
-		display[0] = 0;
-		display[1] = 0;
+		display = new int[2];
 		Client.mo.pass++;
 		sendObject();
 	}
