@@ -3,6 +3,8 @@ package dalmuti.server;
 import dalmuti.shared.Masterobject;
 
 public class Logic {
+	
+	static int j = 0;
 
 	public static Masterobject control(Masterobject mo) {
 		
@@ -14,29 +16,25 @@ public class Logic {
 				}
 				mo.users.get(i).setPassive(true);
 				mo.nextround.add(mo.users.get(i));
-				System.out.println("Jetzt Passiv " + mo.nextround.get(0).getNickname());
-				System.out.println("Passivstatus " + mo.users.get(0).isPassive());
+				System.out.println("Jetzt Passiv " + mo.nextround.get(j).getNickname());
+				j++;
+				System.out.println("Passivstatus " + mo.users.get(i).isPassive());
 				break;
 			}
 		}
 
 		// change active user
 		for (int i = 0; i < mo.users.size(); i++) {
-			if (mo.users.get(i).getActive() == true) {
+			if (mo.users.get(i).getActive() == true && mo.users.get(mo.nextplayer(i)).isPassive() == false) {
 				mo.users.get(i).setActive(false);
-				if(mo.users.get(mo.nextplayer(i)).isPassive() == true){
-					for(int j = i; j < mo.users.size(); j++){
-						if(mo.users.get(mo.nextplayer(j)).isPassive() == false){
-							mo.users.get(mo.nextplayer(j)).setActive(true);
-							break;
-						}
-					}
-					break;
-				}
-				else{
 				mo.users.get(mo.nextplayer(i)).setActive(true);
 				break;
-				}
+			}
+			else if(mo.users.get(i).getActive() == true && mo.users.get(mo.nextplayer(i)).isPassive() == true){
+				mo.users.get(i).setActive(false);
+				mo.users.get(mo.nextplayer(i)).setActive(true);
+				i = mo.nextplayer(i);
+				continue;
 			}
 		}
 		
