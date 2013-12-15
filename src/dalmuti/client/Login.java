@@ -134,7 +134,7 @@ public class Login extends JFrame implements ActionListener{
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(10, 0, 10, 0);// top, left, bottom, right
 
-		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein. (max. 8 Zeichen)");
+		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein. (max. 16 Zeichen)");
 		lbEnterNickname.setFont(new Font("", Font.BOLD, 20));
 		gbcPanelCenter.gridy = 0;
 		panelCenter.add(lbEnterNickname);
@@ -239,14 +239,14 @@ public class Login extends JFrame implements ActionListener{
 		Object src = e.getSource();
 		if(src == btLogin){
 			try{
-				if(tfEnterNickname.getText().length() <= 8){
+				if(tfEnterNickname.getText().length() <= 16){
 				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
 				playtable = new Playtable(this.out, this.in);
 				}else{
-					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 8 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 16 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
 					tfEnterNickname.setText("");
 				}
 			}catch (java.io.IOException IOException){
@@ -254,14 +254,14 @@ public class Login extends JFrame implements ActionListener{
 			}
 		}else if(src == tfEnterNickname){
 			try{
-				if(tfEnterNickname.getText().length() <= 8){
+				if(tfEnterNickname.getText().length() <= 16){
 				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
 				playtable = new Playtable(this.out, this.in);
 				}else{
-					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 8 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 16 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
 					tfEnterNickname.setText("");
 				}
 			}catch (java.io.IOException IOException){
