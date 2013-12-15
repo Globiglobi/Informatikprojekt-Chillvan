@@ -31,6 +31,9 @@ public class Swap extends JFrame implements ActionListener{
 	static int[] handcopy = new int[13];
 	static int[] display = new int[2];
 	
+	//GUI-Globals
+	private JLabel lbBackground;
+	
 	//GUI-Globals what's to do
 	private JPanel panelNorth;
 	private JLabel lbExplain;
@@ -80,25 +83,36 @@ public class Swap extends JFrame implements ActionListener{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		
+		//set Background Image
+		getContentPane().setLayout(new BorderLayout());
+		((JPanel)getContentPane()).setOpaque(false);
+		ImageIcon background = new ImageIcon(getClass().getResource("/dalmuti/image/narrbackground.jpg"));
+		lbBackground = new JLabel(background);
+		getLayeredPane().add(lbBackground, new Integer(Integer.MIN_VALUE));
+		lbBackground.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());
+		
+		
+		
 		//panel north contains explination
 		panelNorth = new JPanel(new GridBagLayout());
+		panelNorth.setOpaque(false);
 //		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelNorth.setPreferredSize(new Dimension(700,150));//width, height
-		add(panelNorth, BorderLayout.NORTH);
+		getContentPane().add(panelNorth, BorderLayout.NORTH);
 		
 		GridBagConstraints gbcPanelNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelNorth.insets = new Insets(20,0,0,0);//top, left, bottom, right
 		
 
 		lbExplain = new JLabel("<html><body style='width:500px'> Jetzt kannst du deine Karten tauschen. Dazu wähle 2 Karten die du tauschen möchtest aus. Klicke danach auf Tauschen.");
-		lbExplain.setFont(new Font("", Font.PLAIN, 18));
+		lbExplain.setFont(new Font("", Font.BOLD, 16));
 		gbcPanelNorth.gridy = 0;
 		panelNorth.add(lbExplain, gbcPanelNorth);
 		
 		
 		btSwap = new JButton("Tauschen");
-		btSwap.setPreferredSize(new Dimension(100, 40));// width, height
-		btSwap.setFont(new Font("", Font.BOLD, 14));
+		btSwap.setPreferredSize(new Dimension(100, 50));// width, height
+		btSwap.setFont(new Font("", Font.BOLD, 16));
 		btSwap.setHorizontalTextPosition(JButton.CENTER);
 		btSwap.setVerticalTextPosition(JButton.CENTER);
 		btSwap.addActionListener(this);
@@ -108,21 +122,22 @@ public class Swap extends JFrame implements ActionListener{
 		
 		//panel center show the selected cards you re going to swap
 		panelCenter = new JPanel(new GridBagLayout());
+		panelCenter.setOpaque(false);
 //		panelCenter.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelCenter.setPreferredSize(new Dimension(700,200));//width, height
-		add(panelCenter, BorderLayout.CENTER);
+		getContentPane().add(panelCenter, BorderLayout.CENTER);
 		
 		
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(0,40,0,40);//top, left, bottom, right
 		
 		lbSwapCard1 = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
-		lbSwapCard1.setBorder(new LineBorder(Color.red, 3));
+		lbSwapCard1.setBorder(new LineBorder(Color.black, 3));
 		gbcPanelCenter.gridx = 0;
 		panelCenter.add(lbSwapCard1, gbcPanelCenter);
 		
 		lbSwapCard2 = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
-		lbSwapCard2.setBorder(new LineBorder(Color.red, 3));
+		lbSwapCard2.setBorder(new LineBorder(Color.black, 3));
 		gbcPanelCenter.gridx = 1;
 		panelCenter.add(lbSwapCard2, gbcPanelCenter);
 		
@@ -131,7 +146,7 @@ public class Swap extends JFrame implements ActionListener{
 		panelSouth = new JPanel(new GridLayout(2, 7));
 //		panelSouth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelSouth.setPreferredSize(new Dimension(700,300));//width, height
-		add(panelSouth, BorderLayout.SOUTH);
+		getContentPane().add(panelSouth, BorderLayout.SOUTH);
 		
 		
 		GridBagConstraints gbcPanelSouth = new GridBagConstraints();//Use GridBagConstraints to place the components

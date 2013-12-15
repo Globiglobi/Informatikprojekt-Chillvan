@@ -134,13 +134,13 @@ public class Login extends JFrame implements ActionListener{
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(10, 0, 10, 0);// top, left, bottom, right
 
-		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein.");
+		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein. (max. 8 Zeichen)");
 		lbEnterNickname.setFont(new Font("", Font.BOLD, 20));
 		gbcPanelCenter.gridy = 0;
 		panelCenter.add(lbEnterNickname);
 
 		tfEnterNickname = new JTextField();
-		tfEnterNickname.setPreferredSize(new Dimension(460, 40));
+		tfEnterNickname.setPreferredSize(new Dimension(550, 40));
 		tfEnterNickname.setFont(new Font("", Font.PLAIN, 18));
 		tfEnterNickname.setHorizontalAlignment(JLabel.CENTER);
 		tfEnterNickname.addActionListener(this);
