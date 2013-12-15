@@ -120,7 +120,7 @@ public class Login extends JFrame implements ActionListener{
 		lbTitel = new JLabel("Der Grosse Dalmuti");
 		lbTitel.setFont(new Font("", Font.BOLD, 80));
 		panelNorth.add(lbTitel, gbcPanelNorth);
-
+		
 		
 		
 		
