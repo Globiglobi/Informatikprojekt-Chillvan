@@ -73,7 +73,7 @@ public class Swap extends JFrame implements ActionListener{
 	}
 	
 	public void init(){
-		setTitle("Der Grosse Dalmuti - Spieltisch");
+		setTitle("Der Grosse Dalmuti - Karten tauschen");
 		setSize(700, 700);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -82,24 +82,19 @@ public class Swap extends JFrame implements ActionListener{
 		
 		//panel north contains explination
 		panelNorth = new JPanel(new GridBagLayout());
-		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelNorth.setPreferredSize(new Dimension(700,200));//width, height
+//		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
+		panelNorth.setPreferredSize(new Dimension(700,150));//width, height
 		add(panelNorth, BorderLayout.NORTH);
 		
 		GridBagConstraints gbcPanelNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
-		gbcPanelNorth.insets = new Insets(0,0,20,0);//top, left, bottom, right
+		gbcPanelNorth.insets = new Insets(20,0,0,0);//top, left, bottom, right
 		
-		
-		
-        String s = "Jetzt kannst du deine Karten tauschen. Dazu wähle 2 Karten die du tauschen möchtest aus. Klicke danach auf Tauschen.";
-        String html1 = "<html><body style='width: ";
-        String html2 = "px'>";
-		lbExplain = new JLabel(html1+"600"+html2+s);
-//		lbExplain = new JLabel("<html><body>Jetzt kannst du deine Karten tauschen.<br>Dazu wähle 2 Karten die du tauschen möchtest aus.<br>Klicke danach auf Tauschen.</body></html>");
-//		lbExplain.setPreferredSize(new Dimension(600, 150));
-		lbExplain.setFont(new Font("", Font.PLAIN, 20));
+
+		lbExplain = new JLabel("<html><body style='width:500px'> Jetzt kannst du deine Karten tauschen. Dazu wähle 2 Karten die du tauschen möchtest aus. Klicke danach auf Tauschen.");
+		lbExplain.setFont(new Font("", Font.PLAIN, 18));
 		gbcPanelNorth.gridy = 0;
 		panelNorth.add(lbExplain, gbcPanelNorth);
+		
 		
 		btSwap = new JButton("Tauschen");
 		btSwap.setPreferredSize(new Dimension(100, 40));// width, height
