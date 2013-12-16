@@ -48,11 +48,13 @@ public class Client {
 				if (inputObject instanceof Masterobject) {
 					mo = (Masterobject) inputObject;
 					
-					UpdatePlaytable();
-					Playtable.UpdateButtons();
-					Login.playtable.playedcards();
-					Login.playtable.cardsleft();
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					
+					UpdatePlaytable();
 
 				} else if (inputObject instanceof Integer) {
 					client_ID = (int) inputObject;
@@ -101,5 +103,8 @@ public class Client {
 		}else{
 			Login.playtable.glassPane.setVisible(true);
 		}
+		Playtable.UpdateButtons();
+		Login.playtable.playedcards();
+		Login.playtable.cardsleft();
 	}
 }

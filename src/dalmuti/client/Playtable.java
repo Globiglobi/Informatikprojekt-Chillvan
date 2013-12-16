@@ -852,9 +852,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 	}
 	public void cardsleft(){
-		lbCardsLeftWest.setText("<html><body style='width:150px'> " + Client.mo.users.get(westplayer).getNickname() + " hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
-		lbCardsLeftNorth.setText(Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
-		lbCardsLeftEast.setText("<html><body style='width:150px'> " + Client.mo.users.get(eastplayer).getNickname() + " hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
+		lbCardsLeftWest.setText("<html><body style='width:160px'> " + rank(westplayer) + Client.mo.users.get(westplayer).getNickname() + "<br />" + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
+		lbCardsLeftNorth.setText("<html><body style='width:250px' " + rank(northplayer) + Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
+		lbCardsLeftEast.setText("<html><body style='width:160px'> " + rank(eastplayer) + Client.mo.users.get(eastplayer).getNickname() + "<br />" + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
 		Login.playtable.lbActiveUser.setText("Du bist nicht am Zug!");
 		Login.playtable.lbActiveUser.setBounds(70, 80, 800, 200);
 
@@ -872,6 +872,23 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		Login.playtable.westplayer = Client.mo.nextplayer(myRank);
 		Login.playtable.northplayer = Client.mo.nextplayer(Login.playtable.westplayer);
 		Login.playtable.eastplayer = Client.mo.nextplayer(Login.playtable.northplayer);
+	}
+	
+	public static String rank(int Player){
+		String rank = "";
+		if(Player == 0){
+			rank = "Der grosse Dalmuti<br />";
+		}
+		if(Player == 1){
+			rank = "Der kleine Dalmuti<br />";
+		}
+		if(Player == 2){
+			rank = "Der kleine Diener<br />";
+		}
+		if(Player == 3){
+			rank = "Der grosse Diener<br />";
+		}
+		return rank;
 	}
 
 }
