@@ -26,11 +26,9 @@ public class Swap extends JFrame implements ActionListener{
 	
 	ObjectOutputStream out;
 	ObjectInputStream in;
-	static int[] newhand = new int[13];
-	static int[] handcopy = new int[13];
 	static int display1 = 13;
 	static int display2 = 13;
-	static boolean diener;
+	static boolean servant;
 	
 	//GUI-Globals
 	private JLabel lbBackground;
@@ -83,7 +81,7 @@ public class Swap extends JFrame implements ActionListener{
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		Login.playtable.glassPane.setVisible(true);
-		diener = false;
+		servant = false;
 		
 		//set Background Image
 		getContentPane().setLayout(new BorderLayout());
@@ -95,7 +93,7 @@ public class Swap extends JFrame implements ActionListener{
 		
 		
 		
-		//panel north contains explination
+		//panel north contains explanation
 		panelNorth = new JPanel(new GridBagLayout());
 		panelNorth.setOpaque(false);
 //		panelNorth.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -162,7 +160,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.insets = new Insets(0,0,0,0);//top, left, bottom, right
 				
 		
-		btKarteNarr = new JButton(String.valueOf(newhand[0]), new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
+		btKarteNarr = new JButton(String.valueOf(Playtable.newhand[0]), new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
 		btKarteNarr.setHorizontalTextPosition(JButton.CENTER);
 		btKarteNarr.setVerticalTextPosition(JButton.CENTER);
 		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
@@ -181,7 +179,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(btKarteNarr, gbcPanelSouth);
 		
-		btKarte1 = new JButton(String.valueOf(newhand[1]), new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
+		btKarte1 = new JButton(String.valueOf(Playtable.newhand[1]), new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
 		btKarte1.setHorizontalTextPosition(JButton.CENTER);
 		btKarte1.setVerticalTextPosition(JButton.CENTER);
 		btKarte1.setFont(new Font("", Font.BOLD, 72));
@@ -200,7 +198,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(btKarte1, gbcPanelSouth);
 		
-		btKarte2 = new JButton(String.valueOf(newhand[2]), new ImageIcon(getClass().getResource("/dalmuti/image/karte2.jpg")));
+		btKarte2 = new JButton(String.valueOf(Playtable.newhand[2]), new ImageIcon(getClass().getResource("/dalmuti/image/karte2.jpg")));
 		btKarte2.setHorizontalTextPosition(JButton.CENTER);
 		btKarte2.setVerticalTextPosition(JButton.CENTER);
 		btKarte2.setFont(new Font("", Font.BOLD, 72));
@@ -219,7 +217,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(btKarte2, gbcPanelSouth);
 		
-		btKarte3 = new JButton(String.valueOf(newhand[3]), new ImageIcon(getClass().getResource("/dalmuti/image/karte3.jpg")));
+		btKarte3 = new JButton(String.valueOf(Playtable.newhand[3]), new ImageIcon(getClass().getResource("/dalmuti/image/karte3.jpg")));
 		btKarte3.setHorizontalTextPosition(JButton.CENTER);
 		btKarte3.setVerticalTextPosition(JButton.CENTER);
 		btKarte3.setFont(new Font("", Font.BOLD, 72));
@@ -238,7 +236,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(btKarte3, gbcPanelSouth);
 		
-		btKarte4 = new JButton(String.valueOf(newhand[4]), new ImageIcon(getClass().getResource("/dalmuti/image/karte4.jpg")));
+		btKarte4 = new JButton(String.valueOf(Playtable.newhand[4]), new ImageIcon(getClass().getResource("/dalmuti/image/karte4.jpg")));
 		btKarte4.setHorizontalTextPosition(JButton.CENTER);
 		btKarte4.setVerticalTextPosition(JButton.CENTER);
 		btKarte4.setFont(new Font("", Font.BOLD, 72));
@@ -257,7 +255,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(btKarte4, gbcPanelSouth);
 		
-		btKarte5 = new JButton(String.valueOf(newhand[5]), new ImageIcon(getClass().getResource("/dalmuti/image/karte5.jpg")));
+		btKarte5 = new JButton(String.valueOf(Playtable.newhand[5]), new ImageIcon(getClass().getResource("/dalmuti/image/karte5.jpg")));
 		btKarte5.setHorizontalTextPosition(JButton.CENTER);
 		btKarte5.setVerticalTextPosition(JButton.CENTER);
 		btKarte5.setFont(new Font("", Font.BOLD, 72));
@@ -276,7 +274,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(btKarte5, gbcPanelSouth);
 		
-		btKarte6 = new JButton(String.valueOf(newhand[6]), new ImageIcon(getClass().getResource("/dalmuti/image/karte6.jpg")));
+		btKarte6 = new JButton(String.valueOf(Playtable.newhand[6]), new ImageIcon(getClass().getResource("/dalmuti/image/karte6.jpg")));
 		btKarte6.setHorizontalTextPosition(JButton.CENTER);
 		btKarte6.setVerticalTextPosition(JButton.CENTER);
 		btKarte6.setFont(new Font("", Font.BOLD, 72));
@@ -295,7 +293,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 0;
 		panelSouth.add(btKarte6, gbcPanelSouth);
 		
-		btKarte7 = new JButton(String.valueOf(newhand[7]), new ImageIcon(getClass().getResource("/dalmuti/image/karte7.jpg")));
+		btKarte7 = new JButton(String.valueOf(Playtable.newhand[7]), new ImageIcon(getClass().getResource("/dalmuti/image/karte7.jpg")));
 		btKarte7.setHorizontalTextPosition(JButton.CENTER);
 		btKarte7.setVerticalTextPosition(JButton.CENTER);
 		btKarte7.setFont(new Font("", Font.BOLD, 72));
@@ -314,7 +312,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(btKarte7, gbcPanelSouth);
 		
-		btKarte8 = new JButton(String.valueOf(newhand[8]), new ImageIcon(getClass().getResource("/dalmuti/image/karte8.jpg")));
+		btKarte8 = new JButton(String.valueOf(Playtable.newhand[8]), new ImageIcon(getClass().getResource("/dalmuti/image/karte8.jpg")));
 		btKarte8.setHorizontalTextPosition(JButton.CENTER);
 		btKarte8.setVerticalTextPosition(JButton.CENTER);
 		btKarte8.setFont(new Font("", Font.BOLD, 72));
@@ -333,7 +331,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(btKarte8, gbcPanelSouth);
 		
-		btKarte9 = new JButton(String.valueOf(newhand[9]), new ImageIcon(getClass().getResource("/dalmuti/image/karte9.jpg")));
+		btKarte9 = new JButton(String.valueOf(Playtable.newhand[9]), new ImageIcon(getClass().getResource("/dalmuti/image/karte9.jpg")));
 		btKarte9.setHorizontalTextPosition(JButton.CENTER);
 		btKarte9.setVerticalTextPosition(JButton.CENTER);
 		btKarte9.setFont(new Font("", Font.BOLD, 72));
@@ -352,7 +350,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(btKarte9, gbcPanelSouth);
 		
-		btKarte10 = new JButton(String.valueOf(newhand[10]), new ImageIcon(getClass().getResource("/dalmuti/image/karte10.jpg")));
+		btKarte10 = new JButton(String.valueOf(Playtable.newhand[10]), new ImageIcon(getClass().getResource("/dalmuti/image/karte10.jpg")));
 		btKarte10.setHorizontalTextPosition(JButton.CENTER);
 		btKarte10.setVerticalTextPosition(JButton.CENTER);
 		btKarte10.setFont(new Font("", Font.BOLD, 72));
@@ -371,7 +369,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(btKarte10, gbcPanelSouth);
 		
-		btKarte11 = new JButton(String.valueOf(newhand[11]), new ImageIcon(getClass().getResource("/dalmuti/image/karte11.jpg")));
+		btKarte11 = new JButton(String.valueOf(Playtable.newhand[11]), new ImageIcon(getClass().getResource("/dalmuti/image/karte11.jpg")));
 		btKarte11.setHorizontalTextPosition(JButton.CENTER);
 		btKarte11.setVerticalTextPosition(JButton.CENTER);
 		btKarte11.setFont(new Font("", Font.BOLD, 72));
@@ -390,7 +388,7 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelSouth.gridy = 1;
 		panelSouth.add(btKarte11, gbcPanelSouth);
 		
-		btKarte12 = new JButton(String.valueOf(newhand[12]), new ImageIcon(getClass().getResource("/dalmuti/image/karte12.jpg")));
+		btKarte12 = new JButton(String.valueOf(Playtable.newhand[12]), new ImageIcon(getClass().getResource("/dalmuti/image/karte12.jpg")));
 		btKarte12.setHorizontalTextPosition(JButton.CENTER);
 		btKarte12.setVerticalTextPosition(JButton.CENTER);
 		btKarte12.setFont(new Font("", Font.BOLD, 72));
@@ -449,32 +447,31 @@ public class Swap extends JFrame implements ActionListener{
 	public void autofillin(){
 		
 		if(Playtable.myRank == 3){
-			diener = true;
-			for(int i = 1; i < newhand.length; i++){
-				if(newhand[i] == 1){
-					newhand[i]--;
+			servant = true;
+			for(int i = 1; i < Playtable.newhand.length; i++){
+				if(Playtable.newhand[i] == 1 && display1 == 13){
+					Playtable.newhand[i]--;
 					display1 = i;
+					continue;
 				}
-				if(newhand[i] > 1 && display1 == 13){
-					newhand[i] = newhand[i] - 2;
+				if(Playtable.newhand[i] > 1 && display1 == 13){
+					Playtable.newhand[i] = Playtable.newhand[i] - 2;
 					display1 = i;
 					display2 = i;
 					break;
 				}
-				if(newhand[i] > 1 && display1 != 13){
-					newhand[i]--;
+				if(Playtable.newhand[i] >= 1 && display1 != 13){
+					Playtable.newhand[i]--;
 					display2 = i;
 					break;
 				}
 			}
 		}
 		if(Playtable.myRank == 2){
-			System.out.println("Enter schlaufe");
-			diener = true;
-			for(int i = 1; i < newhand.length; i++){
-				System.out.println("Stelle " + i + " Anzahl " + newhand[i]);
-				if(newhand[i] >= 1){
-					newhand[i]--;
+			servant = true;
+			for(int i = 1; i < Playtable.newhand.length; i++){
+				if(Playtable.newhand[i] >= 1){
+					Playtable.newhand[i]--;
 					display1 = i;
 					break;
 				}
@@ -486,19 +483,18 @@ public class Swap extends JFrame implements ActionListener{
 	
 	// click on normal card
 	public static void swapclick(int button) {
-		if(diener == true){
+		if(servant == true){
 			// do nothing
 		}
 		else{
-			System.out.println("geht in schlaufe");
 			// if no card has been selected yet
-			if (display1 == 13) {
-				newhand[button]--;
+			if (display1 == 13 && Playtable.newhand[button] != 0) {
+				Playtable.newhand[button]--;
 				display1 = button;
 			}
 		// if one card has been selected already
-			else if (display1 != 13 && display2 == 13) {
-				newhand[button]--;
+			else if (display1 != 13 && display2 == 13 && Playtable.newhand[button] != 0) {
+				Playtable.newhand[button]--;
 				display2 = button;
 			}
 		}
@@ -506,11 +502,11 @@ public class Swap extends JFrame implements ActionListener{
 	
 	// click on reset button
 	public static void resetclick(){
-		if(diener == true){
+		if(servant == true){
 			// do nothing
 		}
 		else{
-		System.arraycopy(handcopy,0,newhand,0,13);
+		System.arraycopy(Playtable.handcopy,0,Playtable.newhand,0,13);
 		display1 = 13;
 		display2 = 13;
 		}
@@ -519,29 +515,30 @@ public class Swap extends JFrame implements ActionListener{
 	// swap cards
 	public void swapcards() {
 		System.out.println("Swapbutton");
-		if((((display1 != 13 && display2 != 13) && Playtable.myRank == 0) || diener == true || (display1 != 13 && Playtable.myRank == 1))){
+		if((((display1 != 13 && display2 != 13) && Playtable.myRank != 1) || servant == true || (display1 != 13 && display2 == 13 && Playtable.myRank == 1))){
 			int[] check = new int[13];
-			System.arraycopy(newhand, 0, check, 0,13);
+			System.arraycopy(Playtable.newhand, 0, check, 0,13);
 			Client.mo.users.get(Playtable.myRank).setHand(check);
 			Client.mo.users.get(Playtable.myRank).calcamount();
 			if(Playtable.myRank == 0){
 				Client.mo.users.get(3).getHand()[display1]++;
 				Client.mo.users.get(3).getHand()[display2]++;
-				Client.mo.users.get(3).calcamount();
 			}
 			if(Playtable.myRank == 1){
 				Client.mo.users.get(2).getHand()[display1]++;
-				Client.mo.users.get(2).calcamount();
 			}
 			if(Playtable.myRank == 2){
 				Client.mo.users.get(1).getHand()[display1]++;
-				Client.mo.users.get(1).calcamount();
 			}
 			if(Playtable.myRank == 3){
 				Client.mo.users.get(0).getHand()[display1]++;
-				Client.mo.users.get(0).getHand()[display1]++;
-				Client.mo.users.get(0).calcamount();
+				Client.mo.users.get(0).getHand()[display2]++;
 			}
+			for(int i = 0; i < Client.mo.users.size(); i++){
+				Client.mo.users.get(i).calcamount();
+			}
+			display1 = 0;
+			display2 = 0;
 			Client.mo.round++;
 			setVisible(false);
 			sendObject();
@@ -558,19 +555,19 @@ public class Swap extends JFrame implements ActionListener{
 	}
 	
 	public void UpdateButtons(){
-		btKarte1.setText(String.valueOf(newhand[1]));
-		btKarte2.setText(String.valueOf(newhand[2]));
-		btKarte3.setText(String.valueOf(newhand[3]));
-		btKarte4.setText(String.valueOf(newhand[4]));
-		btKarte5.setText(String.valueOf(newhand[5]));
-		btKarte6.setText(String.valueOf(newhand[6]));
-		btKarte7.setText(String.valueOf(newhand[7]));
-		btKarte8.setText(String.valueOf(newhand[8]));
-		btKarte9.setText(String.valueOf(newhand[9]));
-		btKarte10.setText(String.valueOf(newhand[10]));
-		btKarte11.setText(String.valueOf(newhand[11]));
-		btKarte12.setText(String.valueOf(newhand[12]));
-		btKarteNarr.setText(String.valueOf(newhand[0]));
+		btKarte1.setText(String.valueOf(Playtable.newhand[1]));
+		btKarte2.setText(String.valueOf(Playtable.newhand[2]));
+		btKarte3.setText(String.valueOf(Playtable.newhand[3]));
+		btKarte4.setText(String.valueOf(Playtable.newhand[4]));
+		btKarte5.setText(String.valueOf(Playtable.newhand[5]));
+		btKarte6.setText(String.valueOf(Playtable.newhand[6]));
+		btKarte7.setText(String.valueOf(Playtable.newhand[7]));
+		btKarte8.setText(String.valueOf(Playtable.newhand[8]));
+		btKarte9.setText(String.valueOf(Playtable.newhand[9]));
+		btKarte10.setText(String.valueOf(Playtable.newhand[10]));
+		btKarte11.setText(String.valueOf(Playtable.newhand[11]));
+		btKarte12.setText(String.valueOf(Playtable.newhand[12]));
+		btKarteNarr.setText(String.valueOf(Playtable.newhand[0]));
 	}
 	
 	public void swapimage(){
