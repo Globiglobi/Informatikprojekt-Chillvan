@@ -164,6 +164,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarteNarr.setHorizontalTextPosition(JButton.CENTER);
 		btKarteNarr.setVerticalTextPosition(JButton.CENTER);
 		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
+		btKarteNarr.setForeground(Color.white);
 		btKarteNarr.setPreferredSize(new Dimension(97,150));//width, height
 		btKarteNarr.setBorder(new LineBorder(Color.black, 2));
 		btKarteNarr.addActionListener(
@@ -183,6 +184,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte1.setHorizontalTextPosition(JButton.CENTER);
 		btKarte1.setVerticalTextPosition(JButton.CENTER);
 		btKarte1.setFont(new Font("", Font.BOLD, 72));
+		btKarte1.setForeground(Color.white);
 		btKarte1.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte1.setBorder(new LineBorder(Color.black, 2));
 		btKarte1.addActionListener(
@@ -202,6 +204,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte2.setHorizontalTextPosition(JButton.CENTER);
 		btKarte2.setVerticalTextPosition(JButton.CENTER);
 		btKarte2.setFont(new Font("", Font.BOLD, 72));
+		btKarte2.setForeground(Color.white);
 		btKarte2.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte2.setBorder(new LineBorder(Color.black, 2));
 		btKarte2.addActionListener(
@@ -221,6 +224,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte3.setHorizontalTextPosition(JButton.CENTER);
 		btKarte3.setVerticalTextPosition(JButton.CENTER);
 		btKarte3.setFont(new Font("", Font.BOLD, 72));
+		btKarte3.setForeground(Color.white);
 		btKarte3.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte3.setBorder(new LineBorder(Color.black, 2));
 		btKarte3.addActionListener(
@@ -240,6 +244,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte4.setHorizontalTextPosition(JButton.CENTER);
 		btKarte4.setVerticalTextPosition(JButton.CENTER);
 		btKarte4.setFont(new Font("", Font.BOLD, 72));
+		btKarte4.setForeground(Color.white);
 		btKarte4.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte4.setBorder(new LineBorder(Color.black, 2));
 		btKarte4.addActionListener(
@@ -259,6 +264,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte5.setHorizontalTextPosition(JButton.CENTER);
 		btKarte5.setVerticalTextPosition(JButton.CENTER);
 		btKarte5.setFont(new Font("", Font.BOLD, 72));
+		btKarte5.setForeground(Color.white);
 		btKarte5.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte5.setBorder(new LineBorder(Color.black, 2));
 		btKarte5.addActionListener(
@@ -278,6 +284,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte6.setHorizontalTextPosition(JButton.CENTER);
 		btKarte6.setVerticalTextPosition(JButton.CENTER);
 		btKarte6.setFont(new Font("", Font.BOLD, 72));
+		btKarte6.setForeground(Color.white);
 		btKarte6.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte6.setBorder(new LineBorder(Color.black, 2));
 		btKarte6.addActionListener(
@@ -297,6 +304,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte7.setHorizontalTextPosition(JButton.CENTER);
 		btKarte7.setVerticalTextPosition(JButton.CENTER);
 		btKarte7.setFont(new Font("", Font.BOLD, 72));
+		btKarte7.setForeground(Color.white);
 		btKarte7.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte7.setBorder(new LineBorder(Color.black, 2));
 		btKarte7.addActionListener(
@@ -316,6 +324,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte8.setHorizontalTextPosition(JButton.CENTER);
 		btKarte8.setVerticalTextPosition(JButton.CENTER);
 		btKarte8.setFont(new Font("", Font.BOLD, 72));
+		btKarte8.setForeground(Color.white);
 		btKarte8.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte8.setBorder(new LineBorder(Color.black, 2));
 		btKarte8.addActionListener(
@@ -335,6 +344,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte9.setHorizontalTextPosition(JButton.CENTER);
 		btKarte9.setVerticalTextPosition(JButton.CENTER);
 		btKarte9.setFont(new Font("", Font.BOLD, 72));
+		btKarte9.setForeground(Color.white);
 		btKarte9.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte9.setBorder(new LineBorder(Color.black, 2));
 		btKarte9.addActionListener(
@@ -354,6 +364,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte10.setHorizontalTextPosition(JButton.CENTER);
 		btKarte10.setVerticalTextPosition(JButton.CENTER);
 		btKarte10.setFont(new Font("", Font.BOLD, 72));
+		btKarte10.setForeground(Color.white);
 		btKarte10.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte10.setBorder(new LineBorder(Color.black, 2));
 		btKarte10.addActionListener(
@@ -373,6 +384,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte11.setHorizontalTextPosition(JButton.CENTER);
 		btKarte11.setVerticalTextPosition(JButton.CENTER);
 		btKarte11.setFont(new Font("", Font.BOLD, 72));
+		btKarte11.setForeground(Color.white);
 		btKarte11.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte11.setBorder(new LineBorder(Color.black, 2));
 		btKarte11.addActionListener(
@@ -392,6 +404,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte12.setHorizontalTextPosition(JButton.CENTER);
 		btKarte12.setVerticalTextPosition(JButton.CENTER);
 		btKarte12.setFont(new Font("", Font.BOLD, 72));
+		btKarte12.setForeground(Color.white);
 		btKarte12.setPreferredSize(new Dimension(97,150));//width, height
 		btKarte12.setBorder(new LineBorder(Color.black, 2));
 		btKarte12.addActionListener(
@@ -414,6 +427,7 @@ public class Swap extends JFrame implements ActionListener{
 		btReset.setHorizontalTextPosition(JButton.CENTER);
 		btReset.setVerticalTextPosition(JButton.CENTER);
 		btReset.setFont(new Font("", Font.BOLD, 30));
+		btReset.setForeground(Color.white);
 		btReset.setPreferredSize(new Dimension(97,150));//width, height
 		btReset.setBorder(new LineBorder(Color.black, 2));
 		btReset.addActionListener(

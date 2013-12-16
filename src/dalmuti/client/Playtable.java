@@ -616,22 +616,22 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelEastNorth.gridy = 0;
 		panelEastNorth.add(lbScoreTitel, gbcPanelEastNorth);
 		
-		lbScore1 = new JLabel("1. ");
+		lbScore1 = new JLabel("");
 		lbScore1.setFont(new Font("", Font.PLAIN, 18));
 		gbcPanelEastNorth.gridy = 1;
 		panelEastNorth.add(lbScore1, gbcPanelEastNorth);
 		
-		lbScore2 = new JLabel("2. ");
+		lbScore2 = new JLabel("");
 		lbScore2.setFont(new Font("", Font.PLAIN, 18));
 		gbcPanelEastNorth.gridy = 2;
 		panelEastNorth.add(lbScore2, gbcPanelEastNorth);
 		
-		lbScore3 = new JLabel("3. ");
+		lbScore3 = new JLabel("");
 		lbScore3.setFont(new Font("", Font.PLAIN, 18));
 		gbcPanelEastNorth.gridy = 3;
 		panelEastNorth.add(lbScore3, gbcPanelEastNorth);
 		
-		lbScore4 = new JLabel("4. ");
+		lbScore4 = new JLabel("");
 		lbScore4.setFont(new Font("", Font.PLAIN, 18));
 		gbcPanelEastNorth.gridy = 4;
 		panelEastNorth.add(lbScore4, gbcPanelEastNorth);
@@ -888,14 +888,14 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		}if(Client.mo.playedcards[0] == 0){
 			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.png")));
 		}
-		lbAmountCardsPlayed.setText("<html><body style='width:250px'> Diese Karte wurde " + Client.mo.playedcards[1] + " Mal gespielt.");
+		lbAmountCardsPlayed.setText("<html><body style='width:250px'> Diese Karte wurde " + Client.mo.playedcards[1] + " Mal gespielt");
 		Login.playtable.setTitle("Der Grosse Dalmuti - Spieltisch von " + Client.mo.users.get(myRank).getNickname());
 		
 	}
 	public void updateCardsleft(){
-		lbCardsLeftWest.setText("<html><body style='width:160px'> " + rank(westplayer) + Client.mo.users.get(westplayer).getNickname() + "<br />" + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
-		lbCardsLeftNorth.setText(rank(northplayer) + Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
-		lbCardsLeftEast.setText("<html><body style='width:160px'> " + rank(eastplayer) + Client.mo.users.get(eastplayer).getNickname() + "<br />" + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
+		lbCardsLeftWest.setText("<html><body style='width:160px', 'text-align:center'> " + "    " + rank(westplayer) + "    " + Client.mo.users.get(westplayer).getNickname() + "<br>" + "    hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
+		lbCardsLeftNorth.setText("<html><body style='width:200px'> " + rank(northplayer) + Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
+		lbCardsLeftEast.setText("<html><body style='width:160px'> " + rank(eastplayer) + Client.mo.users.get(eastplayer).getNickname() + "<br>" + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
 		Login.playtable.lbActiveUser.setText("Du bist nicht am Zug!");
 		Login.playtable.lbActiveUser.setBounds(70, 80, 800, 200);
 
@@ -918,16 +918,16 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 	public static String rank(int Player){
 		String rank = "";
 		if(Player == 0){
-			rank = "Der grosse Dalmuti<br />";
+			rank = "Der grosse Dalmuti<br>";
 		}
 		if(Player == 1){
-			rank = "Der kleine Dalmuti<br />";
+			rank = "Der kleine Dalmuti<br>";
 		}
 		if(Player == 2){
-			rank = "Der kleine Diener<br />";
+			rank = "Der kleine Diener<br>";
 		}
 		if(Player == 3){
-			rank = "Der grosse Diener<br />";
+			rank = "Der grosse Diener<br>";
 		}
 		return rank;
 	}
