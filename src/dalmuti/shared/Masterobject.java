@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.Arrays;
 import java.io.Serializable;
 
+import dalmuti.client.Client;
 import dalmuti.shared.User;
 
 public class Masterobject implements Serializable {
@@ -13,6 +14,7 @@ public class Masterobject implements Serializable {
 	// Attributes
 	public ArrayList<User> users;
 	public ArrayList<User> nextround;
+	public ArrayList<User> scoreboard;
 	public int[] playedcards = new int[2];
 	public int pass = 0;
 	public int round;
@@ -24,29 +26,32 @@ public class Masterobject implements Serializable {
 	public Masterobject(ArrayList<User> userlist) {
 		this.users = userlist;
 		nextround = new ArrayList<User>(users.size());
-//		int[] deck = createdeck();
-//		shuffle(deck);
-//		distribute(deck);
-		
+		scoreboard = new ArrayList<User>(users.size());
+		scoreboard.addAll(userlist);
+
+		// int[] deck = createdeck();
+		// shuffle(deck);
+		// distribute(deck);
+
 		// For Testreasons only:
-		users.get(0).getHand()[1] = 1;
-		users.get(0).getHand()[2] = 1;
-		users.get(0).getHand()[3] = 1;
-		users.get(1).getHand()[4] = 1;
-		users.get(1).getHand()[5] = 1;
-		users.get(1).getHand()[6] = 1;
-		users.get(2).getHand()[7] = 1;
-		users.get(2).getHand()[8] = 1;
-		users.get(2).getHand()[9] = 1;
-		users.get(3).getHand()[10] = 2;
-		users.get(3).getHand()[11] = 1;
-		users.get(3).getHand()[12] = 1;
+		users.get(0).getHand()[12] = 1;
+		users.get(0).getHand()[11] = 1;
+		users.get(0).getHand()[10] = 1;
+		users.get(1).getHand()[9] = 1;
+		users.get(1).getHand()[8] = 1;
+		users.get(1).getHand()[7] = 1;
+		users.get(2).getHand()[6] = 1;
+		users.get(2).getHand()[5] = 1;
+		users.get(2).getHand()[4] = 1;
+		users.get(3).getHand()[3] = 1;
+		users.get(3).getHand()[2] = 1;
+		users.get(3).getHand()[1] = 1;
 		users.get(0).calcamount();
 		users.get(1).calcamount();
 		users.get(2).calcamount();
 		users.get(3).calcamount();
-		//////////////////////////////
-		
+		// ////////////////////////////
+
 		users.get(0).setActive(true);
 
 	}
@@ -119,17 +124,37 @@ public class Masterobject implements Serializable {
 		}
 		return pos;
 	}
+
 	// Determine next player
-		public int nextplayer(int currentplayer) {
-			int nextplayer = currentplayer + 1;
-			if (nextplayer > users.size() - 1) {
-				nextplayer = 0;
+	public int nextplayer(int currentplayer) {
+		int nextplayer = currentplayer + 1;
+		if (nextplayer > users.size() - 1) {
+			nextplayer = 0;
+		}
+		return nextplayer;
+	}
+
+	public void scoreSort() {
+		ArrayList<User> temp = new ArrayList<User>(scoreboard.size());
+		int highscore = 0;
+		int pos = 0;
+		while (scoreboard.size() != 0) {
+			for (int i = 0; i < scoreboard.size() - 1; i++) {
+				highscore = scoreboard.get(0).getScore();
+				if (highscore < scoreboard.get(i).getScore()) {
+					highscore = scoreboard.get(i).getScore();
+					pos = i;
+				}
 			}
-			return nextplayer;
+			System.out.print(scoreboard.get(pos).getNickname() + " ");
+			temp.add(scoreboard.remove(pos));
 		}
-
-		public static void main(String[] args) {
-
-		}
-
+		scoreboard.clear();
+		scoreboard.addAll(temp);
+		System.out.println();
+		System.out.print(scoreboard.get(0).getNickname() + " ");
+		System.out.print(scoreboard.get(1).getNickname() + " ");
+		System.out.print(scoreboard.get(2).getNickname() + " ");
+		System.out.print(scoreboard.get(3).getNickname() + " ");
+	}
 }

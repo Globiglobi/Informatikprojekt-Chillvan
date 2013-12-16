@@ -23,6 +23,7 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -33,6 +34,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import dalmuti.shared.User;
 
 @SuppressWarnings("serial")
 public class Playtable extends JFrame implements ActionListener, MouseListener{
@@ -294,8 +297,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
 						narrclick();
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -314,8 +317,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 1;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -334,8 +337,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 2;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -354,8 +357,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 3;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -374,8 +377,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 4;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -394,8 +397,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 5;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -414,8 +417,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 6;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -434,8 +437,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 7;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -454,8 +457,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 8;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -474,8 +477,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 9;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -494,8 +497,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 10;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -514,8 +517,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 11;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -534,8 +537,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 					public void actionPerformed(ActionEvent event){
 						int i = 12;
 						cardclick(i);
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -556,8 +559,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
 						resetclick();
-						Image();
-						UpdateButtons();
+						updateImage();
+						updateButtons();
 					}
 				}
 		);
@@ -644,8 +647,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
 						placecards();
-						UpdateButtons();
-						Image();
+						updateButtons();
+						updateImage();
 					}
 				}
 		);
@@ -660,8 +663,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
 						pass();
-						UpdateButtons();
-						Image();
+						updateButtons();
+						updateImage();
 					}
 				}
 		);
@@ -801,7 +804,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		sendObject();
 	}
 
-	public static void UpdateButtons(){
+	public static void updateButtons(){
 		Login.playtable.btKarte1.setText(String.valueOf(newhand[1]));
 		Login.playtable.btKarte2.setText(String.valueOf(newhand[2]));
 		Login.playtable.btKarte3.setText(String.valueOf(newhand[3]));
@@ -817,7 +820,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		Login.playtable.btKarteNarr.setText(String.valueOf(newhand[0]));
 		Login.playtable.btReset.setText(String.valueOf(display[1]));
 	}
-	public void Image(){
+	public void updateImage(){
 		if(display[0] == 13){
 			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
 		}if(display[0] == 12){
@@ -849,7 +852,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		}
 		
 	}
-	public void playedcards(){
+	public void updatePlayedcards(){
 		if(Client.mo.playedcards[0] == 13){
 			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narrbig.jpg")));
 		}if(Client.mo.playedcards[0] == 12){
@@ -883,7 +886,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		Login.playtable.setTitle("Der Grosse Dalmuti - Spieltisch von " + Client.mo.users.get(myRank).getNickname());
 		
 	}
-	public void cardsleft(){
+	public void updateCardsleft(){
 		lbCardsLeftWest.setText("<html><body style='width:160px'> " + rank(westplayer) + Client.mo.users.get(westplayer).getNickname() + "<br />" + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
 		lbCardsLeftNorth.setText("<html><body style='width:250px' " + rank(northplayer) + Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
 		lbCardsLeftEast.setText("<html><body style='width:160px'> " + rank(eastplayer) + Client.mo.users.get(eastplayer).getNickname() + "<br />" + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
@@ -900,7 +903,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 			}
 	}
 	// Determine Player West, North and East
-	public static void positionPlayers(){
+	public static void updatePlayerpositions(){
 		Login.playtable.westplayer = Client.mo.nextplayer(myRank);
 		Login.playtable.northplayer = Client.mo.nextplayer(Login.playtable.westplayer);
 		Login.playtable.eastplayer = Client.mo.nextplayer(Login.playtable.northplayer);
@@ -922,5 +925,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		}
 		return rank;
 	}
-
+	public void updateScore(){
+		lbScore1.setText(Client.mo.scoreboard.get(0).getNickname() + " " + Client.mo.scoreboard.get(0).getScore());
+		lbScore2.setText(Client.mo.scoreboard.get(1).getNickname() + " " + Client.mo.scoreboard.get(1).getScore());
+		lbScore3.setText(Client.mo.scoreboard.get(2).getNickname() + " " + Client.mo.scoreboard.get(2).getScore());
+		lbScore4.setText(Client.mo.scoreboard.get(3).getNickname() + " " + Client.mo.scoreboard.get(3).getScore());
+	}
 }

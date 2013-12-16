@@ -75,7 +75,7 @@ public class Swap extends JFrame implements ActionListener{
 	}
 	
 	public void init(){
-		setTitle("Der Grosse Dalmuti - Karten tauschen");
+		setTitle("Der Grosse Dalmuti - Karten tauschen - " + Client.mo.users.get(Playtable.myRank).getNickname());
 		setSize(700, 700);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -537,8 +537,8 @@ public class Swap extends JFrame implements ActionListener{
 			for(int i = 0; i < Client.mo.users.size(); i++){
 				Client.mo.users.get(i).calcamount();
 			}
-			display1 = 0;
-			display2 = 0;
+			display1 = 13;
+			display2 = 13;
 			Client.mo.round++;
 			setVisible(false);
 			sendObject();
