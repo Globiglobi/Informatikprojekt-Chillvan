@@ -139,12 +139,12 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelCenter.insets = new Insets(0,40,0,40);//top, left, bottom, right
 		
 		lbSwapCard1 = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
-		lbSwapCard1.setBorder(new LineBorder(Color.black, 3));
+		lbSwapCard1.setBorder(new LineBorder(Color.gray, 3));
 		gbcPanelCenter.gridx = 0;
 		panelCenter.add(lbSwapCard1, gbcPanelCenter);
 		
 		lbSwapCard2 = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
-		lbSwapCard2.setBorder(new LineBorder(Color.black, 3));
+		lbSwapCard2.setBorder(new LineBorder(Color.gray, 3));
 		gbcPanelCenter.gridx = 1;
 		panelCenter.add(lbSwapCard2, gbcPanelCenter);
 		
@@ -166,7 +166,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
 		btKarteNarr.setForeground(Color.white);
 		btKarteNarr.setPreferredSize(new Dimension(97,150));//width, height
-		btKarteNarr.setBorder(new LineBorder(Color.black, 2));
+		btKarteNarr.setBorder(new LineBorder(Color.gray, 2));
 		btKarteNarr.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -186,7 +186,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte1.setFont(new Font("", Font.BOLD, 72));
 		btKarte1.setForeground(Color.white);
 		btKarte1.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte1.setBorder(new LineBorder(Color.black, 2));
+		btKarte1.setBorder(new LineBorder(Color.gray, 2));
 		btKarte1.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -206,7 +206,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte2.setFont(new Font("", Font.BOLD, 72));
 		btKarte2.setForeground(Color.white);
 		btKarte2.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte2.setBorder(new LineBorder(Color.black, 2));
+		btKarte2.setBorder(new LineBorder(Color.gray, 2));
 		btKarte2.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -226,7 +226,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte3.setFont(new Font("", Font.BOLD, 72));
 		btKarte3.setForeground(Color.white);
 		btKarte3.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte3.setBorder(new LineBorder(Color.black, 2));
+		btKarte3.setBorder(new LineBorder(Color.gray, 2));
 		btKarte3.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -246,7 +246,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte4.setFont(new Font("", Font.BOLD, 72));
 		btKarte4.setForeground(Color.white);
 		btKarte4.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte4.setBorder(new LineBorder(Color.black, 2));
+		btKarte4.setBorder(new LineBorder(Color.gray, 2));
 		btKarte4.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -266,7 +266,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte5.setFont(new Font("", Font.BOLD, 72));
 		btKarte5.setForeground(Color.white);
 		btKarte5.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte5.setBorder(new LineBorder(Color.black, 2));
+		btKarte5.setBorder(new LineBorder(Color.gray, 2));
 		btKarte5.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -286,7 +286,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte6.setFont(new Font("", Font.BOLD, 72));
 		btKarte6.setForeground(Color.white);
 		btKarte6.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte6.setBorder(new LineBorder(Color.black, 2));
+		btKarte6.setBorder(new LineBorder(Color.gray, 2));
 		btKarte6.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -306,7 +306,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte7.setFont(new Font("", Font.BOLD, 72));
 		btKarte7.setForeground(Color.white);
 		btKarte7.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte7.setBorder(new LineBorder(Color.black, 2));
+		btKarte7.setBorder(new LineBorder(Color.gray, 2));
 		btKarte7.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -326,7 +326,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte8.setFont(new Font("", Font.BOLD, 72));
 		btKarte8.setForeground(Color.white);
 		btKarte8.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte8.setBorder(new LineBorder(Color.black, 2));
+		btKarte8.setBorder(new LineBorder(Color.gray, 2));
 		btKarte8.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -346,7 +346,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte9.setFont(new Font("", Font.BOLD, 72));
 		btKarte9.setForeground(Color.white);
 		btKarte9.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte9.setBorder(new LineBorder(Color.black, 2));
+		btKarte9.setBorder(new LineBorder(Color.gray, 2));
 		btKarte9.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -366,7 +366,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte10.setFont(new Font("", Font.BOLD, 72));
 		btKarte10.setForeground(Color.white);
 		btKarte10.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte10.setBorder(new LineBorder(Color.black, 2));
+		btKarte10.setBorder(new LineBorder(Color.gray, 2));
 		btKarte10.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -386,7 +386,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte11.setFont(new Font("", Font.BOLD, 72));
 		btKarte11.setForeground(Color.white);
 		btKarte11.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte11.setBorder(new LineBorder(Color.black, 2));
+		btKarte11.setBorder(new LineBorder(Color.gray, 2));
 		btKarte11.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -406,7 +406,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte12.setFont(new Font("", Font.BOLD, 72));
 		btKarte12.setForeground(Color.white);
 		btKarte12.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte12.setBorder(new LineBorder(Color.black, 2));
+		btKarte12.setBorder(new LineBorder(Color.gray, 2));
 		btKarte12.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -427,9 +427,8 @@ public class Swap extends JFrame implements ActionListener{
 		btReset.setHorizontalTextPosition(JButton.CENTER);
 		btReset.setVerticalTextPosition(JButton.CENTER);
 		btReset.setFont(new Font("", Font.BOLD, 30));
-		btReset.setForeground(Color.white);
 		btReset.setPreferredSize(new Dimension(97,150));//width, height
-		btReset.setBorder(new LineBorder(Color.black, 2));
+		btReset.setBorder(new LineBorder(Color.gray, 2));
 		btReset.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){

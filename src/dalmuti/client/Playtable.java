@@ -38,7 +38,7 @@ import javax.swing.border.LineBorder;
 import dalmuti.shared.User;
 
 @SuppressWarnings("serial")
-public class Playtable extends JFrame implements ActionListener, MouseListener{
+public class Playtable extends JFrame implements MouseListener{
 	
 	static ObjectOutputStream out;
 	static ObjectInputStream in;
@@ -208,7 +208,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestNorth.insets = new Insets(0, 0, 0, 0);//top, left, bottom, right
 				
 		lbCardsLeftNorth = new JLabel("", JLabel.CENTER);
-		lbCardsLeftNorth.setFont(new Font("", Font.PLAIN, 18));
+		lbCardsLeftNorth.setFont(new Font("", Font.PLAIN, 20));
 		panelWestNorth.add(lbCardsLeftNorth, gbcPanelWestNorth);
 		
 		
@@ -218,15 +218,15 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		panelWestWest = new JPanel(new GridLayout());
 		panelWestWest.setOpaque(false);
 //		panelWestWest.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelWestWest.setPreferredSize(new Dimension(192,430));//width, height
+		panelWestWest.setPreferredSize(new Dimension(187,430));//width, height
 		panelWest.add(panelWestWest, BorderLayout.WEST);
 		
 		//Components in panelWestWest
 		GridBagConstraints gbcPanelWestWest = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestWest.insets = new Insets(0, 0, 0, 0);//top, left, bottom, right
 				
-		lbCardsLeftWest = new JLabel("");
-		lbCardsLeftWest.setFont(new Font("", Font.PLAIN, 18));
+		lbCardsLeftWest = new JLabel("", JLabel.CENTER);
+		lbCardsLeftWest.setFont(new Font("", Font.PLAIN, 20));
 		panelWestWest.add(lbCardsLeftWest, gbcPanelWestWest);
 		
 		
@@ -236,21 +236,22 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		panelWestCenter = new JPanel(new GridBagLayout());
 		panelWestCenter.setOpaque(false);
 //		panelWestCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelWestCenter.setPreferredSize(new Dimension(300,430));//width, height
+		panelWestCenter.setPreferredSize(new Dimension(310,430));//width, height
 		panelWest.add(panelWestCenter, BorderLayout.CENTER);
 		
 		//Components in panelWestCenter
 		GridBagConstraints gbcPanelWestCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
-		gbcPanelWestCenter.insets = new Insets(10,30,5,30);//top, left, bottom, right
+		gbcPanelWestCenter.insets = new Insets(10,0,5,0);//top, left, bottom, right
 				
 		lbCardsPlayed = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.png")));
-		lbCardsPlayed.setBorder(new LineBorder(Color.black, 4));
+		lbCardsPlayed.setBorder(new LineBorder(Color.gray, 4));
 		gbcPanelWestCenter.gridx = 0;
 		gbcPanelWestCenter.gridy = 0;
 		panelWestCenter.add(lbCardsPlayed, gbcPanelWestCenter);
 		
-		lbAmountCardsPlayed = new JLabel("", JLabel.CENTER);
-		lbAmountCardsPlayed.setFont(new Font("", Font.PLAIN, 18));
+		lbAmountCardsPlayed = new JLabel("");
+		lbAmountCardsPlayed.setFont(new Font("", Font.BOLD, 17));
+		gbcPanelWestCenter.insets = new Insets(10,0,5,0);//top, left, bottom, right
 		gbcPanelWestCenter.gridx = 0;
 		gbcPanelWestCenter.gridy = 1;
 		panelWestCenter.add(lbAmountCardsPlayed, gbcPanelWestCenter);		
@@ -261,15 +262,15 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		panelWestEast = new JPanel(new GridLayout());
 		panelWestEast.setOpaque(false);
 //		panelWestEast.setBorder(BorderFactory.createLineBorder(Color.black));
-		panelWestEast.setPreferredSize(new Dimension(192,430));//width, height
+		panelWestEast.setPreferredSize(new Dimension(187,430));//width, height
 		panelWest.add(panelWestEast, BorderLayout.EAST);
 		
 		//Components in panelWestEast
 		GridBagConstraints gbcPanelWestEast = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelWestEast.insets = new Insets(0, 0, 0, 0);//top, left, bottom, right
 				
-		lbCardsLeftEast = new JLabel("");
-		lbCardsLeftEast.setFont(new Font("", Font.PLAIN, 18));
+		lbCardsLeftEast = new JLabel("", JLabel.CENTER);
+		lbCardsLeftEast.setFont(new Font("", Font.PLAIN, 20));
 		panelWestEast.add(lbCardsLeftEast, gbcPanelWestEast);
 		
 		
@@ -293,7 +294,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarteNarr.setFont(new Font("", Font.BOLD, 72));
 		btKarteNarr.setForeground(Color.white);
 		btKarteNarr.setPreferredSize(new Dimension(97,150));//width, height
-		btKarteNarr.setBorder(new LineBorder(Color.black, 2));
+		btKarteNarr.setBorder(new LineBorder(Color.gray, 2));
 		btKarteNarr.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -313,7 +314,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte1.setFont(new Font("", Font.BOLD, 72));
 		btKarte1.setForeground(Color.white);
 		btKarte1.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte1.setBorder(new LineBorder(Color.black, 2));
+		btKarte1.setBorder(new LineBorder(Color.gray, 2));
 		btKarte1.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -334,7 +335,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte2.setFont(new Font("", Font.BOLD, 72));
 		btKarte2.setForeground(Color.white);
 		btKarte2.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte2.setBorder(new LineBorder(Color.black, 2));
+		btKarte2.setBorder(new LineBorder(Color.gray, 2));
 		btKarte2.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -355,7 +356,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte3.setFont(new Font("", Font.BOLD, 72));
 		btKarte3.setForeground(Color.white);
 		btKarte3.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte3.setBorder(new LineBorder(Color.black, 2));
+		btKarte3.setBorder(new LineBorder(Color.gray, 2));
 		btKarte3.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -376,7 +377,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte4.setFont(new Font("", Font.BOLD, 72));
 		btKarte4.setForeground(Color.white);
 		btKarte4.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte4.setBorder(new LineBorder(Color.black, 2));
+		btKarte4.setBorder(new LineBorder(Color.gray, 2));
 		btKarte4.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -397,7 +398,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte5.setFont(new Font("", Font.BOLD, 72));
 		btKarte5.setForeground(Color.white);
 		btKarte5.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte5.setBorder(new LineBorder(Color.black, 2));
+		btKarte5.setBorder(new LineBorder(Color.gray, 2));
 		btKarte5.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -418,7 +419,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte6.setFont(new Font("", Font.BOLD, 72));
 		btKarte6.setForeground(Color.white);
 		btKarte6.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte6.setBorder(new LineBorder(Color.black, 2));
+		btKarte6.setBorder(new LineBorder(Color.gray, 2));
 		btKarte6.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -439,7 +440,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte7.setFont(new Font("", Font.BOLD, 72));
 		btKarte7.setForeground(Color.white);
 		btKarte7.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte7.setBorder(new LineBorder(Color.black, 2));
+		btKarte7.setBorder(new LineBorder(Color.gray, 2));
 		btKarte7.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -460,7 +461,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte8.setFont(new Font("", Font.BOLD, 72));
 		btKarte8.setForeground(Color.white);
 		btKarte8.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte8.setBorder(new LineBorder(Color.black, 2));
+		btKarte8.setBorder(new LineBorder(Color.gray, 2));
 		btKarte8.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -481,7 +482,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte9.setFont(new Font("", Font.BOLD, 72));
 		btKarte9.setForeground(Color.white);
 		btKarte9.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte9.setBorder(new LineBorder(Color.black, 2));
+		btKarte9.setBorder(new LineBorder(Color.gray, 2));
 		btKarte9.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -502,7 +503,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte10.setFont(new Font("", Font.BOLD, 72));
 		btKarte10.setForeground(Color.white);
 		btKarte10.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte10.setBorder(new LineBorder(Color.black, 2));
+		btKarte10.setBorder(new LineBorder(Color.gray, 2));
 		btKarte10.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -523,7 +524,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte11.setFont(new Font("", Font.BOLD, 72));
 		btKarte11.setForeground(Color.white);
 		btKarte11.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte11.setBorder(new LineBorder(Color.black, 2));
+		btKarte11.setBorder(new LineBorder(Color.gray, 2));
 		btKarte11.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -544,7 +545,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btKarte12.setFont(new Font("", Font.BOLD, 72));
 		btKarte12.setForeground(Color.white);
 		btKarte12.setPreferredSize(new Dimension(97,150));//width, height
-		btKarte12.setBorder(new LineBorder(Color.black, 2));
+		btKarte12.setBorder(new LineBorder(Color.gray, 2));
 		btKarte12.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -568,7 +569,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		btReset.setFont(new Font("", Font.BOLD, 72));
 		btReset.setForeground(Color.white);
 		btReset.setPreferredSize(new Dimension(97,150));//width, height
-		btReset.setBorder(new LineBorder(Color.black, 2));
+		btReset.setBorder(new LineBorder(Color.gray, 2));
 		btReset.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -612,27 +613,27 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelEastNorth.insets = new Insets(0,0,0,0);//top, left, bottom, right
 		
 		lbScoreTitel = new JLabel("Scoreboard", SwingConstants.CENTER);
-		lbScoreTitel.setFont(new Font("", Font.BOLD, 22));
+		lbScoreTitel.setFont(new Font("", Font.BOLD, 24));
 		gbcPanelEastNorth.gridy = 0;
 		panelEastNorth.add(lbScoreTitel, gbcPanelEastNorth);
 		
 		lbScore1 = new JLabel("");
-		lbScore1.setFont(new Font("", Font.PLAIN, 18));
+		lbScore1.setFont(new Font("", Font.PLAIN, 20));
 		gbcPanelEastNorth.gridy = 1;
 		panelEastNorth.add(lbScore1, gbcPanelEastNorth);
 		
 		lbScore2 = new JLabel("");
-		lbScore2.setFont(new Font("", Font.PLAIN, 18));
+		lbScore2.setFont(new Font("", Font.PLAIN, 20));
 		gbcPanelEastNorth.gridy = 2;
 		panelEastNorth.add(lbScore2, gbcPanelEastNorth);
 		
 		lbScore3 = new JLabel("");
-		lbScore3.setFont(new Font("", Font.PLAIN, 18));
+		lbScore3.setFont(new Font("", Font.PLAIN, 20));
 		gbcPanelEastNorth.gridy = 3;
 		panelEastNorth.add(lbScore3, gbcPanelEastNorth);
 		
 		lbScore4 = new JLabel("");
-		lbScore4.setFont(new Font("", Font.PLAIN, 18));
+		lbScore4.setFont(new Font("", Font.PLAIN, 20));
 		gbcPanelEastNorth.gridy = 4;
 		panelEastNorth.add(lbScore4, gbcPanelEastNorth);
 		
@@ -642,7 +643,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		//panelEastCenter - buttons
 		panelEastCenter = new JPanel(new GridBagLayout());
 		panelEastCenter.setOpaque(false);
-//		panelEastCenter.setBorder(BorderFactory.createLineBorder(Color.black));
+//		panelEastCenter.setBorder(BorderFactory.createLineBorder(Color.gray));
 		panelEastCenter.setPreferredSize(new Dimension(300,100));//width, height
 		panelEast.add(panelEastCenter, BorderLayout.CENTER);
 		
@@ -687,7 +688,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		//panelEastSouth - chat
 		panelEastSouth = new JPanel(new GridLayout());
 		panelEastSouth.setOpaque(false);
-//		panelEastSouth.setBorder(BorderFactory.createLineBorder(Color.black));
+//		panelEastSouth.setBorder(BorderFactory.createLineBorder(Color.white));
 		panelEastSouth.setPreferredSize(new Dimension(300,480));//width, height
 		panelEast.add(panelEastSouth, BorderLayout.SOUTH);
 		
@@ -695,25 +696,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		GridBagConstraints gbcPanelEastSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelEastSouth.insets = new Insets(0,0,0,0);//top, left, bottom, right
 		
-		lbUniqueImage = new JLabel("");
+		lbUniqueImage = new JLabel("", new ImageIcon(getClass().getResource("/dalmuti/image/grDalmuti.jpg")), JLabel.CENTER);
 		panelEastSouth.add(lbUniqueImage, gbcPanelEastSouth);
 		
 		setVisible(true);
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-//		try{
-//			if(e.getSource() == btLegen){
-//				this.out.writeObject("sfd");
-//			}else if(e.getSource() == btPassen){
-//				
-//			}else if(e.getSource() == btReset){
-//				
-//			}
-//		}catch (java.io.IOException IOException){
-//			IOException.printStackTrace();
-//		}
 	}
 
 
@@ -888,16 +874,16 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		}if(Client.mo.playedcards[0] == 0){
 			Login.playtable.lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.png")));
 		}
-		lbAmountCardsPlayed.setText("<html><body style='width:250px'> Diese Karte wurde " + Client.mo.playedcards[1] + " Mal gespielt");
+		lbAmountCardsPlayed.setText("Diese Karte wurde " + Client.mo.playedcards[1] + " Mal gespielt");
 		Login.playtable.setTitle("Der Grosse Dalmuti - Spieltisch von " + Client.mo.users.get(myRank).getNickname());
 		
 	}
 	public void updateCardsleft(){
-		lbCardsLeftWest.setText("<html><body style='width:160px', 'text-align:center'> " + "    " + rank(westplayer) + "    " + Client.mo.users.get(westplayer).getNickname() + "<br>" + "    hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
-		lbCardsLeftNorth.setText("<html><body style='width:200px'> " + rank(northplayer) + Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
-		lbCardsLeftEast.setText("<html><body style='width:160px'> " + rank(eastplayer) + Client.mo.users.get(eastplayer).getNickname() + "<br>" + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
+		lbCardsLeftWest.setText("<html><div style=\"text-align: center;\">" + rank(westplayer) + Client.mo.users.get(westplayer).getNickname() + "<br>" + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten" + "</html>");
+		lbCardsLeftNorth.setText("<html><div style=\"text-align: center;\">" + rank(northplayer) + Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten" + "</html>");
+		lbCardsLeftEast.setText("<html><div style=\"text-align: center;\">" + rank(eastplayer) + Client.mo.users.get(eastplayer).getNickname() + "<br>" + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten" + "</html>");
 		Login.playtable.lbActiveUser.setText("Bitte warte auf deinen Zug");
-		Login.playtable.lbActiveUser.setBounds(70, 80, 800, 200);
+		Login.playtable.lbActiveUser.setBounds(8, 80, 800, 200);
 
 	}
 	// send Masterobject back to Server
@@ -932,10 +918,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		return rank;
 	}
 	public void updateScore(){
-		lbScore1.setText(Client.mo.scoreboard.get(0).getNickname() + " " + Client.mo.scoreboard.get(0).getScore());
-		lbScore2.setText(Client.mo.scoreboard.get(1).getNickname() + " " + Client.mo.scoreboard.get(1).getScore());
-		lbScore3.setText(Client.mo.scoreboard.get(2).getNickname() + " " + Client.mo.scoreboard.get(2).getScore());
-		lbScore4.setText(Client.mo.scoreboard.get(3).getNickname() + " " + Client.mo.scoreboard.get(3).getScore());
+		lbScore1.setText("  " + Client.mo.scoreboard.get(0).getNickname() + " " + Client.mo.scoreboard.get(0).getScore());
+		lbScore2.setText("  " + Client.mo.scoreboard.get(1).getNickname() + " " + Client.mo.scoreboard.get(1).getScore());
+		lbScore3.setText("  " + Client.mo.scoreboard.get(2).getNickname() + " " + Client.mo.scoreboard.get(2).getScore());
+		lbScore4.setText("  " + Client.mo.scoreboard.get(3).getNickname() + " " + Client.mo.scoreboard.get(3).getScore());
 		lbScoreTitel.setText("Scoreboard - Runde " + Client.mo.round);
 	}
 }
