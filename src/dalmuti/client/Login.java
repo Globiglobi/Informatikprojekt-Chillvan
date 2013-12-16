@@ -99,7 +99,7 @@ public class Login extends JFrame implements ActionListener{
 		//set Background Image
 		getContentPane().setLayout(new BorderLayout());
 		((JPanel)getContentPane()).setOpaque(false);
-		ImageIcon background = new ImageIcon(getClass().getResource("/dalmuti/image/background.png"));
+		ImageIcon background = new ImageIcon(getClass().getResource("/dalmuti/image/loginbackground.png"));
 		lbBackground = new JLabel(background);
 		getLayeredPane().add(lbBackground, new Integer(Integer.MIN_VALUE));
 		lbBackground.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());
@@ -134,7 +134,7 @@ public class Login extends JFrame implements ActionListener{
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(10, 0, 10, 0);// top, left, bottom, right
 
-		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein. (max. 16 Zeichen)");
+		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein. (max. 12 Zeichen)");
 		lbEnterNickname.setFont(new Font("", Font.BOLD, 20));
 		gbcPanelCenter.gridy = 0;
 		panelCenter.add(lbEnterNickname);
@@ -239,30 +239,30 @@ public class Login extends JFrame implements ActionListener{
 		Object src = e.getSource();
 		if(src == btLogin){
 			try{
-				if(tfEnterNickname.getText().length() <= 16){
+				if(tfEnterNickname.getText().length() <= 12){
 				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
 				playtable = new Playtable(this.out, this.in);
 				}else{
-					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 16 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
 					tfEnterNickname.setText("");
+					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 12 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
 				}
 			}catch (java.io.IOException IOException){
 				IOException.printStackTrace();
 			}
 		}else if(src == tfEnterNickname){
 			try{
-				if(tfEnterNickname.getText().length() <= 16){
+				if(tfEnterNickname.getText().length() <= 12){
 				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
 				setVisible(false);
 				playtable = new Playtable(this.out, this.in);
 				}else{
-					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 16 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
 					tfEnterNickname.setText("");
+					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 12 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
 				}
 			}catch (java.io.IOException IOException){
 				IOException.printStackTrace();
