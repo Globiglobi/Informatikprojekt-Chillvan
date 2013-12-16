@@ -84,9 +84,10 @@ public class Client {
 			}
 		}
 		if(mo.round == 0){
-			Playtable.positionPlayers();
+			Playtable.updatePlayerpositions();
+			Login.playtable.updateScore();
 		}
-		Login.playtable.cardsleft();
+		Login.playtable.updateCardsleft();
 		if(mo.users.get(Login.playtable.myRank).getActive() == true){
 			Login.playtable.glassPane.setVisible(false);
 			// First 4 rounds to swap cards between dalmuti and servants
@@ -103,8 +104,8 @@ public class Client {
 		}else{
 			Login.playtable.glassPane.setVisible(true);
 		}
-		Playtable.UpdateButtons();
-		Login.playtable.playedcards();
-		Login.playtable.cardsleft();
+		Playtable.updateButtons();
+		Login.playtable.updatePlayedcards();
+		Login.playtable.updateCardsleft();
 	}
 }

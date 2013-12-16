@@ -42,7 +42,6 @@ public class Logic {
 		
 		// start of new round
 		if (mo.nextround.size() == mo.users.size() - 1) {
-			System.out.println("only one left");
 			for(int i = 0; i < mo.users.size(); i++){
 				if(mo.users.get(i).isPassive() == false){
 					mo.users.get(i).setHand(new int[13]);
@@ -50,14 +49,19 @@ public class Logic {
 					break;
 				}
 			}
+			for (int i = 0; i < mo.nextround.size(); i++) {
+				mo.nextround.get(i).setPassive(false);
+				mo.nextround.get(i).setActive(false);
+				
+				// Update Scores
+				mo.nextround.get(i).setScore(mo.nextround.get(i).getScore() + (int) (10 / Math.pow(1.8,(i+1.0))));
+			}
 			mo.users.clear();
 			mo.users.addAll(mo.nextround);
-			for (int i = 0; i < mo.users.size(); i++) {
-				mo.users.get(i).setPassive(false);
-				mo.users.get(i).setActive(false);
-				mo.users.get(i).setScore(mo.users.get(i).getScore() + (int) (10 / Math.pow(1.8,(i+1.0))));
-				System.out.println(mo.users.get(i).getNickname() + " " + mo.users.get(i).getScore());
-			}
+			mo.nextround.clear();
+			mo.scoreboard.clear();
+			mo.scoreboard.addAll(mo.users);
+			mo.scoreSort();
 			// distribute new cards
 			int[] deck = Masterobject.createdeck();
 			Masterobject.shuffle(deck);
