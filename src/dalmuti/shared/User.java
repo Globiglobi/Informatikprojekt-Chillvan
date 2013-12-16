@@ -14,6 +14,7 @@ public class User implements Serializable {
 	private int amount;
 	private boolean active;
 	private boolean passive;
+	private int score = 0;
 	
 	public User(String nickname) {
 		this.nickname = nickname;
@@ -65,6 +66,14 @@ public class User implements Serializable {
 	}
 	public void setUser_ID(int user_ID){
 		this.user_ID = user_ID;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 
 	// Methoden

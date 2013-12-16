@@ -26,10 +26,11 @@ public class Swap extends JFrame implements ActionListener{
 	
 	ObjectOutputStream out;
 	ObjectInputStream in;
-	static int myRank;
 	static int[] newhand = new int[13];
 	static int[] handcopy = new int[13];
-	static int[] display = new int[2];
+	static int display1 = 13;
+	static int display2 = 13;
+	static boolean diener;
 	
 	//GUI-Globals
 	private JLabel lbBackground;
@@ -62,10 +63,10 @@ public class Swap extends JFrame implements ActionListener{
 	private JButton btReset;
 	
 	
-	//only for testing purpose
-		public static void main(String[] args) {
-			new Swap().setVisible(true);
-		}
+//	//only for testing purpose
+//		public static void main(String[] args) {
+//			new Swap().setVisible(true);
+//		}
 		
 	
 	//Constructor
@@ -81,7 +82,8 @@ public class Swap extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+		Login.playtable.glassPane.setVisible(true);
+		diener = false;
 		
 		//set Background Image
 		getContentPane().setLayout(new BorderLayout());
@@ -104,7 +106,8 @@ public class Swap extends JFrame implements ActionListener{
 		gbcPanelNorth.insets = new Insets(20,0,0,0);//top, left, bottom, right
 		
 
-		lbExplain = new JLabel("<html><body style='width:500px'> Jetzt kannst du deine Karten tauschen. Dazu wähle 2 Karten die du tauschen möchtest aus. Klicke danach auf Tauschen.");
+		lbExplain = new JLabel("<html><body style='width:500px'> ");
+		setExplanation();
 		lbExplain.setFont(new Font("", Font.BOLD, 16));
 		gbcPanelNorth.gridy = 0;
 		panelNorth.add(lbExplain, gbcPanelNorth);
@@ -115,7 +118,13 @@ public class Swap extends JFrame implements ActionListener{
 		btSwap.setFont(new Font("", Font.BOLD, 16));
 		btSwap.setHorizontalTextPosition(JButton.CENTER);
 		btSwap.setVerticalTextPosition(JButton.CENTER);
-		btSwap.addActionListener(this);
+		btSwap.addActionListener(
+			new ActionListener(){
+				public void actionPerformed(ActionEvent event){
+					swapcards();
+				}
+			}
+		);
 		gbcPanelNorth.gridy = 1;
 		panelNorth.add(btSwap, gbcPanelNorth);
 		
@@ -162,7 +171,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarteNarr.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						narrclick();
+						swapclick(0);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -179,8 +190,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte1.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 1;
-						cardclick(i);
+						swapclick(1);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -197,8 +209,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte2.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 2;
-						cardclick(i);
+						swapclick(2);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -215,8 +228,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte3.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 3;
-						cardclick(i);
+						swapclick(3);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -233,8 +247,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte4.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 4;
-						cardclick(i);
+						swapclick(4);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -251,8 +266,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte5.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 5;
-						cardclick(i);
+						swapclick(5);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -269,8 +285,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte6.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 6;
-						cardclick(i);
+						swapclick(6);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -287,8 +304,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte7.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 7;
-						cardclick(i);
+						swapclick(7);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -305,8 +323,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte8.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 8;
-						cardclick(i);
+						swapclick(8);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -323,8 +342,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte9.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 9;
-						cardclick(i);
+						swapclick(9);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -341,8 +361,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte10.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 10;
-						cardclick(i);
+						swapclick(10);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -359,8 +380,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte11.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 11;
-						cardclick(i);
+						swapclick(11);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -377,8 +399,9 @@ public class Swap extends JFrame implements ActionListener{
 		btKarte12.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
-						int i = 12;
-						cardclick(i);
+						swapclick(12);
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -389,16 +412,18 @@ public class Swap extends JFrame implements ActionListener{
 		
 		
 		//ResetButton
-		btReset = new JButton(String.valueOf(display[1]), new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
+		btReset = new JButton("Reset", new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
 		btReset.setHorizontalTextPosition(JButton.CENTER);
 		btReset.setVerticalTextPosition(JButton.CENTER);
-		btReset.setFont(new Font("", Font.BOLD, 72));
+		btReset.setFont(new Font("", Font.BOLD, 30));
 		btReset.setPreferredSize(new Dimension(97,150));//width, height
 		btReset.setBorder(new LineBorder(Color.red, 2));
 		btReset.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
 						resetclick();
+						swapimage();
+						UpdateButtons();
 					}
 				}
 		);
@@ -421,60 +446,107 @@ public class Swap extends JFrame implements ActionListener{
 	
 	// Methods
 	
-	// click on normal card
-	public static void cardclick(int button) {
-		// in case of button gets clicked again
-		if ((newhand[button] != handcopy[button]) && newhand[button] >= 1) {
-			newhand[button]--;
+	public void autofillin(){
+		
+		if(Playtable.myRank == 3){
+			diener = true;
+			for(int i = 1; i < newhand.length; i++){
+				if(newhand[i] == 1){
+					newhand[i]--;
+					display1 = i;
+				}
+				if(newhand[i] > 1 && display1 == 13){
+					newhand[i] = newhand[i] - 2;
+					display1 = i;
+					display2 = i;
+					break;
+				}
+				if(newhand[i] > 1 && display1 != 13){
+					newhand[i]--;
+					display2 = i;
+					break;
+				}
+			}
 		}
-		// in case new button gets clicked
-		else if ((newhand[button] == handcopy[button]) && newhand[button] >= 1) {
-			System.arraycopy(handcopy,0,newhand,0,13);
-			newhand[button]--;
+		if(Playtable.myRank == 2){
+			System.out.println("Enter schlaufe");
+			diener = true;
+			for(int i = 1; i < newhand.length; i++){
+				System.out.println("Stelle " + i + " Anzahl " + newhand[i]);
+				if(newhand[i] >= 1){
+					newhand[i]--;
+					display1 = i;
+					break;
+				}
+			}
 		}
-		// in case of button gets clicked with 0 cards
-		else if((newhand[button] == handcopy[button]) && newhand[button] == 0){
-			System.arraycopy(handcopy,0,newhand,0,13);
-		}
-		// change display array
-		display[0] = button;
-		display[1] = handcopy[button] - newhand[button];
+		swapimage();
+		UpdateButtons();
 	}
-	// click on narr button
-	public static void narrclick() {
-		// in case no card has been played yet
-		if ((display[0] == 0 || display[0] == 13) && newhand[0] >= 1) {
-			newhand[0]--;
-			display[0] = 13;
-			display[1]++;
+	
+	// click on normal card
+	public static void swapclick(int button) {
+		if(diener == true){
+			// do nothing
 		}
-		// in case another card has been played
-		else if (display[0] != 0 && newhand[0] >= 1) {
-			newhand[0]--;
-			display[1]++;
+		else{
+			System.out.println("geht in schlaufe");
+			// if no card has been selected yet
+			if (display1 == 13) {
+				newhand[button]--;
+				display1 = button;
+			}
+		// if one card has been selected already
+			else if (display1 != 13 && display2 == 13) {
+				newhand[button]--;
+				display2 = button;
+			}
 		}
 	}
 	
 	// click on reset button
 	public static void resetclick(){
+		if(diener == true){
+			// do nothing
+		}
+		else{
 		System.arraycopy(handcopy,0,newhand,0,13);
-		display = new int[2];
+		display1 = 13;
+		display2 = 13;
+		}
 	}
 
-	// place cards
-	public void placecards() {
-		if((display[0] < Client.mo.playedcards[0] && display[1] == Client.mo.playedcards[1] || Client.mo.playedcards[0] == 0) && display[1] != 0){
+	// swap cards
+	public void swapcards() {
+		System.out.println("Swapbutton");
+		if((((display1 != 13 && display2 != 13) && Playtable.myRank == 0) || diener == true || (display1 != 13 && Playtable.myRank == 1))){
 			int[] check = new int[13];
 			System.arraycopy(newhand, 0, check, 0,13);
-			Client.mo.users.get(myRank).setHand(check);
-			Client.mo.users.get(myRank).calcamount();
-			System.arraycopy(display,0,Client.mo.playedcards,0,2);
-			display = new int[2];
-			Client.mo.pass = 0;
+			Client.mo.users.get(Playtable.myRank).setHand(check);
+			Client.mo.users.get(Playtable.myRank).calcamount();
+			if(Playtable.myRank == 0){
+				Client.mo.users.get(3).getHand()[display1]++;
+				Client.mo.users.get(3).getHand()[display2]++;
+				Client.mo.users.get(3).calcamount();
+			}
+			if(Playtable.myRank == 1){
+				Client.mo.users.get(2).getHand()[display1]++;
+				Client.mo.users.get(2).calcamount();
+			}
+			if(Playtable.myRank == 2){
+				Client.mo.users.get(1).getHand()[display1]++;
+				Client.mo.users.get(1).calcamount();
+			}
+			if(Playtable.myRank == 3){
+				Client.mo.users.get(0).getHand()[display1]++;
+				Client.mo.users.get(0).getHand()[display1]++;
+				Client.mo.users.get(0).calcamount();
+			}
+			Client.mo.round++;
+			setVisible(false);
 			sendObject();
 		}
-//		else{ return statement
-//		}
+
 	}
 	// send Masterobject back to Server
 	public static void sendObject(){
@@ -483,6 +555,105 @@ public class Swap extends JFrame implements ActionListener{
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
+	}
+	
+	public void UpdateButtons(){
+		btKarte1.setText(String.valueOf(newhand[1]));
+		btKarte2.setText(String.valueOf(newhand[2]));
+		btKarte3.setText(String.valueOf(newhand[3]));
+		btKarte4.setText(String.valueOf(newhand[4]));
+		btKarte5.setText(String.valueOf(newhand[5]));
+		btKarte6.setText(String.valueOf(newhand[6]));
+		btKarte7.setText(String.valueOf(newhand[7]));
+		btKarte8.setText(String.valueOf(newhand[8]));
+		btKarte9.setText(String.valueOf(newhand[9]));
+		btKarte10.setText(String.valueOf(newhand[10]));
+		btKarte11.setText(String.valueOf(newhand[11]));
+		btKarte12.setText(String.valueOf(newhand[12]));
+		btKarteNarr.setText(String.valueOf(newhand[0]));
+	}
+	
+	public void swapimage(){
+		// change image left card
+		if(display1 == 0){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
+		}if(display1 == 12){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte12.jpg")));
+		}if(display1 == 11){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte11.jpg")));
+		}if(display1 == 10){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte10.jpg")));
+		}if(display1 == 9){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte9.jpg")));
+		}if(display1 == 8){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte8.jpg")));
+		}if(display1 == 7){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte7.jpg")));
+		}if(display1 == 6){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte6.jpg")));
+		}if(display1 == 5){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte5.jpg")));
+		}if(display1 == 4){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte4.jpg")));
+		}if(display1 == 3){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte3.jpg")));
+		}if(display1 == 2){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte2.jpg")));
+		}if(display1 == 1){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
+		}if(display1 == 13){
+			lbSwapCard1.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
+		}
+		// change image right card
+		if(display2 == 0){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
+		}if(display2 == 12){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte12.jpg")));
+		}if(display2 == 11){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte11.jpg")));
+		}if(display2 == 10){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte10.jpg")));
+		}if(display2 == 9){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte9.jpg")));
+		}if(display2 == 8){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte8.jpg")));
+		}if(display2 == 7){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte7.jpg")));
+		}if(display2 == 6){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte6.jpg")));
+		}if(display2 == 5){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte5.jpg")));
+		}if(display2 == 4){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte4.jpg")));
+		}if(display2 == 3){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte3.jpg")));
+		}if(display2 == 2){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte2.jpg")));
+		}if(display2 == 1){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/karte1.jpg")));
+		}if(display2 == 13){
+			lbSwapCard2.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/back.jpg")));
+		}
+		
+	}
+	// set Explanation
+	public void setExplanation(){
+		if(Playtable.myRank == 3){
+		lbExplain.setText("<html><body style='width:500px'> Als grosser Diener musst du dem Grossen Dalmuti deine beiden besten Karten geben. Bitte drück dafür auf Tauschen");
+		}
+		if(Playtable.myRank == 2){
+			lbExplain.setText("<html><body style='width:500px'> Als kleiner Diener musst du dem kleinen Dalmuti deine beste Karten geben. Bitte drück dafür auf Tauschen");
+
+		}
+		if(Playtable.myRank == 1){
+			lbExplain.setText("<html><body style='width:500px'> Als kleiner Dalmuti darfst du deine schlechteste Karten an den kleinen Diener abgeben. Bitte wähl deine Karte aus und drück auf Tauschen");
+
+		}
+		if(Playtable.myRank == 0){
+			lbExplain.setText("<html><body style='width:500px'> Als grosser Dalmuti darfst du deine zwei schlechtesten Karten an den grossen Diener abgeben. Bitte wähl deine Karten aus und drück auf Tauschen");
+
+		}
+		
 	}
 
 }

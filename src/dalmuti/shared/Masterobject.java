@@ -16,6 +16,7 @@ public class Masterobject implements Serializable {
 	public int[] playedcards = new int[2];
 	public int pass = 0;
 	public boolean firstRound;
+	public int round;
 
 	// Constructor
 	public Masterobject() {
@@ -24,19 +25,19 @@ public class Masterobject implements Serializable {
 	public Masterobject(ArrayList<User> userlist) {
 		this.users = userlist;
 		nextround = new ArrayList<User>(users.size());
-//		int[] deck = createdeck();
-//		shuffle(deck);
-//		distribute(deck);
+		int[] deck = createdeck();
+		shuffle(deck);
+		distribute(deck);
 		
 		// For Testreasons only:
-		users.get(0).getHand()[4] = 1;
-		users.get(1).getHand()[4] = 1;
-		users.get(2).getHand()[4] = 1;
-		users.get(3).getHand()[4] = 1;
-		users.get(0).calcamount();
-		users.get(1).calcamount();
-		users.get(2).calcamount();
-		users.get(3).calcamount();
+//		users.get(0).getHand()[1] = 1;
+//		users.get(1).getHand()[2] = 1;
+//		users.get(2).getHand()[4] = 1;
+//		users.get(3).getHand()[4] = 1;
+//		users.get(0).calcamount();
+//		users.get(1).calcamount();
+//		users.get(2).calcamount();
+//		users.get(3).calcamount();
 		//////////////////////////////
 		
 		users.get(0).setActive(true);

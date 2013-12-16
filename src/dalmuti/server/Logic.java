@@ -75,6 +75,7 @@ public class Logic {
 			// set Dalmuti to active
 			mo.users.get(0).setActive(true);
 			mo.firstRound = true;
+			mo.round = 0;
 			mo.playedcards = new int[2];
 		}
 		return mo;

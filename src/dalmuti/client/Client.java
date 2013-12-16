@@ -90,6 +90,13 @@ public class Client {
 		Login.playtable.cardsleft();
 		if(mo.users.get(Login.playtable.myRank).getActive() == true){
 			Login.playtable.glassPane.setVisible(false);
+			if(mo.round < 4){
+				Swap swap = new Swap();
+				System.arraycopy(mo.users.get(Login.playtable.myRank).getHand(),0, swap.handcopy,0,13);
+				System.arraycopy(mo.users.get(Login.playtable.myRank).getHand(),0, swap.newhand,0,13);
+				swap.autofillin();
+				swap.UpdateButtons();
+			}
 		}else{
 			Login.playtable.glassPane.setVisible(true);
 		}
