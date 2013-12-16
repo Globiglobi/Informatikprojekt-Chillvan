@@ -88,7 +88,7 @@ public class Swap extends JFrame implements ActionListener{
 		//set Background Image
 		getContentPane().setLayout(new BorderLayout());
 		((JPanel)getContentPane()).setOpaque(false);
-		ImageIcon background = new ImageIcon(getClass().getResource("/dalmuti/image/narrbackground.jpg"));
+		ImageIcon background = new ImageIcon(getClass().getResource("/dalmuti/image/narrbackground.png"));
 		lbBackground = new JLabel(background);
 		getLayeredPane().add(lbBackground, new Integer(Integer.MIN_VALUE));
 		lbBackground.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());
