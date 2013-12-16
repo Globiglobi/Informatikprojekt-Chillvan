@@ -417,7 +417,7 @@ public class Swap extends JFrame implements ActionListener{
 		btReset.setVerticalTextPosition(JButton.CENTER);
 		btReset.setFont(new Font("", Font.BOLD, 30));
 		btReset.setPreferredSize(new Dimension(97,150));//width, height
-		btReset.setBorder(new LineBorder(Color.red, 2));
+		btReset.setBorder(new LineBorder(Color.black, 2));
 		btReset.addActionListener(
 				new ActionListener(){
 					public void actionPerformed(ActionEvent event){
@@ -639,18 +639,18 @@ public class Swap extends JFrame implements ActionListener{
 	// set Explanation
 	public void setExplanation(){
 		if(Playtable.myRank == 3){
-		lbExplain.setText("<html><body style='width:500px'> Als grosser Diener musst du dem Grossen Dalmuti deine beiden besten Karten geben. Bitte drück dafür auf Tauschen");
+		lbExplain.setText("<html><body style='width:500px'> Als grosser Diener musst du dem Grossen Dalmuti deine beiden besten Karten geben. Bitte drück dafür auf Tauschen.");
 		}
 		if(Playtable.myRank == 2){
-			lbExplain.setText("<html><body style='width:500px'> Als kleiner Diener musst du dem kleinen Dalmuti deine beste Karten geben. Bitte drück dafür auf Tauschen");
+			lbExplain.setText("<html><body style='width:500px'> Als kleiner Diener musst du dem kleinen Dalmuti deine beste Karten geben. Bitte drück dafür auf Tauschen.");
 
 		}
 		if(Playtable.myRank == 1){
-			lbExplain.setText("<html><body style='width:500px'> Als kleiner Dalmuti darfst du deine schlechteste Karten an den kleinen Diener abgeben. Bitte wähl deine Karte aus und drück auf Tauschen");
+			lbExplain.setText("<html><body style='width:500px'> Als kleiner Dalmuti darfst du deine schlechteste Karten an den kleinen Diener abgeben. Bitte wähl deine Karte aus und drück auf Tauschen.");
 
 		}
 		if(Playtable.myRank == 0){
-			lbExplain.setText("<html><body style='width:500px'> Als grosser Dalmuti darfst du deine zwei schlechtesten Karten an den grossen Diener abgeben. Bitte wähl deine Karten aus und drück auf Tauschen");
+			lbExplain.setText("<html><body style='width:500px'> Als grosser Dalmuti darfst du deine zwei schlechtesten Karten an den grossen Diener abgeben. Bitte wähl deine Karten aus und drück auf Tauschen.");
 
 		}
 		

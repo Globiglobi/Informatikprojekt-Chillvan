@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -142,20 +141,21 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//set up glassPane
 		//Create a panel to use as the glass pane  
-		glassPane = new JPanel(new GridBagLayout())  
+		glassPane = new JPanel(null)  
 		{  
 		   public void paintComponent(Graphics g)  
 		   {  
-		      //Set the color grey with a 0% alpha  
-		      g.setColor(new Color(0, 0, 0, 0.1f));  
+		      //Set the color grey with a 20% alpha  
+		      g.setColor(new Color(0, 0, 0, 0.2f));  
 		   
-		      //Fill a rectangle with the 0% black
+		      //Fill a rectangle with the 20% black
 		      g.fillRect(0, 0, this.getWidth(), this.getHeight());  
 		   }  
 		};  
 		//Turn off the opaque attribute of the panel  
 		//This allows the controls to show through  
 		glassPane.setOpaque(false);
+		glassPane.setSize(this.getSize());
 		glassPane.addMouseListener(this);
 		   
 		//Set the glass pane in the JFrame  
@@ -166,8 +166,9 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 
 		
 		lbActiveUser = new JLabel("Warte auf weitere Spieler... ");
-		lbActiveUser.setFont(new Font("", Font.BOLD, 60));
+		lbActiveUser.setFont(new Font("", Font.BOLD, 50));
 		lbActiveUser.setForeground(Color.white);
+		lbActiveUser.setBounds(10, 150, 1000, 200);
 		glassPane.add(lbActiveUser);
 	
 
@@ -195,10 +196,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//Components in panelWestNorth
 		GridBagConstraints gbcPanelWestNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
-		gbcPanelWestNorth.insets = new Insets(30,30,30,30);//top, left, bottom, right
+		gbcPanelWestNorth.insets = new Insets(10, 0, 10, 0);//top, left, bottom, right
 				
 		lbCardsLeftNorth = new JLabel("");
-		lbCardsLeftNorth.setFont(new Font("", Font.PLAIN, 18));
+		lbCardsLeftNorth.setFont(new Font("", Font.BOLD, 20));
 		panelWestNorth.add(lbCardsLeftNorth, gbcPanelWestNorth);
 		
 		
@@ -213,10 +214,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//Components in panelWestWest
 		GridBagConstraints gbcPanelWestWest = new GridBagConstraints();//Use GridBagConstraints to place the components
-		gbcPanelWestWest.insets = new Insets(30,30,30,30);//top, left, bottom, right
+		gbcPanelWestWest.insets = new Insets(0, 10, 0, 10);//top, left, bottom, right
 				
 		lbCardsLeftWest = new JLabel("");
-		lbCardsLeftWest.setFont(new Font("", Font.PLAIN, 18));
+		lbCardsLeftWest.setFont(new Font("", Font.BOLD, 20));
 		panelWestWest.add(lbCardsLeftWest, gbcPanelWestWest);
 		
 		
@@ -234,11 +235,12 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		gbcPanelWestCenter.insets = new Insets(10,30,5,30);//top, left, bottom, right
 				
 		lbCardsPlayed = new JLabel(new ImageIcon(getClass().getResource("/dalmuti/image/backbig.png")));
+		lbCardsPlayed.setBorder(new LineBorder(Color.black, 4));
 		gbcPanelWestCenter.gridx = 0;
 		gbcPanelWestCenter.gridy = 0;
 		panelWestCenter.add(lbCardsPlayed, gbcPanelWestCenter);
 		
-		lbAmountCardsPlayed = new JLabel("...");
+		lbAmountCardsPlayed = new JLabel("");
 		lbAmountCardsPlayed.setFont(new Font("", Font.PLAIN, 18));
 		gbcPanelWestCenter.gridx = 0;
 		gbcPanelWestCenter.gridy = 1;
@@ -255,10 +257,10 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		//Components in panelWestEast
 		GridBagConstraints gbcPanelWestEast = new GridBagConstraints();//Use GridBagConstraints to place the components
-		gbcPanelWestEast.insets = new Insets(30,30,30,30);//top, left, bottom, right
+		gbcPanelWestEast.insets = new Insets(0, 10, 0, 10);//top, left, bottom, right
 				
 		lbCardsLeftEast = new JLabel("");
-		lbCardsLeftEast.setFont(new Font("", Font.PLAIN, 18));
+		lbCardsLeftEast.setFont(new Font("", Font.BOLD, 20));
 		panelWestEast.add(lbCardsLeftEast, gbcPanelWestEast);
 		
 		
@@ -853,7 +855,8 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		lbCardsLeftWest.setText("<html><body style='width:150px'> " + Client.mo.users.get(westplayer).getNickname() + " hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten");
 		lbCardsLeftNorth.setText(Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten");
 		lbCardsLeftEast.setText("<html><body style='width:150px'> " + Client.mo.users.get(eastplayer).getNickname() + " hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten");
-		Login.playtable.lbActiveUser.setText("Du bist nicht am Zug");
+		Login.playtable.lbActiveUser.setText("Du bist nicht am Zug!");
+		Login.playtable.lbActiveUser.setBounds(70, 80, 800, 200);
 
 	}
 	// send Masterobject back to Server
