@@ -112,7 +112,7 @@ public class Swap extends JFrame implements ActionListener{
 		
 		
 		btSwap = new JButton("Tauschen");
-		btSwap.setPreferredSize(new Dimension(100, 50));// width, height
+		btSwap.setPreferredSize(new Dimension(120, 50));// width, height
 		btSwap.setFont(new Font("", Font.BOLD, 16));
 		btSwap.setHorizontalTextPosition(JButton.CENTER);
 		btSwap.setVerticalTextPosition(JButton.CENTER);
