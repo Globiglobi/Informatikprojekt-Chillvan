@@ -83,15 +83,16 @@ public class Client {
 				break;			
 			}
 		}
-		if(mo.round == 0){
+		if(mo.turn == 0){
 			Playtable.updatePlayerpositions();
 			Login.playtable.updateScore();
+			mo.round++;
 		}
 		Login.playtable.updateCardsleft();
 		if(mo.users.get(Login.playtable.myRank).getActive() == true){
 			Login.playtable.glassPane.setVisible(false);
 			// First 4 rounds to swap cards between dalmuti and servants
-			if(mo.round < 4){
+			if(mo.turn < 4){
 				try{
 					Thread.sleep(100);
 				}catch (InterruptedException e) {

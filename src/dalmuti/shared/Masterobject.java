@@ -17,7 +17,8 @@ public class Masterobject implements Serializable {
 	public ArrayList<User> scoreboard;
 	public int[] playedcards = new int[2];
 	public int pass = 0;
-	public int round;
+	public int turn;
+	public int round = 1;
 
 	// Constructor
 	public Masterobject() {

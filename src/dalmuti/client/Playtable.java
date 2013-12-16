@@ -792,8 +792,6 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 			Client.mo.pass = 0;
 			sendObject();
 		}
-//		else{ return statement
-//		}
 	}
 
 	// pass round
@@ -930,5 +928,6 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		lbScore2.setText(Client.mo.scoreboard.get(1).getNickname() + " " + Client.mo.scoreboard.get(1).getScore());
 		lbScore3.setText(Client.mo.scoreboard.get(2).getNickname() + " " + Client.mo.scoreboard.get(2).getScore());
 		lbScore4.setText(Client.mo.scoreboard.get(3).getNickname() + " " + Client.mo.scoreboard.get(3).getScore());
+		lbScoreTitel.setText("Scoreboard - Runde " + Client.mo.round);
 	}
 }

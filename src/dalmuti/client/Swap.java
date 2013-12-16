@@ -539,7 +539,7 @@ public class Swap extends JFrame implements ActionListener{
 			}
 			display1 = 13;
 			display2 = 13;
-			Client.mo.round++;
+			Client.mo.turn++;
 			setVisible(false);
 			sendObject();
 		}

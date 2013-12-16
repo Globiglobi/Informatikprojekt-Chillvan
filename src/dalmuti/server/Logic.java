@@ -68,7 +68,7 @@ public class Logic {
 			mo.distribute(deck);
 			// set Dalmuti to active
 			mo.users.get(0).setActive(true);
-			mo.round = 0;
+			mo.turn = 0;
 			mo.playedcards = new int[2];
 		}
 		return mo;
