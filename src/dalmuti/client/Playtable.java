@@ -24,12 +24,14 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
@@ -94,7 +96,11 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 	//GUI-Globals panelEastNorth
 	private JPanel panelEastNorth;
-	private JTextArea taScore;
+	private JLabel lbScoreTitel;
+	private JLabel lbScore1;
+	private JLabel lbScore2;
+	private JLabel lbScore3;
+	private JLabel lbScore4;
 		
 	//GUI-Globals panelEastCenter
 	private JPanel panelEastCenter;
@@ -578,7 +584,7 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		
 		
 		//panelEastNorth - scoreboard
-		panelEastNorth = new JPanel(new GridLayout());
+		panelEastNorth = new JPanel(new GridLayout(5, 0));
 		panelEastNorth.setOpaque(false);
 //		panelEastNorth.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelEastNorth.setPreferredSize(new Dimension(300,200));//width, height
@@ -588,9 +594,35 @@ public class Playtable extends JFrame implements ActionListener, MouseListener{
 		GridBagConstraints gbcPanelEastNorth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelEastNorth.insets = new Insets(0,0,0,0);//top, left, bottom, right
 		
-		taScore = new JTextArea();
-		taScore.setEditable(false);
-		panelEastNorth.add(taScore, gbcPanelEastNorth);
+		lbScoreTitel = new JLabel("Scoreboard", SwingConstants.CENTER);
+		lbScoreTitel.setFont(new Font("", Font.BOLD, 22));
+		lbScoreTitel.setForeground(Color.white);
+		gbcPanelEastNorth.gridy = 0;
+		panelEastNorth.add(lbScoreTitel, gbcPanelEastNorth);
+		
+		lbScore1 = new JLabel("1. ");
+		lbScore1.setFont(new Font("", Font.PLAIN, 18));
+		lbScore1.setForeground(Color.white);
+		gbcPanelEastNorth.gridy = 1;
+		panelEastNorth.add(lbScore1, gbcPanelEastNorth);
+		
+		lbScore2 = new JLabel("2. ");
+		lbScore2.setFont(new Font("", Font.PLAIN, 18));
+		lbScore2.setForeground(Color.white);
+		gbcPanelEastNorth.gridy = 2;
+		panelEastNorth.add(lbScore2, gbcPanelEastNorth);
+		
+		lbScore3 = new JLabel("3. ");
+		lbScore3.setFont(new Font("", Font.PLAIN, 18));
+		lbScore3.setForeground(Color.white);
+		gbcPanelEastNorth.gridy = 3;
+		panelEastNorth.add(lbScore3, gbcPanelEastNorth);
+		
+		lbScore4 = new JLabel("4. ");
+		lbScore4.setFont(new Font("", Font.PLAIN, 18));
+		lbScore4.setForeground(Color.white);
+		gbcPanelEastNorth.gridy = 4;
+		panelEastNorth.add(lbScore4, gbcPanelEastNorth);
 		
 
 		
