@@ -51,12 +51,9 @@ public class Client {
 					UpdatePlaytable();
 					Playtable.UpdateButtons();
 					Login.playtable.playedcards();
+					Login.playtable.cardsleft();
 					
 
-					//
-					System.out.println("Masterobject erhalten!");
-					System.out.println(client_ID);
-					
 				} else if (inputObject instanceof Integer) {
 					client_ID = (int) inputObject;
 				} else {
@@ -84,16 +81,20 @@ public class Client {
 				break;			
 			}
 		}
-		if(mo.firstRound == true){
+		if(mo.round == 0){
 			Playtable.positionPlayers();
 		}
 		Login.playtable.cardsleft();
 		if(mo.users.get(Login.playtable.myRank).getActive() == true){
 			Login.playtable.glassPane.setVisible(false);
+			// First 4 rounds to swap cards between dalmuti and servants
 			if(mo.round < 4){
+				try{
+					Thread.sleep(100);
+				}catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				Swap swap = new Swap();
-				System.arraycopy(mo.users.get(Login.playtable.myRank).getHand(),0, swap.handcopy,0,13);
-				System.arraycopy(mo.users.get(Login.playtable.myRank).getHand(),0, swap.newhand,0,13);
 				swap.autofillin();
 				swap.UpdateButtons();
 			}

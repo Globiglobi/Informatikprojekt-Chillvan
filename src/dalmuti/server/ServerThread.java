@@ -46,10 +46,6 @@ public class ServerThread extends Thread {
 						out.writeObject(client_ID);
 						client_ID++;
 
-						// Testoutput
-//						System.out.println(user.getNickname());
-//						System.out.println(userlist.size());
-						
 						// Creating Masterobject
 						if (userlist.size() == 4) {
 
@@ -60,11 +56,7 @@ public class ServerThread extends Thread {
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-							
-							for (int i = 0; i < 4; i++) {
-								System.out.println("User " + i + " Amount: " + mo.users.get(i).getAmount());
-							}
-							
+						// send Masterobject to Clients
 							 Iterator<ObjectOutputStream> i = outlist.iterator();
 							 while(i.hasNext()){
 									i.next().writeObject(mo);
@@ -81,7 +73,6 @@ public class ServerThread extends Thread {
 							e.printStackTrace();
 						}
 						
-						mo.firstRound = false;
 						mo = Logic.control(mo);
 						
 						// Testoutput
