@@ -89,7 +89,7 @@ public class Login extends JFrame implements ActionListener{
 	
 	public void init(){
 		setTitle("Der Grosse Dalmuti - Login");
-		setSize(1024, 768);
+		setSize(1024, 818);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);	
@@ -204,7 +204,7 @@ public class Login extends JFrame implements ActionListener{
 
 		//Components on gridLevel Y=1
 		lbVersion = new JLabel("");
-		lbVersion.setText("<html><body>Version 1.0.0<br>6. November 2013</body></html>");
+		lbVersion.setText("<html><body>Version 1.0.0<br>4. Dezember 2013</body></html>");
 		gbcPanelSouth.anchor = GridBagConstraints.FIRST_LINE_START;
 		gbcPanelSouth.insets = new Insets(0, 0, 10, 0);// top, left, bottom, right
 		gbcPanelSouth.gridy = 1;
