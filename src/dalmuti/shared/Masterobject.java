@@ -147,15 +147,9 @@ public class Masterobject implements Serializable {
 					pos = i;
 				}
 			}
-			System.out.print(scoreboard.get(pos).getNickname() + " ");
 			temp.add(scoreboard.remove(pos));
 		}
 		scoreboard.clear();
 		scoreboard.addAll(temp);
-		System.out.println();
-		System.out.print(scoreboard.get(0).getNickname() + " ");
-		System.out.print(scoreboard.get(1).getNickname() + " ");
-		System.out.print(scoreboard.get(2).getNickname() + " ");
-		System.out.print(scoreboard.get(3).getNickname() + " ");
 	}
 }

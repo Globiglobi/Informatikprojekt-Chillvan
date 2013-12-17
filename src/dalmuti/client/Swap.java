@@ -527,7 +527,6 @@ public class Swap extends JFrame implements ActionListener{
 
 	// swap cards
 	public void swapcards() {
-		System.out.println("Swapbutton");
 		if((((display1 != 13 && display2 != 13) && Playtable.myRank != 1) || servant == true || (display1 != 13 && display2 == 13 && Playtable.myRank == 1))){
 			int[] check = new int[13];
 			System.arraycopy(Playtable.newhand, 0, check, 0,13);

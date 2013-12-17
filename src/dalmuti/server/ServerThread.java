@@ -14,14 +14,11 @@ public class ServerThread extends Thread {
 	private Socket socket = null;
 	static int client_ID = 0;
 	static int user_ID = 0;
-	// protected long userID;
-//	public static ArrayList<Socket> sList = new ArrayList<Socket>();
 	public static ArrayList<User> userlist = new ArrayList<User>(4);
 	public static ArrayList<ObjectOutputStream> outlist = new ArrayList<ObjectOutputStream>(4);
 
 	public ServerThread(Socket socket) {
 		this.socket = socket;
-//		sList.add(socket);
 	}
 
 	public void run() {
@@ -75,7 +72,6 @@ public class ServerThread extends Thread {
 						
 						mo = Logic.control(mo);
 						
-						// Testoutput
 						 Iterator<ObjectOutputStream> i = outlist.iterator();
 						 while(i.hasNext()){
 								i.next().writeObject(mo);

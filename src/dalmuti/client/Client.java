@@ -18,6 +18,7 @@ public class Client {
 	Object inputObject;
 	static Masterobject mo;
 	static int client_ID;
+	static int tempID;
 
 	// call constructor to set up server, call gui-login, call method
 	public Client(String hostName, int portNumber) {
@@ -74,6 +75,9 @@ public class Client {
 		new Client(hostName, portNumber);
 	}
 
+	// Methods
+	
+	// Refresh Playtable
 	public static void UpdatePlaytable() {
 		for(int i = 0; i < mo.users.size(); i++){
 			if(mo.users.get(i).getUser_ID() == client_ID){
@@ -109,4 +113,5 @@ public class Client {
 		Login.playtable.updatePlayedcards();
 		Login.playtable.updateCardsleft();
 	}
+	
 }

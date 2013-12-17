@@ -882,8 +882,18 @@ public class Playtable extends JFrame implements MouseListener{
 		lbCardsLeftWest.setText("<html><div style=\"text-align: center;\">" + rank(westplayer) + Client.mo.users.get(westplayer).getNickname() + "<br>" + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten" + "</html>");
 		lbCardsLeftNorth.setText("<html><div style=\"text-align: center;\">" + rank(northplayer) + Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten" + "</html>");
 		lbCardsLeftEast.setText("<html><div style=\"text-align: center;\">" + rank(eastplayer) + Client.mo.users.get(eastplayer).getNickname() + "<br>" + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten" + "</html>");
-		Login.playtable.lbActiveUser.setText("Bitte warte auf deinen Zug");
-		Login.playtable.lbActiveUser.setBounds(8, 80, 800, 200);
+		if(Client.mo.users.get(Login.playtable.myRank).getAmount() != 0){
+			Login.playtable.lbActiveUser.setText("Bitte warte auf deinen Zug");
+			Login.playtable.lbActiveUser.setBounds(8, 80, 800, 200);
+		}
+		if(Client.mo.users.get(Login.playtable.myRank).getAmount() == 0 && Client.mo.nextround.size() == 1){
+			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Gratulation! <br />Du bist der grosse Dalmuti</html>");
+			Client.tempID = Client.client_ID;
+		}if(Client.mo.users.get(Login.playtable.myRank).getAmount() == 0 && Client.mo.nextround.size() == 2 && Client.client_ID != Client.tempID){
+			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Gut gemacht! <br />Du bist der kleine Dalmuti</html>");
+		}if(Client.mo.turn < 4){
+			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Neue Runde! <br />Karten werden getauscht</html>");
+		}
 
 	}
 	// send Masterobject back to Server
