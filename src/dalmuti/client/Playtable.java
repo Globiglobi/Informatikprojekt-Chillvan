@@ -886,10 +886,10 @@ public class Playtable extends JFrame implements MouseListener{
 			Login.playtable.lbActiveUser.setText("Bitte warte auf deinen Zug");
 			Login.playtable.lbActiveUser.setBounds(8, 80, 800, 200);
 		}
-		if(Client.mo.users.get(Login.playtable.myRank).getAmount() == 0 && Client.mo.nextround.size() == 1){
+		if(Client.mo.users.get(Login.playtable.myRank).getAmount() == 0 && Client.mo.nextround.size() == 1 && Client.mo.turn >= 4){
 			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Gratulation! <br />Du bist der grosse Dalmuti</html>");
 			Client.tempID = Client.client_ID;
-		}if(Client.mo.users.get(Login.playtable.myRank).getAmount() == 0 && Client.mo.nextround.size() == 2 && Client.client_ID != Client.tempID){
+		}if(Client.mo.users.get(Login.playtable.myRank).getAmount() == 0 && Client.mo.nextround.size() == 2 && Client.client_ID != Client.tempID && Client.mo.turn >= 4){
 			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Gut gemacht! <br />Du bist der kleine Dalmuti</html>");
 		}if(Client.mo.turn < 4){
 			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Neue Runde! <br />Karten werden getauscht</html>");
