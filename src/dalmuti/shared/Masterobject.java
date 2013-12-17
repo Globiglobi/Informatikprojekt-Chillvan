@@ -138,24 +138,18 @@ public class Masterobject implements Serializable {
 	public void scoreSort() {
 		ArrayList<User> temp = new ArrayList<User>(scoreboard.size());
 		int highscore = 0;
-		int pos = 0;
 		while (scoreboard.size() != 0) {
-			for (int i = 0; i < scoreboard.size() - 1; i++) {
+			int pos = 0;
+			for (int i = 0; i < scoreboard.size(); i++) {
 				highscore = scoreboard.get(0).getScore();
 				if (highscore < scoreboard.get(i).getScore()) {
 					highscore = scoreboard.get(i).getScore();
 					pos = i;
 				}
 			}
-			System.out.print(scoreboard.get(pos).getNickname() + " ");
 			temp.add(scoreboard.remove(pos));
 		}
 		scoreboard.clear();
 		scoreboard.addAll(temp);
-		System.out.println();
-		System.out.print(scoreboard.get(0).getNickname() + " ");
-		System.out.print(scoreboard.get(1).getNickname() + " ");
-		System.out.print(scoreboard.get(2).getNickname() + " ");
-		System.out.print(scoreboard.get(3).getNickname() + " ");
 	}
 }

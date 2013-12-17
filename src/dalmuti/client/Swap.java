@@ -506,7 +506,7 @@ public class Swap extends JFrame implements ActionListener{
 				display1 = button;
 			}
 		// if one card has been selected already
-			else if (display1 != 13 && display2 == 13 && Playtable.newhand[button] != 0) {
+			else if (display1 != 13 && display2 == 13 && Playtable.newhand[button] != 0 && Playtable.myRank != 1) {
 				Playtable.newhand[button]--;
 				display2 = button;
 			}
@@ -527,7 +527,6 @@ public class Swap extends JFrame implements ActionListener{
 
 	// swap cards
 	public void swapcards() {
-		System.out.println("Swapbutton");
 		if((((display1 != 13 && display2 != 13) && Playtable.myRank != 1) || servant == true || (display1 != 13 && display2 == 13 && Playtable.myRank == 1))){
 			int[] check = new int[13];
 			System.arraycopy(Playtable.newhand, 0, check, 0,13);
