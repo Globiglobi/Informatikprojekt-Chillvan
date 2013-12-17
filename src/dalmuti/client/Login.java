@@ -15,6 +15,7 @@
 
 package dalmuti.client;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -119,6 +120,7 @@ public class Login extends JFrame implements ActionListener{
 
 		lbTitel = new JLabel("Der Grosse Dalmuti");
 		lbTitel.setFont(new Font("", Font.BOLD, 80));
+		lbTitel.setForeground(Color.black);
 		panelNorth.add(lbTitel, gbcPanelNorth);
 		
 		
@@ -134,13 +136,15 @@ public class Login extends JFrame implements ActionListener{
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(10, 0, 10, 0);// top, left, bottom, right
 
-		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein. (max. 12 Zeichen)");
-		lbEnterNickname.setFont(new Font("", Font.BOLD, 20));
+		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein. (max. 12 Zeichen)", JLabel.CENTER);
+		lbEnterNickname.setFont(new Font("", Font.PLAIN, 22));
+		lbEnterNickname.setPreferredSize(new Dimension(550,20));
+		lbEnterNickname.setForeground(Color.black);
 		gbcPanelCenter.gridy = 0;
 		panelCenter.add(lbEnterNickname);
 
 		tfEnterNickname = new JTextField();
-		tfEnterNickname.setPreferredSize(new Dimension(550, 40));
+		tfEnterNickname.setPreferredSize(new Dimension(600, 40));
 		tfEnterNickname.setFont(new Font("", Font.PLAIN, 18));
 		tfEnterNickname.setHorizontalAlignment(JLabel.CENTER);
 		tfEnterNickname.addActionListener(this);

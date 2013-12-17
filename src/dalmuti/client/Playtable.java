@@ -155,7 +155,7 @@ public class Playtable extends JFrame implements MouseListener{
 		   public void paintComponent(Graphics g)  
 		   {  
 		      //Set the color grey with a 20% alpha  
-		      g.setColor(new Color(0, 0, 0, 0.2f));  
+		      g.setColor(new Color(0, 0, 0, 0.0f));  
 		   
 		      //Fill a rectangle with the 20% black
 		      g.fillRect(0, 0, this.getWidth(), this.getHeight());  
@@ -176,7 +176,7 @@ public class Playtable extends JFrame implements MouseListener{
 		
 		lbActiveUser = new JLabel("Warte auf weitere Spieler... ");
 		lbActiveUser.setFont(new Font("", Font.BOLD, 50));
-		lbActiveUser.setForeground(Color.white);
+		lbActiveUser.setForeground(Color.darkGray);
 		lbActiveUser.setBounds(10, 150, 1000, 200);
 		glassPane.add(lbActiveUser);
 	
