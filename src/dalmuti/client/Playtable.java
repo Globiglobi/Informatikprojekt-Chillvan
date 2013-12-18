@@ -177,7 +177,7 @@ public class Playtable extends JFrame implements MouseListener{
 		lbActiveUser = new JLabel("Warte auf weitere Spieler... ");
 		lbActiveUser.setFont(new Font("", Font.BOLD, 50));
 		lbActiveUser.setForeground(Color.darkGray);
-		lbActiveUser.setBounds(10, 150, 1000, 200);
+		lbActiveUser.setLocation(0, 0);
 		glassPane.add(lbActiveUser);
 	
 
@@ -696,7 +696,9 @@ public class Playtable extends JFrame implements MouseListener{
 		GridBagConstraints gbcPanelEastSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelEastSouth.insets = new Insets(0,0,0,0);//top, left, bottom, right
 		
-		lbUniqueImage = new JLabel("", new ImageIcon(getClass().getResource("/dalmuti/image/grDalmuti.jpg")), JLabel.CENTER);
+		lbUniqueImage = new JLabel("", new ImageIcon(getClass().getResource("/dalmuti/image/grDalmuti.jpg")), JLabel.RIGHT);
+		lbUniqueImage.setIconTextGap(-295);
+		lbUniqueImage.setFont(new Font("", Font.PLAIN, 50));
 		panelEastSouth.add(lbUniqueImage, gbcPanelEastSouth);
 		
 		setVisible(true);
@@ -879,9 +881,9 @@ public class Playtable extends JFrame implements MouseListener{
 		
 	}
 	public void updateCardsleft(){
-		lbCardsLeftWest.setText("<html><div style=\"text-align: center;\">" + rank(westplayer) + Client.mo.users.get(westplayer).getNickname() + "<br>" + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten" + "</html>");
-		lbCardsLeftNorth.setText("<html><div style=\"text-align: center;\">" + rank(northplayer) + Client.mo.users.get(northplayer).getNickname() + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten" + "</html>");
-		lbCardsLeftEast.setText("<html><div style=\"text-align: center;\">" + rank(eastplayer) + Client.mo.users.get(eastplayer).getNickname() + "<br>" + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten" + "</html>");
+		lbCardsLeftWest.setText("<html><div style=\"text-align: center;\">"  + Client.mo.users.get(westplayer).getNickname() + "<br>" + rank(westplayer) + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten" + "</html>");
+		lbCardsLeftNorth.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(northplayer).getNickname() + " " +rank(northplayer) + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten" + "</html>");
+		lbCardsLeftEast.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(eastplayer).getNickname() + "<br>" + rank(eastplayer) + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten" + "</html>");
 	}
 	public void updateGlassPane(){
 		if(Client.mo.users.get(Login.playtable.myRank).getAmount() != 0){
@@ -900,15 +902,16 @@ public class Playtable extends JFrame implements MouseListener{
 	public void updateMyImage(){
 		if(Playtable.myRank == 0){
 			lbUniqueImage.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/grDalmuti.jpg")));
-			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + "Du bist "+ rank(Playtable.myRank) + "</html>");
+			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + " du bist " + "<br />" + rank(Playtable.myRank) + "</html>");
 		}if(Playtable.myRank == 1){
 			lbUniqueImage.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/klDalmuti.jpg")));
-			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + "Du bist "+ rank(Playtable.myRank) + "</html>");
+			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + " du bist " + "<br />" + rank(Playtable.myRank) + "</html>");
 		}if(Playtable.myRank == 2){
 			lbUniqueImage.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/klDiener.jpg")));
-			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + "Du bist "+ rank(Playtable.myRank) + "</html>");
+			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + " du bist " + "<br />" + rank(Playtable.myRank) + "</html>");
 		}if(Playtable.myRank == 3){
 			lbUniqueImage.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/grDiener.jpg")));
+			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + " du bist " + "<br />" + rank(Playtable.myRank) + "</html>");
 		}
 
 	}
