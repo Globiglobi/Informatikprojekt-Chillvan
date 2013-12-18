@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.Iterator;
+
+import javax.swing.JOptionPane;
 
 import dalmuti.shared.Masterobject;
 import dalmuti.shared.User;
@@ -54,12 +57,19 @@ public class Client {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					
 					UpdatePlaytable();
-
-				} else if (inputObject instanceof Integer) {
+				} 
+				// set Client_ID
+				else if (inputObject instanceof Integer) {
 					client_ID = (int) inputObject;
-				} else {
+				} 
+				
+				// Error if someone disconnects or closes game
+				else if (inputObject instanceof SocketException){
+					JOptionPane.showMessageDialog(null, "Bitte starte das Spiel neu", "Ein Spieler hat die Verbindung getrennt", JOptionPane.PLAIN_MESSAGE);
+				}
+				
+				else {
 					System.out.println("Unexpected object type:  "
 							+ inputObject.getClass().getName());
 				}
