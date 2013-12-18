@@ -1,6 +1,7 @@
 package dalmuti.shared;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Arrays;
@@ -30,29 +31,30 @@ public class Masterobject implements Serializable {
 		scoreboard = new ArrayList<User>(users.size());
 		scoreboard.addAll(userlist);
 
-		// int[] deck = createdeck();
-		// shuffle(deck);
-		// distribute(deck);
+		 int[] deck = createdeck();
+		 shuffle(deck);
+		 distribute(deck);
 
 		// For Testreasons only:
-		users.get(0).getHand()[12] = 1;
-		users.get(0).getHand()[11] = 1;
-		users.get(0).getHand()[10] = 1;
-		users.get(1).getHand()[9] = 1;
-		users.get(1).getHand()[8] = 1;
-		users.get(1).getHand()[7] = 1;
-		users.get(2).getHand()[6] = 1;
-		users.get(2).getHand()[5] = 1;
-		users.get(2).getHand()[4] = 1;
-		users.get(3).getHand()[3] = 1;
-		users.get(3).getHand()[2] = 1;
-		users.get(3).getHand()[1] = 1;
-		users.get(0).calcamount();
-		users.get(1).calcamount();
-		users.get(2).calcamount();
-		users.get(3).calcamount();
+//		users.get(0).getHand()[12] = 1;
+//		users.get(0).getHand()[11] = 1;
+//		users.get(0).getHand()[10] = 1;
+//		users.get(1).getHand()[9] = 1;
+//		users.get(1).getHand()[8] = 1;
+//		users.get(1).getHand()[7] = 1;
+//		users.get(2).getHand()[6] = 1;
+//		users.get(2).getHand()[5] = 1;
+//		users.get(2).getHand()[4] = 1;
+//		users.get(3).getHand()[3] = 1;
+//		users.get(3).getHand()[2] = 1;
+//		users.get(3).getHand()[1] = 1;
+//		users.get(0).calcamount();
+//		users.get(1).calcamount();
+//		users.get(2).calcamount();
+//		users.get(3).calcamount();
 		// ////////////////////////////
 
+		Collections.shuffle(users);
 		users.get(0).setActive(true);
 
 	}

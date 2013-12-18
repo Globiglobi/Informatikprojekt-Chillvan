@@ -111,7 +111,9 @@ public class Client {
 		}
 		Playtable.updateButtons();
 		Login.playtable.updatePlayedcards();
-		Login.playtable.updateCardsleft();
+//		Login.playtable.updateCardsleft();
+		Login.playtable.updateGlassPane();
+		Login.playtable.updateMyImage();
 	}
 	
 }
