@@ -55,7 +55,7 @@ public class Logic {
 				mo.nextround.get(i).setActive(false);
 				
 				// Update Scores
-				mo.nextround.get(i).setScore(mo.nextround.get(i).getScore() + (int) (10 / Math.pow(1.8,(i+1.0))));
+				mo.nextround.get(i).setScore(mo.nextround.get(i).getScore() + (mo.nextround.size() - i - 1));
 			}
 			mo.users.clear();
 			mo.users.addAll(mo.nextround);
