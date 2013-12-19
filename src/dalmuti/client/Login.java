@@ -136,7 +136,7 @@ public class Login extends JFrame implements ActionListener{
 		GridBagConstraints gbcPanelCenter = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelCenter.insets = new Insets(10, 0, 10, 0);// top, left, bottom, right
 
-		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein. (max. 10 Zeichen)", JLabel.CENTER);
+		lbEnterNickname = new JLabel("Gib hier deinen Nickname ein. (max. 12 Zeichen)", JLabel.CENTER);
 		lbEnterNickname.setFont(new Font("", Font.PLAIN, 22));
 		lbEnterNickname.setPreferredSize(new Dimension(550,20));
 		lbEnterNickname.setForeground(Color.black);
@@ -243,7 +243,7 @@ public class Login extends JFrame implements ActionListener{
 		Object src = e.getSource();
 		if(src == btLogin){
 			try{
-				if(tfEnterNickname.getText().length() <= 10){
+				if(tfEnterNickname.getText().length() <= 12){
 				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
@@ -251,14 +251,14 @@ public class Login extends JFrame implements ActionListener{
 				playtable = new Playtable(this.out, this.in);
 				}else{
 					tfEnterNickname.setText("");
-					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 10 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 12 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
 				}
 			}catch (java.io.IOException IOException){
 				IOException.printStackTrace();
 			}
 		}else if(src == tfEnterNickname){
 			try{
-				if(tfEnterNickname.getText().length() <= 10){
+				if(tfEnterNickname.getText().length() <= 12){
 				User Loginuser = new User(tfEnterNickname.getText());
 				this.out.writeObject(Loginuser);
 				tfEnterNickname.setText("");
@@ -266,7 +266,7 @@ public class Login extends JFrame implements ActionListener{
 				playtable = new Playtable(this.out, this.in);
 				}else{
 					tfEnterNickname.setText("");
-					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 10 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Nickname darf nicht mehr als 12 Zeichen haben!", "Dein Nickname ist zu lang!", JOptionPane.PLAIN_MESSAGE);
 				}
 			}catch (java.io.IOException IOException){
 				IOException.printStackTrace();
