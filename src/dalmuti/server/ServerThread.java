@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -15,7 +16,8 @@ public class ServerThread extends Thread {
 	static int client_ID = 0;
 	static int user_ID = 0;
 	public static ArrayList<User> userlist = new ArrayList<User>(4);
-	public static ArrayList<ObjectOutputStream> outlist = new ArrayList<ObjectOutputStream>(4);
+	public static ArrayList<ObjectOutputStream> outlist = new ArrayList<ObjectOutputStream>(
+			4);
 
 	public ServerThread(Socket socket) {
 		this.socket = socket;
@@ -47,45 +49,52 @@ public class ServerThread extends Thread {
 						if (userlist.size() == 4) {
 
 							Masterobject mo = new Masterobject(userlist);
-							
+
 							try {
 								Thread.sleep(500);
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-						// send Masterobject to Clients
-							 Iterator<ObjectOutputStream> i = outlist.iterator();
-							 while(i.hasNext()){
-									i.next().writeObject(mo);
-							 }
+							// send Masterobject to Clients
+							Iterator<ObjectOutputStream> i = outlist.iterator();
+							while (i.hasNext()) {
+								i.next().writeObject(mo);
+							}
 						}
 					}
 
 					else if (inputObject instanceof Masterobject) {
 						Masterobject mo = (Masterobject) inputObject;
-						
+
 						try {
 							Thread.sleep(100);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-						
+
 						mo = Logic.control(mo);
-						
-						 Iterator<ObjectOutputStream> i = outlist.iterator();
-						 while(i.hasNext()){
-								i.next().writeObject(mo);
-						 }
-						
+
+						Iterator<ObjectOutputStream> i = outlist.iterator();
+						while (i.hasNext()) {
+							i.next().writeObject(mo);
+						}
 
 					} else {
 						System.out.println("Unexpected object type:  "
 								+ inputObject.getClass().getName());
 					}
 				}
-
 			} catch (ClassNotFoundException cnfException) {
 				cnfException.printStackTrace();
+			} catch (SocketException e) {
+				try {
+					Iterator<ObjectOutputStream> i = outlist.iterator();
+					while (i.hasNext()) {
+						i.next().writeObject(e);
+					}
+				} catch (SocketException SendException) {
+					
+				}
 			}
 
 		} catch (IOException e) {

@@ -698,7 +698,7 @@ public class Playtable extends JFrame implements MouseListener{
 		
 		lbUniqueImage = new JLabel("", new ImageIcon(getClass().getResource("/dalmuti/image/grDalmuti.jpg")), JLabel.RIGHT);
 		lbUniqueImage.setIconTextGap(-295);
-		lbUniqueImage.setFont(new Font("", Font.PLAIN, 50));
+		lbUniqueImage.setFont(new Font("", Font.PLAIN, 30));
 		panelEastSouth.add(lbUniqueImage, gbcPanelEastSouth);
 		
 		setVisible(true);
@@ -881,9 +881,9 @@ public class Playtable extends JFrame implements MouseListener{
 		
 	}
 	public void updateCardsleft(){
-		lbCardsLeftWest.setText("<html><div style=\"text-align: center;\">"  + Client.mo.users.get(westplayer).getNickname() + "<br>" + rank(westplayer) + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten" + "</html>");
-		lbCardsLeftNorth.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(northplayer).getNickname() + " " +rank(northplayer) + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten" + "</html>");
-		lbCardsLeftEast.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(eastplayer).getNickname() + "<br>" + rank(eastplayer) + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten" + "</html>");
+		lbCardsLeftWest.setText("<html><div style=\"text-align: center;\">"  + Client.mo.users.get(westplayer).getNickname() + "<br>" + "Der " + rank(westplayer) + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten" + "</html>");
+		lbCardsLeftNorth.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(northplayer).getNickname() + " " + "Der " + rank(northplayer) + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten" + "</html>");
+		lbCardsLeftEast.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(eastplayer).getNickname() + "<br>" + "Der " + rank(eastplayer) + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten" + "</html>");
 	}
 	public void updateGlassPane(){
 		if(Client.mo.users.get(Login.playtable.myRank).getAmount() != 0){
@@ -903,16 +903,16 @@ public class Playtable extends JFrame implements MouseListener{
 	public void updateMyImage(){
 		if(Playtable.myRank == 0){
 			lbUniqueImage.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/grDalmuti.jpg")));
-			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + " du bist " + "<br />" + rank(Playtable.myRank) + "</html>");
+			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br>" + " du bist der " + "<br />" + rank(Playtable.myRank) + "</html>");
 		}if(Playtable.myRank == 1){
 			lbUniqueImage.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/klDalmuti.jpg")));
-			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + " du bist " + "<br />" + rank(Playtable.myRank) + "</html>");
+			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br>" + " du bist der " + "<br />" + rank(Playtable.myRank) + "</html>");
 		}if(Playtable.myRank == 2){
 			lbUniqueImage.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/klDiener.jpg")));
-			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + " du bist " + "<br />" + rank(Playtable.myRank) + "</html>");
+			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br>" + " du bist der " + "<br />" + rank(Playtable.myRank) + "</html>");
 		}if(Playtable.myRank == 3){
 			lbUniqueImage.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/grDiener.jpg")));
-			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br />" + " du bist " + "<br />" + rank(Playtable.myRank) + "</html>");
+			lbUniqueImage.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(Playtable.myRank).getNickname() + "<br>" + " du bist der " + "<br />" + rank(Playtable.myRank) + "</html>");
 		}
 
 	}
@@ -934,16 +934,16 @@ public class Playtable extends JFrame implements MouseListener{
 	public static String rank(int Player){
 		String rank = "";
 		if(Player == 0){
-			rank = "Der grosse Dalmuti<br>";
+			rank = "grosse Dalmuti<br>";
 		}
 		if(Player == 1){
-			rank = "Der kleine Dalmuti<br>";
+			rank = "kleine Dalmuti<br>";
 		}
 		if(Player == 2){
-			rank = "Der kleine Diener<br>";
+			rank = "kleine Diener<br>";
 		}
 		if(Player == 3){
-			rank = "Der grosse Diener<br>";
+			rank = "grosse Diener<br>";
 		}
 		return rank;
 	}
