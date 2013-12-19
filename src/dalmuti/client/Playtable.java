@@ -696,8 +696,8 @@ public class Playtable extends JFrame implements MouseListener{
 		GridBagConstraints gbcPanelEastSouth = new GridBagConstraints();//Use GridBagConstraints to place the components
 		gbcPanelEastSouth.insets = new Insets(0,0,0,0);//top, left, bottom, right
 		
-		lbUniqueImage = new JLabel("", new ImageIcon(getClass().getResource("/dalmuti/image/grDalmuti.jpg")), JLabel.RIGHT);
-		lbUniqueImage.setIconTextGap(-295);
+		lbUniqueImage = new JLabel("", new ImageIcon(getClass().getResource("/dalmuti/image/grDalmuti.jpg")), JLabel.CENTER);
+		lbUniqueImage.setIconTextGap(-255);
 		lbUniqueImage.setFont(new Font("", Font.PLAIN, 30));
 		panelEastSouth.add(lbUniqueImage, gbcPanelEastSouth);
 		
@@ -888,7 +888,7 @@ public class Playtable extends JFrame implements MouseListener{
 	public void updateGlassPane(){
 		if(Client.mo.users.get(Login.playtable.myRank).getAmount() != 0){
 			Login.playtable.lbActiveUser.setText("Bitte warte auf deinen Zug");
-			Login.playtable.lbActiveUser.setBounds(8, 50, 800, 200);
+			Login.playtable.lbActiveUser.setBounds(5, 50, 800, 200);
 		}
 		if(Client.mo.users.get(Login.playtable.myRank).getAmount() == 0 && Client.mo.nextround.size() == 1 && Client.mo.turn >= 4){
 			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Gratulation! <br />Du bist der grosse Dalmuti</html>");
