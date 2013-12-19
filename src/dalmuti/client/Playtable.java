@@ -177,7 +177,7 @@ public class Playtable extends JFrame implements MouseListener{
 		lbActiveUser = new JLabel("Warte auf weitere Spieler... ");
 		lbActiveUser.setFont(new Font("", Font.BOLD, 50));
 		lbActiveUser.setForeground(Color.darkGray);
-		lbActiveUser.setLocation(0, 0);
+		lbActiveUser.setBounds(10, 100, 1000, 200);
 		glassPane.add(lbActiveUser);
 	
 
@@ -888,7 +888,7 @@ public class Playtable extends JFrame implements MouseListener{
 	public void updateGlassPane(){
 		if(Client.mo.users.get(Login.playtable.myRank).getAmount() != 0){
 			Login.playtable.lbActiveUser.setText("Bitte warte auf deinen Zug");
-			Login.playtable.lbActiveUser.setBounds(8, 80, 800, 200);
+			Login.playtable.lbActiveUser.setBounds(8, 50, 800, 200);
 		}
 		if(Client.mo.users.get(Login.playtable.myRank).getAmount() == 0 && Client.mo.nextround.size() == 1 && Client.mo.turn >= 4){
 			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Gratulation! <br />Du bist der grosse Dalmuti</html>");
@@ -897,6 +897,7 @@ public class Playtable extends JFrame implements MouseListener{
 			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Gut gemacht! <br />Du bist der kleine Dalmuti</html>");
 		}if(Client.mo.turn < 4){
 			Login.playtable.lbActiveUser.setText("<html><div style=\"text-align: center;\">Neue Runde! <br />Karten werden getauscht</html>");
+			Login.playtable.lbActiveUser.setBounds(25, 50, 800, 200);
 		}
 	}
 	public void updateMyImage(){
