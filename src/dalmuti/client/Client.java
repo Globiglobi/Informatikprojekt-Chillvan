@@ -12,12 +12,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.Iterator;
-
 import javax.swing.JOptionPane;
 
 import dalmuti.shared.Masterobject;
-import dalmuti.shared.User;
 
 public class Client {
 

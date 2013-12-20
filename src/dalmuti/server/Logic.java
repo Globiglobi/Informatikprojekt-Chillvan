@@ -8,7 +8,6 @@
 package dalmuti.server;
 
 import dalmuti.shared.Masterobject;
-import dalmuti.shared.User;
 
 public class Logic {
 	

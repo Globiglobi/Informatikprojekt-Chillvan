@@ -7,11 +7,7 @@
 
 package dalmuti.shared;
 
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class User implements Serializable {
 

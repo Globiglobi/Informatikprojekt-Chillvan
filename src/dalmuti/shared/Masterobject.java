@@ -14,7 +14,6 @@ import java.util.Random;
 import java.util.Arrays;
 import java.io.Serializable;
 
-import dalmuti.client.Client;
 import dalmuti.shared.User;
 
 public class Masterobject implements Serializable {
