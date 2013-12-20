@@ -87,14 +87,26 @@ public class ServerThread extends Thread {
 			} catch (ClassNotFoundException cnfException) {
 				cnfException.printStackTrace();
 			} catch (SocketException e) {
+				int x = 0;
 				try {
-					Iterator<ObjectOutputStream> i = outlist.iterator();
-					while (i.hasNext()) {
-						i.next().writeObject(e);
+					for (int i = 0; i < outlist.size(); i++) {
+						x = i;
+						outlist.get(i).writeObject(e);
+						outlist.get(i).close();
 					}
+					in.close();
+					this.interrupt();
 				} catch (SocketException SendException) {
-					
+					try {
+						for (int i = x + 1; i < outlist.size(); i++) {
+							outlist.get(i).writeObject(e);
+							outlist.get(i).close();
+						}
+					} catch (SocketException DoNothing) {
+
+					}
 				}
+				System.exit(1);
 			}
 
 		} catch (IOException e) {
