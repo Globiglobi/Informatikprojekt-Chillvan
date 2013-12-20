@@ -86,9 +86,9 @@ public class ServerThread extends Thread {
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-
+						// call Logic.control()
 						mo = Logic.control(mo);
-
+						// send updated Masterobejct to Clients
 						Iterator<ObjectOutputStream> i = outlist.iterator();
 						while (i.hasNext()) {
 							i.next().writeObject(mo);

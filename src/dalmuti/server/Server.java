@@ -18,10 +18,10 @@ public class Server {
 	
 	public static void main(String[] args) throws IOException{
 		
-		int portNumber = 50000; // Dynamic Ports from 49152–65535
+		int portNumber = 50000; // dynamic ports from 49152–65535
 		
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) { // create ServerSocket
-        	System.out.println("Waiting for clients..."); // print message on server-side
+        	System.out.println("Waiting for clients..."); 
             while (ServerThread.userlist.size() < 4) { //check size userlist in class ServerThread
                 new ServerThread(serverSocket.accept()).start(); // set up connection and start run method
             }
