@@ -97,10 +97,10 @@ public class Client {
 		new Client(hostName, portNumber);
 	}
 
+	// Silvan Hoppler
 	// Methods
 	
-	// Silvan Hoppler
-	// Refresh Playtable
+	// Refresh whole playtable
 	public static void UpdatePlaytable() {
 		for(int i = 0; i < mo.users.size(); i++){
 			if(mo.users.get(i).getUser_ID() == client_ID){

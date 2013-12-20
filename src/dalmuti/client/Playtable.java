@@ -792,6 +792,7 @@ public class Playtable extends JFrame implements MouseListener{
 		sendObject();
 	}
 
+	// Update amount on buttons
 	public static void updateButtons(){
 		Login.playtable.btKarte1.setText(String.valueOf(newhand[1]));
 		Login.playtable.btKarte2.setText(String.valueOf(newhand[2]));
@@ -808,6 +809,8 @@ public class Playtable extends JFrame implements MouseListener{
 		Login.playtable.btKarteNarr.setText(String.valueOf(newhand[0]));
 		Login.playtable.btReset.setText(String.valueOf(display[1]));
 	}
+	
+	// Update image on reset-button
 	public void updateImage(){
 		if(display[0] == 13){
 			btReset.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narr.jpg")));
@@ -840,6 +843,8 @@ public class Playtable extends JFrame implements MouseListener{
 		}
 		
 	}
+	
+	// Update image and text on the played cards display, as well set the title for each player
 	public void updatePlayedcards(){
 		if(Client.mo.playedcards[0] == 13){
 			lbCardsPlayed.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/narrbig.jpg")));
@@ -874,11 +879,15 @@ public class Playtable extends JFrame implements MouseListener{
 		Login.playtable.setTitle("Der Grosse Dalmuti - Spieltisch von " + Client.mo.users.get(myRank).getNickname());
 		
 	}
+	
+	// Update the cards which each user has left
 	public void updateCardsleft(){
 		lbCardsLeftWest.setText("<html><div style=\"text-align: center;\">"  + Client.mo.users.get(westplayer).getNickname() + "<br>" + "Der " + rank(westplayer) + "hat noch " + Client.mo.users.get(westplayer).getAmount() + " Karten" + "</html>");
 		lbCardsLeftNorth.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(northplayer).getNickname() + " " + "Der " + rank(northplayer) + " hat noch " + Client.mo.users.get(northplayer).getAmount() + " Karten" + "</html>");
 		lbCardsLeftEast.setText("<html><div style=\"text-align: center;\">" + Client.mo.users.get(eastplayer).getNickname() + "<br>" + "Der " + rank(eastplayer) + "hat noch " + Client.mo.users.get(eastplayer).getAmount() + " Karten" + "</html>");
 	}
+	
+	// Update the text on the glassPane
 	public void updateGlassPane(){
 		if(Client.mo.users.get(Login.playtable.myRank).getAmount() != 0){
 			Login.playtable.lbActiveUser.setText("Bitte warte auf deinen Zug");
@@ -894,6 +903,8 @@ public class Playtable extends JFrame implements MouseListener{
 			Login.playtable.lbActiveUser.setBounds(25, 50, 800, 200);
 		}
 	}
+	
+	// Update the image displayed in the right corner depending on rank
 	public void updateMyImage(){
 		if(Playtable.myRank == 0){
 			lbUniqueImage.setIcon(new ImageIcon(getClass().getResource("/dalmuti/image/grDalmuti.jpg")));
@@ -910,6 +921,7 @@ public class Playtable extends JFrame implements MouseListener{
 		}
 
 	}
+	
 	// send Masterobject back to Server
 	public static void sendObject(){
 		try{
@@ -918,6 +930,7 @@ public class Playtable extends JFrame implements MouseListener{
 				e.printStackTrace();
 			}
 	}
+	
 	// Determine Player West, North and East
 	public static void updatePlayerpositions(){
 		Login.playtable.westplayer = Client.mo.nextplayer(myRank);
@@ -925,6 +938,7 @@ public class Playtable extends JFrame implements MouseListener{
 		Login.playtable.eastplayer = Client.mo.nextplayer(Login.playtable.northplayer);
 	}
 	
+	// generate String depending on rank
 	public static String rank(int Player){
 		String rank = "";
 		if(Player == 0){
@@ -941,6 +955,8 @@ public class Playtable extends JFrame implements MouseListener{
 		}
 		return rank;
 	}
+	
+	// Update the scoreboard
 	public void updateScore(){
 		lbScore1.setText("  " + Client.mo.scoreboard.get(0).getNickname() + " " + Client.mo.scoreboard.get(0).getScore());
 		lbScore2.setText("  " + Client.mo.scoreboard.get(1).getNickname() + " " + Client.mo.scoreboard.get(1).getScore());

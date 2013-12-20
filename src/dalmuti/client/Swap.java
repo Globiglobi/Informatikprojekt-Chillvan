@@ -460,6 +460,8 @@ public class Swap extends JFrame implements ActionListener{
 
 	// Silvan Hoppler
 	// Methods
+	
+	// automatically select the cards available for trading for both servants
 	public void autofillin(){
 		
 		if(Playtable.myRank == 3){
@@ -569,6 +571,7 @@ public class Swap extends JFrame implements ActionListener{
 			}
 	}
 	
+	// Update amount displayed on buttons
 	public void UpdateButtons(){
 		btKarte1.setText(String.valueOf(Playtable.newhand[1]));
 		btKarte2.setText(String.valueOf(Playtable.newhand[2]));
@@ -585,6 +588,7 @@ public class Swap extends JFrame implements ActionListener{
 		btKarteNarr.setText(String.valueOf(Playtable.newhand[0]));
 	}
 	
+	// Update images displayed in middle
 	public void swapimage(){
 		// change image left card
 		if(display1 == 0){
@@ -648,7 +652,7 @@ public class Swap extends JFrame implements ActionListener{
 		}
 		
 	}
-	// set Explanation
+	// set explanation depending on rank
 	public void setExplanation(){
 		if(Playtable.myRank == 3){
 		lbExplain.setText("<html><body style='width:500px'> Als grosser Diener musst du dem Grossen Dalmuti deine beiden besten Karten geben. Bitte drück dafür auf Tauschen.");

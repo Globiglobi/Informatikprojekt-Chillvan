@@ -75,7 +75,7 @@ public class Masterobject implements Serializable {
 		}
 	}
 
-	// distribute hands to users
+	// distribute hands to users & calculate amount of cards per user
 	public void distribute(int[] deck) {
 		this.users.get(0).createhand(Arrays.copyOfRange(deck, 0, 20));
 		this.users.get(1).createhand(Arrays.copyOfRange(deck, 20, 40));
@@ -88,7 +88,7 @@ public class Masterobject implements Serializable {
 
 	}
 
-	// Determinate active user
+	// Determine active user
 	public int whosactive() {
 		int pos = 0;
 		Iterator<User> i = this.users.iterator();
@@ -116,7 +116,7 @@ public class Masterobject implements Serializable {
 		return pos;
 	}
 
-	// Determine next player
+	// Determine next player on turn
 	public int nextplayer(int currentplayer) {
 		int nextplayer = currentplayer + 1;
 		if (nextplayer > users.size() - 1) {
@@ -125,6 +125,7 @@ public class Masterobject implements Serializable {
 		return nextplayer;
 	}
 
+	// Sort users according to Score
 	public void scoreSort() {
 		ArrayList<User> temp = new ArrayList<User>(scoreboard.size());
 		int highscore = 0;

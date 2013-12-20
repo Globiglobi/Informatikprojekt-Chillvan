@@ -85,6 +85,8 @@ public class User implements Serializable {
 
 	// Methoden
 	// Silvan Hoppler
+	
+	// Convert the deck array into a hand array
 	public void createhand(int[] subdeck) {
 		for (int i = 0; i < subdeck.length; i++) {
 			hand[subdeck[i]]++;
