@@ -1,6 +1,9 @@
 /**
  * Copyright (c) 2013 Cornflakes. All rights reserved.
  * 
+ * The Class ServerThread
+ * This class sends and receives objects 
+ * 
  * @author Marco Mangold
  * 
  */
@@ -19,19 +22,23 @@ import dalmuti.shared.Masterobject;
 import dalmuti.shared.User;
 
 public class ServerThread extends Thread {
+	//attributes
 	private Socket socket = null;
+	//static attributes
 	static int client_ID = 0;
 	static int user_ID = 0;
 	public static ArrayList<User> userlist = new ArrayList<User>(4);
 	public static ArrayList<ObjectOutputStream> outlist = new ArrayList<ObjectOutputStream>(
 			4);
-
+	
+	//constructor
 	public ServerThread(Socket socket) {
 		this.socket = socket;
 	}
 
+	//run-method
 	public void run() {
-
+		//sends object (out) and receives object (in)
 		try {
 			ObjectOutputStream out = new ObjectOutputStream(
 					socket.getOutputStream());
@@ -42,8 +49,9 @@ public class ServerThread extends Thread {
 
 			Object inputObject;
 			try {
-
+				
 				while ((inputObject = in.readObject()) != null) {
+					//object from User
 					if (inputObject instanceof User) {
 						User user = (User) inputObject;
 						user.setUser_ID(user_ID);
@@ -52,11 +60,11 @@ public class ServerThread extends Thread {
 						out.writeObject(client_ID);
 						client_ID++;
 
-						// Creating Masterobject
+						// creating Masterobject
 						if (userlist.size() == 4) {
 
 							Masterobject mo = new Masterobject(userlist);
-
+							//sleep - otherwise complications with Clients (update-problem)
 							try {
 								Thread.sleep(1000);
 							} catch (InterruptedException e) {
@@ -69,10 +77,10 @@ public class ServerThread extends Thread {
 							}
 						}
 					}
-
+					//object from Masterobject
 					else if (inputObject instanceof Masterobject) {
 						Masterobject mo = (Masterobject) inputObject;
-
+						//just for safety
 						try {
 							Thread.sleep(100);
 						} catch (InterruptedException e) {
@@ -86,14 +94,19 @@ public class ServerThread extends Thread {
 							i.next().writeObject(mo);
 						}
 
-					} else {
+					} 
+					
+					//else-loop
+					else {
 						System.out.println("Unexpected object type:  "
 								+ inputObject.getClass().getName());
 					}
 				}
 			} catch (ClassNotFoundException cnfException) {
 				cnfException.printStackTrace();
-			} catch (SocketException e) {
+			} 
+			//
+			catch (SocketException e) {
 				int x = 0;
 				try {
 					for (int i = 0; i < outlist.size(); i++) {
