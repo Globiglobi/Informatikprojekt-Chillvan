@@ -115,7 +115,7 @@ public class Masterobject implements Serializable {
 		return pos;
 	}
 
-	// Determine Rank
+	// Determine Rank (not used yet, but maybe in future updates)
 	public int rank(int id) {
 		int pos = 0;
 		for (int i = 0; i < users.size(); i++) {

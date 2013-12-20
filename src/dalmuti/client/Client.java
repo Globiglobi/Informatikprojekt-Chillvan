@@ -66,7 +66,7 @@ public class Client {
 				
 				// Error if someone disconnects or closes game
 				else if (inputObject instanceof SocketException){
-					JOptionPane.showMessageDialog(null, "Bitte starte das Spiel neu", "Ein Spieler hat die Verbindung getrennt", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Bitte starte das Spiel neu", "Ein Spieler hat die Verbindung getrennt", JOptionPane.ERROR_MESSAGE);
 					System.exit(1);
 				}
 				
