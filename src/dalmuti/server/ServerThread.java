@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2013 Cornflakes. All rights reserved.
+ * 
+ * @author Marco Mangold
+ * 
+ */
+
 package dalmuti.server;
 
 import java.io.IOException;

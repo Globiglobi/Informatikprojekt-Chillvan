@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2013 Cornflakes. All rights reserved.
+ * 
+ * @author Bastian End, Silvan Hoppler
+ * 
+ */
+
 package dalmuti.client;
 
 import java.awt.BorderLayout;
@@ -61,12 +68,7 @@ public class Swap extends JFrame implements ActionListener{
 	private JButton btReset;
 	
 	
-//	//only for testing purpose
-//		public static void main(String[] args) {
-//			new Swap().setVisible(true);
-//		}
-		
-	
+	// Bastian End
 	//Constructor
 	public Swap(/*ObjectOutputStream out, ObjectInputStream in*/){
 		init();
@@ -74,6 +76,7 @@ public class Swap extends JFrame implements ActionListener{
 		this.in = in;
 	}
 	
+	// Bastian End
 	public void init(){
 		setTitle("Der Grosse Dalmuti - Karten tauschen - " + Client.mo.users.get(Playtable.myRank).getNickname());
 		setSize(700, 700);
@@ -454,9 +457,9 @@ public class Swap extends JFrame implements ActionListener{
 		}
 		
 	}
-	
+
+	// Silvan Hoppler
 	// Methods
-	
 	public void autofillin(){
 		
 		if(Playtable.myRank == 3){

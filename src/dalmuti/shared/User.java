@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2013 Cornflakes. All rights reserved.
+ * 
+ * @author Fabio Bally, Silvan Hoppler
+ * 
+ */
+
 package dalmuti.shared;
 
 import java.io.ObjectOutputStream;
@@ -77,12 +84,14 @@ public class User implements Serializable {
 	}
 
 	// Methoden
+	// Silvan Hoppler
 	public void createhand(int[] subdeck) {
 		for (int i = 0; i < subdeck.length; i++) {
 			hand[subdeck[i]]++;
 		}
 	}
 	
+	// Fabio Bally
 	public void calcamount(){
 		amount = 0;
 		for(int i = 0; i < getHand().length; i++){

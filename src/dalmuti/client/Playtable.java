@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 Cornflakes. All rights reserved.
  * 
- * @author Bastian End
+ * @author Bastian End, Silvan Hoppler
  * 
  */
 
@@ -114,14 +114,7 @@ public class Playtable extends JFrame implements MouseListener{
 	private JPanel panelEastSouth;
 	private JLabel lbUniqueImage;
 		
-/*
-	//only for testing purpose
-	public static void main(String[] args) {
-		new Spieltisch().setVisible(true);
-	}
-*/	
-	
-	
+	// Bastian End
 	//Constructor
 	public Playtable(ObjectOutputStream out, ObjectInputStream in){
 		init();
@@ -129,7 +122,7 @@ public class Playtable extends JFrame implements MouseListener{
 		this.in = in;
 	}
 
-	
+	// Bastian End
 	public void init(){
 		setTitle("Der Grosse Dalmuti - Spieltisch");
 		setSize(1024, 818);
@@ -733,9 +726,10 @@ public class Playtable extends JFrame implements MouseListener{
 	public void mouseExited(MouseEvent e) {
 		e.consume();
 	}
+
 	
+	// Silvan Hoppler
 	// Methods
-	
 	// click on normal card
 	public static void cardclick(int button) {
 		// in case of button gets clicked again

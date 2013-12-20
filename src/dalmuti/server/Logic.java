@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2013 Cornflakes. All rights reserved.
+ * 
+ * @author Fabio Bally
+ * 
+ */
+
 package dalmuti.server;
 
 import dalmuti.shared.Masterobject;
@@ -67,24 +74,6 @@ public class Logic {
 			int[] deck = Masterobject.createdeck();
 			Masterobject.shuffle(deck);
 			mo.distribute(deck);
-			
-			// preset hands for testing purposes
-//			mo.users.get(0).getHand()[12] = 1;
-//			mo.users.get(0).getHand()[11] = 1;
-//			mo.users.get(0).getHand()[10] = 1;
-//			mo.users.get(1).getHand()[9] = 1;
-//			mo.users.get(1).getHand()[8] = 1;
-//			mo.users.get(1).getHand()[7] = 1;
-//			mo.users.get(2).getHand()[6] = 1;
-//			mo.users.get(2).getHand()[5] = 1;
-//			mo.users.get(2).getHand()[4] = 1;
-//			mo.users.get(3).getHand()[3] = 1;
-//			mo.users.get(3).getHand()[2] = 1;
-//			mo.users.get(3).getHand()[1] = 1;
-//			mo.users.get(0).calcamount();
-//			mo.users.get(1).calcamount();
-//			mo.users.get(2).calcamount();
-//			mo.users.get(3).calcamount();
 			
 			// set Dalmuti to active
 			mo.users.get(0).setActive(true);

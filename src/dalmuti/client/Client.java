@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2013 Cornflakes. All rights reserved.
+ * 
+ * @author Silvan Hoppler, Bastian End
+ * 
+ */
+
 package dalmuti.client;
 
 import java.io.IOException;
@@ -23,6 +30,7 @@ public class Client {
 	static int client_ID;
 	static int tempID;
 
+	// Bastian End
 	// call constructor to set up server, call gui-login, call method
 	public Client(String hostName, int portNumber) {
 		init(hostName, portNumber);
@@ -31,6 +39,7 @@ public class Client {
 
 	}
 
+	// Bastian End
 	// set up connection to server
 	public void init(String hostName, int portNumber) {
 		try {
@@ -45,6 +54,7 @@ public class Client {
 		}
 	}
 
+	// Silvan Hoppler
 	public void receiveObjectFromServer() {
 		// receive the UserObject and do whatever the client has to do...
 		try {
@@ -80,6 +90,7 @@ public class Client {
 		}
 	}
 
+	// Bastian End
 	public static void main(String[] args) {
 		String hostName = "localhost";
 		int portNumber = 50000;
@@ -88,6 +99,7 @@ public class Client {
 
 	// Methods
 	
+	// Silvan Hoppler
 	// Refresh Playtable
 	public static void UpdatePlaytable() {
 		for(int i = 0; i < mo.users.size(); i++){

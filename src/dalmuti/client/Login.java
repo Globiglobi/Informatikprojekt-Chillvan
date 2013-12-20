@@ -2,14 +2,6 @@
  * Copyright (c) 2013 Cornflakes. All rights reserved.
  * 
  * @author Bastian End
- * 
- * todo:
- * - btLogin soll userObject generieren
- * - background image
- * - animated background, Karten bewegen sich gegeneinander
- * - nickname auf 16 Zeichen begrenzen
- * - alles auf englisch
- * 
  *
  */
 

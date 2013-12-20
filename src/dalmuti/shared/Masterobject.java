@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2013 Cornflakes. All rights reserved.
+ * 
+ * @author Silvan Hoppler
+ * 
+ */
+
 package dalmuti.shared;
 
 import java.util.ArrayList;
@@ -34,25 +41,6 @@ public class Masterobject implements Serializable {
 		 int[] deck = createdeck();
 		 shuffle(deck);
 		 distribute(deck);
-
-		// For Testreasons only:
-//		users.get(0).getHand()[12] = 1;
-//		users.get(0).getHand()[11] = 1;
-//		users.get(0).getHand()[10] = 1;
-//		users.get(1).getHand()[9] = 1;
-//		users.get(1).getHand()[8] = 1;
-//		users.get(1).getHand()[7] = 1;
-//		users.get(2).getHand()[6] = 1;
-//		users.get(2).getHand()[5] = 1;
-//		users.get(2).getHand()[4] = 1;
-//		users.get(3).getHand()[3] = 1;
-//		users.get(3).getHand()[2] = 1;
-//		users.get(3).getHand()[1] = 1;
-//		users.get(0).calcamount();
-//		users.get(1).calcamount();
-//		users.get(2).calcamount();
-//		users.get(3).calcamount();
-		// ////////////////////////////
 
 		Collections.shuffle(users);
 		users.get(0).setActive(true);
