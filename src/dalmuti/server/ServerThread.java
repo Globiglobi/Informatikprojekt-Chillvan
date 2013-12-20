@@ -105,7 +105,7 @@ public class ServerThread extends Thread {
 			} catch (ClassNotFoundException cnfException) {
 				cnfException.printStackTrace();
 			} 
-			//
+			//in case User quit the game
 			catch (SocketException e) {
 				int x = 0;
 				try {
